@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="8" fill="#090E17"/>
+  <g transform="translate(4, 2) scale(0.15)">
+    <defs>
+      <linearGradient id="favGreen" x1="80" y1="10" x2="80" y2="215" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#99EE1F" />
+        <stop offset="100%" stop-color="#5EBE09" />
+      </linearGradient>
+      <linearGradient id="favBlue" x1="20" y1="45" x2="140" y2="105" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#4B95FB" />
+        <stop offset="100%" stop-color="#1153C9" />
+      </linearGradient>
+      <linearGradient id="favIce" x1="30" y1="70" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#80BAFB" />
+        <stop offset="100%" stop-color="#C5E2FE" />
+      </linearGradient>
+    </defs>
+    <!-- Rod -->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M80 12C93.2548 12 104 22.7452 104 36C104 47.9654 95.2285 57.8767 83.7 59.7027V63.5C83.7 64.6 82.8 65.5 81.7 65.5H78.3C77.2 65.5 76.3 64.6 76.3 63.5V59.7027C64.7715 57.8767 56 47.9654 56 36C56 22.7452 66.7452 12 80 12ZM80 20.5C88.5604 20.5 95.5 27.4396 95.5 36C95.5 44.5604 88.5604 51.5 80 51.5C71.4396 51.5 64.5 44.5604 64.5 36C64.5 27.4396 71.4396 20.5 80 20.5Z" fill="url(#favGreen)"/>
+    <rect x="75.5" y="63" width="9" height="146" rx="4.5" fill="url(#favGreen)"/>
+    <!-- Wings -->
+    <path d="M80 82C62 82 45 92 39 104C55 106 72 101 88 95C106 88 123 79 133 69C128 77 104 82 80 82Z" fill="url(#favIce)"/>
+    <path d="M21 38C26 53 43 73 70 82C96 90 124 87 141 68C127 75 102 77 78 70C53 63 35 49 21 38Z" fill="url(#favBlue)"/>
+    <path d="M38 98C50 110 68 123 90 126C112 128 126 122 135 110C122 118 103 118 84 112C65 105 50 96 38 98Z" fill="url(#favBlue)"/>
+    <path d="M48 136C60 148 76 158 96 159C114 160 124 154 128 144C118 150 102 150 86 144C70 138 58 132 48 136Z" fill="url(#favBlue)"/>
+  </g>
+</svg>
