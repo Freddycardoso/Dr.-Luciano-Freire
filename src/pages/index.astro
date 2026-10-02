@@ -533,11 +533,57 @@ const currentYear = new Date().getFullYear();
                 font-family: inherit !important;
               }
 
-              /* Oculta título redundante externo em inglês caso apareça */
-              [class*="WidgetTitle__Header"],
-              [class*="HeaderTitle__Title"],
-              [class*="HeaderTitle"] {
+              /* 1. Oculta Badge Gratuito do Elfsight (item da primeira foto) */
+              a[href*="elfsight.com"],
+              a[href*="google-reviews-widget"],
+              [class*="Badge__Container"],
+              [class*="BadgeContainer"],
+              [class*="WidgetBadge"],
+              [class*="es-badge-container"],
+              [class*="es-badge"],
+              [class*="Badge"],
+              [aria-label*="Free Google Reviews Widget"],
+              [aria-label*="Google Reviews Widget"],
+              [class*="FreeGoogleReviewsWidget"] {
                 display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                height: 0 !important;
+                width: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: hidden !important;
+                position: absolute !important;
+                z-index: -9999 !important;
+              }
+
+              /* 2. Remove a palavra "Reviews" preta (item da segunda foto) */
+              [class*="es-header-title-text"],
+              [class*="HeaderTitle__Title"],
+              [class*="HeaderTitle"] span,
+              [class*="es-header-title"] span,
+              [class*="HeaderTitle__Container"] span,
+              [class*="HeaderTitleText"],
+              [class*="HeaderTitle"] > *:not(svg):not([class*="Logo"]),
+              [class*="es-header-title"] > *:not(svg):not([class*="logo"]) {
+                display: none !important;
+                visibility: hidden !important;
+                font-size: 0 !important;
+                width: 0 !important;
+                height: 0 !important;
+                line-height: 0 !important;
+                opacity: 0 !important;
+                color: transparent !important;
+              }
+
+              /* Centraliza o logo oficial do Google */
+              [class*="es-header-title"],
+              [class*="HeaderTitle__Container"],
+              [class*="HeaderTitle"] {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
               }
 
               /* Cabeçalho do Widget (Google Reviews 5.0) */
@@ -670,29 +716,52 @@ const currentYear = new Date().getFullYear();
 
               /* Setas de Navegação do Carrossel */
               [class*="CarouselArrowControlContainer"],
-              [class*="CarouselArrow"] {
+              [class*="CarouselArrow"],
+              [class*="ArrowControl"],
+              [class*="ArrowButton"],
+              [class*="Arrow__Component"],
+              [class*="NavigationArrow"],
+              [class*="es-carousel-arrow"],
+              button[aria-label*="Next"],
+              button[aria-label*="Previous"],
+              [class*="CarouselArrowControl"] {
                 background-color: #0f172a !important;
                 border: 1px solid #334155 !important;
                 color: #C5A880 !important;
                 box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7) !important;
                 border-radius: 9999px !important;
-                width: 36px !important;
-                height: 36px !important;
+                width: 38px !important;
+                height: 38px !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
                 transition: all 0.2s ease !important;
               }
 
+              [class*="CarouselArrowControlContainer"] svg,
+              [class*="CarouselArrow"] svg,
+              [class*="ArrowControl"] svg,
+              [class*="ArrowButton"] svg,
+              [class*="Arrow__Component"] svg,
+              button[aria-label*="Next"] svg,
+              button[aria-label*="Previous"] svg {
+                fill: #C5A880 !important;
+                color: #C5A880 !important;
+              }
+
               [class*="CarouselArrowControlContainer"][disabled],
               [class*="CarouselArrowControlContainer"][class*="disabled"],
-              [class*="CarouselArrowControlContainer"]:has([disabled]) {
+              [class*="CarouselArrowControlContainer"]:has([disabled]),
+              button[aria-label*="Previous"][disabled],
+              button[aria-label*="Next"][disabled] {
                 opacity: 0 !important;
                 pointer-events: none !important;
               }
 
               [class*="CarouselArrowControlContainer"]:hover,
-              [class*="CarouselArrow"]:hover {
+              [class*="CarouselArrow"]:hover,
+              [class*="ArrowControl"]:hover,
+              [class*="ArrowButton"]:hover {
                 background-color: #1e293b !important;
                 border-color: #D4AF37 !important;
                 color: #FAF6EE !important;
@@ -714,12 +783,34 @@ const currentYear = new Date().getFullYear();
               if (!root) return;
 
               // Injeta estilo Dark Slate & Gold se não existir
-              if (!root.querySelector('#elfsight-dark-custom-style')) {
-                const style = document.createElement('style');
+              let style = root.querySelector('#elfsight-dark-custom-style');
+              if (!style) {
+                style = document.createElement('style');
                 style.id = 'elfsight-dark-custom-style';
-                style.textContent = darkElfsightCSS;
                 root.appendChild(style);
               }
+              style.textContent = darkElfsightCSS;
+
+              // 1. Oculta com estilo inline qualquer elemento com link do elfsight ou badge (Foto 1)
+              const badges = root.querySelectorAll('a[href*="elfsight.com"], a[href*="google-reviews-widget"], [class*="Badge"], [class*="badge"], [aria-label*="Free Google Reviews Widget"]');
+              badges.forEach(b => {
+                b.style.setProperty('display', 'none', 'important');
+                b.style.setProperty('visibility', 'hidden', 'important');
+                b.style.setProperty('opacity', '0', 'important');
+                b.style.setProperty('pointer-events', 'none', 'important');
+                b.style.setProperty('height', '0px', 'important');
+              });
+
+              // 2. Oculta com estilo inline a palavra "Reviews" preta (Foto 2)
+              const titleSpans = root.querySelectorAll('[class*="HeaderTitle"] span, [class*="es-header-title"] span, [class*="es-header-title-text"], [class*="HeaderTitle__Title"]');
+              titleSpans.forEach(span => {
+                if (span.textContent && span.textContent.toLowerCase().includes('review')) {
+                  span.style.setProperty('display', 'none', 'important');
+                  span.style.setProperty('font-size', '0px', 'important');
+                  span.style.setProperty('opacity', '0', 'important');
+                  span.style.setProperty('color', 'transparent', 'important');
+                }
+              });
 
               // Traduz botão para "Avaliar no Google"
               const buttons = root.querySelectorAll('button, a, [class*="Button"]');
@@ -769,8 +860,20 @@ const currentYear = new Date().getFullYear();
               };
             }
 
-            // 2. Fallback de varredura recursiva
+            // 2. Limpa badges também no DOM global caso renderizados fora do ShadowRoot
+            function cleanGlobalBadges() {
+              document.querySelectorAll('a[href*="elfsight.com"], a[href*="google-reviews-widget"], [class*="es-badge-container"], [class*="es-badge"], [class*="WidgetBadge"], [aria-label*="Free Google Reviews Widget"]').forEach(el => {
+                el.style.setProperty('display', 'none', 'important');
+                el.style.setProperty('visibility', 'hidden', 'important');
+                el.style.setProperty('opacity', '0', 'important');
+                el.style.setProperty('pointer-events', 'none', 'important');
+                el.style.setProperty('height', '0px', 'important');
+              });
+            }
+
+            // 3. Fallback de varredura recursiva
             function scanExistingShadows() {
+              cleanGlobalBadges();
               const container = document.querySelector('.elfsight-app-f6287144-a910-465a-a00a-2da2a0e4a02a');
               if (!container) return;
 
@@ -790,12 +893,33 @@ const currentYear = new Date().getFullYear();
               walk(container);
             }
 
-            // Execuções periódicas de verificação
-            [200, 600, 1200, 2000, 3500].forEach(delay => {
+            // Execuções periódicas de verificação e limpeza contínua
+            [100, 300, 600, 1000, 1500, 2500, 4000].forEach(delay => {
               setTimeout(scanExistingShadows, delay);
             });
+            setInterval(scanExistingShadows, 800);
           })();
         </script>
+
+        <style is:global>
+          /* Remove badge Free Google Reviews Widget caso injetado no DOM global */
+          a[href*="elfsight.com"],
+          a[href*="google-reviews-widget"],
+          [class*="es-badge-container"],
+          [class*="es-badge"],
+          [class*="WidgetBadge"],
+          [aria-label*="Free Google Reviews Widget"],
+          div:has(> a[href*="elfsight.com"]) {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            height: 0 !important;
+            width: 0 !important;
+            position: absolute !important;
+            z-index: -9999 !important;
+          }
+        </style>
 
         <!-- Script Oficial Elfsight -->
         <script src="https://elfsightcdn.com/platform.js" async is:inline></script>
