@@ -8,15 +8,16 @@ interface StepData {
   phaseLabel: string;
   title: string;
   benefitBadge: string;
-  clinicalSummary: string;
-  clinicalSteps: { label: string; desc: string }[];
-  sensorySummary: string;
-  sensoryPoints: { title: string; reassurance: string; icon: string }[];
-  peaceCommitment: string;
+  summary: string;
+  points: {
+    title: string;
+    description: string;
+    icon: "scan" | "shield" | "freedom";
+  }[];
   whatsappInquiry: string;
 }
 
-function renderSensoryIcon(icon: string) {
+function renderStepIcon(icon: StepData["points"][0]["icon"]) {
   switch (icon) {
     case "scan":
       return (
@@ -30,37 +31,6 @@ function renderSensoryIcon(icon: string) {
           aria-hidden="true"
         >
           <path d="M4 7V4h3M17 4h3v3M4 17v3h3M20 17v3h-3M7 12h10" />
-        </svg>
-      );
-    case "view3d":
-      return (
-        <svg
-          className="w-5 h-5 text-gold-300 stroke-[1.6]"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-          <line x1="12" y1="22.08" x2="12" y2="12" />
-        </svg>
-      );
-    case "dialogue":
-      return (
-        <svg
-          className="w-5 h-5 text-gold-300 stroke-[1.6]"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-          <path d="M8 9h8M8 13h5" />
         </svg>
       );
     case "shield":
@@ -78,69 +48,6 @@ function renderSensoryIcon(icon: string) {
           <path d="M9 12l2 2 4-4" />
         </svg>
       );
-    case "calm":
-      return (
-        <svg
-          className="w-5 h-5 text-gold-300 stroke-[1.6]"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4" />
-          <circle cx="12" cy="12" r="3" />
-        </svg>
-      );
-    case "leaf":
-      return (
-        <svg
-          className="w-5 h-5 text-gold-300 stroke-[1.6]"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M11 20A7 7 0 014 13C4 7 11 3 20 3c0 9-4 16-9 17z" />
-          <path d="M11 20c-1-3 1-7 9-17" />
-        </svg>
-      );
-    case "mastication":
-      return (
-        <svg
-          className="w-5 h-5 text-gold-300 stroke-[1.6]"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="5" r="3" />
-          <line x1="12" y1="8" x2="12" y2="21" />
-          <path d="M5 12h14M5 17h14" />
-        </svg>
-      );
-    case "smile":
-      return (
-        <svg
-          className="w-5 h-5 text-gold-300 stroke-[1.6]"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 13.5s1.5 2.5 4 2.5 4-2.5 4-2.5" />
-          <circle cx="9" cy="9.5" r="1" fill="currentColor" />
-          <circle cx="15" cy="9.5" r="1" fill="currentColor" />
-        </svg>
-      );
     case "freedom":
       return (
         <svg
@@ -152,8 +59,10 @@ function renderSensoryIcon(icon: string) {
           strokeLinejoin="round"
           aria-hidden="true"
         >
-          <path d="M6 3h12l4 6-10 12L2 9l4-6z" />
-          <path d="M2 9h20M10 3l2 6-2 12M14 3l-2 6 2 12" />
+          <circle cx="12" cy="12" r="10" />
+          <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+          <line x1="9" y1="9" x2="9.01" y2="9" strokeWidth="2.5" />
+          <line x1="15" y1="9" x2="15.01" y2="9" strokeWidth="2.5" />
         </svg>
       );
     default:
@@ -165,140 +74,95 @@ const stepsData: StepData[] = [
   {
     id: "fase-diagnostico",
     stepNumber: "01",
-    phaseLabel: "Fase I • Mapeamento Digital",
-    title: "Diagnóstico 3D e Tomografia Guiada",
-    benefitBadge: "Sem moldagem desconfortável",
-    clinicalSummary:
-      "Mapeamento tomográfico tridimensional dos maxilares, nervos e densidade óssea, dispensando totalmente as antigas moldagens desconfortáveis com massa.",
-    clinicalSteps: [
+    phaseLabel: "Etapa 1 • Avaliação Confortável",
+    title: "Diagnóstico Digital 3D (Sem massinha na boca)",
+    benefitBadge: "Sem moldagem incômoda ou náuseas",
+    summary:
+      "Mapeamento digital rápido e detalhado no próprio consultório. O Dr. Luciano planeja milimetricamente a posição exata de cada dente no computador antes de qualquer procedimento — sem aquelas moldagens antigas de massa que causam ânsia ou sufocamento.",
+    points: [
       {
-        label: "Tomografia Cone Beam In-Loco",
-        desc: "Digitalização óssea computadorizada de alta resolução realizada no próprio consultório, sem necessidade de deslocamento para clínicas externas de imagem.",
-      },
-      {
-        label: "Planejamento Cirúrgico Virtual",
-        desc: "O Dr. Luciano simula a angulação e posição exata de cada implante no software 3D antes de qualquer intervenção.",
-      },
-      {
-        label: "Guia Cirúrgico de Precisão Micrométrica",
-        desc: "Impressão de guia milimétrico individualizado que direciona a fixação com precisão cirúrgica sem cortes desnecessários.",
-      },
-    ],
-    sensorySummary:
-      "Uma conversa acolhedora e esclarecedora. Você senta confortavelmente, sem nenhum desconforto físico, e entende cada detalhe da sua saúde bucal.",
-    sensoryPoints: [
-      {
-        title: "Zero Massinha na Boca",
-        reassurance: "Escaneamento digital rápido e limpo, sem náuseas ou aquela sensação incômoda de asfixia das moldagens tradicionais.",
+        title: "Zero Náusea e Zero Massinha",
+        description:
+          "Escaneamento digital rápido, limpo e confortável, dispensando completamente moldagens tradicionais com pasta.",
         icon: "scan",
       },
       {
-        title: "Você Vê o Sorriso Antes de Começar",
-        reassurance: "Simulação tridimensional em tela grande da sua futura mastigação e estética para sua total aprovação prévia.",
-        icon: "view3d",
+        title: "Você Vê o Resultado Antes de Iniciar",
+        description:
+          "Simulação tridimensional em tela grande da sua futura mastigação e do seu sorriso para sua total aprovação prévia.",
+        icon: "scan",
       },
       {
-        title: "Tempo Aberto Para Todas as Suas Dúvidas",
-        reassurance: "O Dr. Luciano explica o plano de forma simples, humana e transparente, sem termos técnicos difíceis ou pressa.",
-        icon: "dialogue",
+        title: "Conversa Acolhedora e Sem Pressa",
+        description:
+          "O Dr. Luciano esclarece todas as dúvidas com calma, em linguagem clara e humana, explicando o plano mais seguro para você.",
+        icon: "scan",
       },
     ],
-    peaceCommitment:
-      "Você nunca entra em cirurgia com incertezas: cada milímetro do seu caso já foi planejado, testado e aprovado previamente por você.",
     whatsappInquiry:
-      "Olá, Dr. Luciano. Gostaria de entender como funciona a avaliação inicial com tomografia 3D para o meu caso.",
+      "Olá, Dr. Luciano. Gostaria de entender como funciona a avaliação inicial com diagnóstico 3D para o meu caso.",
   },
   {
     id: "fase-cirurgia",
     stepNumber: "02",
-    phaseLabel: "Fase II • Intervenção Confortável",
-    title: "Cirurgia Confortável e Anestesia Precisa",
-    benefitBadge: "Protocolo com zero dor",
-    clinicalSummary:
-      "Inserção milimétrica do implante de titânio biocompatível através do guia cirúrgico computadorizado, sem retalhos extensos e com máxima preservação gengival.",
-    clinicalSteps: [
+    phaseLabel: "Etapa 2 • Procedimento Sem Dor",
+    title: "Cirurgia Rápida com Bloqueio Total da Dor",
+    benefitBadge: "Protocolo suave e indolor",
+    summary:
+      "A maior e melhor surpresa dos nossos pacientes: o procedimento é totalmente indolor. Com anestesia suave de última geração e planejamento guiado pelo computador, a instalação é rápida, delicada e você volta para casa com total tranquilidade.",
+    points: [
       {
-        label: "Anestesia Local Computadorizada",
-        desc: "Injeção gradual milimétrica com bloqueio neural completo e localizado da dor, eliminando o desconforto tradicional da agulhada.",
-      },
-      {
-        label: "Inserção Guiada Minimamente Invasiva",
-        desc: "O pino é posicionado diretamente no ponto ósseo planejado de forma rápida e precisa em relação à técnica convencional.",
-      },
-      {
-        label: "Sutura Biológica Delicada",
-        desc: "Microfios de sutura que não repuxam a gengiva, minimizando sangramento e acelerando a cicatrização natural.",
-      },
-    ],
-    sensorySummary:
-      "A maior surpresa dos nossos pacientes: você não sente dor alguma durante o procedimento. O ambiente é calmo, climatizado e com música suave de relaxamento.",
-    sensoryPoints: [
-      {
-        title: "Bloqueio Absoluto da Dor",
-        reassurance: "A tecnologia anestésica garante que você sinta apenas o toque suave do instrumento, sem qualquer pontada dolorosa.",
+        title: "Bloqueio Completo da Dor",
+        description:
+          "Tecnologia anestésica precisa que elimina a dor da agulhada e garante que você não sinta desconforto algum durante o procedimento.",
         icon: "shield",
       },
       {
-        title: "Ambiente Calmo, Climatizado e Seguro",
-        reassurance: "Música de relaxamento, iluminação acolhedora e pausas no atendimento sempre que você desejar respirar.",
-        icon: "calm",
+        title: "Ambiente Calmo, Seguro e Relaxante",
+        description:
+          "Consultório climatizado, atendimento humanizado no seu ritmo e pausas sempre que desejar respirar.",
+        icon: "shield",
       },
       {
-        title: "Pós-Operatório Sereno em Casa",
-        reassurance: "Medicação preventiva administrada antes de você sair do consultório. A imensa maioria dos pacientes não precisa de analgésicos fortes.",
-        icon: "leaf",
+        title: "Recuperação Leve e Orientada",
+        description:
+          "Medicações preventivas receitadas com antecedência para garantir um pós-operatório sereno e sem surpresas no conforto da sua casa.",
+        icon: "shield",
       },
     ],
-    peaceCommitment:
-      "9 em cada 10 pacientes relatam com alívio: 'Doutor, não senti nada! Se soubesse que era tão simples, teria feito anos atrás'.",
     whatsappInquiry:
-      "Olá, Dr. Luciano. Tenho receio de dor em cirurgias odontológicas e gostaria de saber mais sobre o protocolo sem dor.",
+      "Olá, Dr. Luciano. Gostaria de saber mais sobre o protocolo confortável e sem dor para colocação de implantes.",
   },
   {
     id: "fase-sorriso",
     stepNumber: "03",
-    phaseLabel: "Fase III • Reabilitação Definitiva",
-    title: "Instalação do Sorriso Fixo em Cerâmica",
-    benefitBadge: "Resultado definitivo e fixo",
-    clinicalSummary:
-      "Fixação milimétrica das coroas esculpidas em zircônia ou porcelana nobre de alta biocompatibilidade sobre os implantes já integrados ao osso.",
-    clinicalSteps: [
+    phaseLabel: "Etapa 3 • Seu Sorriso Fixo",
+    title: "Dentes Fixos e Mastigação 100% Recuperada",
+    benefitBadge: "Firmeza definitiva e sorriso natural",
+    summary:
+      "A instalação definitiva dos dentes fixos em porcelana nobre. É o momento de recuperar a liberdade: dentes que não soltam, que não precisam de cola e que deixam o céu da boca totalmente livre para você sentir o sabor da comida.",
+    points: [
       {
-        label: "Coroas em Porcelana Pura ou Zircônia",
-        desc: "Translucidez, reflexo de luz e tonalidade idênticos ao esmalte dental natural mais exigente, sem faixas metálicas escuras.",
+        title: "Mastigação Firme de Verdade",
+        description:
+          "Volte a comer carnes, castanhas e maçãs com a estabilidade e a força natural de dentes de verdade, sem machucar a gengiva.",
+        icon: "freedom",
       },
       {
-        label: "Ajuste Oclusal Micrométrico",
-        desc: "Calibragem precisa da mordida para distribuição perfeita de força mastigatória entre todos os dentes.",
+        title: "Céu da Boca Totalmente Livre",
+        description:
+          "Fim da dentadura de resina cobrindo o palato: recupere o prazer de sentir o sabor, a textura e a temperatura real de cada refeição.",
+        icon: "freedom",
       },
       {
-        label: "Travamento Rígido Definitivo",
-        desc: "Dentes 100% fixos que nunca se soltam, não exigem cola adesiva e deixam o céu da boca totalmente desobstruído.",
-      },
-    ],
-    sensorySummary:
-      "A sensação libertadora de morder uma fruta, mastigar carne com firmeza e sorrir em fotos espontâneas sem colocar a mão na boca.",
-    sensoryPoints: [
-      {
-        title: "Mastigação Firme e Poderosa",
-        reassurance: "Você volta a comer carnes, castanhas e alimentos crocantes com estabilidade absoluta e sem machucar a gengiva.",
-        icon: "mastication",
-      },
-      {
-        title: "Estética Natural Irretocável",
-        reassurance: "Ninguém nota que é um implante: os dentes parecem ter nascido com você, no tamanho e tom perfeitos para o seu rosto.",
-        icon: "smile",
-      },
-      {
-        title: "Liberdade Total Sem Cola ou Resina",
-        reassurance: "Sem céu da boca tapado de resina, sem aftas causadas por dentadura móvel e sem o medo de passar constrangimento em público.",
+        title: "Estética Natural que Não Mancha",
+        description:
+          "Dentes esculpidos com a cor e o formato ideais para o seu rosto, em cerâmica nobre que não amarela com café ou com os anos.",
         icon: "freedom",
       },
     ],
-    peaceCommitment:
-      "Mais do que recuperar dentes, você recupera a dignidade de sorrir em público e o prazer de se alimentar em família.",
     whatsappInquiry:
-      "Olá, Dr. Luciano. Gostaria de saber mais sobre a fixação do sorriso em porcelana e prótese protocolo fixa.",
+      "Olá, Dr. Luciano. Gostaria de saber como funciona a reabilitação com dentes fixos em porcelana para o meu caso.",
   },
 ];
 
@@ -310,101 +174,28 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
   whatsappBaseUrl = "https://wa.me/5535988215162",
 }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [viewMode, setViewMode] = useState<"sensorial" | "clinico">("sensorial");
-
   const current = stepsData[activeStep];
-  const progressPercent = (activeStep / (stepsData.length - 1)) * 100;
 
   return (
     <div className="w-full">
       {/* =========================================================================
-          CONTROLE DE PERSPECTIVA (HUMANO vs. TÉCNICO)
-          - Alterne entre a vivência de alívio e a precisão cirúrgica
+          TRILHA CIRÚRGICA CONTÍNUA (3 ETAPAS FLUIDAS E CLARAS)
           ========================================================================= */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-12 pb-6 border-b border-slate-800/80">
-        <div>
-          <span className="text-[11px] uppercase tracking-wider text-gold-400 font-semibold block mb-1">
-            Perspectiva do Paciente
-          </span>
-          <p className="text-xs sm:text-sm text-slate-300">
-            Alterne entre a <strong className="text-white font-medium">experiência sensorial de conforto</strong> e os <strong className="text-white font-medium">detalhes técnicos do protocolo</strong>:
-          </p>
-        </div>
-
-        <div
-          role="group"
-          aria-label="Alternar perspectiva de visualização"
-          className="inline-flex items-center p-1 rounded-full bg-slate-900/90 border border-slate-800 shadow-inner shrink-0"
-        >
-          <button
-            type="button"
-            onClick={() => setViewMode("sensorial")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${
-              viewMode === "sensorial"
-                ? "bg-gradient-to-r from-gold-500 to-gold-400 text-slate-950 shadow-md font-bold"
-                : "text-slate-400 hover:text-slate-200"
-            }`}
-          >
-            <svg
-              className="w-3.5 h-3.5 stroke-[1.8] text-current"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-            </svg>
-            <span>O que Você Sente na Cadeira</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setViewMode("clinico")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${
-              viewMode === "clinico"
-                ? "bg-slate-800 text-gold-300 border border-gold-400/30 shadow-md font-bold"
-                : "text-slate-400 hover:text-slate-200"
-            }`}
-          >
-            <svg
-              className="w-3.5 h-3.5 stroke-[1.8] text-current"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
-            </svg>
-            <span>O Procedimento Clínico</span>
-          </button>
-        </div>
-      </div>
-
-      {/* =========================================================================
-          TRILHA CIRÚRGICA CONTÍNUA (THE LUMINOUS ARTERIAL TRACK)
-          - Design fluido e orgânico: sem caixas ou cards retangulares
-          - Linha dourada arterial visível conectando com precisão os 3 marcos
-          ========================================================================= */}
-      <div className="relative mb-14 px-2 sm:px-6">
-        {/* Trilho de base arterial entre o centro do Marco 01 e o Marco 03 */}
+      <div className="relative mb-10 px-2 sm:px-6">
+        {/* Trilho de base arterial entre o marco 01 e 03 */}
         <div className="absolute top-6 left-[16.67%] right-[16.67%] h-1 bg-slate-800/90 rounded-full hidden md:block">
-          {/* Feixe de luz dourada dinâmico animado preenchendo até a etapa ativa */}
+          {/* Feixe dourado preenchendo até a etapa ativa */}
           <div
             className="h-full bg-gradient-to-r from-gold-500 via-gold-300 to-gold-400 rounded-full transition-all duration-500 ease-out shadow-[0_0_15px_rgba(212,175,55,0.7)]"
             style={{ width: `${(activeStep / (stepsData.length - 1)) * 100}%` }}
           />
         </div>
 
-        {/* Waypoints interativos (3 marcos fluidos sem caixas de card) */}
+        {/* 3 Marcos Interativos */}
         <div
           role="tablist"
-          aria-label="Etapas do tratamento cirúrgico"
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10"
+          aria-label="Etapas do tratamento de implantes"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10"
         >
           {stepsData.map((step, index) => {
             const isActive = index === activeStep;
@@ -421,8 +212,8 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                 onClick={() => setActiveStep(index)}
                 className="group relative flex flex-col items-center text-center focus:outline-none transition-all duration-200 cursor-pointer"
               >
-                {/* Orbe numerado iluminado sobre a linha */}
-                <div className="mb-4 relative z-20">
+                {/* Orbe numerado iluminado */}
+                <div className="mb-3 relative z-20">
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center font-serif text-lg font-bold transition-all duration-300 relative ${
                       isActive
@@ -440,14 +231,13 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                       step.stepNumber
                     )}
 
-                    {/* Halo de pulso suave no marco ativo */}
                     {isActive && (
                       <span className="absolute -inset-1 rounded-full border-2 border-gold-400/50 animate-pulse-subtle pointer-events-none"></span>
                     )}
                   </div>
                 </div>
 
-                {/* Conteúdo textual da etapa abaixo da linha (nunca cortado pela linha) */}
+                {/* Conteúdo textual da etapa */}
                 <div className="flex flex-col items-center max-w-xs">
                   <span
                     className={`text-[10px] uppercase tracking-wider font-semibold block mb-1 ${
@@ -458,7 +248,7 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                   </span>
 
                   <h4
-                    className={`font-serif text-base sm:text-lg font-bold tracking-tight leading-snug mb-1 transition-colors duration-150 ${
+                    className={`font-serif text-sm sm:text-base font-bold tracking-tight leading-snug mb-1 transition-colors duration-150 ${
                       isActive
                         ? "text-white"
                         : "text-slate-300 group-hover:text-white"
@@ -467,11 +257,11 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                     {step.title}
                   </h4>
 
-                  <span className="text-xs text-gold-400/80 block mb-3 font-medium">
+                  <span className="text-xs text-gold-400/80 block mb-2 font-medium">
                     {step.benefitBadge}
                   </span>
 
-                  {/* Indicador de foco sutil */}
+                  {/* Indicador de foco */}
                   <div
                     className={`h-0.5 rounded-full transition-all duration-300 ${
                       isActive
@@ -487,170 +277,81 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
       </div>
 
       {/* =========================================================================
-          PALCO EDITORIAL DA ETAPA ATIVA (COMPLETAMENTE CARDLESS)
-          - Layout editorial sofisticado de 2 colunas
-          - Nada de cartões aninhados dentro de cartões
+          PALCO EDITORIAL DA ETAPA ATIVA (CLARO, OBJETIVO E PERSUASIVO)
           ========================================================================= */}
       <div
         role="tabpanel"
         id={`panel-${current.id}`}
         aria-labelledby={`tab-${current.id}`}
-        className="relative bg-gradient-to-br from-slate-900/90 via-slate-950 to-slate-950 rounded-3xl border border-slate-800/80 p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden"
+        className="relative bg-gradient-to-br from-slate-900/90 via-slate-950 to-slate-950 rounded-2xl border border-slate-800/80 p-6 sm:p-8 lg:p-10 shadow-2xl overflow-hidden"
       >
-        {/* Glow atmosférico suave */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-400/5 rounded-full blur-[140px] pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold-400/5 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div
-          key={`${current.id}-${viewMode}`}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative z-10 animate-[heroFadeUp_260ms_cubic-bezier(0.16,1,0.3,1)_both]"
+          key={current.id}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 relative z-10 animate-[heroFadeUp_260ms_cubic-bezier(0.16,1,0.3,1)_both]"
         >
-          
-          {/* =====================================================================
-              COLUNA ESQUERDA (5/12): Visão Geral & Selo de Compromisso
-              ===================================================================== */}
-          <div className="lg:col-span-5 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-800/80 pb-8 lg:pb-0 lg:pr-8">
+          {/* COLUNA ESQUERDA (5/12): Visão Geral & Depoimento Ético */}
+          <div className="lg:col-span-5 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-800/80 pb-6 lg:pb-0 lg:pr-8">
             <div>
-              {/* Tag da Fase Ativa */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-300 text-xs font-semibold mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-300 text-xs font-semibold mb-3">
                 <span>Etapa {current.stepNumber} de 03</span>
                 <span>•</span>
-                <span>{current.phaseLabel}</span>
+                <span>{current.benefitBadge}</span>
               </div>
 
-              {/* Título Principal */}
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-tight mb-3">
                 {current.title}
               </h3>
 
-              {/* Resumo Dinâmico Conforme a Perspectiva */}
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
-                {viewMode === "sensorial" ? current.sensorySummary : current.clinicalSummary}
+              <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">
+                {current.summary}
               </p>
             </div>
 
-            {/* Selo de Garantia Ética do Cirurgião */}
-            <div className="pt-6 border-t border-slate-800/80">
-              <div className="flex items-start gap-3 mb-4">
-                <span className="text-gold-300 text-2xl shrink-0 leading-none">“</span>
-                <p className="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
-                  {current.peaceCommitment}
-                </p>
-              </div>
-
-              {/* Botão de Dúvida Rápida no WhatsApp */}
+            <div className="pt-4 border-t border-slate-800/80">
               <a
                 href={`${whatsappBaseUrl}?text=${encodeURIComponent(current.whatsappInquiry)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-whatsapp/15 hover:bg-whatsapp/25 text-whatsapp border border-whatsapp/30 text-xs font-bold transition-all duration-150"
+                className="btn-tactile inline-flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold text-xs shadow-md transition-colors"
               >
                 <span>Tirar dúvidas sobre a Etapa {current.stepNumber} no WhatsApp</span>
-                <span>→</span>
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                </svg>
               </a>
             </div>
           </div>
 
-          {/* =====================================================================
-              COLUNA DIREITA (7/12): Lista Editorial de Pontos-Chave (SEM CARDS)
-              ===================================================================== */}
-          <div className="lg:col-span-7 flex flex-col justify-between">
-            <div>
-              {/* Cabeçalho da Perspectiva */}
-              <div className="flex items-center gap-2 mb-6">
-                <span
-                  className={`w-2.5 h-2.5 rounded-full ${
-                    viewMode === "sensorial" ? "bg-emerald-400 animate-pulse" : "bg-gold-400"
-                  }`}
-                ></span>
-                <span
-                  className={`text-xs font-bold uppercase tracking-wider ${
-                    viewMode === "sensorial" ? "text-emerald-400" : "text-gold-300"
-                  }`}
+          {/* COLUNA DIREITA (7/12): 3 Destaques Claros e Confortáveis */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <p className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-5 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>O que torna esta etapa 100% segura e confortável:</span>
+            </p>
+
+            <div className="space-y-4">
+              {current.points.map((point, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-4 p-4 rounded-xl bg-slate-950/70 border border-slate-800/70 hover:border-slate-700/90 transition-colors"
                 >
-                  {viewMode === "sensorial"
-                    ? "Garantias Reais de Conforto e Ausência de Dor"
-                    : "Rigor Técnico e Tecnologia de Ponta Utilizada"}
-                </span>
-              </div>
-
-              {/* Lista Editorial Fluida (Divisores Finos, Sem Cards Box) */}
-              <div className="space-y-6">
-                {viewMode === "sensorial"
-                  ? current.sensoryPoints.map((point, i) => (
-                      <div
-                        key={i}
-                        className="flex items-start gap-4 pb-6 border-b border-slate-800/60 last:border-b-0 last:pb-0"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0 shadow-inner">
-                          {renderSensoryIcon(point.icon)}
-                        </div>
-                        <div>
-                          <h5 className="font-serif text-base sm:text-lg font-bold text-white mb-1">
-                            {point.title}
-                          </h5>
-                          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            {point.reassurance}
-                          </p>
-                        </div>
-                      </div>
-                    ))
-                  : current.clinicalSteps.map((step, i) => (
-                      <div
-                        key={i}
-                        className="flex items-start gap-4 pb-6 border-b border-slate-800/60 last:border-b-0 last:pb-0"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center font-serif text-gold-300 font-bold text-sm shrink-0 shadow-inner">
-                          0{i + 1}
-                        </div>
-                        <div>
-                          <h5 className="font-serif text-base sm:text-lg font-bold text-white mb-1">
-                            {step.label}
-                          </h5>
-                          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            {step.desc}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-              </div>
-            </div>
-
-            {/* Controles de Navegação Rápida entre as Etapas */}
-            <div className="pt-8 mt-8 border-t border-slate-800/80 flex items-center justify-between">
-              <button
-                type="button"
-                disabled={activeStep === 0}
-                onClick={() => setActiveStep((prev) => Math.max(0, prev - 1))}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-150 ${
-                  activeStep === 0
-                    ? "opacity-30 border-slate-850 text-slate-600 cursor-not-allowed"
-                    : "border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800/80"
-                }`}
-              >
-                ← Etapa Anterior
-              </button>
-
-              <span className="text-xs text-slate-400 font-medium">
-                Etapa {activeStep + 1} de {stepsData.length}
-              </span>
-
-              <button
-                type="button"
-                disabled={activeStep === stepsData.length - 1}
-                onClick={() =>
-                  setActiveStep((prev) => Math.min(stepsData.length - 1, prev + 1))
-                }
-                className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-150 ${
-                  activeStep === stepsData.length - 1
-                    ? "opacity-30 border-slate-850 text-slate-600 cursor-not-allowed"
-                    : "border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800/80"
-                }`}
-              >
-                Próxima Etapa →
-              </button>
+                  <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0 shadow-inner mt-0.5">
+                    {renderStepIcon(point.icon)}
+                  </div>
+                  <div>
+                    <h5 className="font-serif text-sm sm:text-base font-bold text-white mb-1">
+                      {point.title}
+                    </h5>
+                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-light">
+                      {point.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
         </div>
       </div>
     </div>

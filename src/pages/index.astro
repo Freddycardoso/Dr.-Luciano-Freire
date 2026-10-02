@@ -110,7 +110,7 @@ const currentYear = new Date().getFullYear();
           </p>
 
           <!-- CTAs Alinhados e Sem Excesso -->
-          <div class="hero-entrance-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
+          <div class="hero-entrance-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-3">
             <a
               href={heroWhatsappUrl}
               target="_blank"
@@ -133,6 +133,11 @@ const currentYear = new Date().getFullYear();
               </svg>
             </a>
           </div>
+
+          <p class="hero-entrance-4 text-xs text-slate-400 mb-8 font-light flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span>Atendimento acolhedor e individual • Avaliação tranquila e sem compromisso</span>
+          </p>
 
           <!-- Faixa Unificada de Confiança & Autoridade (Substitui os cards soltos) -->
           <div class="hero-entrance-5 pt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-400">
@@ -199,13 +204,13 @@ const currentYear = new Date().getFullYear();
       <!-- Cabeçalho Editorial Aberto (Sem caixas) -->
       <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20" data-reveal>
         <span class="text-xs font-semibold tracking-wider text-gold-400 uppercase">
-          Estudo Anatômico Comparativo
+          Comparativo Anatômico
         </span>
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mt-2 mb-5">
-          A Perfeição Biológica Recriada pela Ciência
+          Tão Firme e Natural Quanto a Sua Própria Raiz
         </h2>
         <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light max-w-2xl mx-auto">
-          Arraste o divisor central para revelar como a implantodontia moderna reproduz com precisão micrométrica a firmeza de uma raiz biológica, sem desgastar nenhum dente vizinho saudável.
+          Arraste o divisor central para ver como a implantodontia moderna substitui o dente perdido com perfeição — devolvendo a firmeza da mastigação sem desgastar nenhum dente saudável ao lado.
         </p>
       </div>
 
@@ -220,7 +225,7 @@ const currentYear = new Date().getFullYear();
             implantSrc={implanteTitanioImg.src}
           />
           <p class="text-[11px] text-slate-400 text-center mt-3 font-light">
-            Esquerda: Dente natural biológico • Direita: Implante de titânio osseointegrado ao osso.
+            Arraste para comparar: dente biológico à esquerda e implante fixo de titânio à direita.
           </p>
         </div>
 
@@ -234,11 +239,11 @@ const currentYear = new Date().getFullYear();
               <div class="flex items-baseline gap-3 mb-2">
                 <span class="font-serif text-lg font-bold text-gold-300">01</span>
                 <h3 class="font-serif text-xl font-bold text-white">
-                  Coroa de Esmalte vs. Porcelana Personalizada
+                  Porcelana Pura que Não Mancha e Não Amarela
                 </h3>
               </div>
               <p class="text-slate-300 text-sm leading-relaxed pl-7 font-light">
-                A coroa confeccionada pelo Dr. Luciano utiliza cerâmica odontológica pura de alta densidade óptica. Ela reproduz a mesma translucidez, cor e resistência mecânica do esmalte natural e, diferentemente de resinas simples, não amarela com café, vinho ou com a passagem dos anos.
+                A coroa confeccionada sob medida pelo Dr. Luciano utiliza cerâmica nobre de altíssima qualidade. Ela reproduz a mesma cor, brilho e força do esmalte natural e, diferentemente de resinas simples, não amarela com café, vinho ou com o passar dos anos.
               </p>
             </div>
 
@@ -247,11 +252,11 @@ const currentYear = new Date().getFullYear();
               <div class="flex items-baseline gap-3 mb-2">
                 <span class="font-serif text-lg font-bold text-gold-300">02</span>
                 <h3 class="font-serif text-xl font-bold text-white">
-                  Raiz com Nervo vs. Pilar Livre de Dor
+                  Fim da Dor de Dente e do Tratamento de Canal
                 </h3>
               </div>
               <p class="text-slate-300 text-sm leading-relaxed pl-7 font-light">
-                O dente natural possui polpa e terminações nervosas que sofrem com cáries profundas e exigem tratamentos de canal dolorosos. O implante de titânio é uma estrutura biologicamente neutra: nunca terá cárie, infecção de polpa ou dor de dente naquela raiz.
+                O dente danificado sofre com cáries e nervos inflamados que causam dor intensa. Já o implante de titânio é uma raiz pura, biológica e definitiva: nunca terá cárie, infecção de nervo ou aquela dor de dente incômoda.
               </p>
             </div>
 
@@ -260,11 +265,11 @@ const currentYear = new Date().getFullYear();
               <div class="flex items-baseline gap-3 mb-2">
                 <span class="font-serif text-lg font-bold text-gold-300">03</span>
                 <h3 class="font-serif text-xl font-bold text-white">
-                  Ligamento Periodontal vs. Osseointegração
+                  Mastigação Firme e Preservação do Rosto
                 </h3>
               </div>
               <p class="text-slate-300 text-sm leading-relaxed pl-7 font-light">
-                O pino de titânio microscópico funde-se perfeitamente às células ósseas. Ao mastigar, as forças mecânicas são transmitidas diretamente para a mandíbula, estimulando a circulação e impedindo que o osso facial encolha — preservando a sustentação dos lábios e a juventude do seu rosto.
+                O pino de titânio se funde com total firmeza ao osso. Ao mastigar, a força natural estimula a mandíbula e impede que o osso facial encolha com a idade — mantendo a sustentação dos lábios e a jovialidade do seu rosto.
               </p>
             </div>
 
@@ -292,15 +297,7 @@ const currentYear = new Date().getFullYear();
 
       </div>
 
-      <!-- Declaração Clínica Autoral (Estilo Artigo Médico, Sem Molduras de IA) -->
-      <div class="max-w-4xl mx-auto pt-8 border-t border-slate-800/80 text-center" data-reveal data-reveal-delay="150">
-        <blockquote class="text-slate-200 text-base sm:text-lg leading-relaxed font-serif italic max-w-3xl mx-auto mb-4">
-          "Substituir uma raiz perdida por um implante de titânio vai muito além da estética do sorriso: é impedir que o osso facial atrofie e garantir que você continue mastigando qualquer alimento com a mesma firmeza de 20 anos atrás."
-        </blockquote>
-        <p class="text-xs text-gold-300 font-semibold tracking-wider uppercase">
-          Dr. Luciano Alves Freire • CRO-MG 25170 | Especialista em Reabilitação Oral em Passos, MG
-        </p>
-      </div>
+
 
     </div>
   </section>
@@ -337,13 +334,13 @@ const currentYear = new Date().getFullYear();
         
         <div class="max-w-2xl mx-auto text-center mb-12" data-reveal>
           <span class="text-xs font-semibold tracking-wider text-gold-400 uppercase">
-            Protocolo de Conforto e Ausência de Dor
+            Tranquilidade e Ausência de Dor
           </span>
           <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight mt-2 mb-3">
-            O Fim do Medo do Dentista: Sua Trilha Cirúrgica Passo a Passo
+            O Fim do Medo do Dentista: Seu Tratamento em 3 Passos Simples
           </h3>
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            A maioria das pessoas adia o implante por anos acreditando que é um processo traumático. O Dr. Luciano desmistifica essa apreensão através de um protocolo tridimensional guiado, sem cortes desnecessários e com bloqueio total da dor:
+            Muitas pessoas adiam o implante por anos acreditando que é um procedimento doloroso. O Dr. Luciano utiliza planejamento 3D no computador e anestesia suave para garantir um tratamento calmo, preciso e 100% sem dor:
           </p>
         </div>
 
@@ -352,33 +349,7 @@ const currentYear = new Date().getFullYear();
           <SurgicalPathwayTimeline client:visible whatsappBaseUrl={whatsappBaseUrl} />
         </div>
 
-        <!-- Parecer do Dr. Luciano com Foto e Chamada Ética -->
-        <div class="max-w-4xl mx-auto rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-slate-800 p-6 sm:p-8 shadow-2xl flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left" data-reveal data-reveal-delay="150">
-          <div class="w-16 h-16 rounded-full bg-slate-950 border-2 border-gold-400/40 flex items-center justify-center text-gold-300 font-bold text-xl shrink-0 shadow-lg">
-            LF
-          </div>
-          <div class="flex-1">
-            <blockquote class="text-slate-200 text-sm sm:text-base leading-relaxed italic mb-3">
-              "A maioria dos pacientes que atendo em Passos adia o implante por anos por medo da dor. Quando terminamos, 9 em cada 10 me dizem com alívio: 'Doutor, não senti absolutamente nada, se soubesse teria feito muito antes'. É essa segurança e paz que priorizo a cada atendimento."
-            </blockquote>
-            <p class="text-xs text-gold-300 font-semibold">
-              Dr. Luciano Alves Freire • CRO-MG 25170 | Especialista em Implantodontia e Reabilitação Oral
-            </p>
-          </div>
-          <div class="shrink-0 pt-2 sm:pt-0">
-            <a
-              href={heroWhatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-tactile btn-shimmer inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold text-xs shadow-md"
-            >
-              <span>Conversar com o Doutor</span>
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+
 
         <!-- Faixa Elegante de Especialidades Complementares -->
         <div class="mt-12 text-center text-xs text-slate-400" data-reveal data-reveal-delay="200">
@@ -438,10 +409,10 @@ const currentYear = new Date().getFullYear();
           
           <div class="space-y-4 text-slate-300 text-base leading-relaxed mb-8 max-w-xl">
             <p>
-              Com mais de duas décadas dedicadas à odontologia em Passos e no Sul/Sudoeste de Minas Gerais, o <strong class="text-white font-semibold">Dr. Luciano Alves Freire (CRO-MG 25170)</strong> consolidou uma prática cirúrgica e protética pautada pela honestidade diagnóstica, pela precisão técnica e pelo respeito humano a cada paciente.
+              Com mais de duas décadas dedicadas à odontologia em Passos e região, o <strong class="text-white font-semibold">Dr. Luciano Alves Freire (CRO-MG 25170)</strong> consolidou sua carreira com foco na precisão cirúrgica, na honestidade diagnóstica e no respeito humano a cada paciente.
             </p>
             <p>
-              Cada reabilitação oral é planejada de forma individualizada com tomografia computadorizada cone-beam e guias de precisão, garantindo cirurgias de implante com menor intervenção tecidual, pós-operatório previsível e próteses fixas que devolvem com naturalidade a função mastigatória.
+              Aqui você é acompanhado do início ao fim pessoalmente pelo Dr. Luciano. Cada tratamento é planejado com tecnologia digital 3D para garantir uma cirurgia rápida, confortável e próteses fixas com naturalidade absoluta para você voltar a sorrir e mastigar sem preocupações.
             </p>
           </div>
 

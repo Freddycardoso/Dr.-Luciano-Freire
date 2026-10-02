@@ -92,18 +92,18 @@ const situations: Situation[] = [
     tabLabel: "Perdi 1 ou poucos dentes",
     iconType: "tooth",
     badge: "Implante Unitário ou Múltiplo",
-    title: "Recupere o dente fixo sem desgastar os dentes vizinhos saudáveis",
+    title: "Dente fixo e firme sem desgastar os dentes saudáveis vizinhos",
     painPoint:
-      "A insegurança ao sorrir em fotos, a dificuldade de mastigar no lado onde falta o dente e o receio silencioso de que os dentes vizinhos comecem a entortar ou o osso atrofie com o tempo.",
+      "A vergonha de sorrir em fotos, a dificuldade de mastigar no lado onde falta o dente e o receio silencioso dos dentes vizinhos entortarem com o tempo.",
     solution:
-      "Instalamos um pino de titânio biocompatível milimétrico que funciona exatamente como a raiz biológica do dente. Sobre ele, uma coroa de porcelana pura personalizada é parafusada com a mesma cor, translucidez e força dos seus dentes naturais.",
+      "Instalamos uma raiz fixa de titânio milimétrica e uma coroa sob medida em porcelana pura. O novo dente reproduz a mesma cor, força e brilho dos seus dentes naturais — sem tocar nem desgastar nenhum dente saudável ao lado.",
     highlights: [
-      "Sem desgaste ou agressão aos dentes vizinhos saudáveis",
-      "Mastigação 100% restabelecida com força normal",
-      "Procedimento rápido sob anestesia local de última geração sem dor",
-      "Planejamento tridimensional guiado por tomografia computadorizada",
+      "Dente 100% fixo: parece e funciona como dente de verdade",
+      "Protege os dentes vizinhos saudáveis (zero desgaste)",
+      "Procedimento suave, rápido e sem dor",
+      "Mastigação restabelecida com força normal",
     ],
-    ctaLabel: "Avaliar Implante de Dente com o Dr. Luciano",
+    ctaLabel: "Avaliar Meu Caso com o Dr. Luciano",
     whatsappMessage:
       "Olá, Dr. Luciano. Perdi dente(s) e gostaria de agendar uma avaliação para implante dentário no consultório.",
   },
@@ -111,16 +111,16 @@ const situations: Situation[] = [
     id: "protese-protocolo",
     tabLabel: "Uso dentadura ou perdi todos os dentes",
     iconType: "lock",
-    badge: "Prótese Protocolo Fixo (All-on-4 / All-on-6)",
+    badge: "Prótese Protocolo Fixo (Sem Dentadura Móvel)",
     title: "Diga adeus à cola, à dentadura solta e ao céu da boca tapado de resina",
     painPoint:
-      "A apreensão constante da prótese se deslocar ao rir, falar ou mastigar, as feridas e aftas causadas pelo atrito na gengiva e a perda do sabor e temperatura dos alimentos por causa da resina no palato.",
+      "O medo constante da dentadura se mover ao rir ou mastigar, as feridas e aftas na gengiva e a perda do sabor e temperatura dos alimentos por causa da placa de resina no céu da boca.",
     solution:
-      "Substituímos a dentadura móvel por uma arcada completa de dentes fixos parafusados sobre 4 a 6 implantes de titânio. O céu da boca fica totalmente livre, o sorriso nunca se move e você volta a mastigar carnes, castanhas e maçãs com segurança absoluta.",
+      "Substituímos a dentadura móvel por uma arcada completa de dentes fixos parafusados sobre implantes. O céu da boca fica totalmente livre, os dentes nunca se movem e você volta a mastigar carnes, maçãs e castanhas com segurança absoluta.",
     highlights: [
-      "Fim definitivo da cola fixadora e do medo de passar vergonha",
+      "Fim da cola e do medo de passar constrangimento em público",
       "Céu da boca 100% livre para sentir o sabor real de todas as refeições",
-      "Dentes travados e fixos: não saem, não machucam e não soltam ao falar",
+      "Dentes travados e fixos: não machucam e não soltam ao falar",
       "Recuperação imediata da mastigação firme e do contorno jovem da face",
     ],
     ctaLabel: "Saber Como Trocar a Dentadura por Dentes Fixos",
@@ -131,19 +131,19 @@ const situations: Situation[] = [
     id: "pouco-osso",
     tabLabel: "Disseram que tenho pouco osso",
     iconType: "shield",
-    badge: "Técnicas Biológicas e Regeneração Óssea",
-    title: "Perda óssea não impede você de voltar a ter dentes fixos e firmes",
+    badge: "Diagnóstico 3D e Técnicas Avançadas",
+    title: "Pouco osso não impede você de voltar a ter dentes fixos e firmes",
     painPoint:
-      "A frustração de ter consultado profissionais no passado que disseram que seu caso 'não tinha osso suficiente' ou que seria arriscado, gerando conformismo com o sofrimento de uma dentadura frouxa.",
+      "A frustração de ter consultado dentistas no passado que disseram que seu caso 'não tinha osso suficiente', gerando desânimo e conformismo com uma dentadura frouxa.",
     solution:
-      "Com tomografia 3D de alta resolução, mapeamos áreas nobres de osso remanescente que a radiografia panorâmica simples não consegue enxergar. Utilizamos implantes curtos, angulados e técnicas modernas de enxerto biomaterial seguro, com pós-operatório calmo e planejado.",
+      "Com tomografia 3D no próprio consultório, encontramos áreas nobres de sustentação que o raio-X panorâmico comum não mostra. Utilizamos implantes especiais e técnicas biológicas modernas que dispensam cirurgias em ambiente hospitalar.",
     highlights: [
-      "Diagnóstico preciso por tomografia digital tridimensional",
-      "Técnicas que evitam cirurgias hospitalares invasivas",
-      "Enxertos e biomateriais biocompatíveis de alto padrão",
-      "Solução real mesmo para quem perdeu dentes há 10, 20 ou 30 anos",
+      "Tomografia 3D precisa no próprio consultório em Passos",
+      "Técnicas modernas que evitam cirurgias hospitalares pesadas",
+      "Solução segura mesmo para quem perdeu dentes há 10, 20 ou 30 anos",
+      "Recuperação tranquila e planejada passo a passo",
     ],
-    ctaLabel: "Solicitar Avaliação de Implante para Pouco Osso",
+    ctaLabel: "Avaliar Implantes para Pouco Osso",
     whatsappMessage:
       "Olá, Dr. Luciano. Já me disseram que tenho pouco osso e gostaria de saber se meu caso tem indicação para implantes.",
   },
@@ -151,17 +151,17 @@ const situations: Situation[] = [
     id: "estetica-alinhamento",
     tabLabel: "Quero alinhar ou clarear meu sorriso",
     iconType: "sparkle",
-    badge: "Ortodontia e Lentes de Contato em Porcelana",
-    title: "Harmonia estética, cor natural e função mastigatória equilibrada",
+    badge: "Ortodontia e Lentes em Porcelana",
+    title: "Harmonia do sorriso, cor natural e mordida confortável",
     painPoint:
-      "O incômodo estético com dentes manchados, apinhados, espaçados (diastemas) ou envelhecidos pelo atrito e bruxismo, prejudicando a confiança no trabalho e na vida social.",
+      "O incômodo estético com dentes manchados, apinhados, espaçados ou desgastados pelo atrito e bruxismo, prejudicando a confiança no trabalho e na vida social.",
     solution:
-      "Planejamos a harmonia do sorriso respeitando as proporções naturais do seu rosto. Combinamos alinhamento ortodôntico contemporâneo com facetas e lentes de contato em cerâmica pura de alta translucidez, que mantêm o brilho e não amarelam.",
+      "Planejamos a harmonia do seu sorriso respeitando as características naturais do seu rosto. Combinamos alinhamento moderno com facetas e lentes em porcelana nobre sob medida, com aspecto natural e que não amarelam com o tempo.",
     highlights: [
-      "Cerâmica vítrea nobre que não mancha com café, vinho ou tempo",
-      "Preservação máxima da estrutura biológica natural do dente",
-      "Design do sorriso planejado e aprovado antes de confeccionar as peças",
-      "Correção de mordida e alinhamento para todas as idades",
+      "Porcelana nobre pura que não mancha com café, vinho ou tempo",
+      "Preservação máxima da estrutura natural do dente",
+      "Design do sorriso planejado e aprovado com você antes de confeccionar",
+      "Correção da mordida e sorriso jovem para todas as idades",
     ],
     ctaLabel: "Conversar sobre Estética Dental e Lentes",
     whatsappMessage:
@@ -223,98 +223,82 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
 
         <div
           key={current.id}
-          className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start animate-[heroFadeUp_280ms_cubic-bezier(0.16,1,0.3,1)_both]"
+          className="relative z-10 max-w-4xl mx-auto flex flex-col animate-[heroFadeUp_280ms_cubic-bezier(0.16,1,0.3,1)_both]"
         >
-          
-          {/* Coluna Esquerda: O Desafio Real vs A Solução do Dr. Luciano */}
-          <div className="lg:col-span-7 flex flex-col justify-between">
-            <div>
-              {/* Badge da Especialidade Técnica */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-400/12 text-gold-300 text-[11px] font-bold uppercase tracking-wider border border-gold-400/25 mb-4">
-                <span>{current.badge}</span>
-              </div>
-
-              {/* Título Principal Focado no Paciente */}
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-5">
-                {current.title}
-              </h3>
-
-              {/* O que você sente hoje (A Dor) */}
-              <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 mb-5">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="w-2 h-2 rounded-full bg-amber-400/80"></span>
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    O incômodo no seu dia a dia
-                  </p>
-                </div>
-                <p className="text-sm text-slate-300/90 leading-relaxed font-light">
-                  {current.painPoint}
-                </p>
-              </div>
-
-              {/* Como o Dr. Luciano resolve (A Solução) */}
-              <div className="mb-6">
-                <p className="text-xs font-bold uppercase tracking-wider text-gold-300 mb-2">
-                  A conduta do Dr. Luciano Freire
-                </p>
-                <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
-                  {current.solution}
-                </p>
-              </div>
-            </div>
-
-            {/* Ação WhatsApp Direta */}
-            <div className="pt-5 border-t border-slate-800/90 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-tactile inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-whatsapp text-slate-950 font-bold text-sm hover:bg-whatsapp-hover shadow-[0_4px_20px_rgba(37,211,102,0.22)]"
-              >
-                <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z" />
-                </svg>
-                <span>{current.ctaLabel}</span>
-              </a>
-              <span className="text-xs text-slate-400 text-center sm:text-left">
-                Conversa preliminar e confidencial direto no WhatsApp
-              </span>
-            </div>
+          {/* Badge da Especialidade Técnica */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-400/12 text-gold-300 text-[11px] font-bold uppercase tracking-wider border border-gold-400/25 self-start mb-4">
+            <span>{current.badge}</span>
           </div>
 
-          {/* Coluna Direita: Pilares de Confiança & Tranquilidade */}
-          <div className="lg:col-span-5 bg-slate-950/70 rounded-xl p-5 sm:p-6 border border-slate-800/80 flex flex-col justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                <span>O que você tem garantido neste tratamento:</span>
+          {/* Título Principal Focado no Paciente (Amplo e com respiro total) */}
+          <h3 className="font-serif text-2xl sm:text-3xl lg:text-[2rem] font-bold text-white tracking-tight leading-snug mb-5">
+            {current.title}
+          </h3>
+
+          {/* O que você sente hoje (A Dor) */}
+          <div className="p-4 sm:p-5 rounded-xl bg-slate-950/80 border border-slate-800/80 mb-5">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="w-2 h-2 rounded-full bg-amber-400/80"></span>
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                O incômodo no seu dia a dia
               </p>
-              
-              <ul className="space-y-3.5 mb-6">
-                {current.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300">
-                    <svg className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="leading-relaxed">{highlight}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-
-            {/* Micro Card de Aval do Especialista */}
-            <div className="pt-4 border-t border-slate-800/80 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gold-400/15 border border-gold-400/30 text-gold-300 font-bold text-xs flex items-center justify-center shrink-0">
-                LF
-              </div>
-              <div className="text-xs">
-                <p className="font-semibold text-white">Dr. Luciano Alves Freire</p>
-                <p className="text-slate-400 text-[11px]">Planejamento e execução pessoal • CRO-MG 25170</p>
-              </div>
-            </div>
-
+            <p className="text-sm sm:text-base text-slate-300/90 leading-relaxed font-light">
+              {current.painPoint}
+            </p>
           </div>
 
+          {/* Como o Dr. Luciano resolve (A Solução) */}
+          <div className="mb-6">
+            <p className="text-xs font-bold uppercase tracking-wider text-gold-300 mb-2">
+              A conduta do Dr. Luciano Freire
+            </p>
+            <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
+              {current.solution}
+            </p>
+          </div>
+
+          {/* Benefícios e Garantias do Tratamento (Posicionado Abaixo, em Grid Arejado) */}
+          <div className="pt-6 pb-2 border-t border-slate-800/80 mb-6">
+            <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span>O que você tem garantido neste tratamento:</span>
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              {current.highlights.map((highlight, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/70"
+                >
+                  <svg className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
+                    {highlight}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Ação WhatsApp Direta */}
+          <div className="pt-6 border-t border-slate-800/90 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-tactile inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-whatsapp text-slate-950 font-bold text-sm sm:text-base hover:bg-whatsapp-hover shadow-[0_4px_20px_rgba(37,211,102,0.22)]"
+            >
+              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z" />
+              </svg>
+              <span>{current.ctaLabel}</span>
+            </a>
+            <span className="text-xs text-slate-400 text-center sm:text-left">
+              Atendimento individual e sem compromisso • Tire dúvidas diretamente com o Dr. Luciano
+            </span>
+          </div>
         </div>
       </div>
     </div>
