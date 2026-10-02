@@ -98,14 +98,14 @@ const situations: Situation[] = [
     solution:
       "Instalamos uma raiz fixa de titânio milimétrica e uma coroa sob medida em porcelana pura. O novo dente reproduz a mesma cor, força e brilho dos seus dentes naturais — sem tocar nem desgastar nenhum dente saudável ao lado.",
     highlights: [
-      "Dente 100% fixo: parece e funciona como dente de verdade",
-      "Protege os dentes vizinhos saudáveis (zero desgaste)",
-      "Procedimento suave, rápido e sem dor",
-      "Mastigação restabelecida com força normal",
+      "Dente com alta estabilidade e aspecto natural de dente biológico",
+      "Preservação dos dentes vizinhos saudáveis (sem desgaste)",
+      "Procedimento planejado para o seu conforto do início ao fim",
+      "Recuperação equilibrada da força mastigatória",
     ],
-    ctaLabel: "Avaliar Meu Caso com o Dr. Luciano",
+    ctaLabel: "Verificar Indicação para Meu Caso no WhatsApp",
     whatsappMessage:
-      "Olá, Dr. Luciano. Perdi dente(s) e gostaria de agendar uma avaliação para implante dentário no consultório.",
+      "Olá, Dr. Luciano. Perdi dente(s) e gostaria de verificar a indicação de implante dentário para o meu caso.",
   },
   {
     id: "protese-protocolo",
@@ -116,16 +116,16 @@ const situations: Situation[] = [
     painPoint:
       "O medo constante da dentadura se mover ao rir ou mastigar, as feridas e aftas na gengiva e a perda do sabor e temperatura dos alimentos por causa da placa de resina no céu da boca.",
     solution:
-      "Substituímos a dentadura móvel por uma arcada completa de dentes fixos parafusados sobre implantes. O céu da boca fica totalmente livre, os dentes nunca se movem e você volta a mastigar carnes, maçãs e castanhas com segurança absoluta.",
+      "Substituímos a dentadura móvel por uma arcada completa de dentes fixos parafusados sobre implantes. O céu da boca fica totalmente livre, os dentes não saem do lugar e você volta a mastigar carnes, maçãs e castanhas com estabilidade e segurança.",
     highlights: [
-      "Fim da cola e do medo de passar constrangimento em público",
-      "Céu da boca 100% livre para sentir o sabor real de todas as refeições",
-      "Dentes travados e fixos: não machucam e não soltam ao falar",
-      "Recuperação imediata da mastigação firme e do contorno jovem da face",
+      "Alternativa moderna ao uso contínuo de colas fixadoras",
+      "Céu da boca livre para melhor percepção do sabor dos alimentos",
+      "Alta estabilidade e firmeza para falar, sorrir e se alimentar",
+      "Recuperação do conforto mastigatório e da harmonia facial",
     ],
-    ctaLabel: "Saber Como Trocar a Dentadura por Dentes Fixos",
+    ctaLabel: "Consultar Indicação de Prótese Fixa no WhatsApp",
     whatsappMessage:
-      "Olá, Dr. Luciano. Uso prótese/dentadura móvel e gostaria de saber como funciona o protocolo de dentes fixos para o meu caso.",
+      "Olá, Dr. Luciano. Uso prótese/dentadura móvel e gostaria de consultar a indicação do protocolo de dentes fixos para o meu caso.",
   },
   {
     id: "pouco-osso",
@@ -136,14 +136,14 @@ const situations: Situation[] = [
     painPoint:
       "A frustração de ter consultado dentistas no passado que disseram que seu caso 'não tinha osso suficiente', gerando desânimo e conformismo com uma dentadura frouxa.",
     solution:
-      "Com tomografia 3D no próprio consultório, encontramos áreas nobres de sustentação que o raio-X panorâmico comum não mostra. Utilizamos implantes especiais e técnicas biológicas modernas que dispensam cirurgias em ambiente hospitalar.",
+      "Com tomografia 3D no próprio consultório, encontramos áreas nobres de sustentação que o raio-X panorâmico comum não mostra. Utilizamos implantes especiais e técnicas biológicas modernas com o objetivo de evitar cirurgias invasivas em ambiente hospitalar.",
     highlights: [
-      "Tomografia 3D precisa no próprio consultório em Passos",
-      "Técnicas modernas que evitam cirurgias hospitalares pesadas",
-      "Solução segura mesmo para quem perdeu dentes há 10, 20 ou 30 anos",
-      "Recuperação tranquila e planejada passo a passo",
+      "Diagnóstico tomográfico detalhado no consultório em Passos",
+      "Técnicas modernas com possibilidade de evitar cirurgias invasivas",
+      "Planejamento individualizado para perdas dentárias antigas",
+      "Recuperação tranquila e acompanhada passo a passo",
     ],
-    ctaLabel: "Avaliar Implantes para Pouco Osso",
+    ctaLabel: "Avaliar Possibilidade de Implante para Pouco Osso",
     whatsappMessage:
       "Olá, Dr. Luciano. Já me disseram que tenho pouco osso e gostaria de saber se meu caso tem indicação para implantes.",
   },
@@ -156,12 +156,12 @@ const situations: Situation[] = [
     painPoint:
       "O incômodo estético com dentes manchados, apinhados, espaçados ou desgastados pelo atrito e bruxismo, prejudicando a confiança no trabalho e na vida social.",
     solution:
-      "Planejamos a harmonia do seu sorriso respeitando as características naturais do seu rosto. Combinamos alinhamento moderno com facetas e lentes em porcelana nobre sob medida, com aspecto natural e que não amarelam com o tempo.",
+      "Planejamos a harmonia do seu sorriso respeitando as características naturais do seu rosto. Combinamos alinhamento moderno com facetas e lentes em porcelana nobre sob medida, com aspecto natural e que mantêm o brilho ao longo dos anos.",
     highlights: [
-      "Porcelana nobre pura que não mancha com café, vinho ou tempo",
-      "Preservação máxima da estrutura natural do dente",
-      "Design do sorriso planejado e aprovado com você antes de confeccionar",
-      "Correção da mordida e sorriso jovem para todas as idades",
+      "Porcelana nobre pura que preserva a cor e o brilho ao longo dos anos",
+      "Máxima preservação da estrutura biológica natural do dente",
+      "Design do sorriso planejado e aprovado com você antes da confecção",
+      "Harmonia facial, oclusão equilibrada e aspecto natural",
     ],
     ctaLabel: "Conversar sobre Estética Dental e Lentes",
     whatsappMessage:
@@ -258,11 +258,11 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
             </p>
           </div>
 
-          {/* Benefícios e Garantias do Tratamento (Posicionado Abaixo, em Grid Arejado) */}
+          {/* Benefícios e Objetivos do Tratamento (Posicionado Abaixo, em Grid Arejado) */}
           <div className="pt-6 pb-2 border-t border-slate-800/80 mb-6">
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              <span>O que você tem garantido neste tratamento:</span>
+              <span>Objetivos e benefícios buscados neste tratamento:</span>
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -280,6 +280,10 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
                 </div>
               ))}
             </div>
+
+            <p className="text-[11px] text-slate-400/80 mt-3 font-light">
+              * A indicação e as possibilidades de cada tratamento dependem da avaliação clínica e tomográfica individual com o cirurgião-dentista.
+            </p>
           </div>
 
           {/* Ação WhatsApp Direta */}
@@ -296,7 +300,7 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
               <span>{current.ctaLabel}</span>
             </a>
             <span className="text-xs text-slate-400 text-center sm:text-left">
-              Atendimento individual e sem compromisso • Tire dúvidas diretamente com o Dr. Luciano
+              Tire suas dúvidas sobre a indicação para o seu caso diretamente com o Dr. Luciano
             </span>
           </div>
         </div>

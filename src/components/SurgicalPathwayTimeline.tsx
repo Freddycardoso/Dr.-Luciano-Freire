@@ -105,16 +105,16 @@ const stepsData: StepData[] = [
   {
     id: "fase-cirurgia",
     stepNumber: "02",
-    phaseLabel: "Etapa 2 • Procedimento Sem Dor",
-    title: "Cirurgia Rápida com Bloqueio Total da Dor",
-    benefitBadge: "Protocolo suave e indolor",
+    phaseLabel: "Etapa 2 • Procedimento Confortável",
+    title: "Cirurgia Guiada com Foco no Seu Conforto",
+    benefitBadge: "Protocolo suave e humanizado",
     summary:
-      "A maior e melhor surpresa dos nossos pacientes: o procedimento é totalmente indolor. Com anestesia suave de última geração e planejamento guiado pelo computador, a instalação é rápida, delicada e você volta para casa com total tranquilidade.",
+      "O procedimento é conduzido para o seu máximo conforto e tranquilidade. Com anestesia moderna e planejamento guiado por computador, a instalação é precisa, rápida e delicada, com orientações claras para o seu bem-estar.",
     points: [
       {
-        title: "Bloqueio Completo da Dor",
+        title: "Anestesia Suave e Precisa",
         description:
-          "Tecnologia anestésica precisa que elimina a dor da agulhada e garante que você não sinta desconforto algum durante o procedimento.",
+          "Técnicas anestésicas modernas aplicadas de forma delicada, planejadas para neutralizar a sensibilidade e manter você calmo e confortável durante todo o procedimento.",
         icon: "shield",
       },
       {
@@ -126,38 +126,38 @@ const stepsData: StepData[] = [
       {
         title: "Recuperação Leve e Orientada",
         description:
-          "Medicações preventivas receitadas com antecedência para garantir um pós-operatório sereno e sem surpresas no conforto da sua casa.",
+          "Medicações preventivas receitadas com antecedência para favorecer um pós-operatório sereno e sem sustos no conforto da sua casa.",
         icon: "shield",
       },
     ],
     whatsappInquiry:
-      "Olá, Dr. Luciano. Gostaria de saber mais sobre o protocolo confortável e sem dor para colocação de implantes.",
+      "Olá, Dr. Luciano. Gostaria de saber mais sobre o protocolo guiado e os cuidados de conforto para colocação de implantes.",
   },
   {
     id: "fase-sorriso",
     stepNumber: "03",
     phaseLabel: "Etapa 3 • Seu Sorriso Fixo",
-    title: "Dentes Fixos e Mastigação 100% Recuperada",
-    benefitBadge: "Firmeza definitiva e sorriso natural",
+    title: "Dentes Fixos e Mastigação Restabelecida",
+    benefitBadge: "Firmeza, estética e liberdade",
     summary:
-      "A instalação definitiva dos dentes fixos em porcelana nobre. É o momento de recuperar a liberdade: dentes que não soltam, que não precisam de cola e que deixam o céu da boca totalmente livre para você sentir o sabor da comida.",
+      "A instalação definitiva dos dentes fixos em porcelana nobre. É o momento de reencontrar a segurança: dentes firmes que dispensam colas fixadoras e deixam o céu da boca livre para você sentir o sabor e a textura da comida.",
     points: [
       {
-        title: "Mastigação Firme de Verdade",
+        title: "Mastigação Firme e Confortável",
         description:
-          "Volte a comer carnes, castanhas e maçãs com a estabilidade e a força natural de dentes de verdade, sem machucar a gengiva.",
+          "Volte a saborear carnes, frutas e suas refeições favoritas com estabilidade mastigatória, sem machucar a gengiva.",
         icon: "freedom",
       },
       {
-        title: "Céu da Boca Totalmente Livre",
+        title: "Céu da Boca Livre no Protocolo Fixo",
         description:
-          "Fim da dentadura de resina cobrindo o palato: recupere o prazer de sentir o sabor, a textura e a temperatura real de cada refeição.",
+          "Sem a placa de resina cobrindo o palato: recupere o prazer de sentir a temperatura real e o sabor genuíno dos alimentos.",
         icon: "freedom",
       },
       {
-        title: "Estética Natural que Não Mancha",
+        title: "Estética Natural e Resistente",
         description:
-          "Dentes esculpidos com a cor e o formato ideais para o seu rosto, em cerâmica nobre que não amarela com café ou com os anos.",
+          "Dentes planejados com formato e tom harmônicos para o seu rosto, em cerâmica nobre de alta durabilidade e brilho natural.",
         icon: "freedom",
       },
     ],
@@ -328,7 +328,7 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
           <div className="lg:col-span-7 flex flex-col justify-center">
             <p className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-5 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>O que torna esta etapa 100% segura e confortável:</span>
+              <span>Cuidados de conforto e precisão planejados para você:</span>
             </p>
 
             <div className="space-y-4">
@@ -351,6 +351,10 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                 </div>
               ))}
             </div>
+
+            <p className="text-[11px] text-slate-400/80 mt-4 font-light">
+              * O tempo biológico de cicatrização, osseointegração e carga imediata varia e é avaliado individualmente pelo cirurgião-dentista em consulta.
+            </p>
           </div>
         </div>
       </div>
