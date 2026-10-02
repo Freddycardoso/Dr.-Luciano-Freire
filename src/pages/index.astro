@@ -783,34 +783,12 @@ const currentYear = new Date().getFullYear();
               if (!root) return;
 
               // Injeta estilo Dark Slate & Gold se não existir
-              let style = root.querySelector('#elfsight-dark-custom-style');
-              if (!style) {
-                style = document.createElement('style');
+              if (!root.querySelector('#elfsight-dark-custom-style')) {
+                const style = document.createElement('style');
                 style.id = 'elfsight-dark-custom-style';
+                style.textContent = darkElfsightCSS;
                 root.appendChild(style);
               }
-              style.textContent = darkElfsightCSS;
-
-              // 1. Oculta com estilo inline qualquer elemento com link do elfsight ou badge (Foto 1)
-              const badges = root.querySelectorAll('a[href*="elfsight.com"], a[href*="google-reviews-widget"], [class*="Badge"], [class*="badge"], [aria-label*="Free Google Reviews Widget"]');
-              badges.forEach(b => {
-                b.style.setProperty('display', 'none', 'important');
-                b.style.setProperty('visibility', 'hidden', 'important');
-                b.style.setProperty('opacity', '0', 'important');
-                b.style.setProperty('pointer-events', 'none', 'important');
-                b.style.setProperty('height', '0px', 'important');
-              });
-
-              // 2. Oculta com estilo inline a palavra "Reviews" preta (Foto 2)
-              const titleSpans = root.querySelectorAll('[class*="HeaderTitle"] span, [class*="es-header-title"] span, [class*="es-header-title-text"], [class*="HeaderTitle__Title"]');
-              titleSpans.forEach(span => {
-                if (span.textContent && span.textContent.toLowerCase().includes('review')) {
-                  span.style.setProperty('display', 'none', 'important');
-                  span.style.setProperty('font-size', '0px', 'important');
-                  span.style.setProperty('opacity', '0', 'important');
-                  span.style.setProperty('color', 'transparent', 'important');
-                }
-              });
 
               // Traduz botão para "Avaliar no Google"
               const buttons = root.querySelectorAll('button, a, [class*="Button"]');
@@ -845,59 +823,37 @@ const currentYear = new Date().getFullYear();
               });
             }
 
-            // 1. Intercepta attachShadow no protótipo para capturar o ShadowRoot na hora da criação
-            if (!window.__elfsightShadowHooked) {
-              window.__elfsightShadowHooked = true;
-              const origAttachShadow = Element.prototype.attachShadow;
-              Element.prototype.attachShadow = function(init) {
-                const shadow = origAttachShadow.call(this, init);
-                try {
-                  setTimeout(() => applyDarkElfsight(shadow), 10);
-                  const obs = new MutationObserver(() => applyDarkElfsight(shadow));
-                  obs.observe(shadow, { childList: true, subtree: true });
-                } catch(e) {}
-                return shadow;
-              };
-            }
-
-            // 2. Limpa badges também no DOM global caso renderizados fora do ShadowRoot
-            function cleanGlobalBadges() {
-              document.querySelectorAll('a[href*="elfsight.com"], a[href*="google-reviews-widget"], [class*="es-badge-container"], [class*="es-badge"], [class*="WidgetBadge"], [aria-label*="Free Google Reviews Widget"]').forEach(el => {
-                el.style.setProperty('display', 'none', 'important');
-                el.style.setProperty('visibility', 'hidden', 'important');
-                el.style.setProperty('opacity', '0', 'important');
-                el.style.setProperty('pointer-events', 'none', 'important');
-                el.style.setProperty('height', '0px', 'important');
-              });
-            }
-
-            // 3. Fallback de varredura recursiva
-            function scanExistingShadows() {
-              cleanGlobalBadges();
-              const container = document.querySelector('.elfsight-app-f6287144-a910-465a-a00a-2da2a0e4a02a');
-              if (!container) return;
-
-              function walk(node) {
+            // Varredura segura com throttle por requestAnimationFrame
+            const container = document.querySelector('.elfsight-app-f6287144-a910-465a-a00a-2da2a0e4a02a');
+            if (container) {
+              function scan(node) {
                 if (!node) return;
                 if (node.shadowRoot) {
                   applyDarkElfsight(node.shadowRoot);
-                  if (!node.shadowRoot.__observed) {
-                    node.shadowRoot.__observed = true;
-                    const o = new MutationObserver(() => applyDarkElfsight(node.shadowRoot));
-                    o.observe(node.shadowRoot, { childList: true, subtree: true });
-                  }
-                  Array.from(node.shadowRoot.querySelectorAll('*')).forEach(walk);
+                  Array.from(node.shadowRoot.children || []).forEach(scan);
                 }
-                Array.from(node.children || []).forEach(walk);
+                Array.from(node.children || []).forEach(scan);
               }
-              walk(container);
-            }
 
-            // Execuções periódicas de verificação e limpeza contínua
-            [100, 300, 600, 1000, 1500, 2500, 4000].forEach(delay => {
-              setTimeout(scanExistingShadows, delay);
-            });
-            setInterval(scanExistingShadows, 800);
+              let scheduled = false;
+              function scheduleScan() {
+                if (scheduled) return;
+                scheduled = true;
+                requestAnimationFrame(() => {
+                  scheduled = false;
+                  scan(container);
+                });
+              }
+
+              // Observa somente o contêiner do widget
+              const observer = new MutationObserver(scheduleScan);
+              observer.observe(container, { childList: true, subtree: true });
+
+              // Gatilhos temporizados para fases de carregamento do Elfsight
+              [150, 400, 800, 1500, 2500, 4000].forEach(delay => {
+                setTimeout(scheduleScan, delay);
+              });
+            }
           })();
         </script>
 
@@ -908,8 +864,7 @@ const currentYear = new Date().getFullYear();
           [class*="es-badge-container"],
           [class*="es-badge"],
           [class*="WidgetBadge"],
-          [aria-label*="Free Google Reviews Widget"],
-          div:has(> a[href*="elfsight.com"]) {
+          [aria-label*="Free Google Reviews Widget"] {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
