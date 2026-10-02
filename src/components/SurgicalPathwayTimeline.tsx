@@ -78,60 +78,60 @@ const stepsData: StepData[] = [
     title: "Diagnóstico Digital 3D (Sem massinha na boca)",
     benefitBadge: "Sem moldagem incômoda ou náuseas",
     summary:
-      "Mapeamento digital rápido e detalhado no próprio consultório. O Dr. Luciano planeja milimetricamente a posição exata de cada dente no computador antes de qualquer procedimento — sem aquelas moldagens antigas de massa que causam ânsia ou sufocamento.",
+      "Mapeamento digital rápido no próprio consultório. O Dr. Luciano planeja milimetricamente a posição exata de cada dente no computador antes do procedimento — sem massas que causam ânsia.",
     points: [
       {
         title: "Zero Náusea e Zero Massinha",
         description:
-          "Escaneamento digital rápido, limpo e confortável, dispensando completamente moldagens tradicionais com pasta.",
+          "Escaneamento digital rápido, limpo e confortável, dispensando moldagens antigas.",
         icon: "scan",
       },
       {
-        title: "Você Vê o Resultado Antes de Iniciar",
+        title: "Veja o Resultado Antes de Iniciar",
         description:
-          "Simulação tridimensional em tela grande da sua futura mastigação e do seu sorriso para sua total aprovação prévia.",
+          "Simulação tridimensional em tela da sua mastigação e do seu novo sorriso.",
         icon: "scan",
       },
       {
-        title: "Conversa Acolhedora e Sem Pressa",
+        title: "Conversa Calma e Acolhedora",
         description:
-          "O Dr. Luciano esclarece todas as dúvidas com calma, em linguagem clara e humana, explicando o plano mais seguro para você.",
+          "Esclarecimento de todas as dúvidas em linguagem simples e sem nenhuma pressa.",
         icon: "scan",
       },
     ],
     whatsappInquiry:
-      "Olá, Dr. Luciano. Gostaria de entender como funciona a avaliação inicial com diagnóstico 3D para o meu caso.",
+      "Olá, Dr. Luciano. Gostaria de entender como funciona a avaliação inicial com diagnóstico 3D.",
   },
   {
     id: "fase-cirurgia",
     stepNumber: "02",
     phaseLabel: "Etapa 2 • Procedimento Confortável",
-    title: "Cirurgia Guiada com Foco no Seu Conforto",
+    title: "Cirurgia Guiada e Sem Dor",
     benefitBadge: "Protocolo suave e humanizado",
     summary:
-      "O procedimento é conduzido para o seu máximo conforto e tranquilidade. Com anestesia moderna e planejamento guiado por computador, a instalação é precisa, rápida e delicada, com orientações claras para o seu bem-estar.",
+      "Procedimento rápido e delicado. Com anestesia moderna computadorizada e planejamento 3D, a instalação é precisa, tranquila e com foco total no seu bem-estar.",
     points: [
       {
-        title: "Anestesia Suave e Precisa",
+        title: "Anestesia Suave e Potente",
         description:
-          "Técnicas anestésicas modernas aplicadas de forma delicada, planejadas para neutralizar a sensibilidade e manter você calmo e confortável durante todo o procedimento.",
+          "Neutraliza completamente a sensibilidade para você ficar calmo do início ao fim.",
         icon: "shield",
       },
       {
-        title: "Ambiente Calmo, Seguro e Relaxante",
+        title: "Ambiente Calmo e Relaxante",
         description:
-          "Consultório climatizado, atendimento humanizado no seu ritmo e pausas sempre que desejar respirar.",
+          "Consultório climatizado com atendimento respeitando o seu próprio ritmo.",
         icon: "shield",
       },
       {
-        title: "Recuperação Leve e Orientada",
+        title: "Recuperação Leve em Casa",
         description:
-          "Medicações preventivas receitadas com antecedência para favorecer um pós-operatório sereno e sem sustos no conforto da sua casa.",
+          "Medicações preventivas orientadas para um pós-operatório sereno e sem dor.",
         icon: "shield",
       },
     ],
     whatsappInquiry:
-      "Olá, Dr. Luciano. Gostaria de saber mais sobre o protocolo guiado e os cuidados de conforto para colocação de implantes.",
+      "Olá, Dr. Luciano. Gostaria de saber mais sobre o protocolo confortável para colocar implantes.",
   },
   {
     id: "fase-sorriso",
@@ -140,29 +140,29 @@ const stepsData: StepData[] = [
     title: "Dentes Fixos e Mastigação Restabelecida",
     benefitBadge: "Firmeza, estética e liberdade",
     summary:
-      "A instalação definitiva dos dentes fixos em porcelana nobre. É o momento de reencontrar a segurança: dentes firmes que dispensam colas fixadoras e deixam o céu da boca livre para você sentir o sabor e a textura da comida.",
+      "Instalação definitiva dos dentes fixos em porcelana nobre. Diga adeus à dentadura solta e recupere a segurança de mastigar com força e sorrir sem medo.",
     points: [
       {
-        title: "Mastigação Firme e Confortável",
+        title: "Mastigação Firme e Poderosa",
         description:
-          "Volte a saborear carnes, frutas e suas refeições favoritas com estabilidade mastigatória, sem machucar a gengiva.",
+          "Volte a comer carnes, maçãs e suas comidas favoritas sem machucar a gengiva.",
         icon: "freedom",
       },
       {
-        title: "Céu da Boca Livre no Protocolo Fixo",
+        title: "Céu da Boca Livre",
         description:
-          "Sem a placa de resina cobrindo o palato: recupere o prazer de sentir a temperatura real e o sabor genuíno dos alimentos.",
+          "Sem placas de resina tapando o palato: sinta o sabor e a temperatura real dos alimentos.",
         icon: "freedom",
       },
       {
-        title: "Estética Natural e Resistente",
+        title: "Porcelana Pura e Duradoura",
         description:
-          "Dentes planejados com formato e tom harmônicos para o seu rosto, em cerâmica nobre de alta durabilidade e brilho natural.",
+          "Dentes harmônicos com o seu rosto, altamente resistentes que não mancham com o tempo.",
         icon: "freedom",
       },
     ],
     whatsappInquiry:
-      "Olá, Dr. Luciano. Gostaria de saber como funciona a reabilitação com dentes fixos em porcelana para o meu caso.",
+      "Olá, Dr. Luciano. Gostaria de saber como funciona a reabilitação com dentes fixos em porcelana.",
   },
 ];
 

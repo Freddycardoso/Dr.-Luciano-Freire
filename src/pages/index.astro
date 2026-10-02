@@ -11,6 +11,7 @@ import { BeamsBackground } from '../components/ui/beams-background';
 import { PatientSituationNavigator } from '../components/PatientSituationNavigator';
 import { AnatomyComparisonSlider } from '../components/AnatomyComparisonSlider';
 import { SurgicalPathwayTimeline } from '../components/SurgicalPathwayTimeline';
+import GoogleReviews from '../components/GoogleReviews.astro';
 
 const whatsappBaseUrl = "https://wa.me/5535988215162";
 const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20de%20implante%20dent%C3%A1rio`;
@@ -198,96 +199,98 @@ const currentYear = new Date().getFullYear();
        - Slider de revelação interativo com hardware acceleration
        - Dossiê editorial com linhas finas e tipografia médica de luxo
        ========================================================================= -->
-  <section id="anatomia" class="relative bg-[#080D16] py-20 lg:py-28 border-t border-b border-slate-800/80 text-white">
+  <section id="anatomia" class="relative bg-slate-50 py-20 lg:py-28 border-t border-b border-slate-200 text-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Cabeçalho Editorial Aberto (Sem caixas) -->
-      <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20" data-reveal>
-        <span class="text-xs font-semibold tracking-wider text-gold-400 uppercase">
-          Comparativo Anatômico
+      <!-- Cabeçalho Editorial -->
+      <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-3">
+          Tecnologia e Anatomia
         </span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mt-2 mb-5">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
           Tão Firme e Natural Quanto a Sua Própria Raiz
         </h2>
-        <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light max-w-2xl mx-auto">
-          Arraste o divisor central para ver como a implantodontia moderna substitui o dente perdido com perfeição — devolvendo a firmeza da mastigação sem desgastar nenhum dente saudável ao lado.
+        <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
+          Arraste o comparador para ver como o implante substitui o dente com perfeição — devolvendo a firmeza total da mastigação sem desgastar nenhum dente saudável ao lado.
         </p>
       </div>
 
       <!-- Layout Editorial em 2 Colunas: Slider Interativo + Dossiê Clínico -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
         
-        <!-- Coluna da Esquerda: Slider Interativo Deslize para Revelar -->
+        <!-- Coluna da Esquerda: Slider Interativo -->
         <div class="lg:col-span-6 flex flex-col items-center justify-center" data-reveal data-reveal-delay="100">
-          <AnatomyComparisonSlider
-            client:visible
-            naturalSrc={denteNaturalImg.src}
-            implantSrc={implanteTitanioImg.src}
-          />
-          <p class="text-[11px] text-slate-400 text-center mt-3 font-light">
+          <div class="p-2 sm:p-3 rounded-3xl bg-white border border-slate-200/90 shadow-xl w-full max-w-[440px]">
+            <AnatomyComparisonSlider
+              client:visible
+              naturalSrc={denteNaturalImg.src}
+              implantSrc={implanteTitanioImg.src}
+            />
+          </div>
+          <p class="text-xs text-slate-500 text-center mt-3 font-medium">
             Arraste para comparar: dente biológico à esquerda e implante fixo de titânio à direita.
           </p>
         </div>
 
-        <!-- Coluna da Direita: Dossiê Editorial Clínico (Zero cartões fechados) -->
+        <!-- Coluna da Direita: Dossiê Clínico Simplificado e Direto -->
         <div class="lg:col-span-6 flex flex-col justify-center" data-reveal data-reveal-delay="200">
           
-          <div class="space-y-8">
+          <div class="space-y-6">
             
-            <!-- Item 1: Coroa -->
-            <div class="pb-6 border-b border-slate-800/80">
-              <div class="flex items-baseline gap-3 mb-2">
-                <span class="font-serif text-lg font-bold text-gold-300">01</span>
-                <h3 class="font-serif text-xl font-bold text-white">
-                  Porcelana Pura que Não Mancha e Não Amarela
+            <!-- Item 1: Coroa de Porcelana -->
+            <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm card-tactile">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-8 h-8 rounded-lg bg-gold-400/20 text-gold-700 font-bold text-sm flex items-center justify-center font-serif shrink-0">01</span>
+                <h3 class="font-serif text-lg font-bold text-slate-900">
+                  Porcelana Pura: Não Mancha e Não Amarela
                 </h3>
               </div>
-              <p class="text-slate-300 text-sm leading-relaxed pl-7 font-light">
-                A coroa confeccionada sob medida pelo Dr. Luciano utiliza cerâmica nobre de altíssima qualidade. Ela reproduz a mesma cor, brilho e força do esmalte natural e, diferentemente de resinas simples, não amarela com café, vinho ou com o passar dos anos.
+              <p class="text-slate-600 text-sm leading-relaxed pl-11">
+                Confeccionada sob medida com cerâmica alemã de alta resistência. Tem o mesmo brilho e força do dente natural, sem escurecer com café ou vinho.
               </p>
             </div>
 
-            <!-- Item 2: Conexão & Ausência de Cáries -->
-            <div class="pb-6 border-b border-slate-800/80">
-              <div class="flex items-baseline gap-3 mb-2">
-                <span class="font-serif text-lg font-bold text-gold-300">02</span>
-                <h3 class="font-serif text-xl font-bold text-white">
-                  Fim da Dor de Dente e do Tratamento de Canal
+            <!-- Item 2: Fim da Dor de Dente -->
+            <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm card-tactile">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-8 h-8 rounded-lg bg-gold-400/20 text-gold-700 font-bold text-sm flex items-center justify-center font-serif shrink-0">02</span>
+                <h3 class="font-serif text-lg font-bold text-slate-900">
+                  Livre de Cáries e Sem Tratamento de Canal
                 </h3>
               </div>
-              <p class="text-slate-300 text-sm leading-relaxed pl-7 font-light">
-                O dente danificado sofre com cáries e nervos inflamados que causam dor intensa. Já o implante de titânio substitui a raiz biológica com estabilidade: é imune a cáries e problemas de canal, devolvendo conforto e segurança com os devidos cuidados de higiene.
+              <p class="text-slate-600 text-sm leading-relaxed pl-11">
+                O titânio substitui a raiz danificada com firmeza definitiva. É 100% imune a cáries, infecções no nervo e dores repentinas de dente.
               </p>
             </div>
 
-            <!-- Item 3: Estímulo Ósseo e Preservação Facial -->
-            <div class="pb-2">
-              <div class="flex items-baseline gap-3 mb-2">
-                <span class="font-serif text-lg font-bold text-gold-300">03</span>
-                <h3 class="font-serif text-xl font-bold text-white">
-                  Mastigação Firme e Preservação do Rosto
+            <!-- Item 3: Mastigação Firme -->
+            <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm card-tactile">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-8 h-8 rounded-lg bg-gold-400/20 text-gold-700 font-bold text-sm flex items-center justify-center font-serif shrink-0">03</span>
+                <h3 class="font-serif text-lg font-bold text-slate-900">
+                  Mastigação Forte e Preservação da Face
                 </h3>
               </div>
-              <p class="text-slate-300 text-sm leading-relaxed pl-7 font-light">
-                O pino de titânio passa pelo processo biológico de osseointegração. Ao mastigar, o estímulo mastigatório ajuda a preservar o osso alveolar — contribuindo para manter a sustentação dos lábios e a harmonia facial.
+              <p class="text-slate-600 text-sm leading-relaxed pl-11">
+                Integra-se ao osso da mandíbula, impedindo a perda óssea que causa o afundamento dos lábios e o envelhecimento precoce do rosto.
               </p>
             </div>
 
           </div>
 
           <!-- Ação Rápida WhatsApp -->
-          <div class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-left">
-            <span class="text-xs text-slate-400 font-light">
-              Dúvidas se o seu caso tem indicação?
+          <div class="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-left">
+            <span class="text-xs text-slate-600 font-medium">
+              Quer saber se o seu caso precisa de implante?
             </span>
             <a
-              href={`${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20tirar%20d%C3%BAvidas%20sobre%20a%20anatomia%20do%20implante.`}
+              href={`${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20tirar%20d%C3%BAvidas%20sobre%20o%20implante%20dent%C3%A1rio.`}
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-tactile inline-flex items-center gap-2 text-xs font-bold text-gold-300 hover:text-gold-200 self-start sm:self-auto"
+              class="btn-tactile inline-flex items-center gap-2 text-xs font-bold text-gold-700 hover:text-gold-800 self-start sm:self-auto group"
             >
-              <span>Perguntar ao Dr. Luciano</span>
-              <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span>Tirar Dúvida no WhatsApp</span>
+              <svg class="w-4 h-4 text-emerald-600 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
               </svg>
             </a>
@@ -386,16 +389,16 @@ const currentYear = new Date().getFullYear();
        - Bio Estruturada (E-E-A-T), 20+ anos de experiência, CRO-MG 25170
        - Sem caixas de métricas artificiais de IA ("Centro" como número)
        ========================================================================= -->
-  <section id="sobre" class="relative bg-slate-900 py-14 sm:py-20 lg:py-28 border-b border-slate-800 text-white">
+  <section id="sobre" class="relative bg-white py-16 sm:py-24 border-b border-slate-200 text-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Header Mobile: contextualiza a seção antes da foto -->
+      <!-- Header Mobile -->
       <div class="block lg:hidden text-center mb-8" data-reveal>
-        <span class="text-xs font-semibold tracking-wider text-gold-400 uppercase">
-          Trajetória e Compromisso Ético
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-2">
+          Trajetória e Compromisso
         </span>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight mt-2">
-          Diagnóstico Preciso e Atendimento Conduzido Pessoalmente
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-2">
+          Atendimento Pessoal do Início ao Fim
         </h2>
       </div>
 
@@ -404,7 +407,7 @@ const currentYear = new Date().getFullYear();
         <!-- Retrato do Dr. Luciano com Moldura de Autoridade Sóbria -->
         <div class="lg:col-span-5 flex justify-center" data-reveal data-reveal-delay="100">
           <div class="relative w-full max-w-[270px] sm:max-w-xs lg:max-w-md">
-            <div class="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl card-tactile">
+            <div class="relative rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 shadow-xl card-tactile">
               <Image
                 src={drLucianoImg}
                 alt="Dr. Luciano Alves Freire - Cirurgião-Dentista CRO-MG 25170 em Passos MG"
@@ -414,56 +417,56 @@ const currentYear = new Date().getFullYear();
                 format="webp"
                 loading="lazy"
               />
-              <div class="p-3.5 sm:p-4 bg-slate-950/95 border-t border-slate-800 text-center">
-                <p class="font-serif font-bold text-white text-base">Dr. Luciano Alves Freire</p>
-                <p class="text-xs text-gold-300">Cirurgião-Dentista • CRO-MG 25170</p>
+              <div class="p-3.5 sm:p-4 bg-white/95 border-t border-slate-200 text-center">
+                <p class="font-serif font-bold text-slate-900 text-base">Dr. Luciano Alves Freire</p>
+                <p class="text-xs text-gold-700 font-semibold">Cirurgião-Dentista • CRO-MG 25170</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Conteúdo Biográfico & E-E-A-T -->
+        <!-- Conteúdo Biográfico & E-E-A-T Simplificado -->
         <div class="lg:col-span-7 flex flex-col justify-center" data-reveal data-reveal-delay="200">
           <div class="hidden lg:block">
-            <span class="text-xs font-semibold tracking-wider text-gold-400 uppercase">
-              Trajetória e Compromisso Ético
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-3">
+              Trajetória e Compromisso
             </span>
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2 mb-6">
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-2 mb-6">
               Diagnóstico Preciso e Atendimento Conduzido Pessoalmente
             </h2>
           </div>
           
-          <div class="space-y-4 text-slate-300 text-base leading-relaxed mb-8 max-w-xl">
+          <div class="space-y-4 text-slate-600 text-base leading-relaxed mb-8 max-w-xl">
             <p>
-              Com mais de duas décadas dedicadas à odontologia em Passos e região, o <strong class="text-white font-semibold">Dr. Luciano Alves Freire (CRO-MG 25170)</strong> consolidou sua carreira com foco na precisão cirúrgica, na honestidade diagnóstica e no respeito humano a cada paciente.
+              Com mais de duas décadas de experiência em Passos e região, o <strong class="text-slate-900 font-semibold">Dr. Luciano Alves Freire (CRO-MG 25170)</strong> construiu sua trajetória com foco em um princípio básico: reabilitar dentes perdidos com segurança biológica, estética natural e respeito total ao paciente.
             </p>
             <p>
-              Aqui você é acompanhado do início ao fim pessoalmente pelo Dr. Luciano. Cada plano é estruturado com tecnologia digital 3D para proporcionar uma cirurgia precisa, confortável e próteses fixas com acabamento estético harmônico para você voltar a sorrir e mastigar com segurança.
+              Aqui você não passa por plantonistas ou clínicas rotativas. Da primeira avaliação tomográfica até a colocação da coroa final em porcelana, <strong class="text-slate-900 font-semibold">todo o seu tratamento é planejado e executado pessoalmente pelo Dr. Luciano</strong>.
             </p>
           </div>
 
-          <!-- Credenciais Autênticas (Sem métricas inventadas de IA) -->
+          <!-- Credenciais Autênticas -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 card-tactile">
-              <div class="text-gold-300 font-bold text-xl mb-1">20+ Anos</div>
-              <div class="text-xs font-semibold text-white mb-0.5">Prática Clínica</div>
-              <p class="text-[11px] text-slate-400 leading-normal">
-                Experiência contínua em reabilitação oral e implantodontia.
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm card-tactile">
+              <div class="text-gold-700 font-bold text-xl mb-1">20+ Anos</div>
+              <div class="text-xs font-bold text-slate-900 mb-0.5">Prática Clínica</div>
+              <p class="text-xs text-slate-600 leading-normal">
+                Milhares de reabilitações com foco em conforto e durabilidade.
               </p>
             </div>
             
-            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 card-tactile">
-              <div class="text-gold-300 font-bold text-xl mb-1">CRO-MG 25170</div>
-              <div class="text-xs font-semibold text-white mb-0.5">Registro Oficial</div>
-              <p class="text-[11px] text-slate-400 leading-normal">
-                Regularidade profissional junto ao Conselho Regional.
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm card-tactile">
+              <div class="text-gold-700 font-bold text-xl mb-1">CRO-MG 25170</div>
+              <div class="text-xs font-bold text-slate-900 mb-0.5">Registro Ativo</div>
+              <p class="text-xs text-slate-600 leading-normal">
+                Ética rigorosa e conformidade com o Conselho Regional.
               </p>
             </div>
 
-            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 card-tactile">
-              <div class="text-gold-300 font-bold text-xl mb-1">Passos - MG</div>
-              <div class="text-xs font-semibold text-white mb-0.5">Consultório Próprio</div>
-              <p class="text-[11px] text-slate-400 leading-normal">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm card-tactile">
+              <div class="text-gold-700 font-bold text-xl mb-1">Passos - MG</div>
+              <div class="text-xs font-bold text-slate-900 mb-0.5">Consultório Próprio</div>
+              <p class="text-xs text-slate-600 leading-normal">
                 Rua dos Brandões, 231 • Sala 24, Centro.
               </p>
             </div>
@@ -520,365 +523,9 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
 
-      <!-- Widget Oficial Dinâmico Elfsight Google Reviews com Tema Dark Luxury & Português -->
-      <div class="w-full min-h-[300px] rounded-2xl" data-reveal data-reveal-delay="100">
-        <!-- Interceptor de Shadow DOM do Elfsight (Injeta Paleta Dark Luxury & Traduz para Português) -->
-        <script is:inline>
-          (function() {
-            const darkElfsightCSS = `
-              /* ========================================================
-                 PALETA DARK LUXURY SLATE & GOLD PARA O WIDGET GOOGLE REVIEWS
-                 ======================================================== */
-              :host, * {
-                font-family: inherit !important;
-              }
-
-              /* 1. Oculta Badge Gratuito do Elfsight (item da primeira foto) */
-              a[href*="elfsight.com"],
-              a[href*="google-reviews-widget"],
-              [class*="Badge__Container"],
-              [class*="BadgeContainer"],
-              [class*="WidgetBadge"],
-              [class*="es-badge-container"],
-              [class*="es-badge"],
-              [class*="Badge"],
-              [aria-label*="Free Google Reviews Widget"],
-              [aria-label*="Google Reviews Widget"],
-              [class*="FreeGoogleReviewsWidget"] {
-                display: none !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-                pointer-events: none !important;
-                height: 0 !important;
-                width: 0 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                overflow: hidden !important;
-                position: absolute !important;
-                z-index: -9999 !important;
-              }
-
-              /* 2. Remove a palavra "Reviews" preta (item da segunda foto) */
-              [class*="es-header-title-text"],
-              [class*="HeaderTitle__Title"],
-              [class*="HeaderTitle"] span,
-              [class*="es-header-title"] span,
-              [class*="HeaderTitle__Container"] span,
-              [class*="HeaderTitleText"],
-              [class*="HeaderTitle"] > *:not(svg):not([class*="Logo"]),
-              [class*="es-header-title"] > *:not(svg):not([class*="logo"]) {
-                display: none !important;
-                visibility: hidden !important;
-                font-size: 0 !important;
-                width: 0 !important;
-                height: 0 !important;
-                line-height: 0 !important;
-                opacity: 0 !important;
-                color: transparent !important;
-              }
-
-              /* Centraliza o logo oficial do Google */
-              [class*="es-header-title"],
-              [class*="HeaderTitle__Container"],
-              [class*="HeaderTitle"] {
-                display: flex !important;
-                justify-content: center !important;
-                align-items: center !important;
-              }
-
-              /* Cabeçalho do Widget (Google Reviews 5.0) */
-              [class*="HeaderContainer__Inner"],
-              [class*="Header__HeaderContainer"],
-              [class*="HeaderStyle"] {
-                background-color: #0f172a !important; /* slate-900 */
-                border: 1px solid #1e293b !important; /* slate-800 */
-                border-radius: 1.25rem !important;
-                box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7) !important;
-                color: #ffffff !important;
-              }
-
-              /* Textos de Nota e Avaliação do Cabeçalho */
-              [class*="HeaderRating__Rating"],
-              [class*="HeaderRatingText__RatingValue"],
-              [class*="RatingNumber"],
-              [class*="RatingValue"],
-              [class*="HeaderRatingText"],
-              [class*="HeaderTextWithSource__Text"],
-              [class*="TotalScore"] {
-                color: #ffffff !important;
-                fill: #ffffff !important;
-              }
-
-              [class*="HeaderTextWithSource"] span,
-              [class*="HeaderTextWithSource"] text {
-                color: #ffffff !important;
-                fill: #ffffff !important;
-              }
-
-              [class*="HeaderRating__ReviewsCount"],
-              [class*="TotalReviews"] {
-                color: #94a3b8 !important; /* slate-400 */
-              }
-
-              /* Botão de Avaliar: Dourado com texto em Português */
-              [class*="HeaderWriteReviewButton"],
-              [class*="ButtonBase__ButtonContainer"],
-              [class*="WriteReviewButton"],
-              [class*="WriteReviewButton__Component"] {
-                background: linear-gradient(135deg, #C5A880 0%, #D4AF37 100%) !important;
-                color: #090E17 !important;
-                border: 1px solid rgba(212, 175, 55, 0.6) !important;
-                border-radius: 0.75rem !important;
-                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25) !important;
-                font-weight: 700 !important;
-                letter-spacing: 0.02em !important;
-                transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-                font-size: 0 !important;
-                padding: 0.65rem 1.25rem !important;
-                cursor: pointer !important;
-              }
-
-              [class*="HeaderWriteReviewButton"]::after,
-              [class*="ButtonBase__ButtonContainer"]::after,
-              [class*="WriteReviewButton"]::after,
-              [class*="WriteReviewButton__Component"]::after {
-                content: "Avaliar no Google" !important;
-                font-size: 0.8125rem !important;
-                font-weight: 700 !important;
-                color: #090E17 !important;
-                display: inline-block !important;
-              }
-
-              [class*="HeaderWriteReviewButton"]:hover,
-              [class*="ButtonBase__ButtonContainer"]:hover,
-              [class*="WriteReviewButton"]:hover {
-                background: #E6D7BE !important;
-                box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45) !important;
-                transform: translateY(-1px) !important;
-              }
-
-              /* Cards de Avaliação em Dark Slate com Borda Sutil */
-              [class*="ReviewBackground__Container"],
-              [class*="ReviewContainer__Inner"],
-              [class*="Review__ReviewContainer"],
-              [class*="ReviewComponent__ReviewContainer"] {
-                background-color: #0f172a !important; /* slate-900 */
-                border: 1px solid #1e293b !important; /* slate-800 */
-                border-radius: 1.25rem !important;
-                box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6) !important;
-                color: #cbd5e1 !important; /* slate-300 */
-                transition: transform 0.2s ease, border-color 0.2s ease !important;
-              }
-
-              [class*="ReviewBackground__Container"]:hover,
-              [class*="ReviewContainer__Inner"]:hover,
-              [class*="Review__ReviewContainer"]:hover {
-                border-color: rgba(197, 168, 128, 0.45) !important;
-                transform: translateY(-2px) !important;
-              }
-
-              /* Nome do Autor da Avaliação */
-              [class*="ReviewAuthorName"],
-              [class*="AuthorName"] {
-                color: #ffffff !important;
-                font-weight: 700 !important;
-              }
-
-              /* Data da Avaliação */
-              [class*="ReviewAuthorBlock__Date"],
-              [class*="ReviewDate"],
-              [class*="ReviewInfo__SourceDate"] {
-                color: #94a3b8 !important; /* slate-400 */
-                font-size: 0.75rem !important;
-              }
-
-              /* Texto do Depoimento */
-              [class*="ReviewText"],
-              [class*="ReviewBody"] {
-                color: #cbd5e1 !important;
-                line-height: 1.6 !important;
-              }
-
-              /* Botão "Read more" / "Ler mais" */
-              [class*="ReviewTextShortener"],
-              [class*="TextShortener"],
-              [class*="es-text-shortener-control"] {
-                color: #C5A880 !important; /* gold-400 */
-                font-weight: 600 !important;
-                cursor: pointer !important;
-              }
-
-              [class*="ReviewTextShortener"]:hover,
-              [class*="TextShortener"]:hover {
-                color: #FAF6EE !important;
-                text-decoration: underline !important;
-              }
-
-              /* Setas de Navegação do Carrossel */
-              [class*="CarouselArrowControlContainer"],
-              [class*="CarouselArrow"],
-              [class*="ArrowControl"],
-              [class*="ArrowButton"],
-              [class*="Arrow__Component"],
-              [class*="NavigationArrow"],
-              [class*="es-carousel-arrow"],
-              button[aria-label*="Next"],
-              button[aria-label*="Previous"],
-              [class*="CarouselArrowControl"] {
-                background-color: #0f172a !important;
-                border: 1px solid #334155 !important;
-                color: #C5A880 !important;
-                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7) !important;
-                border-radius: 9999px !important;
-                width: 38px !important;
-                height: 38px !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                transition: all 0.2s ease !important;
-              }
-
-              [class*="CarouselArrowControlContainer"] svg,
-              [class*="CarouselArrow"] svg,
-              [class*="ArrowControl"] svg,
-              [class*="ArrowButton"] svg,
-              [class*="Arrow__Component"] svg,
-              button[aria-label*="Next"] svg,
-              button[aria-label*="Previous"] svg {
-                fill: #C5A880 !important;
-                color: #C5A880 !important;
-              }
-
-              [class*="CarouselArrowControlContainer"][disabled],
-              [class*="CarouselArrowControlContainer"][class*="disabled"],
-              [class*="CarouselArrowControlContainer"]:has([disabled]),
-              button[aria-label*="Previous"][disabled],
-              button[aria-label*="Next"][disabled] {
-                opacity: 0 !important;
-                pointer-events: none !important;
-              }
-
-              [class*="CarouselArrowControlContainer"]:hover,
-              [class*="CarouselArrow"]:hover,
-              [class*="ArrowControl"]:hover,
-              [class*="ArrowButton"]:hover {
-                background-color: #1e293b !important;
-                border-color: #D4AF37 !important;
-                color: #FAF6EE !important;
-              }
-
-              /* Indicadores (Dots) */
-              [class*="Carousel__Dot"],
-              [class*="CarouselDots"] button {
-                background-color: #334155 !important;
-              }
-
-              [class*="Carousel__Dot"][class*="active"],
-              [class*="CarouselDots"] [class*="active"] {
-                background-color: #D4AF37 !important;
-              }
-            `;
-
-            function applyDarkElfsight(root) {
-              if (!root) return;
-
-              // Injeta estilo Dark Slate & Gold se não existir
-              if (!root.querySelector('#elfsight-dark-custom-style')) {
-                const style = document.createElement('style');
-                style.id = 'elfsight-dark-custom-style';
-                style.textContent = darkElfsightCSS;
-                root.appendChild(style);
-              }
-
-              // Traduz botão para "Avaliar no Google"
-              const buttons = root.querySelectorAll('button, a, [class*="Button"]');
-              buttons.forEach(btn => {
-                if (btn.textContent && btn.textContent.toLowerCase().includes('review us')) {
-                  btn.textContent = 'Avaliar no Google';
-                }
-              });
-
-              // Traduz "Read more" / "Read less"
-              const readMores = root.querySelectorAll('[class*="Shortener"], [class*="read-more"], button');
-              readMores.forEach(el => {
-                if (el.textContent === 'Read more') el.textContent = 'Ler mais';
-                if (el.textContent === 'Read less') el.textContent = 'Ler menos';
-              });
-
-              // Traduz datas relativas
-              const dates = root.querySelectorAll('[class*="Date"], [class*="date"]');
-              dates.forEach(el => {
-                let t = el.textContent || '';
-                if (t.includes('ago') || t.includes('yesterday')) {
-                  t = t.replace(/(\d+)\s+days?\s+ago/gi, '$1 dias atrás')
-                       .replace(/(\d+)\s+weeks?\s+ago/gi, '$1 semanas atrás')
-                       .replace(/(\d+)\s+months?\s+ago/gi, '$1 meses atrás')
-                       .replace(/(\d+)\s+years?\s+ago/gi, '$1 anos atrás')
-                       .replace(/a\s+year\s+ago/gi, '1 ano atrás')
-                       .replace(/a\s+month\s+ago/gi, '1 mês atrás')
-                       .replace(/a\s+week\s+ago/gi, '1 semana atrás')
-                       .replace(/yesterday/gi, 'ontem');
-                  el.textContent = t;
-                }
-              });
-            }
-
-            // Varredura segura com throttle por requestAnimationFrame
-            const container = document.querySelector('.elfsight-app-f6287144-a910-465a-a00a-2da2a0e4a02a');
-            if (container) {
-              function scan(node) {
-                if (!node) return;
-                if (node.shadowRoot) {
-                  applyDarkElfsight(node.shadowRoot);
-                  Array.from(node.shadowRoot.children || []).forEach(scan);
-                }
-                Array.from(node.children || []).forEach(scan);
-              }
-
-              let scheduled = false;
-              function scheduleScan() {
-                if (scheduled) return;
-                scheduled = true;
-                requestAnimationFrame(() => {
-                  scheduled = false;
-                  scan(container);
-                });
-              }
-
-              // Observa somente o contêiner do widget
-              const observer = new MutationObserver(scheduleScan);
-              observer.observe(container, { childList: true, subtree: true });
-
-              // Gatilhos temporizados para fases de carregamento do Elfsight
-              [150, 400, 800, 1500, 2500, 4000].forEach(delay => {
-                setTimeout(scheduleScan, delay);
-              });
-            }
-          })();
-        </script>
-
-        <style is:global>
-          /* Remove badge Free Google Reviews Widget caso injetado no DOM global */
-          a[href*="elfsight.com"],
-          a[href*="google-reviews-widget"],
-          [class*="es-badge-container"],
-          [class*="es-badge"],
-          [class*="WidgetBadge"],
-          [aria-label*="Free Google Reviews Widget"] {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
-            height: 0 !important;
-            width: 0 !important;
-            position: absolute !important;
-            z-index: -9999 !important;
-          }
-        </style>
-
-        <!-- Script Oficial Elfsight -->
-        <script src="https://elfsightcdn.com/platform.js" async is:inline></script>
-        <div class="elfsight-app-f6287144-a910-465a-a00a-2da2a0e4a02a" data-elfsight-app-lazy></div>
+      <!-- Avaliações Oficiais do Google (Componente Nativo Dark Luxury) -->
+      <div class="w-full" data-reveal data-reveal-delay="100">
+        <GoogleReviews />
       </div>
 
       <!-- Botão Ação Direta Perfil do Google -->
@@ -907,19 +554,19 @@ const currentYear = new Date().getFullYear();
        - Construído com tags nativas <details> e <summary> (Zero-JS)
        - Transições específicas e discretas
        ========================================================================= -->
-  <section id="faq" class="relative bg-slate-900 py-20 lg:py-28 border-b border-slate-800 text-white">
+  <section id="faq" class="relative bg-slate-50 py-20 lg:py-28 border-b border-slate-200 text-slate-900">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Cabeçalho -->
       <div class="text-center mb-14" data-reveal>
-        <span class="text-xs font-semibold tracking-wider text-gold-400 uppercase">
-          Esclarecimentos Clínicos
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-3">
+          Tire Suas Dúvidas
         </span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2 mb-4">
-          Dúvidas Frequentes sobre Implantes
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-2 mb-4">
+          Perguntas Frequentes sobre Implantes
         </h2>
-        <p class="text-slate-300 text-base leading-relaxed max-w-xl mx-auto">
-          Respostas transparentes para você tomar sua decisão com total tranquilidade.
+        <p class="text-slate-600 text-base leading-relaxed max-w-xl mx-auto">
+          Respostas diretas e transparentes para você tomar sua decisão com total tranquilidade.
         </p>
       </div>
 
@@ -927,87 +574,87 @@ const currentYear = new Date().getFullYear();
       <div class="space-y-4">
         
         <!-- Pergunta 1 -->
-        <details class="group rounded-xl bg-slate-950 border border-slate-800 transition-colors duration-150 overflow-hidden" open data-reveal data-reveal-delay="75">
+        <details class="group rounded-2xl bg-white border border-slate-200 shadow-sm transition-all duration-150 overflow-hidden" open data-reveal data-reveal-delay="75">
           <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer select-none">
-            <h3 class="font-serif font-semibold text-base sm:text-lg text-white group-hover:text-gold-200 transition-colors duration-150 pr-4">
+            <h3 class="font-serif font-bold text-base sm:text-lg text-slate-900 group-hover:text-gold-700 transition-colors duration-150 pr-4">
               Colocar implante dentário dói?
             </h3>
-            <span class="w-7 h-7 rounded-full bg-slate-900 text-gold-300 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
+            <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 group-hover:text-gold-700 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </span>
           </summary>
-          <div class="px-5 sm:px-6 pb-6 pt-1 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60">
-            O procedimento de implante é realizado com modernas técnicas de anestesia local odontológica para neutralizar a sensibilidade e priorizar o conforto durante todo o atendimento. No pós-operatório, medicações preventivas orientadas pelo Dr. Luciano ajudam a controlar qualquer incômodo, favorecendo uma recuperação serena.
+          <div class="px-5 sm:px-6 pb-6 pt-2 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100">
+            <strong>Não.</strong> O procedimento é realizado com anestesia odontológica moderna de alta precisão — você não sente nenhuma dor durante a cirurgia. O pós-operatório é calmo e controlado com medicamentos prescritos pelo Dr. Luciano.
           </div>
         </details>
 
         <!-- Pergunta 2 -->
-        <details class="group rounded-xl bg-slate-950 border border-slate-800 transition-colors duration-150 overflow-hidden" data-reveal data-reveal-delay="150">
+        <details class="group rounded-2xl bg-white border border-slate-200 shadow-sm transition-all duration-150 overflow-hidden" data-reveal data-reveal-delay="150">
           <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer select-none">
-            <h3 class="font-serif font-semibold text-base sm:text-lg text-white group-hover:text-gold-200 transition-colors duration-150 pr-4">
-              Quanto tempo dura a osseointegração do implante?
+            <h3 class="font-serif font-bold text-base sm:text-lg text-slate-900 group-hover:text-gold-700 transition-colors duration-150 pr-4">
+              Quanto tempo demora para os dentes ficarem prontos?
             </h3>
-            <span class="w-7 h-7 rounded-full bg-slate-900 text-gold-300 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
+            <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 group-hover:text-gold-700 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </span>
           </summary>
-          <div class="px-5 sm:px-6 pb-6 pt-1 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60">
-            A fase de osseointegração leva em média de 3 a 6 meses para que o titânio se una solidamente à matriz óssea. Em casos selecionados de carga imediata, a coroa provisória pode ser instalada com rapidez. A coroa final em porcelana é confeccionada sob medida com cerâmica nobre de alta durabilidade e acabamento natural.
+          <div class="px-5 sm:px-6 pb-6 pt-2 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100">
+            Em casos de carga imediata, você já pode sair com dentes fixos provisórios no mesmo dia ou em poucos dias. Em casos convencionais, o osso leva em média de 3 a 4 meses para cicatrizar com firmeza total antes de receber a porcelana definitiva.
           </div>
         </details>
 
         <!-- Pergunta 3 -->
-        <details class="group rounded-xl bg-slate-950 border border-slate-800 transition-colors duration-150 overflow-hidden" data-reveal data-reveal-delay="225">
+        <details class="group rounded-2xl bg-white border border-slate-200 shadow-sm transition-all duration-150 overflow-hidden" data-reveal data-reveal-delay="225">
           <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer select-none">
-            <h3 class="font-serif font-semibold text-base sm:text-lg text-white group-hover:text-gold-200 transition-colors duration-150 pr-4">
-              Quem usa dentadura móvel pode fazer implante?
+            <h3 class="font-serif font-bold text-base sm:text-lg text-slate-900 group-hover:text-gold-700 transition-colors duration-150 pr-4">
+              Quem usa dentadura móvel pode colocar dentes fixos?
             </h3>
-            <span class="w-7 h-7 rounded-full bg-slate-900 text-gold-300 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
+            <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 group-hover:text-gold-700 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </span>
           </summary>
-          <div class="px-5 sm:px-6 pb-6 pt-1 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60">
-            Sim! A reabilitação através da prótese protocolo fixa substitui completamente a dentadura móvel. Com implantes bem distribuídos, a arcada de dentes fixos adquire alta estabilidade e firmeza, permitindo mastigar carnes e alimentos consistentes com segurança e sem a placa no céu da boca.
+          <div class="px-5 sm:px-6 pb-6 pt-2 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100">
+            <strong>Sim!</strong> A prótese fixa sobre implantes (protocolo) elimina para sempre a dentadura solta. Você ganha uma arcada fixa, sem resina cobrindo o céu da boca, com força total para mastigar qualquer alimento com segurança.
           </div>
         </details>
 
         <!-- Pergunta 4 -->
-        <details class="group rounded-xl bg-slate-950 border border-slate-800 transition-colors duration-150 overflow-hidden" data-reveal data-reveal-delay="300">
+        <details class="group rounded-2xl bg-white border border-slate-200 shadow-sm transition-all duration-150 overflow-hidden" data-reveal data-reveal-delay="300">
           <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer select-none">
-            <h3 class="font-serif font-semibold text-base sm:text-lg text-white group-hover:text-gold-200 transition-colors duration-150 pr-4">
-              Quem perdeu dentes há muitos anos ainda tem osso suficiente?
+            <h3 class="font-serif font-bold text-base sm:text-lg text-slate-900 group-hover:text-gold-700 transition-colors duration-150 pr-4">
+              Perdi dentes há muitos anos. Ainda tenho osso para implante?
             </h3>
-            <span class="w-7 h-7 rounded-full bg-slate-900 text-gold-300 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
+            <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 group-hover:text-gold-700 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </span>
           </summary>
-          <div class="px-5 sm:px-6 pb-6 pt-1 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60">
-            Na grande maioria dos casos, sim. Mesmo com reabsorção óssea, técnicas cirúrgicas modernas e materiais de enxerto ósseo permitem reabilitar pacientes que perderam dentes há décadas. Uma tomografia prévia no consultório em Passos esclarece o volume ósseo exato.
+          <div class="px-5 sm:px-6 pb-6 pt-2 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100">
+            Na grande maioria das vezes, <strong>sim</strong>. Mesmo com reabsorção após anos sem dente, técnicas modernas e enxertos ósseos simples permitem restabelecer a base necessária. A tomografia digital no consultório mostra com precisão milimétrica a condição do seu osso.
           </div>
         </details>
 
         <!-- Pergunta 5 -->
-        <details class="group rounded-xl bg-slate-950 border border-slate-800 transition-colors duration-150 overflow-hidden" data-reveal data-reveal-delay="375">
+        <details class="group rounded-2xl bg-white border border-slate-200 shadow-sm transition-all duration-150 overflow-hidden" data-reveal data-reveal-delay="375">
           <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer select-none">
-            <h3 class="font-serif font-semibold text-base sm:text-lg text-white group-hover:text-gold-200 transition-colors duration-150 pr-4">
-              Onde fica o consultório em Passos?
+            <h3 class="font-serif font-bold text-base sm:text-lg text-slate-900 group-hover:text-gold-700 transition-colors duration-150 pr-4">
+              Como agendar minha primeira avaliação?
             </h3>
-            <span class="w-7 h-7 rounded-full bg-slate-900 text-gold-300 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
+            <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 group-hover:text-gold-700 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200 ease-out">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </span>
           </summary>
-          <div class="px-5 sm:px-6 pb-6 pt-1 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60">
-            O consultório está localizado na Rua dos Brandões, 231, Sala 24 – Centro, Passos - MG (CEP 37900-104), com fácil estacionamento e proximidade com a praça central.
+          <div class="px-5 sm:px-6 pb-6 pt-2 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100">
+            Basta tocar em qualquer botão de WhatsApp deste site para falar diretamente com nossa equipe. Estamos no Centro de Passos, na <strong>Rua dos Brandões, 231 (Sala 24)</strong>, com acesso rápido e estacionamento fácil.
           </div>
         </details>
 
