@@ -317,7 +317,7 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
                   className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/70"
                 >
                   <svg className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
                     {highlight}
