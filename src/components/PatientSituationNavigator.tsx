@@ -5,6 +5,7 @@ import React, { useState } from "react";
 interface Situation {
   id: string;
   tabLabel: string;
+  mobileTabLabel: string;
   iconType: "tooth" | "lock" | "shield" | "sparkle";
   badge: string;
   title: string;
@@ -90,6 +91,7 @@ const situations: Situation[] = [
   {
     id: "perda-unitaria",
     tabLabel: "Perdi 1 ou poucos dentes",
+    mobileTabLabel: "Perdi 1 ou poucos dentes",
     iconType: "tooth",
     badge: "Implante Unitário ou Múltiplo",
     title: "Dente fixo e firme sem desgastar os dentes saudáveis vizinhos",
@@ -110,6 +112,7 @@ const situations: Situation[] = [
   {
     id: "protese-protocolo",
     tabLabel: "Uso dentadura ou perdi todos os dentes",
+    mobileTabLabel: "Uso dentadura / prótese",
     iconType: "lock",
     badge: "Prótese Protocolo Fixo (Sem Dentadura Móvel)",
     title: "Diga adeus à cola, à dentadura solta e ao céu da boca tapado de resina",
@@ -130,6 +133,7 @@ const situations: Situation[] = [
   {
     id: "pouco-osso",
     tabLabel: "Disseram que tenho pouco osso",
+    mobileTabLabel: "Tenho pouco osso",
     iconType: "shield",
     badge: "Diagnóstico 3D e Técnicas Avançadas",
     title: "Pouco osso não impede você de voltar a ter dentes fixos e firmes",
@@ -150,6 +154,7 @@ const situations: Situation[] = [
   {
     id: "estetica-alinhamento",
     tabLabel: "Quero alinhar ou clarear meu sorriso",
+    mobileTabLabel: "Estética e alinhamento",
     iconType: "sparkle",
     badge: "Ortodontia e Lentes em Porcelana",
     title: "Harmonia do sorriso, cor natural e mordida confortável",
@@ -181,17 +186,57 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
 
   return (
     <div className="w-full">
-      {/* Botões das Situações (Abas Horizontais com Scroll Suave no Mobile) */}
+      {/* =========================================================================
+          BOTÕES DAS SITUAÇÕES CLÍNICAS (RESPONSIVO)
+          No Mobile: Grade 2x2 compacta - todas as 4 situações visíveis a 1 toque!
+          No Desktop: Linha horizontal fluida e elegante.
+          ========================================================================= */}
+      {/* Versão Mobile (< md): Grid 2x2 onde todas as 4 dores ficam 100% visíveis sem rolagem oculta */}
       <div
         role="tablist"
         aria-label="Selecione sua situação clínica"
-        className="flex items-center gap-2.5 sm:gap-3 overflow-x-auto pb-4 pt-1 px-1 scrollbar-none snap-x"
+        className="grid grid-cols-2 gap-2 md:hidden mb-4"
       >
         {situations.map((item) => {
           const isActive = item.id === activeTab;
           return (
             <button
-              key={item.id}
+              key={`m-${item.id}`}
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`panel-${item.id}`}
+              onClick={() => setActiveTab(item.id)}
+              className={`btn-tactile group flex items-center gap-2 p-3 rounded-xl text-xs font-semibold transition-all duration-200 border cursor-pointer select-none text-left min-h-[56px] ${
+                isActive
+                  ? "bg-slate-900 text-white border-gold-400 shadow-[0_0_16px_rgba(197,168,128,0.25)] ring-1 ring-gold-400/50"
+                  : "bg-slate-950/80 text-slate-400 border-slate-800/90 hover:text-slate-200 hover:border-slate-700"
+              }`}
+            >
+              <div className="shrink-0 mt-0.5">
+                {renderSituationIcon(item.iconType, isActive)}
+              </div>
+              <span className="leading-tight flex-1">
+                {item.mobileTabLabel}
+              </span>
+              {isActive && (
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+              )}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Versão Desktop (>= md): Abas Horizontais com Scroll Suave */}
+      <div
+        role="tablist"
+        aria-label="Selecione sua situação clínica"
+        className="hidden md:flex items-center gap-2.5 sm:gap-3 overflow-x-auto pb-4 pt-1 px-1 scrollbar-none snap-x"
+      >
+        {situations.map((item) => {
+          const isActive = item.id === activeTab;
+          return (
+            <button
+              key={`d-${item.id}`}
               role="tab"
               aria-selected={isActive}
               aria-controls={`panel-${item.id}`}
