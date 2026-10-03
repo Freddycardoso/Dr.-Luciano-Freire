@@ -94,11 +94,11 @@ const situations: Situation[] = [
     mobileTabLabel: "Perdi 1 ou poucos dentes",
     iconType: "tooth",
     badge: "Implante Unitário ou Múltiplo",
-    title: "Dente fixo, firme e idêntico ao natural — sem desgastar dentes vizinhos",
+    title: "Recupere o dente fixo sem desgastar os dentes saudáveis ao lado.",
     painPoint:
       "A vergonha de sorrir em público e a dificuldade de mastigar do lado onde falta o dente.",
     solution:
-      "Instalamos uma raiz fixa de titânio e uma coroa sob medida em porcelana pura. Você recupera a mastigação firme e a estética natural sem precisar desgastar nenhum dente saudável ao lado.",
+      "Um implante discreto e com a mesma firmeza da sua mastigação original, idêntico aos dentes naturais.",
     highlights: [
       "Aspecto natural e idêntico ao dente biológico",
       "Preserva 100% os dentes saudáveis vizinhos",
@@ -115,11 +115,11 @@ const situations: Situation[] = [
     mobileTabLabel: "Uso dentadura / prótese",
     iconType: "lock",
     badge: "Prótese Protocolo Fixo (Sem Dentadura Móvel)",
-    title: "Diga adeus à cola, à dentadura solta e ao céu da boca tapado de resina",
+    title: "Diga adeus à prótese que solta ou machuca a gengiva.",
     painPoint:
       "O medo da dentadura sair do lugar ao rir ou comer, e a perda do sabor da comida por ter o céu da boca coberto.",
     solution:
-      "Substituímos a dentadura móvel por uma arcada fixa parafusada sobre implantes. O céu da boca fica 100% livre para sentir o sabor e a temperatura dos alimentos, e os dentes nunca mais saem do lugar.",
+      "Tenha dentes 100% fixos sobre implantes. Volte a mastigar carnes e maçãs sem receio de deslocamentos.",
     highlights: [
       "Fim definitivo do uso de colas e fixadores",
       "Céu da boca livre para sentir o sabor dos alimentos",
@@ -136,11 +136,11 @@ const situations: Situation[] = [
     mobileTabLabel: "Tenho pouco osso",
     iconType: "shield",
     badge: "Diagnóstico 3D e Técnicas Avançadas",
-    title: "Pouco osso não impede você de voltar a ter dentes fixos e firmes",
+    title: "Mesmo com perda óssea, o implante é totalmente viável.",
     painPoint:
       "A frustração de ter ouvido no passado que seu caso 'não tinha osso suficiente' para fazer implante.",
     solution:
-      "Com planejamento tomográfico 3D no próprio consultório, encontramos áreas nobres de ancoragem óssea. Técnicas modernas resolvem a grande maioria dos casos com segurança e sem cirurgias hospitalares pesadas.",
+      "Com planejamento digital e técnicas modernas, avaliamos a melhor abordagem para o seu caso com total segurança.",
     highlights: [
       "Tomografia 3D detalhada no próprio consultório",
       "Técnicas modernas que evitam enxertos complexos",
@@ -157,11 +157,11 @@ const situations: Situation[] = [
     mobileTabLabel: "Estética e alinhamento",
     iconType: "sparkle",
     badge: "Ortodontia e Lentes em Porcelana",
-    title: "Harmonia do sorriso, dentes brancos e mordida confortável",
+    title: "Harmonia completa para sorrir sem constrangimento.",
     painPoint:
       "O incômodo com dentes manchados, escurecidos, desalinhados ou desgastados pelo tempo.",
     solution:
-      "Harmonizamos seu sorriso com facetas e lentes ultrafinas em porcelana nobre ou alinhamento moderno. Reproduzimos a cor ideal com aspecto natural e durabilidade de muitos anos.",
+      "Correções precisas de formato, cor e alinhamento para valorizar o desenho natural do seu rosto.",
     highlights: [
       "Porcelana nobre pura que não mancha e não amarela",
       "Design do sorriso planejado e aprovado com você",
