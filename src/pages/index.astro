@@ -19,7 +19,7 @@ const currentYear = new Date().getFullYear();
 
 <Layout>
   <!-- HEADER -->
-  <header class="sticky top-0 z-40 bg-slate-950/92 backdrop-blur-lg border-b border-slate-800/60 transition-colors duration-150">
+  <header class="sticky top-0 z-40 bg-slate-950 border-b border-slate-800/60 transition-colors duration-150">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 lg:h-[4.5rem]">
         <a href="#" class="group flex items-center focus:outline-none focus:ring-2 focus:ring-gold-400 rounded-lg btn-tactile py-1" aria-label="Dr. Luciano Alves Freire - Início">
@@ -95,10 +95,10 @@ const currentYear = new Date().getFullYear();
             </div>
           </div>
           <h1 class="hero-entrance-2 font-sans text-3xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.18] mb-4 max-w-2xl">
-            A arte e a precisão de voltar a sorrir com <span class="text-gold-300 font-extrabold">dentes fixos e segurança</span>.
+            Dentes fixos e definitivos. Volte a mastigar e a sorrir sem medo.
           </h1>
           <p class="hero-entrance-3 text-base sm:text-lg text-slate-200 leading-relaxed mb-8 max-w-xl font-normal">
-            Recupere a firmeza da sua mastigação com implantes de alta precisão, conforto e atendimento conduzido pessoalmente pelo <strong class="text-white font-bold">Dr. Luciano Freire, CRO-MG 25170</strong>.
+            Recupere a firmeza da sua mastigação com implantes de alta precisão, conforto e atendimento conduzido pessoalmente pelo <strong class="text-white font-bold">Dr. Luciano Freire</strong>.
           </p>
           <div class="hero-entrance-4 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10 lg:mb-4">
             <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-tactile btn-shimmer inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold text-base shadow-[0_4px_24px_rgba(37,211,102,0.28)] w-full transition-colors">
@@ -139,59 +139,55 @@ const currentYear = new Date().getFullYear();
     </div>
   </section>
 
-  <!-- 3. COMPARADOR -->
-  <section id="comparador" class="relative bg-slate-50 py-20 lg:py-28 border-b border-slate-200 text-slate-900">
+  <!-- 3. COMPARADOR & BENEFICIOS -->
+  <section id="comparador" class="relative bg-slate-950 py-20 lg:py-28 border-b border-slate-800 text-slate-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-400 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-3">
           Tecnologia e Anatomia
         </span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
           Tão Firme e Natural Quanto a Sua Própria Raiz
         </h2>
-        <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
+        <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
           Arraste o comparador para ver como o implante substitui o dente com perfeição — devolvendo a firmeza total da mastigação sem desgastar nenhum dente saudável ao lado.
         </p>
       </div>
-      <div class="flex flex-col items-center justify-center" data-reveal data-reveal-delay="100">
-        <div class="p-2 sm:p-3 rounded-3xl bg-white border border-slate-200/90 shadow-xl w-full max-w-[440px]">
+      <div class="flex flex-col items-center justify-center mb-20" data-reveal data-reveal-delay="100">
+        <div class="p-2 sm:p-3 rounded-3xl bg-slate-900 border border-slate-800/80 shadow-2xl w-full max-w-[440px]">
           <AnatomyComparisonSlider client:visible naturalSrc={denteNaturalImg.src} implantSrc={implanteTitanioImg.src} />
         </div>
         <p class="text-xs text-slate-500 text-center mt-3 font-medium">
           Arraste para comparar: dente biológico à esquerda e implante fixo de titânio à direita.
         </p>
-        <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 text-gold-700 hover:text-gold-800 text-sm font-bold transition-colors flex items-center gap-1 group">
+        <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 text-gold-400 hover:text-gold-300 text-sm font-bold transition-colors flex items-center gap-1 group">
           Quero avaliar meu caso no WhatsApp <span class="group-hover:translate-x-1 transition-transform">→</span>
         </a>
       </div>
-    </div>
-  </section>
 
-  <!-- 4. BENEFICIOS -->
-  <section id="beneficios" class="relative bg-white py-20 lg:py-28 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto" data-reveal data-reveal-delay="100">
+      <!-- CARDS FUSION -->
+      <div class="max-w-4xl mx-auto" data-reveal data-reveal-delay="200">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm card-tactile">
+          <div class="p-6 rounded-2xl bg-slate-800/40 backdrop-blur-md border border-white/10 shadow-sm card-tactile group">
             <div class="flex items-center gap-3 mb-4">
-              <span class="w-8 h-8 rounded-lg bg-gold-400/20 text-gold-700 font-bold text-sm flex items-center justify-center font-serif shrink-0">01</span>
-              <h3 class="font-serif text-lg font-bold text-slate-900">Sorria sem esconder a boca</h3>
+              <span class="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-200/90 font-bold text-sm flex items-center justify-center font-serif shrink-0 border border-gold-400/20">01</span>
+              <h3 class="font-serif text-lg font-bold text-white">Sorria sem esconder a boca</h3>
             </div>
-            <p class="text-slate-600 text-sm leading-relaxed">Acabamento em porcelana que não amarela nem mancha com café ou vinho. O mesmo brilho e textura do esmalte natural.</p>
+            <p class="text-slate-300 text-sm leading-relaxed">Acabamento em porcelana que não amarela nem mancha com café ou vinho. O mesmo brilho e textura do esmalte natural.</p>
           </div>
-          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm card-tactile">
+          <div class="p-6 rounded-2xl bg-slate-800/40 backdrop-blur-md border border-white/10 shadow-sm card-tactile group">
             <div class="flex items-center gap-3 mb-4">
-              <span class="w-8 h-8 rounded-lg bg-gold-400/20 text-gold-700 font-bold text-sm flex items-center justify-center font-serif shrink-0">02</span>
-              <h3 class="font-serif text-lg font-bold text-slate-900">Mastigue sem medo de quebrar</h3>
+              <span class="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-200/90 font-bold text-sm flex items-center justify-center font-serif shrink-0 border border-gold-400/20">02</span>
+              <h3 class="font-serif text-lg font-bold text-white">Mastigue sem medo de quebrar</h3>
             </div>
-            <p class="text-slate-600 text-sm leading-relaxed">A base de titânio devolve a força necessária para mastigar alimentos firmes. Firmeza definitiva para o seu dia a dia.</p>
+            <p class="text-slate-300 text-sm leading-relaxed">A base de titânio devolve a força necessária para mastigar alimentos firmes. Firmeza definitiva para o seu dia a dia.</p>
           </div>
-          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm card-tactile">
+          <div class="p-6 rounded-2xl bg-slate-800/40 backdrop-blur-md border border-white/10 shadow-sm card-tactile group">
             <div class="flex items-center gap-3 mb-4">
-              <span class="w-8 h-8 rounded-lg bg-gold-400/20 text-gold-700 font-bold text-sm flex items-center justify-center font-serif shrink-0">03</span>
-              <h3 class="font-serif text-lg font-bold text-slate-900">Sinta o sabor real da comida</h3>
+              <span class="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-200/90 font-bold text-sm flex items-center justify-center font-serif shrink-0 border border-gold-400/20">03</span>
+              <h3 class="font-serif text-lg font-bold text-white">Sinta o sabor real da comida</h3>
             </div>
-            <p class="text-slate-600 text-sm leading-relaxed">Céu da boca totalmente livre. Sem placas acrílicas cobrindo o palato, permitindo sentir o sabor e a temperatura dos alimentos.</p>
+            <p class="text-slate-300 text-sm leading-relaxed">Céu da boca totalmente livre. Sem placas acrílicas cobrindo o palato, permitindo sentir o sabor e a temperatura dos alimentos.</p>
           </div>
         </div>
       </div>
@@ -206,24 +202,30 @@ const currentYear = new Date().getFullYear();
         <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2 mb-4">O Fim do Medo: Um Passo a Passo Sem Dor</h2>
         <p class="text-slate-400 text-base leading-relaxed max-w-xl mx-auto">Esqueça os procedimentos antigos. Conheça as três etapas para ter seu sorriso de volta com máximo conforto.</p>
       </div>
-      <div class="relative pl-4 sm:pl-6 max-w-2xl mx-auto border-l-2 border-slate-800 space-y-12 pb-4">
-        <div class="relative group" data-reveal data-reveal-delay="75">
-          <div class="absolute -left-[21px] sm:-left-[29px] w-6 h-6 rounded-full bg-slate-800 border-4 border-slate-950 group-hover:bg-gold-500 group-hover:border-gold-200 transition-colors duration-300 shadow-sm mt-1"></div>
-          <div class="pl-6">
+      <div class="relative max-w-2xl mx-auto space-y-16 pb-8" id="jornada-timeline">
+        {/* Static Base Line */}
+        <div class="absolute left-6 top-2 bottom-2 w-1 bg-slate-800 rounded-full"></div>
+        
+        {/* Animated Light Line */}
+        <div id="jornada-progress-line" class="absolute left-6 top-2 w-1 bg-amber-400 rounded-full shadow-[0_0_12px_#fbbf24] origin-top scale-y-0 transition-transform duration-300 ease-out z-10" style="height: calc(100% - 16px);"></div>
+
+        <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="75">
+          <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-800 border-2 border-slate-950 transition-all duration-500 z-20 step-dot"></div>
+          <div>
             <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">Passo 01: Diagnóstico Digital 3D</h3>
             <p class="text-slate-400 text-base leading-relaxed">Mapeamento minucioso do sorriso sem o desconforto de moldagens antigas.</p>
           </div>
         </div>
-        <div class="relative group" data-reveal data-reveal-delay="150">
-          <div class="absolute -left-[21px] sm:-left-[29px] w-6 h-6 rounded-full bg-slate-800 border-4 border-slate-950 group-hover:bg-gold-500 group-hover:border-gold-200 transition-colors duration-300 shadow-sm mt-1"></div>
-          <div class="pl-6">
+        <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="150">
+          <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-800 border-2 border-slate-950 transition-all duration-500 z-20 step-dot"></div>
+          <div>
             <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">Passo 02: Cirurgia Guiada e Sem Dor</h3>
             <p class="text-slate-400 text-base leading-relaxed">Procedimento planejado com anestesia moderna para total previsibilidade e conforto.</p>
           </div>
         </div>
-        <div class="relative group" data-reveal data-reveal-delay="225">
-          <div class="absolute -left-[21px] sm:-left-[29px] w-6 h-6 rounded-full bg-slate-800 border-4 border-slate-950 group-hover:bg-gold-500 group-hover:border-gold-200 transition-colors duration-300 shadow-sm mt-1"></div>
-          <div class="pl-6">
+        <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="225">
+          <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-800 border-2 border-slate-950 transition-all duration-500 z-20 step-dot"></div>
+          <div>
             <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">Passo 03: Instalação dos Dentes Fixos</h3>
             <p class="text-slate-400 text-base leading-relaxed">Prótese definitiva posicionada para devolver a mastigação e a liberdade de sorrir.</p>
           </div>
@@ -282,6 +284,28 @@ const currentYear = new Date().getFullYear();
             </a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA E LOCALIZACAO -->
+  <section id="localizacao" class="relative bg-[#0d1c33] py-16 sm:py-24 border-b border-slate-800 text-slate-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-reveal>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/10 text-gold-300 text-xs font-bold uppercase tracking-wider border border-gold-400/20 mb-3">Onde Estamos</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2 mb-4">Localização Privilegiada em Passos</h2>
+        <p class="text-slate-400 text-base leading-relaxed max-w-2xl mx-auto">Ambiente sofisticado e estrutura moderna para o seu conforto.</p>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800/50" data-reveal data-reveal-delay="100">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.9213813898124!2d-46.60945532578505!3d-20.720336680852787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b6c31bf0db6ab5%3A0xbccf14902cd560fa!2sR.%20dos%20Brand%C3%B5es%2C%20231%20-%20Centro%2C%20Passos%20-%20MG%2C%2037900-104!5e0!3m2!1spt-BR!2sbr!4v1711200000000!5m2!1spt-BR!2sbr" 
+          width="100%" 
+          height="450" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
   </section>
@@ -461,4 +485,44 @@ const currentYear = new Date().getFullYear();
       </svg>
     </a>
   </aside>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const timeline = document.getElementById('jornada-timeline');
+      const progressLine = document.getElementById('jornada-progress-line');
+      const steps = document.querySelectorAll('.jornada-step');
+      const dots = document.querySelectorAll('.step-dot');
+
+      if (!timeline || !progressLine) return;
+
+      function updateTimeline() {
+        const rect = timeline.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const startTrigger = windowHeight * 0.7; 
+        let progress = 0;
+
+        if (rect.top < startTrigger) {
+          const distance = startTrigger - rect.top;
+          progress = distance / rect.height;
+        }
+        
+        progress = Math.max(0, Math.min(1, progress));
+        progressLine.style.transform = `scaleY(${progress})`;
+
+        steps.forEach((step, index) => {
+          const stepRect = step.getBoundingClientRect();
+          const lineBottom = rect.top + (rect.height * progress);
+          if (lineBottom >= stepRect.top + 20) {
+            dots[index].classList.remove('bg-slate-800', 'border-slate-950');
+            dots[index].classList.add('bg-amber-400', 'shadow-[0_0_12px_#fbbf24]', 'border-amber-200');
+          } else {
+            dots[index].classList.add('bg-slate-800', 'border-slate-950');
+            dots[index].classList.remove('bg-amber-400', 'shadow-[0_0_12px_#fbbf24]', 'border-amber-200');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateTimeline, { passive: true });
+      updateTimeline();
+    });
+  </script>
 </Layout>

@@ -91,7 +91,9 @@ export function AnatomyComparisonSlider({
 
         {/* Layer 2: Dente Natural (Sobreposição Esquerda com Clip-Path dinâmico) */}
         <div
-          className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none p-4 sm:p-6 bg-radial from-slate-900/60 to-slate-950 will-change-[clip-path]"
+          className={`absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none p-4 sm:p-6 bg-radial from-slate-900/60 to-slate-950 will-change-[clip-path] ${
+            isDragging ? "transition-none" : "transition-all duration-700 ease-out"
+          }`}
           style={{
             clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
           }}
@@ -107,7 +109,9 @@ export function AnatomyComparisonSlider({
 
         {/* Barra Divisória Vertical (Divider Line com Acabamento Dourado Champanhe) */}
         <div
-          className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-gold-400/30 via-gold-300 to-gold-400/30 z-20 pointer-events-none shadow-[0_0_12px_rgba(197,168,128,0.7)]"
+          className={`absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-gold-400/30 via-gold-300 to-gold-400/30 z-20 pointer-events-none shadow-[0_0_12px_rgba(197,168,128,0.7)] ${
+            isDragging ? "transition-none" : "transition-all duration-700 ease-out"
+          }`}
           style={{ left: `${sliderPosition}%` }}
         >
           {/* Handle Circular de Arraste Físico (Estilo Apple / Emil Kowalski) */}
