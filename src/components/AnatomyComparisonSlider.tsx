@@ -86,22 +86,7 @@ export function AnatomyComparisonSlider({
             className="w-full h-full object-contain filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
             draggable={false}
           />
-          {/* Rótulo Flutuante Direito (Implante de Titânio) - Some quando arrasta para a direita */}
-          <div
-            className="absolute bottom-5 right-5 z-10 px-3 py-1.5 rounded-lg bg-slate-950/85 backdrop-blur-md border border-gold-400/30 text-right pointer-events-none"
-            style={{
-              opacity: implantLabelOpacity,
-              transition: isDragging ? "none" : "opacity 200ms ease, transform 200ms ease",
-              transform: `translateY(${(1 - implantLabelOpacity) * 4}px)`,
-            }}
-          >
-            <span className="block text-[11px] font-bold text-gold-300 uppercase tracking-wider">
-              Implante de Titânio
-            </span>
-            <span className="block text-[10px] text-slate-400 font-light">
-              Coroa Porcelana + Raiz de Titânio
-            </span>
-          </div>
+
         </div>
 
         {/* Layer 2: Dente Natural (Sobreposição Esquerda com Clip-Path dinâmico) */}
@@ -117,22 +102,7 @@ export function AnatomyComparisonSlider({
             className="w-full h-full object-contain filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
             draggable={false}
           />
-          {/* Rótulo Flutuante Esquerdo (Dente Natural) - Some quando arrasta para a esquerda */}
-          <div
-            className="absolute bottom-5 left-5 z-10 px-3 py-1.5 rounded-lg bg-slate-950/85 backdrop-blur-md border border-slate-700/80 text-left pointer-events-none"
-            style={{
-              opacity: naturalLabelOpacity,
-              transition: isDragging ? "none" : "opacity 200ms ease, transform 200ms ease",
-              transform: `translateY(${(1 - naturalLabelOpacity) * 4}px)`,
-            }}
-          >
-            <span className="block text-[11px] font-bold text-white uppercase tracking-wider">
-              Dente Natural
-            </span>
-            <span className="block text-[10px] text-slate-400 font-light">
-              Coroa de Esmalte + Raiz Biológica
-            </span>
-          </div>
+
         </div>
 
         {/* Barra Divisória Vertical (Divider Line com Acabamento Dourado Champanhe) */}
@@ -163,10 +133,7 @@ export function AnatomyComparisonSlider({
           </div>
         </div>
 
-        {/* Dica visual inicial sutil no topo */}
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-sm border border-slate-800 text-[10px] text-slate-300 uppercase tracking-widest pointer-events-none">
-          Arraste para comparar
-        </div>
+
       </div>
 
       {/* Botões Rápidos de Posição Pré-definida (Touch Friendly) */}
