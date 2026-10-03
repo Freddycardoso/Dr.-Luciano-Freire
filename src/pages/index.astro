@@ -18,12 +18,25 @@ const currentYear = new Date().getFullYear();
 ---
 
 <Layout>
+  <!-- SPLASH SCREEN -->
+  <div id="splash-screen" class="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-center justify-center transition-colors duration-700">
+    <div id="splash-logo-container" class="relative w-48 sm:w-64 transition-transform duration-[1000ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-center">
+      <!-- Dimmed logo -->
+      <Image src={logoClinica} alt="Logo" class="w-full h-auto object-contain opacity-20" format="webp" loading="eager" />
+      <!-- Illuminated logo with clip-path sweep -->
+      <div id="splash-logo-lit" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 0 100% 0);">
+        <Image src={logoClinica} alt="Logo" class="w-full h-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] brightness-125" format="webp" loading="eager" />
+      </div>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header class="sticky top-0 z-40 bg-slate-950 border-b border-slate-800/60 transition-colors duration-150">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 lg:h-[4.5rem]">
         <a href="#" class="group flex items-center focus:outline-none focus:ring-2 focus:ring-gold-400 rounded-lg btn-tactile py-1" aria-label="Dr. Luciano Alves Freire - Início">
           <Image
+            id="header-logo-img"
             src={logoClinica}
             alt="Logo Dr. Luciano Alves Freire - Consultório Odontológico"
             class="h-9 sm:h-11 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] group-hover:brightness-110 transition-all duration-150"
@@ -95,10 +108,10 @@ const currentYear = new Date().getFullYear();
             </div>
           </div>
           <h1 class="hero-entrance-2 font-sans text-3xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.18] mb-4 max-w-2xl">
-            Dentes fixos e definitivos. Volte a mastigar e a sorrir sem medo.
+            Volte a sorrir com confiança e a viver seus melhores momentos.
           </h1>
           <p class="hero-entrance-3 text-base sm:text-lg text-slate-200 leading-relaxed mb-8 max-w-xl font-normal">
-            Recupere a firmeza da sua mastigação com implantes de alta precisão, conforto e atendimento conduzido pessoalmente pelo <strong class="text-white font-bold">Dr. Luciano Freire</strong>.
+            Descubra o poder de um sorriso renovado. Conforto, estética e bem-estar em um atendimento exclusivo conduzido pessoalmente pelo <strong class="text-white font-bold">Dr. Luciano Freire</strong>.
           </p>
           <div class="hero-entrance-4 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10 lg:mb-4">
             <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-tactile btn-shimmer inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold text-base shadow-[0_4px_24px_rgba(37,211,102,0.28)] w-full transition-colors">
@@ -492,6 +505,58 @@ const currentYear = new Date().getFullYear();
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
       </svg>
     </a>
-  </aside>
+</aside>
 
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const splashScreen = document.getElementById('splash-screen');
+      const splashLogoContainer = document.getElementById('splash-logo-container');
+      const litLogo = document.getElementById('splash-logo-lit');
+      const headerLogoImg = document.getElementById('header-logo-img');
+      
+      if (splashScreen && litLogo && headerLogoImg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // Prevent scrolling during splash
+        document.body.style.overflow = 'hidden';
+        
+        // Make header logo invisible temporarily to avoid duplicate showing
+        headerLogoImg.style.opacity = '0';
+
+        // 1. Light sweep animation (top to bottom)
+        setTimeout(() => {
+          litLogo.style.transition = 'clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+          litLogo.style.clipPath = 'inset(0 0 0 0)';
+        }, 150);
+
+        // 2. Move logo to header and fade out splash
+        setTimeout(() => {
+          const splashRect = splashLogoContainer.getBoundingClientRect();
+          const headerRect = headerLogoImg.getBoundingClientRect();
+          
+          const scale = headerRect.width / splashRect.width;
+          const translateX = (headerRect.left + headerRect.width / 2) - (splashRect.left + splashRect.width / 2);
+          const translateY = (headerRect.top + headerRect.height / 2) - (splashRect.top + splashRect.height / 2);
+          
+          // Animate splash logo to header position
+          splashLogoContainer.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+          
+          // Make splash bg transparent
+          splashScreen.style.backgroundColor = 'transparent';
+          splashScreen.style.pointerEvents = 'none';
+          
+          // Restore scrolling
+          document.body.style.overflow = '';
+          
+          // Final cleanup and swap to real header logo
+          setTimeout(() => {
+            headerLogoImg.style.opacity = '1';
+            splashScreen.style.opacity = '0';
+            setTimeout(() => splashScreen.remove(), 500);
+          }, 1000);
+        }, 2100);
+      } else if (splashScreen) {
+        // Fallback for reduced motion or missing elements
+        splashScreen.remove();
+      }
+    });
+  </script>
 </Layout>
