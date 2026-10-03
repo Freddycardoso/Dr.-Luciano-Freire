@@ -289,8 +289,19 @@ const currentYear = new Date().getFullYear();
   </section>
 
   <!-- MAPA E LOCALIZACAO -->
-  <section id="localizacao" class="relative bg-[#0d1c33] py-16 sm:py-24 border-b border-slate-800 text-slate-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="localizacao" class="relative bg-[#0d1c33] py-16 sm:py-24 border-b border-slate-800 text-slate-300 overflow-hidden">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <Image
+        src={clinicBgHeroImg}
+        alt="Consultório Odontológico de Alto Padrão"
+        class="w-full h-full object-cover object-center"
+        format="webp"
+        quality={50}
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-[#0d1c33]/90"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12" data-reveal>
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/10 text-gold-300 text-xs font-bold uppercase tracking-wider border border-gold-400/20 mb-3">Onde Estamos</span>
         <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2 mb-4">Localização Privilegiada em Passos</h2>
@@ -497,7 +508,7 @@ const currentYear = new Date().getFullYear();
       function updateTimeline() {
         const rect = timeline.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        const startTrigger = windowHeight * 0.7; 
+        const startTrigger = windowHeight / 2; 
         let progress = 0;
 
         if (rect.top < startTrigger) {
