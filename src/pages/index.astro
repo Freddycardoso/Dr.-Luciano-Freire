@@ -140,27 +140,27 @@ const currentYear = new Date().getFullYear();
   </section>
 
   <!-- 3. COMPARADOR & BENEFICIOS -->
-  <section id="comparador" class="relative bg-slate-950 py-20 lg:py-28 border-b border-slate-800 text-slate-300">
+  <section id="comparador" class="relative bg-white py-20 lg:py-28 border-b border-slate-200 text-slate-600">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-400 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-3">
           Tecnologia e Anatomia
         </span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
           Tão Firme e Natural Quanto a Sua Própria Raiz
         </h2>
-        <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
+        <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
           Arraste o comparador para ver como o implante substitui o dente com perfeição — devolvendo a firmeza total da mastigação sem desgastar nenhum dente saudável ao lado.
         </p>
       </div>
       <div class="flex flex-col items-center justify-center mb-20" data-reveal data-reveal-delay="100">
-        <div class="p-2 sm:p-3 rounded-3xl bg-slate-900 border border-slate-800/80 shadow-2xl w-full max-w-[440px]">
+        <div class="p-2 sm:p-3 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl w-full max-w-[440px]">
           <AnatomyComparisonSlider client:visible naturalSrc={denteNaturalImg.src} implantSrc={implanteTitanioImg.src} />
         </div>
         <p class="text-xs text-slate-500 text-center mt-3 font-medium">
           Arraste para comparar: dente biológico à esquerda e implante fixo de titânio à direita.
         </p>
-        <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 text-gold-400 hover:text-gold-300 text-sm font-bold transition-colors flex items-center gap-1 group">
+        <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 text-gold-600 hover:text-gold-500 text-sm font-bold transition-colors flex items-center gap-1 group">
           Quero avaliar meu caso no WhatsApp <span class="group-hover:translate-x-1 transition-transform">→</span>
         </a>
       </div>
@@ -168,26 +168,23 @@ const currentYear = new Date().getFullYear();
       <!-- CARDS FUSION -->
       <div class="max-w-4xl mx-auto" data-reveal data-reveal-delay="200">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="pl-6 border-l border-gold-400/30 py-2 group">
+          <div class="pl-6 border-l-2 border-gold-400/50 py-2 group">
             <div class="flex items-center gap-2 mb-3">
-              <span class="text-gold-400/80 font-bold text-sm font-serif shrink-0">01.</span>
-              <h3 class="font-serif text-lg font-bold text-white">Sorria sem esconder a boca</h3>
+              <h3 class="font-serif text-lg font-bold text-slate-900">Sorria sem esconder a boca</h3>
             </div>
-            <p class="text-slate-400 text-sm leading-relaxed">Acabamento em porcelana que não amarela nem mancha com café ou vinho. O mesmo brilho e textura do esmalte natural.</p>
+            <p class="text-slate-600 text-sm leading-relaxed">Acabamento em porcelana que não amarela nem mancha com café ou vinho. O mesmo brilho e textura do esmalte natural.</p>
           </div>
-          <div class="pl-6 border-l border-gold-400/30 py-2 group">
+          <div class="pl-6 border-l-2 border-gold-400/50 py-2 group">
             <div class="flex items-center gap-2 mb-3">
-              <span class="text-gold-400/80 font-bold text-sm font-serif shrink-0">02.</span>
-              <h3 class="font-serif text-lg font-bold text-white">Mastigue sem medo de quebrar</h3>
+              <h3 class="font-serif text-lg font-bold text-slate-900">Mastigue sem medo de quebrar</h3>
             </div>
-            <p class="text-slate-400 text-sm leading-relaxed">A base de titânio devolve a força necessária para mastigar alimentos firmes. Firmeza definitiva para o seu dia a dia.</p>
+            <p class="text-slate-600 text-sm leading-relaxed">A base de titânio devolve a força necessária para mastigar alimentos firmes. Firmeza definitiva para o seu dia a dia.</p>
           </div>
-          <div class="pl-6 border-l border-gold-400/30 py-2 group">
+          <div class="pl-6 border-l-2 border-gold-400/50 py-2 group">
             <div class="flex items-center gap-2 mb-3">
-              <span class="text-gold-400/80 font-bold text-sm font-serif shrink-0">03.</span>
-              <h3 class="font-serif text-lg font-bold text-white">Sinta o sabor real da comida</h3>
+              <h3 class="font-serif text-lg font-bold text-slate-900">Sinta o sabor real da comida</h3>
             </div>
-            <p class="text-slate-400 text-sm leading-relaxed">Céu da boca totalmente livre. Sem placas acrílicas cobrindo o palato, permitindo sentir o sabor e a temperatura dos alimentos.</p>
+            <p class="text-slate-600 text-sm leading-relaxed">Céu da boca totalmente livre. Sem placas acrílicas cobrindo o palato, permitindo sentir o sabor e a temperatura dos alimentos.</p>
           </div>
         </div>
       </div>
