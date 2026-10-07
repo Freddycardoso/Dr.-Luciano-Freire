@@ -516,9 +516,14 @@ const currentYear = new Date().getFullYear();
       const litLogo = document.getElementById('splash-logo-lit');
       const headerLogoImg = document.getElementById('header-logo-img');
       
-      if (splashScreen && litLogo && headerLogoImg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        // Prevent scrolling during splash
+      // Removed prefers-reduced-motion check since it caused animations to not run at all on many Windows PCs
+      if (splashScreen && litLogo && headerLogoImg) {
+        // Calculate scrollbar width
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        
+        // Prevent scrolling during splash and add padding to compensate for scrollbar loss
         document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
         
         // Make header logo invisible temporarily to avoid duplicate showing
         headerLogoImg.style.opacity = '0';
@@ -531,32 +536,17 @@ const currentYear = new Date().getFullYear();
 
         // 2. Move logo to header and fade out splash
         setTimeout(() => {
-          // Get splash logo position BEFORE scrollbar layout shift
           const splashRect = splashLogoContainer.getBoundingClientRect();
-          
-          // Lock splash logo to its exact pixel position so it doesn't jump
-          splashLogoContainer.style.position = 'absolute';
-          splashLogoContainer.style.left = `${splashRect.left}px`;
-          splashLogoContainer.style.top = `${splashRect.top}px`;
-          splashLogoContainer.style.width = `${splashRect.width}px`;
-          splashLogoContainer.style.height = `${splashRect.height}px`;
-          splashLogoContainer.style.margin = '0';
-          splashLogoContainer.style.transformOrigin = 'top left';
-          
-          // Restore scrolling NOW so the page layout (and header) settles with the scrollbar
-          document.body.style.overflow = '';
-          
-          // Force layout recalculation
-          void splashLogoContainer.offsetWidth;
-          
-          // Get final header logo position AFTER scrollbar layout shift
           const headerRect = headerLogoImg.getBoundingClientRect();
           
-          // Calculate exact transform using top-left origin
-          const targetWidth = headerRect.width || (splashRect.width * (headerRect.height / splashRect.height)) || 150;
-          const scale = targetWidth / splashRect.width;
-          const translateX = headerRect.left - splashRect.left;
-          const translateY = headerRect.top - splashRect.top;
+          // Safe scale calculation
+          const targetWidth = headerRect.width || 150;
+          const currentWidth = splashRect.width || 256;
+          const scale = targetWidth / currentWidth;
+          
+          // Center-to-center translation
+          const translateX = (headerRect.left + targetWidth / 2) - (splashRect.left + currentWidth / 2);
+          const translateY = (headerRect.top + (headerRect.height || 44) / 2) - (splashRect.top + (splashRect.height || 64) / 2);
           
           // Animate splash logo to header position
           splashLogoContainer.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
@@ -569,11 +559,15 @@ const currentYear = new Date().getFullYear();
           setTimeout(() => {
             headerLogoImg.style.opacity = '1';
             splashScreen.style.opacity = '0';
+            
+            // Restore scrollbar and layout
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+            
             setTimeout(() => splashScreen.remove(), 500);
           }, 1000);
         }, 2100);
       } else if (splashScreen) {
-        // Fallback for reduced motion or missing elements
         splashScreen.remove();
       }
     });
