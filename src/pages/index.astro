@@ -548,19 +548,26 @@ const currentYear = new Date().getFullYear();
           const translateX = (headerRect.left + targetWidth / 2) - (splashRect.left + currentWidth / 2);
           const translateY = (headerRect.top + (headerRect.height || 44) / 2) - (splashRect.top + (splashRect.height || 64) / 2);
           
-          // Animate using Web Animations API (100% reliable, hardware-accelerated)
+          // Ultra-fluid Apple-like spring/ease (100% reliable, hardware-accelerated)
           const animation = splashLogoContainer.animate([
             { transform: 'translate(0px, 0px) scale(1)' },
             { transform: `translate(${translateX}px, ${translateY}px) scale(${scale})` }
           ], {
-            duration: 1000,
-            easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+            duration: 1200,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
             fill: 'forwards'
           });
           
-          // Make splash bg transparent to reveal the page
-          splashScreen.style.backgroundColor = 'transparent';
+          // Smoothly fade out the splash background using Web Animations API
           splashScreen.style.pointerEvents = 'none';
+          splashScreen.animate([
+            { backgroundColor: 'rgba(2, 6, 23, 1)' },
+            { backgroundColor: 'rgba(2, 6, 23, 0)' }
+          ], {
+            duration: 1200,
+            easing: 'ease-out',
+            fill: 'forwards'
+          });
           
           // Final cleanup and swap to real header logo
           animation.onfinish = () => {
@@ -571,7 +578,7 @@ const currentYear = new Date().getFullYear();
             document.body.style.overflow = '';
             document.body.style.paddingRight = '';
             
-            setTimeout(() => splashScreen.remove(), 500);
+            setTimeout(() => splashScreen.remove(), 100);
           };
         }, 2100);
       } else if (splashScreen) {
