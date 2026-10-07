@@ -548,21 +548,22 @@ const currentYear = new Date().getFullYear();
           const translateX = (headerRect.left + targetWidth / 2) - (splashRect.left + currentWidth / 2);
           const translateY = (headerRect.top + (headerRect.height || 44) / 2) - (splashRect.top + (splashRect.height || 64) / 2);
           
-          // Force layout recalculation
-          void splashLogoContainer.offsetWidth;
-          
-          // Force transition via JS to guarantee fluid motion across all browsers
-          splashLogoContainer.style.transition = 'transform 1s cubic-bezier(0.2, 0.8, 0.2, 1)';
-          
-          // Animate splash logo to header position
-          splashLogoContainer.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+          // Animate using Web Animations API (100% reliable, hardware-accelerated)
+          const animation = splashLogoContainer.animate([
+            { transform: 'translate(0px, 0px) scale(1)' },
+            { transform: `translate(${translateX}px, ${translateY}px) scale(${scale})` }
+          ], {
+            duration: 1000,
+            easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+            fill: 'forwards'
+          });
           
           // Make splash bg transparent to reveal the page
           splashScreen.style.backgroundColor = 'transparent';
           splashScreen.style.pointerEvents = 'none';
           
           // Final cleanup and swap to real header logo
-          setTimeout(() => {
+          animation.onfinish = () => {
             headerLogoImg.style.opacity = '1';
             splashScreen.style.opacity = '0';
             
@@ -571,7 +572,7 @@ const currentYear = new Date().getFullYear();
             document.body.style.paddingRight = '';
             
             setTimeout(() => splashScreen.remove(), 500);
-          }, 1000);
+          };
         }, 2100);
       } else if (splashScreen) {
         splashScreen.remove();
