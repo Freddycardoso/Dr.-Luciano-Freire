@@ -212,32 +212,34 @@ const currentYear = new Date().getFullYear();
         <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2 mb-4">O Fim do Medo: Um Passo a Passo Sem Dor</h2>
         <p class="text-slate-400 text-base leading-relaxed max-w-xl mx-auto">Esqueça os procedimentos antigos. Conheça as três etapas para ter seu sorriso de volta com máximo conforto.</p>
       </div>
-      <div class="relative max-w-2xl mx-auto space-y-16 pb-8" id="jornada-timeline">
+      <div class="relative max-w-2xl mx-auto pb-8" id="jornada-timeline">
         {/* Static Base Line */}
         <div class="absolute left-6 top-2 bottom-2 w-1 bg-slate-800 rounded-full"></div>
         
         {/* Animated Light Line */}
         <div id="jornada-progress-line" class="absolute left-6 top-2 bottom-2 w-1 bg-amber-400 rounded-full shadow-[0_0_12px_#fbbf24] z-10"></div>
 
-        <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="75">
-          <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-amber-200 shadow-[0_0_12px_#fbbf24] z-20 step-dot"></div>
-          <div>
-            <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">Passo 01: Diagnóstico Digital 3D</h3>
-            <p class="text-slate-400 text-base leading-relaxed">Mapeamento minucioso do sorriso sem o desconforto de moldagens antigas.</p>
+        <div class="space-y-16">
+          <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="75">
+            <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-amber-200 shadow-[0_0_12px_#fbbf24] z-20 step-dot"></div>
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">Passo 01: Diagnóstico Digital 3D</h3>
+              <p class="text-slate-400 text-base leading-relaxed">Mapeamento minucioso do sorriso sem o desconforto de moldagens antigas.</p>
+            </div>
           </div>
-        </div>
-        <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="150">
-          <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-amber-200 shadow-[0_0_12px_#fbbf24] z-20 step-dot"></div>
-          <div>
-            <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">Passo 02: Cirurgia Guiada e Sem Dor</h3>
-            <p class="text-slate-400 text-base leading-relaxed">Procedimento planejado com anestesia moderna para total previsibilidade e conforto.</p>
+          <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="150">
+            <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-amber-200 shadow-[0_0_12px_#fbbf24] z-20 step-dot"></div>
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">Passo 02: Cirurgia Guiada e Sem Dor</h3>
+              <p class="text-slate-400 text-base leading-relaxed">Procedimento planejado com anestesia moderna para total previsibilidade e conforto.</p>
+            </div>
           </div>
-        </div>
-        <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="225">
-          <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-amber-200 shadow-[0_0_12px_#fbbf24] z-20 step-dot"></div>
-          <div>
-            <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">Passo 03: Instalação dos Dentes Fixos</h3>
-            <p class="text-slate-400 text-base leading-relaxed">Prótese definitiva posicionada para devolver a mastigação e a liberdade de sorrir.</p>
+          <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="225">
+            <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-amber-200 shadow-[0_0_12px_#fbbf24] z-20 step-dot"></div>
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">Passo 03: Instalação dos Dentes Fixos</h3>
+              <p class="text-slate-400 text-base leading-relaxed">Prótese definitiva posicionada para devolver a mastigação e a liberdade de sorrir.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -529,22 +531,39 @@ const currentYear = new Date().getFullYear();
 
         // 2. Move logo to header and fade out splash
         setTimeout(() => {
+          // Get splash logo position BEFORE scrollbar layout shift
           const splashRect = splashLogoContainer.getBoundingClientRect();
+          
+          // Lock splash logo to its exact pixel position so it doesn't jump
+          splashLogoContainer.style.position = 'absolute';
+          splashLogoContainer.style.left = `${splashRect.left}px`;
+          splashLogoContainer.style.top = `${splashRect.top}px`;
+          splashLogoContainer.style.width = `${splashRect.width}px`;
+          splashLogoContainer.style.height = `${splashRect.height}px`;
+          splashLogoContainer.style.margin = '0';
+          splashLogoContainer.style.transformOrigin = 'top left';
+          
+          // Restore scrolling NOW so the page layout (and header) settles with the scrollbar
+          document.body.style.overflow = '';
+          
+          // Force layout recalculation
+          void splashLogoContainer.offsetWidth;
+          
+          // Get final header logo position AFTER scrollbar layout shift
           const headerRect = headerLogoImg.getBoundingClientRect();
           
-          const scale = headerRect.width / splashRect.width;
-          const translateX = (headerRect.left + headerRect.width / 2) - (splashRect.left + splashRect.width / 2);
-          const translateY = (headerRect.top + headerRect.height / 2) - (splashRect.top + splashRect.height / 2);
+          // Calculate exact transform using top-left origin
+          const targetWidth = headerRect.width || (splashRect.width * (headerRect.height / splashRect.height)) || 150;
+          const scale = targetWidth / splashRect.width;
+          const translateX = headerRect.left - splashRect.left;
+          const translateY = headerRect.top - splashRect.top;
           
           // Animate splash logo to header position
           splashLogoContainer.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
           
-          // Make splash bg transparent
+          // Make splash bg transparent to reveal the page
           splashScreen.style.backgroundColor = 'transparent';
           splashScreen.style.pointerEvents = 'none';
-          
-          // Restore scrolling
-          document.body.style.overflow = '';
           
           // Final cleanup and swap to real header logo
           setTimeout(() => {
