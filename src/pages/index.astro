@@ -548,6 +548,12 @@ const currentYear = new Date().getFullYear();
           const translateX = (headerRect.left + targetWidth / 2) - (splashRect.left + currentWidth / 2);
           const translateY = (headerRect.top + (headerRect.height || 44) / 2) - (splashRect.top + (splashRect.height || 64) / 2);
           
+          // Force layout recalculation
+          void splashLogoContainer.offsetWidth;
+          
+          // Force transition via JS to guarantee fluid motion across all browsers
+          splashLogoContainer.style.transition = 'transform 1s cubic-bezier(0.2, 0.8, 0.2, 1)';
+          
           // Animate splash logo to header position
           splashLogoContainer.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
           
