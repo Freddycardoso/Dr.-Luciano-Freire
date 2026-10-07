@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Dr. Luciano Freire | Implantes Dentários e Odontologia em Passos - MG",
-  description = "Especialista em implantes dentários, ortodontia e estética dental em Passos/MG. Atendimento com o Dr. Luciano Alves Freire (CRO-MG 25170). Agende sua avaliação.",
+  title = "Implantes Dentários em Passos - MG | Dr. Luciano Freire",
+  description = "Volte a sorrir e a mastigar com segurança. Implantes dentários e dentes fixos em Passos-MG. Atendimento exclusivo com o Dr. Luciano Freire. Agende já!",
   image = "https://drlucianofreire.com.br/images/dr-luciano-freire.png",
   canonicalURL = "https://drlucianofreire.com.br",
 } = Astro.props;
@@ -21,6 +21,7 @@ const schemaData = {
       "@id": "https://drlucianofreire.com.br/#clinic",
       "name": "Consultório Odontológico Dr. Luciano Alves Freire",
       "image": "https://drlucianofreire.com.br/images/dr-luciano-freire.png",
+      "url": "https://drlucianofreire.com.br",
       "telephone": "+553535215027",
       "priceRange": "$$$",
       "address": {
@@ -42,8 +43,21 @@ const schemaData = {
         "reviewCount": "13"
       },
       "medicalSpecialty": [
-        "https://schema.org/Dentistry"
+        "https://schema.org/Dentistry",
+        "https://schema.org/Surgical"
       ]
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Implantes Dentários",
+      "provider": {
+        "@id": "https://drlucianofreire.com.br/#clinic"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Passos"
+      },
+      "description": "Procedimento avançado de implantes dentários e reabilitação com prótese fixa (protocolo) na cidade de Passos, MG."
     },
     {
       "@type": "FAQPage",
@@ -54,15 +68,15 @@ const schemaData = {
           "name": "O procedimento de implante dentário dói?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "O procedimento de implante dentário é realizado com modernas técnicas de anestesia local para neutralizar a sensibilidade durante a cirurgia. Para o pós-operatório, são prescritas medicações adequadas para favorecer uma recuperação serena e confortável."
+            "text": "Não. O procedimento utiliza técnicas modernas de cirurgia guiada e anestesia de precisão. A recuperação é serena, sendo o pós-operatório considerado por muitos pacientes mais simples e confortável do que a extração de um dente convencional."
           }
         },
         {
           "@type": "Question",
-          "name": "Quanto tempo dura o tratamento de implante?",
+          "name": "Quanto tempo demora o tratamento de implante?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A fase de osseointegração costuma levar de 3 a 6 meses para que o pino de titânio se una de forma sólida ao osso. Após esse período, a coroa final de porcelana é fixada com estabilidade e precisão mastigatória."
+            "text": "O tempo varia. Pacientes elegíveis podem receber a carga imediata (dentes fixos em poucos dias). Em outros casos, aguarda-se a cicatrização óssea (3 a 6 meses). O prazo exato é definido após o diagnóstico radiográfico 3D inicial."
           }
         },
         {
@@ -70,23 +84,15 @@ const schemaData = {
           "name": "Quem usa dentadura móvel pode colocar implante?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sim! A reabilitação com prótese protocolo fixada sobre implantes substitui a dentadura móvel proporcionando alta estabilidade e firmeza. O paciente recupera a capacidade mastigatória e a segurança ao sorrir, sem receio de deslocamentos da prótese."
+            "text": "Sim! É perfeitamente possível substituir a dentadura por uma prótese protocolo fixa (dentes fixos apoiados sobre implantes). Isso devolve a total segurança para mastigar e sorrir, sem o risco de a prótese se deslocar ou machucar a gengiva."
           }
         },
         {
           "@type": "Question",
-          "name": "Quem não tem dentes há muitos anos pode fazer implante?",
+          "name": "Como funciona a primeira avaliação em Passos - MG?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sim. Mesmo pacientes com perda óssea acentuada podem realizar implantes, seja por meio de enxertos prévios ou técnicas avançadas de reabilitação. O planejamento radiográfico prévio avalia individualmente cada caso no consultório em Passos."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Qual o endereço do consultório em Passos?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "O consultório está localizado na Rua dos Brandões, 231, Sala 24 – Centro, Passos - MG (CEP 37900-104), em localização central de fácil acesso e estacionamento próximo."
+            "text": "Nossa avaliação, conduzida pessoalmente pelo Dr. Luciano Freire, foca no escaneamento e diagnóstico da saúde bucal. Com base na estrutura óssea do paciente, apresentamos um plano de tratamento previsível e exclusivo no centro de Passos."
           }
         }
       ]
