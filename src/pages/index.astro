@@ -9,6 +9,10 @@ import denteNaturalImg from '../assets/dente-natural-comparativo.png';
 import implanteTitanioImg from '../assets/implante-titanio-comparativo.png';
 import { PatientSituationNavigator } from '../components/PatientSituationNavigator';
 import { AnatomyComparisonSlider } from '../components/AnatomyComparisonSlider';
+import { getImage } from 'astro:assets';
+
+const optimizedNaturalImg = await getImage({ src: denteNaturalImg, format: 'webp', width: 500 });
+const optimizedImplantImg = await getImage({ src: implanteTitanioImg, format: 'webp', width: 500 });
 
 const whatsappBaseUrl = "https://wa.me/5535988215162";
 const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20de%20implante%20dent%C3%A1rio`;
@@ -78,6 +82,7 @@ const currentYear = new Date().getFullYear();
     </div>
   </header>
 
+  <main id="main-content">
   <!-- 1. HERO -->
   <section id="hero" class="relative min-h-[640px] lg:min-h-[760px] flex items-center overflow-hidden border-b border-slate-800/80">
     <div class="absolute inset-0 z-0 pointer-events-none">
@@ -168,9 +173,9 @@ const currentYear = new Date().getFullYear();
       </div>
       <div class="flex flex-col items-center justify-center mb-20" data-reveal data-reveal-delay="100">
         <div class="p-2 sm:p-3 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl w-full max-w-[440px]">
-          <AnatomyComparisonSlider client:visible naturalSrc={denteNaturalImg.src} implantSrc={implanteTitanioImg.src} />
+          <AnatomyComparisonSlider client:visible naturalSrc={optimizedNaturalImg.src} implantSrc={optimizedImplantImg.src} />
         </div>
-        <p class="text-xs text-slate-500 text-center mt-3 font-medium">
+        <p class="text-xs text-slate-700 text-center mt-3 font-medium">
           Arraste para comparar: dente biológico à esquerda e implante fixo de titânio à direita.
         </p>
         <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 text-gold-600 hover:text-gold-500 text-sm font-bold transition-colors flex items-center gap-1 group">
@@ -326,6 +331,7 @@ const currentYear = new Date().getFullYear();
           height="450" 
           style="border:0;" 
           allowfullscreen="" 
+          title="Localização do Consultório Odontológico Dr. Luciano Freire no Google Maps"
           loading="lazy" 
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
@@ -395,6 +401,7 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
   </section>
+  </main>
 
   <!-- =========================================================================
        DOBRA 8: FOOTER & IDENTIFICAÇÃO PROFISSIONAL
@@ -420,14 +427,14 @@ const currentYear = new Date().getFullYear();
           <p class="text-slate-400 leading-relaxed max-w-sm mb-4">
             Especialista em implantes dentários, reabilitação oral e odontologia estética. Cuidado técnico, precisão científica e atendimento humanizado em Passos/MG.
           </p>
-          <p class="text-[11px] text-slate-500 pr-16 sm:pr-0">
+          <p class="text-[11px] text-slate-400 pr-16 sm:pr-0">
             Responsável Técnico: Dr. Luciano Alves Freire • Cirurgião-Dentista • CRO-MG 25170
           </p>
         </div>
 
         <!-- Links Rápidos -->
         <div class="md:col-span-3">
-          <h4 class="font-bold text-white text-sm mb-3">Navegação Rápida</h4>
+          <h2 class="font-bold text-white text-sm mb-3">Navegação Rápida</h2>
           <ul class="space-y-2">
             <li><a href="#triagem" class="hover:text-gold-200 transition-colors duration-150">Tratamentos Especializados</a></li>
             <li><a href="#didatica-3d" class="hover:text-gold-200 transition-colors duration-150">Anatomia do Implante 3D</a></li>
@@ -448,7 +455,7 @@ const currentYear = new Date().getFullYear();
 
         <!-- Dados de Contato e NAP -->
         <div class="md:col-span-4">
-          <h4 class="font-bold text-white text-sm mb-3">Consultório Odontológico</h4>
+          <h2 class="font-bold text-white text-sm mb-3">Consultório Odontológico</h2>
           <address class="not-italic space-y-1.5 leading-relaxed">
             <p>Rua dos Brandões, 231, Sala 24 – Centro</p>
             <p>Passos - MG, CEP 37900-104</p>
@@ -463,11 +470,11 @@ const currentYear = new Date().getFullYear();
       <div class="pt-8 border-t border-slate-900 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-[11px] text-slate-500">
         <div>
           <p>© {currentYear} Dr. Luciano Alves Freire. Todos os direitos reservados.</p>
-          <p class="mt-1 text-[10px] text-slate-600">
+          <p class="mt-1 text-[10px] text-slate-400">
             Atenção: As informações contidas neste site possuem caráter estritamente educativo e informativo. De acordo com as resoluções do Conselho Federal de Odontologia (CFO), nenhum conteúdo substitui a avaliação clínica presencial.
           </p>
         </div>
-        <div class="shrink-0 text-slate-500 text-[10px]">
+        <div class="shrink-0 text-slate-400 text-[10px]">
           Passos • Minas Gerais
         </div>
       </div>
