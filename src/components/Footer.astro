@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import logoClinica from '../assets/logo-dr-luciano.png';
+
+const whatsappBaseUrl = "https://wa.me/5535988215162";
+const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o`;
+const phoneFixed = "(35) 3521-5027";
+const phoneFixedClean = "553535215027";
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="contato" class="bg-white border-t border-slate-200 text-slate-600 text-xs pt-14 pb-28 sm:pb-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+      
+      <!-- Coluna Identificação Profissional -->
+      <div class="md:col-span-5">
+        <div class="mb-4">
+          <Image
+            src={logoClinica}
+            alt="Logo Dr. Luciano Alves Freire - Consultório Odontológico"
+            class="h-9 sm:h-11 w-auto object-contain brightness-105"
+            format="webp"
+            loading="lazy"
+          />
+        </div>
+        <p class="text-slate-600 leading-relaxed max-w-sm mb-4">
+          Especialista em implantes dentários, reabilitação oral e odontologia estética. Cuidado técnico, precisão científica e atendimento humanizado em Passos/MG.
+        </p>
+        <p class="text-[11px] text-slate-600 pr-16 sm:pr-0">
+          Responsável Técnico: Dr. Luciano Alves Freire • Cirurgião-Dentista • CRO-MG 25170
+        </p>
+      </div>
+
+      <!-- Links Rápidos -->
+      <div class="md:col-span-3">
+        <h2 class="font-bold text-slate-900 text-sm mb-3">Navegação Rápida</h2>
+        <ul class="space-y-2">
+          <li><a href="/#triagem" class="hover:text-gold-600 transition-colors duration-150">Tratamentos Especializados</a></li>
+          <li><a href="/#comparador" class="hover:text-gold-600 transition-colors duration-150">Anatomia do Implante 3D</a></li>
+          <li><a href="/#autoridade" class="hover:text-gold-600 transition-colors duration-150">Dr. Luciano Freire</a></li>
+          <li><a href="/#faq" class="hover:text-gold-600 transition-colors duration-150">Dúvidas Frequentes</a></li>
+          <li><a href="/#jornada" class="hover:text-gold-600 transition-colors duration-150">Jornada Sem Dor</a></li>
+          <li><a href="/#contato" class="hover:text-gold-600 transition-colors duration-150">Localização no Centro</a></li>
+          <li class="pt-2">
+            <a href="#" class="btn-tactile inline-flex items-center gap-1.5 text-gold-700 hover:text-gold-600 font-semibold text-[11px]">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+              </svg>
+              <span>Voltar ao topo</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Dados de Contato e NAP -->
+      <div class="md:col-span-4">
+        <h2 class="font-bold text-slate-900 text-sm mb-3">Consultório Odontológico</h2>
+        <address class="not-italic space-y-1.5 leading-relaxed">
+          <p>Rua dos Brandões, 231, Sala 24 – Centro</p>
+          <p>Passos - MG, CEP 37900-104</p>
+          <p class="pt-2">Telefone Fixo: <a href={`tel:${phoneFixedClean}`} class="hover:text-gold-200 transition-colors">{phoneFixed}</a></p>
+          <p>WhatsApp: <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="text-emerald-500 hover:underline">+55 (35) 98821-5162</a></p>
+        </address>
+      </div>
+
+    </div>
+
+    <!-- Linha Divisória e Nota Ética CFO/CRO -->
+    <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-[11px] text-slate-500">
+      <div>
+        <p>© {currentYear} Dr. Luciano Alves Freire. Todos os direitos reservados.</p>
+        <p class="mt-1 text-[10px] text-slate-400">
+          Atenção: As informações contidas neste site possuem caráter estritamente educativo e informativo. De acordo com as resoluções do Conselho Federal de Odontologia (CFO), nenhum conteúdo substitui a avaliação clínica presencial.
+        </p>
+      </div>
+      <div class="shrink-0 text-slate-400 text-[10px]">
+        Passos • Minas Gerais
+      </div>
+    </div>
+
+  </div>
+</footer>

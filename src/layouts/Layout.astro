@@ -106,7 +106,7 @@ const schemaData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#090E17" />
+    <meta name="theme-color" content="#F0F9FF" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
     <!-- Primary SEO -->
@@ -318,20 +318,20 @@ const schemaData = {
         width: 9px;
       }
       ::-webkit-scrollbar-track {
-        background: #090E17;
+        background: #F0F9FF;
       }
       ::-webkit-scrollbar-thumb {
-        background: #1e293b;
+        background: #CBD5E1;
         border-radius: 5px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #334155;
+        background: #94A3B8;
       }
 
       /* Selection */
       ::selection {
-        background-color: #c5a880;
-        color: #090e17;
+        background-color: #E6D7BE;
+        color: #0C4A6E;
       }
 
       /* Performance: Section rendering containment for below-the-fold content */
@@ -362,7 +362,7 @@ const schemaData = {
 
       </style>
   </head>
-  <body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-gold-400 selection:text-slate-950 overflow-x-hidden">
+  <body class="bg-babyblue-50 text-slate-900 font-sans min-h-screen flex flex-col selection:bg-gold-200 selection:text-slate-900 overflow-x-hidden">
     <slot />
 
     <!-- Lightweight High-Performance Scroll Observer & Header Controller -->
@@ -402,9 +402,9 @@ const schemaData = {
             if (!ticking) {
               window.requestAnimationFrame(function() {
                 if (window.scrollY > 25) {
-                  header.classList.add('shadow-lg', 'bg-slate-950/96', 'border-slate-800/90');
+                  header.classList.add('shadow-sm', 'bg-white/95', 'backdrop-blur-sm', 'border-slate-200');
                 } else {
-                  header.classList.remove('shadow-lg', 'bg-slate-950/96', 'border-slate-800/90');
+                  header.classList.remove('shadow-sm', 'bg-white/95', 'backdrop-blur-sm', 'border-slate-200');
                 }
                 ticking = false;
               });

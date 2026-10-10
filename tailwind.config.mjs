@@ -22,6 +22,12 @@ export default {
           900: '#0F172A',
           950: '#090E17',
         },
+        babyblue: {
+          50: '#F0F9FF',
+          100: '#E0F2FE',
+          200: '#BAE6FD',
+          900: '#0C4A6E',
+        },
         whatsapp: {
           DEFAULT: '#25D366',
           hover: '#1EBE5D',
