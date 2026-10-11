@@ -269,11 +269,6 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
           key={current.id}
           className="relative z-10 max-w-4xl mx-auto flex flex-col animate-[heroFadeUp_280ms_cubic-bezier(0.16,1,0.3,1)_both]"
         >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-400/12 text-gold-300 text-xs font-bold uppercase tracking-wider border border-gold-400/25 self-start mb-4">
-            <span>{current.badge}</span>
-          </div>
-
           {/* Título Principal */}
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-4">
             {current.title}

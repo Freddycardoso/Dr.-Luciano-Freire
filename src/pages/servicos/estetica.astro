@@ -6,74 +6,182 @@ import { Image } from 'astro:assets';
 import heroImg from '../../assets/servico_estetica.jpg';
 
 const title = "Estética Dental em Passos | Dr. Luciano Freire";
-const description = "Facetas, lentes de contato dental e clareamento para um sorriso harmonioso. Desenho digital com naturalidade.";
+const description = "Facetas em porcelana, lentes de contato dental e clareamento para um sorriso harmonioso. Desenho digital com naturalidade em Passos/MG.";
+const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20de%20Est%C3%A9tica";
 ---
 
 <Layout title={title} description={description}>
   <Header />
   
-  <section class="relative bg-babyblue-50 overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-24">
+  <!-- HERO DO SERVIÇO -->
+  <section class="relative bg-[#0B192C] overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-[#1A3358]/80 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         <div class="max-w-2xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider mb-6">
-            <span class="w-2 h-2 rounded-full bg-gold-500"></span>
-            Harmonização do Sorriso
-          </div>
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-900 tracking-tight mb-6">
-            Estética Dental com Naturalidade
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight mb-6">
+            Estética Dental com Naturalidade e Sofisticação
           </h1>
-          <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-            Realçamos o que há de mais belo no seu sorriso. Facetas em porcelana e clareamentos que respeitam o formato do seu rosto e sua personalidade.
+          <p class="text-lg text-slate-200 mb-8 leading-relaxed font-normal">
+            Realçamos o que há de mais belo no seu sorriso. Facetas em porcelana pura, lentes de contato dental e clareamento personalizado que respeitam sua identidade e proporções faciais.
           </p>
           <div class="flex flex-wrap items-center gap-4">
-            <a href="https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20de%20Est%C3%A9tica" class="btn-tactile bg-gold-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg hover:bg-gold-500 transition-colors">
-              Agendar Avaliação
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-tactile inline-flex items-center gap-2.5 bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold px-7 py-4 rounded-xl shadow-glow-whatsapp transition-colors">
+              <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+              <span>Agendar Avaliação Estética</span>
             </a>
           </div>
         </div>
         <div class="relative lg:ml-auto w-full max-w-lg">
-          <div class="absolute inset-0 bg-gold-200/30 rounded-[2.5rem] transform rotate-3 scale-105 origin-bottom-right"></div>
-          <Image src={heroImg} alt="Estética Dental" class="relative rounded-[2rem] shadow-2xl object-cover w-full h-[400px] lg:h-[500px]" format="webp" />
+          <div class="absolute inset-0 bg-gold-400/20 rounded-[2.5rem] transform rotate-3 scale-105 origin-bottom-right blur-sm"></div>
+          <Image src={heroImg} alt="Estética Dental - Dr. Luciano Freire" class="relative rounded-[2rem] shadow-2xl object-cover w-full h-[400px] lg:h-[500px] border border-[#1E3E66]" format="webp" />
         </div>
       </div>
     </div>
   </section>
 
+  <!-- BENTO GRID -->
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-3xl font-serif font-bold text-slate-900 mb-4">Tratamentos Especializados</h2>
-        <p class="text-slate-600">Planejamento detalhado para resultados discretos e duradouros.</p>
+        <p class="text-slate-600">Planejamento detalhado para resultados discretos, refinados e duradouros.</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
-        <div class="md:col-span-2 bg-slate-50 rounded-3xl p-8 border border-slate-100 flex flex-col justify-end card-tactile relative overflow-hidden">
+        <div class="md:col-span-2 bg-slate-50 rounded-3xl p-8 border border-slate-200 flex flex-col justify-end card-tactile relative overflow-hidden">
           <div class="absolute top-0 right-0 w-64 h-64 bg-gold-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/3"></div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2 relative z-10">Facetas em Porcelana</h3>
-          <p class="text-slate-600 relative z-10">Lâminas ultrafinas feitas sob medida para corrigir cor, formato ou pequenos alinhamentos dos dentes.</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 relative z-10">Lentes e Facetas em Porcelana</h3>
+          <p class="text-slate-600 relative z-10">Lâminas ultrafinas de cerâmica pura feitas sob medida para corrigir cor, formato, fechamento de espaços e alinhamento dos dentes com mínima intervenção.</p>
         </div>
-        <div class="bg-babyblue-50 rounded-3xl p-8 border border-babyblue-100 flex flex-col justify-end card-tactile">
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Clareamento</h3>
-          <p class="text-slate-600">Técnicas seguras que removem manchas e iluminam o sorriso, mantendo a sensibilidade controlada.</p>
+        <div class="bg-[#0B192C] text-white rounded-3xl p-8 border border-[#1A3358] flex flex-col justify-end card-tactile">
+          <h3 class="text-xl font-bold text-white mb-2">Clareamento Seguro</h3>
+          <p class="text-slate-300">Técnicas modernas que removem pigmentações profundas e iluminam o sorriso, com protocolo anti-sensibilidade rigoroso.</p>
         </div>
-        <div class="bg-gold-50 rounded-3xl p-8 border border-gold-100 flex flex-col justify-end card-tactile">
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Sorriso Gengival</h3>
-          <p class="text-slate-600">Correção do contorno da gengiva para uma estética simétrica e equilibrada.</p>
+        <div class="bg-gold-50 rounded-3xl p-8 border border-gold-200 flex flex-col justify-end card-tactile">
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Plástica Gengival</h3>
+          <p class="text-slate-600">Correção do contorno e simetria da gengiva para valorizar a proporção entre dentes e sorriso.</p>
         </div>
-        <div class="md:col-span-2 bg-slate-50 rounded-3xl p-8 border border-slate-100 flex flex-col justify-end card-tactile">
+        <div class="md:col-span-2 bg-slate-50 rounded-3xl p-8 border border-slate-200 flex flex-col justify-end card-tactile">
           <h3 class="text-xl font-bold text-slate-900 mb-2">Design Digital do Sorriso</h3>
-          <p class="text-slate-600">Uso de scanners 3D e fotografia para prever o resultado antes mesmo de iniciar o tratamento definitivo.</p>
+          <p class="text-slate-600">Mapeamento fotográfico e digital para prever a harmonia estética e planejar cada detalhe antes da confecção definitiva.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-24 bg-slate-900 text-center relative overflow-hidden">
+  <!-- CASOS CLÍNICOS & IMAGENS -->
+  <section class="py-20 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-serif font-bold text-slate-900 mb-4">Casos Clínicos & Imagens do Tratamento</h2>
+        <p class="text-slate-600">Equilíbrio entre arte e odontologia para um resultado que não parece artificial.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+        <div class="lg:col-span-6">
+          <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white p-3">
+            <Image 
+              src={heroImg} 
+              alt="Estética Dental - Caso clínico Dr. Luciano Freire" 
+              class="w-full h-auto object-cover rounded-2xl max-h-[380px]"
+              format="webp"
+            />
+          </div>
+        </div>
+        <div class="lg:col-span-6 space-y-6">
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+            <h3 class="font-serif text-lg font-bold text-slate-900 mb-2">Translucidez e Mimetismo Óptico</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Trabalhamos com porcelanas de alto padrão que reproduzem o brilho, a textura e as nuances do esmalte natural, evitando o aspecto branco opaco ou artificial.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+            <h3 class="font-serif text-lg font-bold text-slate-900 mb-2">Preservação da Estrutura Dental</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Priorizamos preparos minimamente invasivos. Em casos selecionados, as lentes de contato dental são instaladas com desgaste biológico quase nulo.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+            <h3 class="font-serif text-lg font-bold text-slate-900 mb-2">Planejamento Exclusivo e Artesanal</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              O Dr. Luciano Freire avalia pessoalmente a dinâmica do seu sorriso ao falar e sorrir, garantindo que o novo formato combine perfeitamente com sua idade e personalidade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS DE PACIENTES -->
+  <section class="py-20 bg-[#0B192C] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-serif font-bold text-white mb-4">O que dizem nossos pacientes</h2>
+        <p class="text-slate-300">Depoimentos reais de transformações estéticas em Passos/MG.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="p-6 rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-gold-400 mb-3">
+              {[...Array(5)].map(() => (
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              ))}
+            </div>
+            <p class="text-slate-200 text-sm leading-relaxed mb-4">
+              "Espetacular! Profissionalismo impecável e atenção dedicada em cada etapa do atendimento odontológico. Meu sorriso ficou muito harmônico."
+            </p>
+          </div>
+          <div class="border-t border-[#1E3E66] pt-3">
+            <p class="font-bold text-white text-sm">Ana Teresa Braz Rosa</p>
+            <p class="text-xs text-gold-400">Paciente Verificada • Google</p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-gold-400 mb-3">
+              {[...Array(5)].map(() => (
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              ))}
+            </div>
+            <p class="text-slate-200 text-sm leading-relaxed mb-4">
+              "Excelente Atendimento e Cuidado! Dr. Luciano tem um olhar estético diferenciado e passa uma confiança imensa do início ao fim."
+            </p>
+          </div>
+          <div class="border-t border-[#1E3E66] pt-3">
+            <p class="font-bold text-white text-sm">Inovatório Marketing</p>
+            <p class="text-xs text-gold-400">Avaliação Verificada • Google</p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-gold-400 mb-3">
+              {[...Array(5)].map(() => (
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              ))}
+            </div>
+            <p class="text-slate-200 text-sm leading-relaxed mb-4">
+              "Pontualidade, higiene, profissionalismo e excelente atendimento. Dr. Luciano Freire é extremamente detalhista no acabamento."
+            </p>
+          </div>
+          <div class="border-t border-[#1E3E66] pt-3">
+            <p class="font-bold text-white text-sm">Marco Arantes</p>
+            <p class="text-xs text-gold-400">Paciente Verificado • Google</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-24 bg-[#0B192C] text-center relative overflow-hidden border-t border-[#1A3358]/80 text-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-6">Que tal valorizar ainda mais o seu sorriso?</h2>
-      <a href="https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20de%20Est%C3%A9tica" class="btn-tactile inline-flex items-center gap-2 bg-gold-500 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gold-400 transition-colors">
-        Falar com a Equipe
+      <p class="text-slate-300 mb-10 text-lg">Agende uma consulta de avaliação estética e descubra como as lentes e o clareamento podem realçar sua harmonia facial.</p>
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-tactile inline-flex items-center gap-2 bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold px-8 py-4 rounded-xl shadow-glow-whatsapp transition-colors">
+        Falar com o Dr. Luciano
       </a>
     </div>
   </section>

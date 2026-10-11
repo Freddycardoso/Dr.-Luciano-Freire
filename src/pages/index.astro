@@ -42,7 +42,7 @@ const currentYear = new Date().getFullYear();
 
 <Layout>
   <!-- SPLASH SCREEN -->
-  <div id="splash-screen" class="fixed inset-0 z-[100] bg-babyblue-50 flex flex-col items-center justify-center transition-colors duration-700">
+  <div id="splash-screen" class="fixed inset-0 z-[100] bg-[#0B192C] flex flex-col items-center justify-center transition-colors duration-700">
     <div id="splash-logo-container" class="relative w-48 sm:w-64 transition-transform duration-[1000ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-center">
       <!-- Dimmed logo -->
       <Image src={logoClinica} alt="Logo" class="w-full h-auto object-contain opacity-20" format="webp" loading="eager" />
@@ -58,7 +58,7 @@ const currentYear = new Date().getFullYear();
 
   <main id="main-content">
   <!-- 1. HERO -->
-  <section id="hero" class="relative min-h-[640px] lg:min-h-[760px] flex items-center overflow-hidden border-b border-slate-200 bg-babyblue-50">
+  <section id="hero" class="relative min-h-[640px] lg:min-h-[760px] flex items-center overflow-hidden border-b border-[#1A3358]/80 bg-[#0B192C]">
     <div class="absolute inset-0 z-0 pointer-events-none">
       <Image
         src={clinicBgHeroImg}
@@ -69,13 +69,13 @@ const currentYear = new Date().getFullYear();
         loading="eager"
         fetchpriority="high"
       />
-      <div class="absolute inset-0 bg-babyblue-50/90"></div>
+      <div class="absolute inset-0 bg-[#0B192C]/88"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-10 pb-16 lg:py-16">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         <div class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left items-center lg:items-start pt-8">
           <div class="hero-entrance-1 mb-6">
-            <div class="inline-flex items-center gap-x-2 py-1.5 px-3 rounded-full bg-white/80 border border-slate-200 text-xs text-slate-600 shadow-sm backdrop-blur-sm">
+            <div class="inline-flex items-center gap-x-2 py-1.5 px-3 rounded-full bg-slate-900/80 border border-[#1A3358] text-xs text-slate-200 shadow-sm backdrop-blur-sm">
               <div class="flex items-center gap-0.5 text-gold-400">
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -83,14 +83,14 @@ const currentYear = new Date().getFullYear();
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
               </div>
-              <span class="text-slate-900 font-bold text-[11px] sm:text-xs">5.0 Estrelas • Passos/MG</span>
+              <span class="text-white font-bold text-[11px] sm:text-xs">5.0 Estrelas • Passos/MG</span>
             </div>
           </div>
-          <h1 class="hero-entrance-2 font-sans text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.18] mb-4 max-w-2xl">
+          <h1 class="hero-entrance-2 font-sans text-3xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.18] mb-4 max-w-2xl">
             Volte a sorrir com confiança e a viver seus melhores momentos.
           </h1>
-          <p class="hero-entrance-3 text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl font-normal">
-            Descubra o poder de um sorriso renovado. Conforto, estética e bem-estar em um atendimento exclusivo conduzido pessoalmente pelo <strong class="text-slate-900 font-bold">Dr. Luciano Freire</strong>.
+          <p class="hero-entrance-3 text-base sm:text-lg text-slate-200 leading-relaxed mb-8 max-w-xl font-normal">
+            Descubra o poder de um sorriso renovado. Conforto, estética e bem-estar em um atendimento exclusivo conduzido pessoalmente pelo <strong class="text-white font-bold">Dr. Luciano Freire</strong>.
           </p>
           <div class="hero-entrance-4 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10 lg:mb-4">
             <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-tactile btn-shimmer inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold text-base shadow-[0_4px_24px_rgba(37,211,102,0.28)] w-full transition-colors">
@@ -117,8 +117,7 @@ const currentYear = new Date().getFullYear();
   <section id="triagem" class="relative bg-white py-20 lg:py-28 text-slate-900 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-16" data-reveal>
-        <span class="text-xs font-semibold tracking-wider text-gold-700 uppercase">Tratamentos Especializados</span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mt-2 mb-4">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
           Como Podemos Te Ajudar a Voltar a Sorrir com Segurança?
         </h2>
         <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
@@ -132,27 +131,24 @@ const currentYear = new Date().getFullYear();
   </section>
 
   <!-- 3. COMPARADOR & BENEFICIOS -->
-  <section id="comparador" class="relative bg-babyblue-50 py-20 lg:py-28 border-b border-slate-200 text-slate-600">
+  <section id="comparador" class="relative bg-[#0B192C] py-20 lg:py-28 border-b border-[#1A3358]/80 text-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-50 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-200 mb-3">
-          Tecnologia e Anatomia
-        </span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
           Firmeza e Segurança Semelhantes à Sua Própria Raiz
         </h2>
-        <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
+        <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
           Arraste o comparador para ver como o implante substitui o dente com alta precisão estética e funcional — devolvendo a firmeza da mastigação sem desgastar nenhum dente saudável ao lado.
         </p>
       </div>
       <div class="flex flex-col items-center justify-center mb-20" data-reveal data-reveal-delay="100">
-        <div class="p-2 sm:p-3 rounded-3xl bg-slate-50 border border-slate-200 shadow-xl w-full max-w-[440px]">
+        <div class="p-2 sm:p-3 rounded-3xl bg-[#0F223D] border border-[#1E3E66] shadow-2xl w-full max-w-[440px]">
           <AnatomyComparisonSlider client:visible naturalSrc={optimizedNaturalImg.src} implantSrc={optimizedImplantImg.src} />
         </div>
-        <p class="text-xs text-slate-700 text-center mt-3 font-medium">
+        <p class="text-xs text-slate-400 text-center mt-3 font-medium">
           Arraste para comparar: dente biológico à esquerda e implante fixo de titânio à direita.
         </p>
-        <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 text-gold-600 hover:text-gold-500 text-sm font-bold transition-colors flex items-center gap-1 group">
+        <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 text-gold-400 hover:text-gold-300 text-sm font-bold transition-colors flex items-center gap-1 group">
           Quero avaliar meu caso no WhatsApp <span class="group-hover:translate-x-1 transition-transform">→</span>
         </a>
       </div>
@@ -160,23 +156,23 @@ const currentYear = new Date().getFullYear();
       <!-- CARDS FUSION -->
       <div class="max-w-4xl mx-auto" data-reveal data-reveal-delay="200">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="pl-6 border-l-2 border-gold-400/50 py-2 group">
+          <div class="pl-6 border-l-2 border-gold-400/70 py-2 group">
             <div class="flex items-center gap-2 mb-3">
-              <h3 class="font-serif text-lg font-bold text-slate-900">Sorria sem esconder a boca</h3>
+              <h3 class="font-serif text-lg font-bold text-white">Sorria sem esconder a boca</h3>
             </div>
-            <p class="text-slate-600 text-sm leading-relaxed">Acabamento em porcelana que não amarela nem mancha com café ou vinho. Brilho e textura muito semelhantes ao esmalte natural.</p>
+            <p class="text-slate-300 text-sm leading-relaxed">Acabamento em porcelana que não amarela nem mancha com café ou vinho. Brilho e textura muito semelhantes ao esmalte natural.</p>
           </div>
-          <div class="pl-6 border-l-2 border-gold-400/50 py-2 group">
+          <div class="pl-6 border-l-2 border-gold-400/70 py-2 group">
             <div class="flex items-center gap-2 mb-3">
-              <h3 class="font-serif text-lg font-bold text-slate-900">Mastigue sem medo de quebrar</h3>
+              <h3 class="font-serif text-lg font-bold text-white">Mastigue sem medo de quebrar</h3>
             </div>
-            <p class="text-slate-600 text-sm leading-relaxed">A base de titânio devolve a força necessária para mastigar alimentos firmes. Firmeza definitiva para o seu dia a dia.</p>
+            <p class="text-slate-300 text-sm leading-relaxed">A base de titânio devolve a força necessária para mastigar alimentos firmes. Firmeza definitiva para o seu dia a dia.</p>
           </div>
-          <div class="pl-6 border-l-2 border-gold-400/50 py-2 group">
+          <div class="pl-6 border-l-2 border-gold-400/70 py-2 group">
             <div class="flex items-center gap-2 mb-3">
-              <h3 class="font-serif text-lg font-bold text-slate-900">Sinta o sabor real da comida</h3>
+              <h3 class="font-serif text-lg font-bold text-white">Sinta o sabor real da comida</h3>
             </div>
-            <p class="text-slate-600 text-sm leading-relaxed">Céu da boca totalmente livre. Sem placas acrílicas cobrindo o palato, permitindo sentir o sabor e a temperatura dos alimentos.</p>
+            <p class="text-slate-300 text-sm leading-relaxed">Céu da boca totalmente livre. Sem placas acrílicas cobrindo o palato, permitindo sentir o sabor e a temperatura dos alimentos.</p>
           </div>
         </div>
       </div>
@@ -187,8 +183,7 @@ const currentYear = new Date().getFullYear();
   <section id="jornada" class="relative bg-white py-20 lg:py-28 border-b border-slate-200 text-slate-600">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14" data-reveal>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-50 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-200 mb-3">Sua Jornada</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-2 mb-4">O Fim do Medo: Um Passo a Passo Sem Dor</h2>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">O Fim do Medo: Um Passo a Passo Sem Dor</h2>
         <p class="text-slate-600 text-base leading-relaxed max-w-xl mx-auto">Esqueça os procedimentos antigos. Conheça as três etapas para ter seu sorriso de volta com máximo conforto.</p>
       </div>
       <div class="relative max-w-2xl mx-auto pb-8" id="jornada-timeline">
@@ -226,46 +221,44 @@ const currentYear = new Date().getFullYear();
   </section>
 
   <!-- 6. AUTORIDADE -->
-  <section id="autoridade" class="relative bg-babyblue-50 py-16 sm:py-24 border-b border-slate-200 text-slate-900">
+  <section id="autoridade" class="relative bg-[#0B192C] py-16 sm:py-24 border-b border-[#1A3358]/80 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="block lg:hidden text-center mb-8" data-reveal>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-2">Trajetória e Compromisso</span>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-2 mb-4">Atendimento Pessoal do Início ao Fim</h2>
-        <p class="text-slate-600 text-base leading-relaxed px-4">Com mais de 20 anos de atuação clínica no Centro de Passos, o Dr. Luciano Alves Freire (CRO-MG 25170) conduz pessoalmente cada etapa do seu tratamento, do diagnóstico inicial à reabilitação final.</p>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">Atendimento Pessoal do Início ao Fim</h2>
+        <p class="text-slate-200 text-base leading-relaxed px-4">Com mais de 20 anos de atuação clínica no Centro de Passos, o Dr. Luciano Alves Freire conduz pessoalmente cada etapa do seu tratamento, do diagnóstico inicial à reabilitação final.</p>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
         <div class="lg:col-span-5 flex justify-center" data-reveal data-reveal-delay="100">
           <div class="relative w-full max-w-[270px] sm:max-w-xs lg:max-w-md">
-            <div class="relative rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 shadow-xl card-tactile">
-              <Image src={drLucianoImg} alt="Dr. Luciano Alves Freire - Cirurgião-Dentista CRO-MG 25170 em Passos MG" class="w-full h-auto object-cover" widths={[360, 500]} sizes="(max-width: 768px) 270px, 450px" format="webp" loading="lazy" />
-              <div class="p-3.5 sm:p-4 bg-white/95 border-t border-slate-200 text-center">
-                <p class="font-serif font-bold text-slate-900 text-base">Dr. Luciano Alves Freire</p>
-                <p class="text-xs text-gold-700 font-semibold">Cirurgião-Dentista • CRO-MG 25170</p>
+            <div class="relative rounded-2xl overflow-hidden bg-[#0F223D] border border-[#1E3E66] shadow-2xl card-tactile">
+              <Image src={drLucianoImg} alt="Dr. Luciano Alves Freire - Cirurgião-Dentista em Passos MG" class="w-full h-auto object-cover" widths={[360, 500]} sizes="(max-width: 768px) 270px, 450px" format="webp" loading="lazy" />
+              <div class="p-3.5 sm:p-4 bg-[#081220]/95 border-t border-[#1E3E66] text-center">
+                <p class="font-serif font-bold text-white text-base">Dr. Luciano Alves Freire</p>
+                <p class="text-xs text-gold-400 font-semibold">Cirurgião-Dentista • CRO-MG 25170</p>
               </div>
             </div>
           </div>
         </div>
         <div class="lg:col-span-7 flex flex-col justify-center" data-reveal data-reveal-delay="200">
           <div class="hidden lg:block">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-3">Trajetória e Compromisso</span>
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-2 mb-4">Diagnóstico Preciso e Atendimento Conduzido Pessoalmente</h2>
-            <p class="text-slate-600 text-lg leading-relaxed mb-8 max-w-2xl">Com mais de 20 anos de atuação clínica no Centro de Passos, o Dr. Luciano Alves Freire (CRO-MG 25170) conduz pessoalmente cada etapa do seu tratamento, do diagnóstico inicial à reabilitação final.</p>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Diagnóstico Preciso e Atendimento Conduzido Pessoalmente</h2>
+            <p class="text-slate-200 text-lg leading-relaxed mb-8 max-w-2xl">Com mais de 20 anos de atuação clínica no Centro de Passos, o Dr. Luciano Alves Freire conduz pessoalmente cada etapa do seu tratamento, do diagnóstico inicial à reabilitação final.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm card-tactile">
-              <div class="text-gold-700 font-bold text-xl mb-1">20+ Anos</div>
-              <div class="text-xs font-bold text-slate-900 mb-0.5">Prática Clínica</div>
-              <p class="text-xs text-slate-600 leading-normal">Milhares de reabilitações em Passos/MG.</p>
+            <div class="p-4 rounded-xl bg-[#0F223D] border border-[#1E3E66] shadow-sm card-tactile">
+              <div class="text-gold-400 font-bold text-xl mb-1">20+ Anos</div>
+              <div class="text-xs font-bold text-white mb-0.5">Prática Clínica</div>
+              <p class="text-xs text-slate-300 leading-normal">Milhares de reabilitações em Passos/MG.</p>
             </div>
-            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm card-tactile">
-              <div class="text-gold-700 font-bold text-xl mb-1">CRO-MG 25170</div>
-              <div class="text-xs font-bold text-slate-900 mb-0.5">Registro Ativo</div>
-              <p class="text-xs text-slate-600 leading-normal">Ética rigorosa e conformidade com o CFO/CRO.</p>
+            <div class="p-4 rounded-xl bg-[#0F223D] border border-[#1E3E66] shadow-sm card-tactile">
+              <div class="text-gold-400 font-bold text-xl mb-1">100% Pessoal</div>
+              <div class="text-xs font-bold text-white mb-0.5">Cuidado Direto</div>
+              <p class="text-xs text-slate-300 leading-normal">Condução integral pelo Dr. Luciano.</p>
             </div>
-            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm card-tactile">
-              <div class="text-gold-700 font-bold text-xl mb-1">Passos - MG</div>
-              <div class="text-xs font-bold text-slate-900 mb-0.5">Consultório Próprio</div>
-              <p class="text-xs text-slate-600 leading-normal">Atendimento totalmente individualizado.</p>
+            <div class="p-4 rounded-xl bg-[#0F223D] border border-[#1E3E66] shadow-sm card-tactile">
+              <div class="text-gold-400 font-bold text-xl mb-1">Passos - MG</div>
+              <div class="text-xs font-bold text-white mb-0.5">Consultório Próprio</div>
+              <p class="text-xs text-slate-300 leading-normal">Atendimento totalmente individualizado.</p>
             </div>
           </div>
           <div class="text-center sm:text-left">
@@ -294,8 +287,7 @@ const currentYear = new Date().getFullYear();
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12" data-reveal>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-50 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-200 mb-3">Onde Estamos</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-2 mb-4">Localização Privilegiada em Passos</h2>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">Localização Privilegiada em Passos</h2>
         <p class="text-slate-600 text-base leading-relaxed max-w-2xl mx-auto">Ambiente sofisticado e estrutura moderna para o seu conforto.</p>
       </div>
       <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800/50" data-reveal data-reveal-delay="100">
@@ -314,61 +306,60 @@ const currentYear = new Date().getFullYear();
   </section>
 
   <!-- 7. FAQ -->
-  <section id="faq" class="relative bg-babyblue-50 py-20 lg:py-28 border-b border-slate-200 text-slate-900">
+  <section id="faq" class="relative bg-[#0B192C] py-20 lg:py-28 border-b border-[#1A3358]/80 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14" data-reveal>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 text-gold-700 text-xs font-bold uppercase tracking-wider border border-gold-400/30 mb-3">Perguntas Frequentes</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-2 mb-4">Dúvidas Frequentes Antes de Agendar</h2>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Dúvidas Frequentes Antes de Agendar</h2>
       </div>
       <div class="space-y-4">
         <!-- FAQ 1 -->
-        <details class="group rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden" data-reveal>
-          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-slate-900 select-none hover:bg-slate-50 transition-colors">
+        <details class="group rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-sm overflow-hidden" data-reveal>
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-white select-none hover:bg-[#132A4B] transition-colors">
             O procedimento de implante dentário dói?
-            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-600 group-open:bg-gold-50 group-open:text-gold-700 transition-colors">
+            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-[#081220] text-gold-400 group-open:bg-gold-500/20 group-open:text-gold-300 transition-colors">
               <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </span>
           </summary>
-          <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 bg-slate-50">
+          <div class="px-6 pb-6 text-slate-300 leading-relaxed border-t border-[#1E3E66] pt-4 bg-[#0A1626]">
             <strong>Não.</strong> O procedimento utiliza técnicas modernas de cirurgia guiada e anestesia de precisão. A recuperação é serena, sendo o pós-operatório considerado por muitos pacientes mais simples e confortável do que a extração de um dente convencional.
           </div>
         </details>
         
         <!-- FAQ 2 -->
-        <details class="group rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden" data-reveal>
-          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-slate-900 select-none hover:bg-slate-50 transition-colors">
+        <details class="group rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-sm overflow-hidden" data-reveal>
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-white select-none hover:bg-[#132A4B] transition-colors">
             Quanto tempo demora o tratamento de implante?
-            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-600 group-open:bg-gold-50 group-open:text-gold-700 transition-colors">
+            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-[#081220] text-gold-400 group-open:bg-gold-500/20 group-open:text-gold-300 transition-colors">
               <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </span>
           </summary>
-          <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 bg-slate-50">
+          <div class="px-6 pb-6 text-slate-300 leading-relaxed border-t border-[#1E3E66] pt-4 bg-[#0A1626]">
             O tempo varia. Pacientes elegíveis podem receber a <strong>carga imediata</strong> (dentes fixos em poucos dias). Em outros casos, aguarda-se a cicatrização óssea (3 a 6 meses). O prazo exato é definido após o diagnóstico radiográfico 3D inicial.
           </div>
         </details>
 
         <!-- FAQ 3 -->
-        <details class="group rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden" data-reveal>
-          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-slate-900 select-none hover:bg-slate-50 transition-colors">
+        <details class="group rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-sm overflow-hidden" data-reveal>
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-white select-none hover:bg-[#132A4B] transition-colors">
             Quem usa dentadura móvel pode colocar implante?
-            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-600 group-open:bg-gold-50 group-open:text-gold-700 transition-colors">
+            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-[#081220] text-gold-400 group-open:bg-gold-500/20 group-open:text-gold-300 transition-colors">
               <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </span>
           </summary>
-          <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 bg-slate-50">
+          <div class="px-6 pb-6 text-slate-300 leading-relaxed border-t border-[#1E3E66] pt-4 bg-[#0A1626]">
             <strong>Sim!</strong> É totalmente viável substituir a dentadura por uma <strong>prótese protocolo fixa</strong> (dentes fixos apoiados sobre implantes). Isso devolve a total segurança para mastigar e sorrir, sem o risco de a prótese se deslocar ou machucar a gengiva.
           </div>
         </details>
 
         <!-- FAQ 4 -->
-        <details class="group rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden" data-reveal>
-          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-slate-900 select-none hover:bg-slate-50 transition-colors">
+        <details class="group rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-sm overflow-hidden" data-reveal>
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-white select-none hover:bg-[#132A4B] transition-colors">
             Como funciona a primeira avaliação em Passos - MG?
-            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-600 group-open:bg-gold-50 group-open:text-gold-700 transition-colors">
+            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-[#081220] text-gold-400 group-open:bg-gold-500/20 group-open:text-gold-300 transition-colors">
               <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </span>
           </summary>
-          <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 bg-slate-50">
+          <div class="px-6 pb-6 text-slate-300 leading-relaxed border-t border-[#1E3E66] pt-4 bg-[#0A1626]">
             Nossa avaliação, conduzida pessoalmente pelo Dr. Luciano Freire, foca no escaneamento e diagnóstico da saúde bucal. Com base na estrutura óssea do paciente, apresentamos um plano de tratamento previsível e exclusivo no centro de Passos.
           </div>
         </details>
@@ -466,8 +457,8 @@ const currentYear = new Date().getFullYear();
           // Smoothly fade out the splash background using Web Animations API
           splashScreen.style.pointerEvents = 'none';
           splashScreen.animate([
-            { backgroundColor: 'rgba(2, 6, 23, 1)' },
-            { backgroundColor: 'rgba(2, 6, 23, 0)' }
+            { backgroundColor: '#0B192C', opacity: 1 },
+            { backgroundColor: '#0B192C', opacity: 0 }
           ], {
             duration: 1200,
             easing: 'ease-out',

@@ -7,7 +7,7 @@ const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20
 ---
 
 <!-- HEADER -->
-<header class="sticky top-0 z-40 bg-white border-b border-slate-200 transition-colors duration-150">
+<header class="sticky top-0 z-40 bg-[#0B192C]/95 backdrop-blur-md border-b border-[#1A3358]/80 transition-colors duration-150">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-[4.5rem]">
       <a href="/" class="group flex items-center focus:outline-none focus:ring-2 focus:ring-gold-400 rounded-lg btn-tactile py-1" aria-label="Dr. Luciano Alves Freire - Início">
@@ -22,20 +22,17 @@ const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-7 text-[13px] font-medium text-slate-600">
-        <a href="/#triagem" class="hover:text-gold-600 transition-colors duration-150">Tratamentos</a>
-        <a href="/#comparador" class="hover:text-gold-600 transition-colors duration-150">Anatomia 3D</a>
-        <a href="/#autoridade" class="hover:text-gold-600 transition-colors duration-150">Sobre o Dr. Luciano</a>
-        <a href="/#jornada" class="hover:text-gold-600 transition-colors duration-150">Jornada</a>
-        <a href="/#faq" class="hover:text-gold-600 transition-colors duration-150">Dúvidas</a>
-        <a href="/#contato" class="hover:text-gold-600 transition-colors duration-150">Localização</a>
+      <nav class="hidden lg:flex items-center gap-7 text-[13px] font-medium text-slate-200">
+        <a href="/#triagem" class="hover:text-gold-300 transition-colors duration-150">Tratamentos</a>
+        <a href="/#comparador" class="hover:text-gold-300 transition-colors duration-150">Anatomia 3D</a>
+        <a href="/#autoridade" class="hover:text-gold-300 transition-colors duration-150">Sobre o Dr. Luciano</a>
+        <a href="/#jornada" class="hover:text-gold-300 transition-colors duration-150">Jornada</a>
+        <a href="/#faq" class="hover:text-gold-300 transition-colors duration-150">Dúvidas</a>
+        <a href="/#contato" class="hover:text-gold-300 transition-colors duration-150">Localização</a>
       </nav>
 
       <!-- CTA Header -->
       <div class="flex items-center gap-3">
-        <span class="hidden xl:inline-flex items-center text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-gold-50 text-gold-700 border border-gold-200">
-          CRO-MG 25170
-        </span>
         <a
           href={heroWhatsappUrl}
           target="_blank"
