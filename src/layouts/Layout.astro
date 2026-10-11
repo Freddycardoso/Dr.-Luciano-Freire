@@ -106,7 +106,7 @@ const schemaData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0B192C" />
+    <meta name="theme-color" content="#102A4C" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
     <!-- Primary SEO -->
@@ -394,7 +394,7 @@ const schemaData = {
           document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-revealed'));
         }
 
-        // 2. Header blur enhancement on scroll
+        // 2. Header elevation enhancement on scroll (preserves navy blue background forever)
         const header = document.querySelector('header');
         if (header) {
           let ticking = false;
@@ -402,9 +402,9 @@ const schemaData = {
             if (!ticking) {
               window.requestAnimationFrame(function() {
                 if (window.scrollY > 25) {
-                  header.classList.add('shadow-sm', 'bg-white/95', 'backdrop-blur-sm', 'border-slate-200');
+                  header.classList.add('shadow-xl', 'shadow-black/40', 'border-[#22487A]');
                 } else {
-                  header.classList.remove('shadow-sm', 'bg-white/95', 'backdrop-blur-sm', 'border-slate-200');
+                  header.classList.remove('shadow-xl', 'shadow-black/40', 'border-[#22487A]');
                 }
                 ticking = false;
               });

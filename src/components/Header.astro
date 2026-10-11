@@ -7,26 +7,34 @@ const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20
 ---
 
 <!-- HEADER -->
-<header class="sticky top-0 z-40 bg-[#0B192C]/95 backdrop-blur-md border-b border-[#1A3358]/80 transition-colors duration-150">
+<header class="sticky top-0 z-40 bg-[#102A4C]/95 backdrop-blur-md border-b border-[#22487A]/70 transition-colors duration-150">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-[4.5rem]">
-      <a href="/" class="group flex items-center focus:outline-none focus:ring-2 focus:ring-gold-400 rounded-lg btn-tactile py-1" aria-label="Dr. Luciano Alves Freire - Início">
+      <a href="/" class="group flex items-center gap-2.5 sm:gap-3.5 focus:outline-none focus:ring-2 focus:ring-gold-400 rounded-lg btn-tactile py-1" aria-label="Dr. Luciano Alves Freire - Início">
         <Image
           id="header-logo-img"
           src={logoClinica}
           alt="Logo Dr. Luciano Alves Freire - Consultório Odontológico"
-          class="h-9 sm:h-11 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] group-hover:brightness-110 transition-all duration-150"
+          class="h-9 sm:h-11 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] group-hover:brightness-110 transition-all duration-150 shrink-0"
           format="webp"
           loading="eager"
         />
+        <div class="flex flex-col text-left">
+          <span class="font-serif font-bold text-white text-sm sm:text-base lg:text-lg tracking-tight leading-tight group-hover:text-gold-300 transition-colors">
+            Dr. Luciano A. Freire
+          </span>
+          <span class="text-[10px] sm:text-[11px] font-semibold tracking-wider text-gold-300 uppercase leading-tight">
+            Odontologia • Sala 24
+          </span>
+        </div>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-7 text-[13px] font-medium text-slate-200">
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-medium text-slate-200">
         <a href="/#triagem" class="hover:text-gold-300 transition-colors duration-150">Tratamentos</a>
         <a href="/#comparador" class="hover:text-gold-300 transition-colors duration-150">Anatomia 3D</a>
-        <a href="/#autoridade" class="hover:text-gold-300 transition-colors duration-150">Sobre o Dr. Luciano</a>
-        <a href="/#jornada" class="hover:text-gold-300 transition-colors duration-150">Jornada</a>
+        <a href="/#autoridade" class="hover:text-gold-300 transition-colors duration-150">Dr. Luciano</a>
+        <a href="/#ambientes" class="hover:text-gold-300 transition-colors duration-150">Ambientes</a>
         <a href="/#faq" class="hover:text-gold-300 transition-colors duration-150">Dúvidas</a>
         <a href="/#contato" class="hover:text-gold-300 transition-colors duration-150">Localização</a>
       </nav>

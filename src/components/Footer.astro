@@ -16,14 +16,22 @@ const currentYear = new Date().getFullYear();
       
       <!-- Coluna Identificação Profissional -->
       <div class="md:col-span-5">
-        <div class="mb-4">
+        <div class="flex items-center gap-3.5 mb-4">
           <Image
             src={logoClinica}
             alt="Logo Dr. Luciano Alves Freire - Consultório Odontológico"
-            class="h-9 sm:h-11 w-auto object-contain brightness-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+            class="h-10 sm:h-12 w-auto object-contain brightness-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] shrink-0"
             format="webp"
             loading="lazy"
           />
+          <div class="flex flex-col text-left">
+            <span class="font-serif font-bold text-white text-base sm:text-lg tracking-tight leading-tight">
+              Dr. Luciano A. Freire
+            </span>
+            <span class="text-xs font-semibold tracking-wider text-gold-300 uppercase leading-tight">
+              Odontologia • Sala 24
+            </span>
+          </div>
         </div>
         <p class="text-slate-300 leading-relaxed max-w-sm mb-4">
           Especialista em implantes dentários, reabilitação oral e odontologia estética. Cuidado técnico, precisão científica e atendimento humanizado em Passos/MG.
@@ -40,6 +48,7 @@ const currentYear = new Date().getFullYear();
           <li><a href="/#triagem" class="hover:text-gold-300 transition-colors duration-150">Tratamentos Especializados</a></li>
           <li><a href="/#comparador" class="hover:text-gold-300 transition-colors duration-150">Anatomia do Implante 3D</a></li>
           <li><a href="/#autoridade" class="hover:text-gold-300 transition-colors duration-150">Dr. Luciano Freire</a></li>
+          <li><a href="/#ambientes" class="hover:text-gold-300 transition-colors duration-150">Ambientes do Consultório</a></li>
           <li><a href="/#faq" class="hover:text-gold-300 transition-colors duration-150">Dúvidas Frequentes</a></li>
           <li><a href="/#jornada" class="hover:text-gold-300 transition-colors duration-150">Jornada Sem Dor</a></li>
           <li><a href="/#contato" class="hover:text-gold-300 transition-colors duration-150">Localização no Centro</a></li>

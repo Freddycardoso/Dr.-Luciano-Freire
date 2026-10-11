@@ -6,6 +6,10 @@ import { Image } from 'astro:assets';
 import drLucianoImg from '../assets/dr-luciano-freire.png';
 import drLucianoHeroImg from '../assets/dr-luciano-freire-hero.png';
 import clinicBgHeroImg from '../assets/clinic-bg-hero.jpg';
+import consultorioHeroImg from '../assets/consultorio-hero-cropped.png';
+import consultorioEsperaImg from '../assets/consultorio-sala-espera.png';
+import consultorioPlacaImg from '../assets/consultorio-placa-entrada.png';
+import consultorioAtendimentoImg from '../assets/consultorio-atendimento-completo.png';
 import logoClinica from '../assets/logo-clinica-nobg.png';
 import denteNaturalImg from '../assets/dente-natural-comparativo.png';
 import implanteTitanioImg from '../assets/implante-titanio-comparativo.png';
@@ -42,7 +46,7 @@ const currentYear = new Date().getFullYear();
 
 <Layout>
   <!-- SPLASH SCREEN -->
-  <div id="splash-screen" class="fixed inset-0 z-[100] bg-[#0B192C] flex flex-col items-center justify-center transition-colors duration-700">
+  <div id="splash-screen" class="fixed inset-0 z-[100] bg-[#102A4C] flex flex-col items-center justify-center transition-colors duration-700">
     <div id="splash-logo-container" class="relative w-48 sm:w-64 transition-transform duration-[1000ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-center">
       <!-- Dimmed logo -->
       <Image src={logoClinica} alt="Logo" class="w-full h-auto object-contain opacity-20" format="webp" loading="eager" />
@@ -58,18 +62,21 @@ const currentYear = new Date().getFullYear();
 
   <main id="main-content">
   <!-- 1. HERO -->
-  <section id="hero" class="relative min-h-[640px] lg:min-h-[760px] flex items-center overflow-hidden border-b border-[#1A3358]/80 bg-[#0B192C]">
-    <div class="absolute inset-0 z-0 pointer-events-none">
+  <section id="hero" class="relative min-h-[660px] lg:min-h-[780px] flex items-center overflow-hidden border-b border-[#22487A]/70 bg-[#102A4C]">
+    <!-- Background: Foto Real do Consultório com Degradê Direcional -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
       <Image
-        src={clinicBgHeroImg}
-        alt="Consultório Odontológico de Alto Padrão"
-        class="w-full h-full object-cover object-center"
+        src={consultorioHeroImg}
+        alt="Consultório Dr. Luciano Freire em Passos MG"
+        class="w-full h-full object-cover object-right lg:object-[65%_center] brightness-[0.88] contrast-[1.05]"
         format="webp"
-        quality={80}
+        quality={88}
         loading="eager"
         fetchpriority="high"
       />
-      <div class="absolute inset-0 bg-[#0B192C]/88"></div>
+      <!-- Degradê: azul sapphire nobre à esquerda para 100% de legibilidade e fade suave até revelar o consultório de fundo -->
+      <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#102A4C] via-[#102A4C]/95 lg:via-[#102A4C]/82 to-[#102A4C]/35"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#102A4C]/85 via-transparent to-[#102A4C]/40 lg:hidden"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-10 pb-16 lg:py-16">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -105,8 +112,10 @@ const currentYear = new Date().getFullYear();
           </div>
         </div>
         <div class="hidden lg:flex lg:col-span-5 relative justify-end items-end min-h-[500px]">
-          <div class="hero-doctor-entrance relative w-full flex justify-end" style="mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);">
-            <Image src={drLucianoHeroImg} alt="Dr. Luciano Alves Freire" class="w-auto h-[550px] object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.85)] select-none pointer-events-none animate-float-slow" widths={[380, 520]} sizes="520px" format="webp" quality={88} loading="eager" />
+          <div class="hero-doctor-entrance relative w-full flex justify-end" style="mask-image: linear-gradient(to bottom, black 75%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);">
+            <!-- Glow sutil de fundo para destacar o Dr. Luciano com sofisticação -->
+            <div class="absolute bottom-12 right-10 w-80 h-80 rounded-full bg-gold-400/12 blur-3xl pointer-events-none"></div>
+            <Image src={drLucianoHeroImg} alt="Dr. Luciano Alves Freire" class="relative z-10 w-auto h-[550px] object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.9)] select-none pointer-events-none animate-float-slow" widths={[380, 520]} sizes="520px" format="webp" quality={90} loading="eager" />
           </div>
         </div>
       </div>
@@ -131,7 +140,7 @@ const currentYear = new Date().getFullYear();
   </section>
 
   <!-- 3. COMPARADOR & BENEFICIOS -->
-  <section id="comparador" class="relative bg-[#0B192C] py-20 lg:py-28 border-b border-[#1A3358]/80 text-slate-200">
+  <section id="comparador" class="relative bg-[#102A4C] py-20 lg:py-28 border-b border-[#22487A]/70 text-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
@@ -221,7 +230,7 @@ const currentYear = new Date().getFullYear();
   </section>
 
   <!-- 6. AUTORIDADE -->
-  <section id="autoridade" class="relative bg-[#0B192C] py-16 sm:py-24 border-b border-[#1A3358]/80 text-white">
+  <section id="autoridade" class="relative bg-[#102A4C] py-16 sm:py-24 border-b border-[#22487A]/70 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="block lg:hidden text-center mb-8" data-reveal>
         <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">Atendimento Pessoal do Início ao Fim</h2>
@@ -272,6 +281,125 @@ const currentYear = new Date().getFullYear();
     </div>
   </section>
 
+  <!-- 7. AMBIENTES DO CONSULTÓRIO -->
+  <section id="ambientes" class="relative bg-[#102A4C] py-20 lg:py-28 border-b border-[#22487A]/70 text-white overflow-hidden">
+    <!-- Efeito luminoso de fundo -->
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-10 w-80 h-80 bg-[#1D4375]/25 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-reveal>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
+          Ambientes do Consultório
+        </h2>
+        <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          Conheça nosso espaço no Centro de Passos/MG, planejado para garantir sua privacidade, acolhimento e máxima biossegurança em cada consulta.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Card 1: Sala de Atendimento Clínico (Principal - 7 Colunas) -->
+        <div class="lg:col-span-7 flex flex-col rounded-3xl overflow-hidden bg-[#15335B]/90 border border-[#22487A] shadow-2xl card-tactile group" data-reveal data-reveal-delay="100">
+          <div class="relative overflow-hidden h-[280px] sm:h-[360px] bg-slate-950">
+            <Image
+              src={consultorioHeroImg}
+              alt="Sala de Atendimento Clínico e Diagnóstico - Dr. Luciano Freire"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              format="webp"
+              quality={88}
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#15335B] via-[#15335B]/20 to-transparent"></div>
+            <div class="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#102A4C]/90 backdrop-blur-md border border-[#22487A] text-xs font-semibold text-white shadow-md">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Atendimento Individualizado
+            </div>
+          </div>
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-white mb-2.5">
+                Sala Clínica & Diagnóstico
+              </h3>
+              <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-4">
+                Consultório amplo equipado com cadeira odontológica moderna, bancada de simulação diagnóstica e rigoroso protocolo de biossegurança. Aqui o Dr. Luciano atende você pessoalmente, ouvindo suas expectativas para planejar cada detalhe do tratamento.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-3 border-t border-[#22487A]/60 text-xs text-gold-300 font-medium">
+              <span>• Cadeira anatômica</span>
+              <span class="text-slate-400">•</span>
+              <span>• Planejamento digital e físico</span>
+              <span class="text-slate-400">•</span>
+              <span>• Privacidade absoluta</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Recepção e Entrada (5 Colunas) -->
+        <div class="lg:col-span-5 flex flex-col gap-8">
+          
+          <!-- Card 2: Sala de Espera / Recepção -->
+          <div class="flex-1 flex flex-col sm:flex-row lg:flex-col rounded-3xl overflow-hidden bg-[#15335B]/90 border border-[#22487A] shadow-xl card-tactile group" data-reveal data-reveal-delay="200">
+            <div class="relative overflow-hidden h-[200px] sm:h-auto sm:w-1/2 lg:w-full lg:h-[200px] bg-slate-950 shrink-0">
+              <Image
+                src={consultorioEsperaImg}
+                alt="Sala de Espera Acolhedora - Dr. Luciano Freire"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                format="webp"
+                quality={88}
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#15335B] via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#102A4C]/90 backdrop-blur-md border border-[#22487A] text-[11px] font-semibold text-white shadow-md">
+                Conforto & Pontualidade
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-white mb-2">
+                  Recepção Aconchegante
+                </h3>
+                <p class="text-slate-200 text-xs sm:text-sm leading-relaxed">
+                  Espaço calmo, climatizado e pontual, garantindo que você aguarde com tranquilidade e bem-estar antes do seu procedimento.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Entrada do Consultório - Sala 24 -->
+          <div class="flex-1 flex flex-col sm:flex-row lg:flex-col rounded-3xl overflow-hidden bg-[#15335B]/90 border border-[#22487A] shadow-xl card-tactile group" data-reveal data-reveal-delay="300">
+            <div class="relative overflow-hidden h-[200px] sm:h-auto sm:w-1/2 lg:w-full lg:h-[200px] bg-slate-950 shrink-0">
+              <Image
+                src={consultorioPlacaImg}
+                alt="Identificação Externa do Consultório - Sala 24"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                format="webp"
+                quality={88}
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#15335B] via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#102A4C]/90 backdrop-blur-md border border-[#22487A] text-[11px] font-semibold text-white shadow-md">
+                Centro de Passos
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-white mb-2">
+                  Acesso Direto • Sala 24
+                </h3>
+                <p class="text-slate-200 text-xs sm:text-sm leading-relaxed">
+                  Localização estratégica com identificação clara e facilidade para estacionamento na Rua dos Brandões, 231.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- MAPA E LOCALIZACAO -->
   <section id="localizacao" class="relative bg-white py-16 sm:py-24 border-b border-slate-200 text-slate-600 overflow-hidden">
     <div class="absolute inset-0 z-0 pointer-events-none">
@@ -305,8 +433,8 @@ const currentYear = new Date().getFullYear();
     </div>
   </section>
 
-  <!-- 7. FAQ -->
-  <section id="faq" class="relative bg-[#0B192C] py-20 lg:py-28 border-b border-[#1A3358]/80 text-white">
+  <!-- 8. FAQ -->
+  <section id="faq" class="relative bg-[#102A4C] py-20 lg:py-28 border-b border-[#22487A]/70 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14" data-reveal>
         <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Dúvidas Frequentes Antes de Agendar</h2>
@@ -457,8 +585,8 @@ const currentYear = new Date().getFullYear();
           // Smoothly fade out the splash background using Web Animations API
           splashScreen.style.pointerEvents = 'none';
           splashScreen.animate([
-            { backgroundColor: '#0B192C', opacity: 1 },
-            { backgroundColor: '#0B192C', opacity: 0 }
+            { backgroundColor: '#102A4C', opacity: 1 },
+            { backgroundColor: '#102A4C', opacity: 0 }
           ], {
             duration: 1200,
             easing: 'ease-out',
