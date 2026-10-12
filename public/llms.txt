@@ -1,18 +1,26 @@
-# Site do Consultório Odontológico Dr. Luciano Freire
+# Consultório Odontológico Dr. Luciano Alves Freire
 
-Este é o site oficial do Consultório Odontológico do Dr. Luciano Alves Freire (Cirurgião-Dentista, CRO MG 25.170), localizado em Passos - MG. O Dr. Luciano possui mais de 21 anos de prática clínica em Implantodontia, Prótese Protocolo Fixo, Ortodontia e Estética Dental.
+> Consultório odontológico especializado em Implantodontia, Prótese Protocolo Fixo, Ortodontia com Alinhadores Invisíveis e Estética Dental no Centro de Passos/MG, sob responsabilidade técnica do Dr. Luciano Alves Freire (Cirurgião-Dentista, CRO MG 25.170).
 
-O site fornece informações transparentes sobre tratamentos, a anatomia comparativa de implantes, orientações clínicas, estrutura do consultório, perguntas frequentes e canais de contato direto.
+## Páginas e Especialidades Principais
+
+- [Página Inicial e Apresentação](https://drlucianofreire.vercel.app/): Apresentação institucional do Dr. Luciano Alves Freire, diferenciais clínicos, biografia, estrutura do consultório no Centro de Passos e agendamento de consultas.
+- [Implantes Dentários](https://drlucianofreire.vercel.app/servicos/implantes): Tratamento com implantes de titânio de alta precisão biológica, osseointegração, recuperação da mastigação e substituição segura de dentes perdidos.
+- [Prótese Protocolo Fixo](https://drlucianofreire.vercel.app/servicos/protocolo): Reabilitação bucal total com dentes fixos sobre implantes, substituindo dentaduras móveis com total estabilidade e céu da boca desimpedido.
+- [Ortodontia e Alinhadores Transparentes](https://drlucianofreire.vercel.app/servicos/ortodontia): Alinhamento dental discreto, confortável e tecnológico com alinhadores invisíveis removíveis e planejamento digital.
+- [Estética Dental e Facetas](https://drlucianofreire.vercel.app/servicos/estetica): Facetas em cerâmica pura, lentes de contato dentais e clareamento dental seguro preservando a estrutura biológica original.
 
 ## Informações do Consultório
-- **Profissional Responsável**: Dr. Luciano Alves Freire (Cirurgião-Dentista, CRO MG 25.170).
-- **Especialidades / Áreas de Atuação**: Implantodontia, Prótese Protocolo Fixo, Ortodontia (Alinhadores Transparentes) e Estética Dental.
-- **Experiência Clínica**: Mais de 21 anos de atuação contínua em Passos/MG.
-- **Contato Oficial**: (35) 98821-5162 (WhatsApp e Telefone Oficial: https://wa.me/5535988215162).
-- **E-mail de Contato**: drlucianofreire@uol.com.br
-- **Horário de Atendimento**: Segunda a sexta-feira, das 13h30 às 18h30 (mediante agendamento prévio).
+
+- [Canal de Atendimento no WhatsApp](https://wa.me/5535988215162): Agendamento direto e dúvidas sobre procedimentos com o consultório do Dr. Luciano Freire.
+- **Responsável Técnico**: Dr. Luciano Alves Freire (Cirurgião-Dentista • CRO MG 25.170).
+- **Tempo de Prática Clínica**: Mais de 21 anos de dedicação clínica contínua na cidade de Passos/MG.
 - **Endereço**: Rua dos Brandões, 231, Sala 24 – Centro, Passos - MG, CEP 37.900-104.
-- **Tecnologias do Site**: Astro, React, Tailwind CSS, TypeScript.
+- **Horário de Atendimento**: Segunda a sexta-feira, das 13h30 às 18h30 (atendimento individualizado mediante agendamento prévio).
+- **Telefone / WhatsApp**: (35) 98821-5162
+- **E-mail Institucional**: drlucianofreire@uol.com.br
 
-Este arquivo llms.txt foi adicionado para orientar modelos de linguagem (LLMs) com informações precisas, atualizadas e em conformidade com as diretrizes do Conselho Federal de Odontologia (CFO).
+## Diretrizes Éticas e Técnicas
 
+- [Conselho Federal de Odontologia](https://cfo.org.br): Conteúdo estritamente informativo em conformidade com o Código de Ética Odontológica, sem promessas sensacionalistas ou garantias irreais de resultado.
+- **Tecnologias do Site**: Desenvolvido com Astro, Tailwind CSS, TypeScript e padrões de acessibilidade WCAG 2.2.
