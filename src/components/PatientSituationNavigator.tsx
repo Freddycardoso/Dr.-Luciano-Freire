@@ -201,7 +201,7 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
               aria-selected={isActive}
               aria-controls={`panel-${item.id}`}
               onClick={() => setActiveTab(item.id)}
-              className={`btn-tactile group flex items-center gap-2.5 p-3.5 rounded-xl text-sm font-semibold transition-all duration-200 border cursor-pointer select-none text-left min-h-[56px] ${
+              className={`btn-tactile group flex items-center gap-2.5 p-3.5 rounded-xl text-base font-semibold transition-all duration-200 border cursor-pointer select-none text-left min-h-[56px] ${
                 isActive
                   ? "bg-brand-blue text-white border-brand-blue shadow-md"
                   : "bg-white text-brand-dark border-brand-pale hover:bg-surface-subtle hover:border-brand-light"
@@ -298,7 +298,7 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
               </svg>
               <span>{current.ctaLabel}</span>
             </a>
-            <span className="text-sm text-slate-500 text-center sm:text-left">
+            <span className="text-base text-slate-600 text-center sm:text-left">
               Atendimento individual conduzido pessoalmente pelo Dr. Luciano Freire (CRO MG 25.170)
             </span>
           </div>

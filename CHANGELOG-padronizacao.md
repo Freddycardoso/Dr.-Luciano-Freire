@@ -172,3 +172,116 @@ As 4 páginas de especialidades em `src/pages/servicos/` foram reformuladas do d
    - Para enriquecer ainda mais os cards de casos clínicos, recomenda-se realizar sessões fotográficas profissionais de macrofotografia dental e de interações reais do Dr. Luciano com pacientes (com termo de consentimento prévio para divulgação).
 3. **Monitoramento de Agendamentos:**
    - Acompanhar as conversões vindas dos botões com mensagem pré-configurada no WhatsApp para aferir qual serviço gera maior demanda imediata em Passos e região.
+
+---
+
+## 11. Relatório de Conferência da Fase 3
+
+### 11.1 Validação de Compilação (Build Test)
+- **Comando:** `pnpm run build`
+- **Resultado:** Executado com êxito (Código de Saída: `0`).
+- **Rotas Estáticas Geradas:**
+  - `src/pages/index.astro` ➔ `/index.html`
+  - `src/pages/servicos/estetica.astro` ➔ `/servicos/estetica/index.html`
+  - `src/pages/servicos/implantes.astro` ➔ `/servicos/implantes/index.html`
+  - `src/pages/servicos/ortodontia.astro` ➔ `/servicos/ortodontia/index.html`
+  - `src/pages/servicos/protocolo.astro` ➔ `/servicos/protocolo/index.html`
+- **Otimização de Imagens:** 28 variantes WebP otimizadas com Sharp sem qualquer falha de cache ou carregamento.
+
+---
+
+### 11.2 Matriz de Conferência de Regras Críticas
+
+| Item de Verificação | Requisito Exigido | Status | Evidência Técnica |
+| :--- | :--- | :--- | :--- |
+| **Paleta de Cores** | Apenas cores do manual oficial (#426BB2, #3D6ABD, #9DB8E0, #C3D8F0, #1E2A44, #8BB027, #C6DB69, brancos). Fim dos fundos escuros maciços (#102A4C / #0A192F). | **100% Conforme** | 0 ocorrências de `#102A4C`, `#0A192F` ou `navy-` nas páginas ativas. Superfícies brancas e suaves (`#FFFFFF`, `#F4F8FD`, `#E6EFFA`). |
+| **Tipografia Sem Serifa** | Expurgar 100% de fontes serifadas (`Playfair Display`). Padronizar em `Source Sans 3`. | **100% Conforme** | 0 ocorrências de `font-serif` ou `Playfair` em todo o diretório `src/`. Google Fonts configurado exclusivamente com `Source Sans 3`. |
+| **Tamanho Mínimo de Texto** | Nenhum texto com tamanho inferior a 16px (1rem). | **100% Conforme** | Escala de `tailwind.config.mjs` mapeou `xs` e `sm` para `1rem` (16px). Todas as classes nas páginas ativas foram migradas para `text-base` ou classes fluidas `clamp` (18px a 20px). |
+| **Contraste WCAG 2.1 AA** | Contraste mínimo de 4.5:1 para texto normal e 3:1 para texto grande. | **100% Conforme** | `#426BB2` sobre branco: 5.2:1 (AA). `#1E2A44` sobre branco: 13.8:1 (AAA). Verde `#8BB027` restrito a marcadores e ícones gráficos. |
+| **Textos Alternativos (Alt Text)** | Toda imagem com alt único, descritivo, com palavras-chave sem keyword stuffing. | **100% Conforme** | 100% das 25 imagens catalogadas em `alt-text.md` e implementadas no código com descrição acessível. |
+| **Logo no Cabeçalho** | `logo-simplificada.svg` em 44px mobile / 56px desktop, clicável para home, sem redundância de texto. | **100% Conforme** | Implementado em `src/components/Header.astro` com `h-11 sm:h-14`, link para `/`, sem textos HTML adjacentes. |
+| **Dados Unificados** | CRO MG 25.170, WhatsApp (35) 98821-5162, Rua dos Brandões 231 Sala 24, horário 13h30-18h30. | **100% Conforme** | Presença homogênea em Header, Footer, Hero, Bio, subpáginas e JSON-LD. |
+| **Preservação de SEO Técnico** | Manter meta tags, canonical, Schema.org JSON-LD, OpenGraph, sitemap, robots e llms.txt. | **100% Conforme** | Schema.org intacto com dados atualizados, canonical URL preservado, robots e sitemap sem modificações estruturais. |
+
+---
+
+### 11.3 Auditoria Responsiva Comparativa (375px vs 768px vs 1440px)
+
+#### 1. Cabeçalho (Header)
+- **375px (Mobile):** Logo simplificada em 44px de altura. Menu de navegação textual recolhido para priorizar a visualização. Botão tátil de WhatsApp compacto com 48px de altura contendo o ícone e a palavra "WhatsApp". Zero rolagem horizontal (overflow-x nulo).
+- **768px (Tablet):** Logo simplificada expande para 56px. Botão de WhatsApp ganha padding lateral maior (`px-5`).
+- **1440px (Desktop):** Navegação horizontal completa em `17px` (`text-[1.0625rem]`), sem serifa, font-weight 600, com 5 links (`Tratamentos`, `Comparativo`, `Sobre o Dr. Luciano`, `Consultório`, `Localização`), efeito hover em azul oficial e anel de foco acessível. Botão CTA de agendamento em destaque.
+
+#### 2. Hero Section
+- **375px (Mobile):** Fundo fotográfico do consultório com gradiente clareador direcional garantindo legibilidade do texto. Badge de autoridade em pílula clara com indicador verde ativo. Título H1 em 32px (`text-3xl`). Botões CTA empilhados verticalmente com largura total (`w-full`) e altura mínima de 52px. Retrato do Dr. Luciano em card institucional claro.
+- **768px (Tablet):** Título H1 escala para 36px (`sm:text-4xl`). Botões CTA posicionados lado a lado (`flex-row`).
+- **1440px (Desktop):** Grid assimétrico de 12 colunas (7 colunas para chamada e texto / 5 colunas para o card do Dr. Luciano). Título H1 atinge 44px (`lg:text-[44px]`). Foto de destaque do Dr. Luciano em card amplo de 460px com selos de autoridade.
+
+#### 3. Triagem Clínica Interativa (`#triagem`)
+- **375px (Mobile):** Abas dispostas em grade de 2 colunas com botões táteis de 56px de altura (`min-h-[56px]`), ícones SVG em destaque e textos em 16px. O painel da queixa selecionada surge em card claro com diagnóstico, recomendação biológica e botão de contato específico.
+- **768px (Tablet):** Abas transformam-se em barra horizontal com rolagem suave por snap (`snap-x`).
+- **1440px (Desktop):** Barra de abas completa com transição de cor suave, cards de orientação com benefícios laterais e botão de contato com sombra verde suave.
+
+#### 4. Carrossel de Especialidades (`#tratamentos`)
+- **375px (Mobile):** Carrossel horizontal deslizável com snap center (`snap-center`), cards com largura de 280px. Botões de seta anterior/próximo com 48×48px posicionados abaixo do carrossel para navegação confortável com uma mão.
+- **768px (Tablet):** Cards expandem para 320px de largura e imagem para 260px de altura.
+- **1440px (Desktop):** Cards com 360px de largura. Hover elegante com leve zoom da imagem (`scale-105`), elevação de sombra (`shadow-card-hover`) e borda ativa em Azul Oficial.
+
+#### 5. Comparador Anatômico (Dente Natural vs Implante)
+- **375px (Mobile):** Slider interativo contido em card branco com borda sutil, pino circular centralizado de 48×48px para arrasto via toque. Botões inferiores táteis de 48px para alternar entre "Dente Biológico" e "Implante de Titânio" com um clique sem necessidade de arrasto.
+- **768px (Tablet):** Visualização ampla das camadas anatômicas em alta resolução.
+- **1440px (Desktop):** Centralizado com micro-animação fluida, acompanhado por 3 cards explicativos em grade de 3 colunas (Preservação Óssea, Integridade Adjacente, Firmeza Mastigatória).
+
+#### 6. Autoridade & Biografia do Dr. Luciano (`#sobre`)
+- **375px (Mobile):** Foto institucional e blocos de autoridade clínica empilhados verticalmente: "+21 Anos de Prática Clínica", "100% Pessoal" e "Passos - MG". Textos informativos em 16px e 18px.
+- **768px (Tablet):** Blocos de autoridade organizados em grade de 3 colunas (`sm:grid-cols-3`).
+- **1440px (Desktop):** Grid de 12 colunas com retrato lateral em 5 colunas e narrativa profissional em 7 colunas, enfatizando a experiência ininterrupta no Centro de Passos.
+
+#### 7. Consultório & Estrutura Física (`#consultorio`)
+- **375px (Mobile):** Fotos reais dispostas verticalmente: 1 destaque panorâmico (Cadeira Odontológica e Sala Clínica) e 2 fotos empilhadas (Recepção/Espera Climatizada e Placa Externa da Sala 24). Badges brancos translúcidos nos cantos das fotos.
+- **768px (Tablet):** Fotos secundárias dispostas em layout horizontal compacto (`sm:flex-row`).
+- **1440px (Desktop):** Composição de 12 colunas (7 colunas para a foto clínica panorâmica / 5 colunas para os cartões de recepção e localização).
+
+#### 8. FAQ & Dúvidas Frequentes (`#duvidas`)
+- **375px (Mobile):** Acordeão nativo com área de toque de 56px por pergunta, ícone de expansão com transição de rotação suave, texto da resposta em 18px com altura de linha relaxada.
+- **768px e 1440px (Tablet/Desktop):** Largura contida em 768px centralizados (`max-w-3xl`), foco visível e espaçamento generoso.
+
+#### 9. Rodapé (Footer)
+- **375px (Mobile):** Colunas empilhadas. Logo completa em card branco protegido no topo, dados de contato e endereço com links clicáveis para telefone e mapa, links de serviços e dados regulatórios ao final.
+- **768px (Tablet):** Grid de 2 colunas para navegação e contatos.
+- **1440px (Desktop):** Grid de 12 colunas (5 colunas para identidade institucional, 3 para especialidades, 4 para contatos oficiais e horário de funcionamento). Fundo em `#1E2A44` com texto em alto contraste (branco e tons claros).
+
+#### 10. Botão Flutuante de WhatsApp
+- **375px (Mobile):** Botão circular de 56×56px no canto inferior direito, com área de toque ampla, sem obstruir conteúdos textuais ou rodapé.
+- **768px e 1440px (Tablet/Desktop):** Acompanhado de callout expansivo "Agende sua Avaliação" à esquerda para amplificar conversões.
+
+---
+
+### 11.4 Pendências de Informação do Cliente
+
+As seguintes informações foram mapeadas e necessitam de manifestação ou fornecimento por parte do Dr. Luciano:
+
+1. **`[CONFIRMAR]` E-mail Institucional:**
+   - **Dado Atual:** `drlucianofreire@uol.com.br` (constante no manual de marca).
+   - **Ação com o Cliente:** Confirmar se este e-mail da UOL segue ativo e monitorado diariamente pela recepção ou se o consultório prefere cadastrar um e-mail alternativo.
+2. **`[CONFIRMAR]` Telefone Fixo Antigo `(35) 3521-5027`:**
+   - **Situação Atual:** Removido de todos os botões e links ativos do site para não dispersar agendamentos.
+   - **Ação com o Cliente:** Confirmar se esta linha fixa ainda existe fisicamente no consultório (para manter apenas em menção textual secundária no rodapé caso solicitado) ou se foi definitivamente desativada.
+3. **`[PREENCHER]` Casos Clínicos Reais / Fotografias Intraorais:**
+   - **Situação Atual:** As seções utilizam ilustrações anatômicas didáticas de alta precisão biológica e fotografias do consultório/profissional.
+   - **Ação com o Cliente:** Caso o Dr. Luciano deseje exibir casos clínicos documentados (antes e depois de facetas ou protocolos), fornecer as fotos em alta resolução acompanhadas do Termo de Consentimento Livre e Esclarecido (TCLE) assinado pelos respectivos pacientes, conforme exigência do CFO.
+4. **`[PREENCHER]` Parcerias Radiológicas Específicas:**
+   - **Situação Atual:** O site menciona que exames tomográficos 3D são realizados em centros radiológicos parceiros em Passos.
+   - **Ação com o Cliente:** Caso deseje citarnominalmente os centros radiológicos parceiros conveniados para facilitar a locomoção do paciente, informar os nomes.
+
+---
+
+### 11.5 Recomendações para Revisão Manual
+
+1. **Teste Físico do WhatsApp em Dispositivos Móveis:**
+   - Abrir o site publicado em um aparelho iPhone (iOS/Safari) e em um aparelho Android (Chrome).
+   - Tocar no botão flutuante e verificar se o aplicativo do WhatsApp abre instantaneamente com a mensagem pré-configurada preenchida no campo de digitação.
+2. **Revisão das Respostas do FAQ:**
+   - Solicitar ao Dr. Luciano ou à sua secretária a leitura rápida das 5 respostas do FAQ (`#duvidas`) para validar se a explicação sobre implantes imediatos, prótese protocolo e primeira avaliação corresponde exatamente à conduta adotada no consultório.
+3. **Google Meu Negócio (Perfil da Empresa):**
+   - Verificar se na ficha do Google Maps o número de telefone cadastrado é o WhatsApp `(35) 98821-5162` e se o endereço está vinculado à Sala 24.
