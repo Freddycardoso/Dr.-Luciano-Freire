@@ -72,26 +72,25 @@ export function AnatomyComparisonSlider({
         onKeyDown={handleKeyDown}
         tabIndex={0}
         role="slider"
-        aria-label="Comparador de anatomia entre Dente Natural e Implante de Titânio"
+        aria-label="Comparador anatômico interativo: Dente Natural versus Implante de Titânio"
         aria-valuenow={Math.round(sliderPosition)}
         aria-valuemin={0}
         aria-valuemax={100}
-        className="relative w-full aspect-[4/5] max-w-[420px] mx-auto rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-[0_25px_60px_rgba(0,0,0,0.85)] cursor-ew-resize touch-none focus:outline-none focus:ring-2 focus:ring-gold-400/50"
+        className="relative w-full aspect-[4/5] max-w-[420px] mx-auto rounded-2xl overflow-hidden bg-white border border-brand-pale shadow-card cursor-ew-resize touch-none focus:outline-none focus:ring-2 focus:ring-brand-blue"
       >
         {/* Layer 1: Implante Dentário (Fundo Direito) */}
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none p-4 sm:p-6 bg-radial from-slate-900/60 to-slate-950">
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none p-4 sm:p-6 bg-gradient-to-b from-white via-surface-subtle to-white">
           <img
             src={implantSrc}
-            alt="Implante Dentário de Titânio Osseointegrado e Coroa Cerâmica"
-            className="w-full h-full object-contain filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
+            alt="Ilustração anatômica de implante dentário de titânio osseointegrado na mandíbula com coroa cerâmica sobreposta"
+            className="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(66,107,178,0.15)]"
             draggable={false}
           />
-
         </div>
 
         {/* Layer 2: Dente Natural (Sobreposição Esquerda com Clip-Path dinâmico) */}
         <div
-          className={`absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none p-4 sm:p-6 bg-radial from-slate-900/60 to-slate-950 will-change-[clip-path] ${
+          className={`absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none p-4 sm:p-6 bg-gradient-to-b from-white via-surface-subtle to-white will-change-[clip-path] ${
             isDragging ? "transition-none" : "transition-all duration-700 ease-out"
           }`}
           style={{
@@ -100,32 +99,32 @@ export function AnatomyComparisonSlider({
         >
           <img
             src={naturalSrc}
-            alt="Dente Natural com Coroa de Esmalte e Raiz Biológica"
-            className="w-full h-full object-contain filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
+            alt="Ilustração anatômica de dente natural saudável exibindo esmalte, dentina e raiz biológica ancorada no osso"
+            className="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(66,107,178,0.15)]"
             draggable={false}
           />
-
         </div>
 
-        {/* Barra Divisória Vertical (Divider Line com Acabamento Dourado Champanhe) */}
+        {/* Barra Divisória Vertical com tom Brand Blue */}
         <div
-          className={`absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-gold-400/30 via-gold-300 to-gold-400/30 z-20 pointer-events-none shadow-[0_0_12px_rgba(197,168,128,0.7)] ${
+          className={`absolute top-0 bottom-0 w-[2px] bg-brand-blue z-20 pointer-events-none shadow-[0_0_10px_rgba(66,107,178,0.5)] ${
             isDragging ? "transition-none" : "transition-all duration-700 ease-out"
           }`}
           style={{ left: `${sliderPosition}%` }}
         >
-          {/* Handle Circular de Arraste Físico (Estilo Apple / Emil Kowalski) */}
+          {/* Handle Circular de Arraste (Mínimo 48x48px para acessibilidade ao toque) */}
           <div
-            className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950/90 backdrop-blur-lg border-2 border-gold-300 flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.7),0_0_14px_rgba(197,168,128,0.4)] transition-transform duration-150 ${
-              isDragging ? "scale-110 ring-4 ring-gold-400/25" : "hover:scale-105"
+            className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-2 border-brand-blue flex items-center justify-center shadow-lg transition-transform duration-150 ${
+              isDragging ? "scale-110 ring-4 ring-brand-blue/25" : "hover:scale-105"
             }`}
           >
             {/* Ícones de Setas Bidirecionais */}
             <svg
-              className="w-4 h-4 text-gold-200"
+              className="w-5 h-5 text-brand-blue"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -136,19 +135,17 @@ export function AnatomyComparisonSlider({
             </svg>
           </div>
         </div>
-
-
       </div>
 
-      {/* Botões Rápidos de Posição Pré-definida (Touch Friendly) */}
-      <div className="flex items-center justify-center gap-2 mt-4 text-xs">
+      {/* Botões Rápidos de Posição Pré-definida (Mínimo 48px de altura de toque, texto 16px) */}
+      <div className="flex flex-wrap items-center justify-center gap-2.5 mt-5">
         <button
           type="button"
           onClick={() => setSliderPosition(95)}
-          className={`btn-tactile px-3 py-1.5 rounded-lg border text-[11px] font-medium transition-colors ${
+          className={`btn-tactile min-h-[48px] px-4 py-2.5 rounded-xl border text-base font-semibold transition-all duration-150 ${
             sliderPosition > 70
-              ? "bg-slate-800 text-white border-gold-400/50 shadow-sm"
-              : "bg-slate-900/50 text-slate-400 border-slate-800 hover:text-slate-200"
+              ? "bg-brand-blue text-white border-brand-blue shadow-sm"
+              : "bg-white text-brand-dark border-brand-pale hover:bg-surface-subtle hover:text-brand-deep"
           }`}
         >
           Ver Dente Natural
@@ -156,10 +153,10 @@ export function AnatomyComparisonSlider({
         <button
           type="button"
           onClick={() => setSliderPosition(50)}
-          className={`btn-tactile px-3 py-1.5 rounded-lg border text-[11px] font-medium transition-colors ${
+          className={`btn-tactile min-h-[48px] px-4 py-2.5 rounded-xl border text-base font-semibold transition-all duration-150 ${
             sliderPosition >= 30 && sliderPosition <= 70
-              ? "bg-slate-800 text-gold-300 border-gold-400 shadow-sm"
-              : "bg-slate-900/50 text-slate-400 border-slate-800 hover:text-slate-200"
+              ? "bg-brand-blue text-white border-brand-blue shadow-sm"
+              : "bg-white text-brand-dark border-brand-pale hover:bg-surface-subtle hover:text-brand-deep"
           }`}
         >
           Meio a Meio
@@ -167,10 +164,10 @@ export function AnatomyComparisonSlider({
         <button
           type="button"
           onClick={() => setSliderPosition(5)}
-          className={`btn-tactile px-3 py-1.5 rounded-lg border text-[11px] font-medium transition-colors ${
+          className={`btn-tactile min-h-[48px] px-4 py-2.5 rounded-xl border text-base font-semibold transition-all duration-150 ${
             sliderPosition < 30
-              ? "bg-slate-800 text-gold-300 border-gold-400/50 shadow-sm"
-              : "bg-slate-900/50 text-slate-400 border-slate-800 hover:text-slate-200"
+              ? "bg-brand-blue text-white border-brand-blue shadow-sm"
+              : "bg-white text-brand-dark border-brand-pale hover:bg-surface-subtle hover:text-brand-deep"
           }`}
         >
           Ver Implante

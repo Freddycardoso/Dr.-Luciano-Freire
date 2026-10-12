@@ -2,20 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import drLucianoImg from '../assets/dr-luciano-freire.png';
 import drLucianoHeroImg from '../assets/dr-luciano-freire-hero.png';
 import clinicBgHeroImg from '../assets/clinic-bg-hero.jpg';
 import consultorioHeroImg from '../assets/consultorio-hero-cropped.png';
 import consultorioEsperaImg from '../assets/consultorio-sala-espera.png';
 import consultorioPlacaImg from '../assets/consultorio-placa-entrada.png';
-import consultorioAtendimentoImg from '../assets/consultorio-atendimento-completo.png';
 import logoClinica from '../assets/logo-clinica-nobg.png';
 import denteNaturalImg from '../assets/dente-natural-comparativo.png';
 import implanteTitanioImg from '../assets/implante-titanio-comparativo.png';
 import ServicesCarousel from '../components/ServicesCarousel';
 import { AnatomyComparisonSlider } from '../components/AnatomyComparisonSlider';
-import { getImage } from 'astro:assets';
 
 import implanteImg from '../assets/servico_implante.jpg';
 import protocoloImg from '../assets/servico_protocolo.jpg';
@@ -31,28 +29,49 @@ const optEstetica = await getImage({ src: esteticaImg, format: 'webp', width: 60
 const optOrtodontia = await getImage({ src: ortodontiaImg, format: 'webp', width: 600 });
 
 const carouselServices = [
-  { id: 'implantes', title: 'Implantes Dentários', description: 'Substitua raízes perdidas com pinos de titânio. Firmeza absoluta e estética natural sem desgastar dentes vizinhos.', href: '/servicos/implantes', imageSrc: optImplante.src },
-  { id: 'protocolo', title: 'Prótese Protocolo', description: 'Livre-se da dentadura móvel. Todos os dentes fixos sobre apenas 4 a 6 implantes em poucos dias.', href: '/servicos/protocolo', imageSrc: optProtocolo.src },
-  { id: 'estetica', title: 'Estética Dental', description: 'Facetas em porcelana, lentes de contato dental e clareamento para um sorriso harmonioso e iluminado.', href: '/servicos/estetica', imageSrc: optEstetica.src },
-  { id: 'ortodontia', title: 'Ortodontia Invisível', description: 'Alinhadores transparentes que corrigem a posição dos dentes com máximo conforto e discrição.', href: '/servicos/ortodontia', imageSrc: optOrtodontia.src },
+  { 
+    id: 'implantes', 
+    title: 'Implantes Dentários', 
+    description: 'Substituição da raiz dental perdida por implante de titânio biocompatível. Firmeza mastigatória e estética natural sem desgastar dentes vizinhos.', 
+    href: '/servicos/implantes', 
+    imageSrc: optImplante.src 
+  },
+  { 
+    id: 'protocolo', 
+    title: 'Prótese Protocolo Fixo', 
+    description: 'Reabilitação completa com dentes fixos suportados por implantes. Devolva a força da mastigação e dispense o uso de dentaduras móveis.', 
+    href: '/servicos/protocolo', 
+    imageSrc: optProtocolo.src 
+  },
+  { 
+    id: 'estetica', 
+    title: 'Estética Dental e Clareamento', 
+    description: 'Facetas e lentes de contato em cerâmica de alta durabilidade, além de clareamento supervisionado para harmonia do sorriso.', 
+    href: '/servicos/estetica', 
+    imageSrc: optEstetica.src 
+  },
+  { 
+    id: 'ortodontia', 
+    title: 'Ortodontia e Alinhadores', 
+    description: 'Alinhadores transparentes e aparelhos modernos para correção do posicionamento dental com discrição, conforto e previsibilidade.', 
+    href: '/servicos/ortodontia', 
+    imageSrc: optOrtodontia.src 
+  },
 ];
 
 const whatsappBaseUrl = "https://wa.me/5535988215162";
-const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20de%20implante%20dent%C3%A1rio`;
-const phoneFixed = "(35) 3521-5027";
-const phoneFixedClean = "553535215027";
-const currentYear = new Date().getFullYear();
+const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20no%20consult%C3%B3rio.`;
 ---
 
 <Layout>
-  <!-- SPLASH SCREEN -->
-  <div id="splash-screen" class="fixed inset-0 z-[100] bg-[#102A4C] flex flex-col items-center justify-center transition-colors duration-700">
+  <!-- SPLASH SCREEN CLARO E SUAVE -->
+  <div id="splash-screen" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center transition-colors duration-700">
     <div id="splash-logo-container" class="relative w-48 sm:w-64 transition-transform duration-[1000ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-center">
       <!-- Dimmed logo -->
-      <Image src={logoClinica} alt="Logo" class="w-full h-auto object-contain opacity-20" format="webp" loading="eager" />
+      <Image src={logoClinica} alt="Logotipo do Consultório Dr. Luciano Freire" class="w-full h-auto object-contain opacity-20" format="webp" loading="eager" />
       <!-- Illuminated logo with clip-path sweep -->
       <div id="splash-logo-lit" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 0 100% 0);">
-        <Image src={logoClinica} alt="Logo" class="w-full h-auto object-contain" format="webp" loading="eager" />
+        <Image src={logoClinica} alt="Logotipo do Consultório Dr. Luciano Freire" class="w-full h-auto object-contain" format="webp" loading="eager" />
       </div>
     </div>
   </div>
@@ -61,477 +80,529 @@ const currentYear = new Date().getFullYear();
   <Header />
 
   <main id="main-content">
-  <!-- 1. HERO -->
-  <section id="hero" class="relative min-h-[660px] lg:min-h-[780px] flex items-center overflow-hidden border-b border-[#22487A]/70 bg-[#102A4C]">
-    <!-- Background: Foto Real do Consultório com Degradê Direcional -->
-    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-      <Image
-        src={consultorioHeroImg}
-        alt="Consultório Dr. Luciano Freire em Passos MG"
-        class="w-full h-full object-cover object-right lg:object-[65%_center] brightness-[0.88] contrast-[1.05]"
-        format="webp"
-        quality={88}
-        loading="eager"
-        fetchpriority="high"
-      />
-      <!-- Degradê: azul sapphire nobre à esquerda para 100% de legibilidade e fade suave até revelar o consultório de fundo -->
-      <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#102A4C] via-[#102A4C]/95 lg:via-[#102A4C]/82 to-[#102A4C]/35"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#102A4C]/85 via-transparent to-[#102A4C]/40 lg:hidden"></div>
-    </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-10 pb-16 lg:py-16">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        <div class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left items-center lg:items-start pt-8">
-          <div class="hero-entrance-1 mb-6">
-            <div class="inline-flex items-center gap-x-2 py-1.5 px-3 rounded-full bg-slate-900/80 border border-[#1A3358] text-xs text-slate-200 shadow-sm backdrop-blur-sm">
-              <div class="flex items-center gap-0.5 text-gold-400">
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+    <!-- 1. HERO COM FUNDO CLARO E FOTO REAL DO CONSULTÓRIO -->
+    <section id="hero" class="relative min-h-[640px] lg:min-h-[740px] flex items-center overflow-hidden border-b border-brand-pale bg-surface-subtle">
+      <!-- Background: Foto do Consultório com Degradê Direcional Suave -->
+      <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <Image
+          src={consultorioHeroImg}
+          alt="Sala de atendimento do consultório odontológico do Dr. Luciano Freire em Passos MG"
+          class="w-full h-full object-cover object-right lg:object-[68%_center] opacity-40 brightness-105"
+          format="webp"
+          quality={88}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <!-- Degradê direcional branco e luminoso para assegurar contraste e legibilidade perfeita do texto -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 lg:via-white/85 to-white/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-10 pb-16 lg:py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left items-center lg:items-start pt-6 sm:pt-8">
+            
+            <!-- Badge de Autoridade -->
+            <div class="hero-entrance-1 mb-5">
+              <div class="inline-flex items-center gap-x-2 py-2 px-4 rounded-full bg-surface-soft border border-brand-pale text-brand-dark text-xs sm:text-sm font-semibold shadow-sm">
+                <span class="w-2.5 h-2.5 rounded-full bg-accent-green shrink-0"></span>
+                <span>Cirurgião-Dentista • CRO MG 25.170 • Passos/MG</span>
               </div>
-              <span class="text-white font-bold text-[11px] sm:text-xs">5.0 Estrelas • Passos/MG</span>
+            </div>
+
+            <!-- Título Principal Fluido (Source Sans 3, Sem Serifa) -->
+            <h1 class="hero-entrance-2 text-3xl sm:text-4xl lg:text-[44px] font-bold text-brand-blue tracking-tight leading-[1.18] mb-4 max-w-2xl">
+              Volte a sorrir com segurança, firmeza e bem-estar.
+            </h1>
+
+            <!-- Parágrafo Factual com Tipografia Fluida (18px a 20px) -->
+            <p class="hero-entrance-3 text-lg sm:text-xl text-slate-700 leading-relaxed mb-8 max-w-xl font-normal">
+              Com mais de 21 anos de prática clínica em Passos/MG, o <strong class="text-brand-dark font-bold">Dr. Luciano Alves Freire</strong> conduz pessoalmente cada atendimento, unindo precisão diagnóstica, técnicas consagradas e foco no seu conforto.
+            </p>
+
+            <!-- Ação Principal Touch-Friendly (Mínimo 48px de altura, texto 18px) -->
+            <div class="hero-entrance-4 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-8 lg:mb-4">
+              <a 
+                href={heroWhatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn-tactile inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold text-lg min-h-[48px] shadow-glow-whatsapp w-full sm:w-auto transition-colors"
+              >
+                <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                </svg>
+                <span>Agendar Avaliação no WhatsApp</span>
+              </a>
+            </div>
+
+            <!-- Imagem do Dr. Luciano no Mobile -->
+            <div class="block lg:hidden w-full max-w-[280px] mx-auto hero-entrance-5">
+              <div class="relative flex justify-center items-end" style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);">
+                <Image 
+                  src={drLucianoHeroImg} 
+                  alt="Dr. Luciano Alves Freire, Cirurgião-Dentista CRO MG 25.170, fotografado no consultório em Passos MG" 
+                  class="w-auto h-[340px] object-contain drop-shadow-[0_12px_24px_rgba(66,107,178,0.2)] select-none pointer-events-none" 
+                  widths={[300, 420]} 
+                  sizes="(max-width: 640px) 280px, 320px" 
+                  format="webp" 
+                  quality={88} 
+                  loading="eager" 
+                />
+              </div>
             </div>
           </div>
-          <h1 class="hero-entrance-2 font-sans text-3xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.18] mb-4 max-w-2xl">
-            Volte a sorrir com confiança e a viver seus melhores momentos.
-          </h1>
-          <p class="hero-entrance-3 text-base sm:text-lg text-slate-200 leading-relaxed mb-8 max-w-xl font-normal">
-            Descubra o poder de um sorriso renovado. Conforto, estética e bem-estar em um atendimento exclusivo conduzido pessoalmente pelo <strong class="text-white font-bold">Dr. Luciano Freire</strong>.
+
+          <!-- Imagem do Dr. Luciano no Desktop -->
+          <div class="hidden lg:flex lg:col-span-5 relative justify-end items-end min-h-[500px]">
+            <div class="hero-doctor-entrance relative w-full flex justify-end" style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
+              <!-- Glow azul suave da marca no fundo -->
+              <div class="absolute bottom-10 right-8 w-80 h-80 rounded-full bg-brand-light/30 blur-3xl pointer-events-none"></div>
+              <Image 
+                src={drLucianoHeroImg} 
+                alt="Dr. Luciano Alves Freire, Cirurgião-Dentista com mais de 21 anos de prática clínica em Passos MG" 
+                class="relative z-10 w-auto h-[540px] object-contain drop-shadow-[0_20px_35px_rgba(30,42,68,0.2)] select-none pointer-events-none animate-float-slow" 
+                widths={[380, 520]} 
+                sizes="520px" 
+                format="webp" 
+                quality={90} 
+                loading="eager" 
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SERVIÇOS EM DESTAQUE / CARROSSEL -->
+    <section id="triagem" class="relative bg-white py-20 lg:py-28 text-brand-dark border-b border-brand-pale">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-16" data-reveal>
+          <h2 class="text-3xl sm:text-4xl lg:text-[34px] font-bold text-brand-dark tracking-tight mb-4">
+            Tratamentos Odontológicos Especializados
+          </h2>
+          <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            Conheça as áreas de atuação do consultório, planejadas com rigor técnico para restabelecer a estética, o alinhamento e a plena função mastigatória.
           </p>
-          <div class="hero-entrance-4 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10 lg:mb-4">
-            <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-tactile btn-shimmer inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold text-base shadow-[0_4px_24px_rgba(37,211,102,0.28)] w-full transition-colors">
-              <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
-              <span>Agendar Avaliação no WhatsApp</span>
-            </a>
-          </div>
-          <div class="block lg:hidden w-full max-w-[280px] mx-auto hero-entrance-5">
-            <div class="relative flex justify-center items-end" style="mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);">
-              <Image src={drLucianoHeroImg} alt="Dr. Luciano Alves Freire" class="w-auto h-[350px] object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.85)] select-none pointer-events-none" widths={[300, 420]} sizes="(max-width: 640px) 280px, 320px" format="webp" quality={88} loading="eager" />
-            </div>
-          </div>
         </div>
-        <div class="hidden lg:flex lg:col-span-5 relative justify-end items-end min-h-[500px]">
-          <div class="hero-doctor-entrance relative w-full flex justify-end" style="mask-image: linear-gradient(to bottom, black 75%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);">
-            <!-- Glow sutil de fundo para destacar o Dr. Luciano com sofisticação -->
-            <div class="absolute bottom-12 right-10 w-80 h-80 rounded-full bg-gold-400/12 blur-3xl pointer-events-none"></div>
-            <Image src={drLucianoHeroImg} alt="Dr. Luciano Alves Freire" class="relative z-10 w-auto h-[550px] object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.9)] select-none pointer-events-none animate-float-slow" widths={[380, 520]} sizes="520px" format="webp" quality={90} loading="eager" />
-          </div>
+        <div class="mb-10 w-full" data-reveal data-reveal-delay="100">
+          <ServicesCarousel client:visible services={carouselServices} />
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 2. TRIAGEM / SERVIÇOS (A ser atualizado) -->
-  <section id="triagem" class="relative bg-white py-20 lg:py-28 text-slate-900 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-16" data-reveal>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
-          Como Podemos Te Ajudar a Voltar a Sorrir com Segurança?
-        </h2>
-        <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
-          Selecione a sua situação abaixo para entender as possibilidades de tratamentos, as indicações clínicas e como o Dr. Luciano conduz cada etapa com foco no seu conforto.
-        </p>
-      </div>
-      <div class="mb-10 w-full" data-reveal data-reveal-delay="100">
-        <ServicesCarousel client:visible services={carouselServices} />
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. COMPARADOR & BENEFICIOS -->
-  <section id="comparador" class="relative bg-[#102A4C] py-20 lg:py-28 border-b border-[#22487A]/70 text-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
-          Firmeza e Segurança Semelhantes à Sua Própria Raiz
-        </h2>
-        <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
-          Arraste o comparador para ver como o implante substitui o dente com alta precisão estética e funcional — devolvendo a firmeza da mastigação sem desgastar nenhum dente saudável ao lado.
-        </p>
-      </div>
-      <div class="flex flex-col items-center justify-center mb-20" data-reveal data-reveal-delay="100">
-        <div class="p-2 sm:p-3 rounded-3xl bg-[#0F223D] border border-[#1E3E66] shadow-2xl w-full max-w-[440px]">
-          <AnatomyComparisonSlider client:visible naturalSrc={optimizedNaturalImg.src} implantSrc={optimizedImplantImg.src} />
+    <!-- 3. COMPARADOR ANATÔMICO & BENEFÍCIOS -->
+    <section id="comparador" class="relative bg-surface-subtle py-20 lg:py-28 border-b border-brand-pale text-brand-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
+          <h2 class="text-3xl sm:text-4xl lg:text-[34px] font-bold text-brand-dark tracking-tight mb-4">
+            Firmeza e Estabilidade Semelhantes à Raiz Natural
+          </h2>
+          <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            Arraste o comparador para visualizar como o implante substitui o dente com alta precisão estética e mastigatória, preservando integralmente os dentes saudáveis adjacentes.
+          </p>
         </div>
-        <p class="text-xs text-slate-400 text-center mt-3 font-medium">
-          Arraste para comparar: dente biológico à esquerda e implante fixo de titânio à direita.
-        </p>
-        <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 text-gold-400 hover:text-gold-300 text-sm font-bold transition-colors flex items-center gap-1 group">
-          Quero avaliar meu caso no WhatsApp <span class="group-hover:translate-x-1 transition-transform">→</span>
-        </a>
-      </div>
 
-      <!-- CARDS FUSION -->
-      <div class="max-w-4xl mx-auto" data-reveal data-reveal-delay="200">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="pl-6 border-l-2 border-gold-400/70 py-2 group">
-            <div class="flex items-center gap-2 mb-3">
-              <h3 class="font-serif text-lg font-bold text-white">Sorria sem esconder a boca</h3>
-            </div>
-            <p class="text-slate-300 text-sm leading-relaxed">Acabamento em porcelana que não amarela nem mancha com café ou vinho. Brilho e textura muito semelhantes ao esmalte natural.</p>
+        <div class="flex flex-col items-center justify-center mb-20" data-reveal data-reveal-delay="100">
+          <div class="p-3 sm:p-4 rounded-3xl bg-white border border-brand-pale shadow-card w-full max-w-[460px]">
+            <AnatomyComparisonSlider client:visible naturalSrc={optimizedNaturalImg.src} implantSrc={optimizedImplantImg.src} />
           </div>
-          <div class="pl-6 border-l-2 border-gold-400/70 py-2 group">
-            <div class="flex items-center gap-2 mb-3">
-              <h3 class="font-serif text-lg font-bold text-white">Mastigue sem medo de quebrar</h3>
-            </div>
-            <p class="text-slate-300 text-sm leading-relaxed">A base de titânio devolve a força necessária para mastigar alimentos firmes. Firmeza definitiva para o seu dia a dia.</p>
-          </div>
-          <div class="pl-6 border-l-2 border-gold-400/70 py-2 group">
-            <div class="flex items-center gap-2 mb-3">
-              <h3 class="font-serif text-lg font-bold text-white">Sinta o sabor real da comida</h3>
-            </div>
-            <p class="text-slate-300 text-sm leading-relaxed">Céu da boca totalmente livre. Sem placas acrílicas cobrindo o palato, permitindo sentir o sabor e a temperatura dos alimentos.</p>
-          </div>
+          <p class="text-sm text-slate-500 text-center mt-3 font-medium">
+            Arraste para comparar: dente biológico à esquerda e implante fixo de titânio à direita.
+          </p>
+          <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 text-brand-blue hover:text-brand-deep text-base font-bold transition-colors flex items-center gap-1.5 group">
+            <span>Tirar dúvidas sobre implantes no WhatsApp</span> 
+            <span class="group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+          </a>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- 5. JORNADA -->
-  <section id="jornada" class="relative bg-white py-20 lg:py-28 border-b border-slate-200 text-slate-600">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14" data-reveal>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">O Fim do Medo: Um Passo a Passo Sem Dor</h2>
-        <p class="text-slate-600 text-base leading-relaxed max-w-xl mx-auto">Esqueça os procedimentos antigos. Conheça as três etapas para ter seu sorriso de volta com máximo conforto.</p>
-      </div>
-      <div class="relative max-w-2xl mx-auto pb-8" id="jornada-timeline">
-        {/* Static Base Line */}
-        <div class="absolute left-6 top-2 bottom-2 w-1 bg-slate-200 rounded-full"></div>
-        
-        {/* Animated Light Line */}
-        <div id="jornada-progress-line" class="absolute left-6 top-2 bottom-2 w-1 bg-amber-400 rounded-full shadow-[0_0_12px_#fbbf24] z-10"></div>
-
-        <div class="space-y-16">
-          <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="75">
-            <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-amber-200 shadow-[0_0_12px_#fbbf24] z-20 step-dot"></div>
-            <div>
-              <h3 class="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-2">Passo 01: Diagnóstico Digital 3D</h3>
-              <p class="text-slate-600 text-base leading-relaxed">Mapeamento minucioso do sorriso sem o desconforto de moldagens antigas.</p>
-            </div>
-          </div>
-          <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="150">
-            <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-amber-200 shadow-[0_0_12px_#fbbf24] z-20 step-dot"></div>
-            <div>
-              <h3 class="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-2">Passo 02: Cirurgia Guiada e Sem Dor</h3>
-              <p class="text-slate-600 text-base leading-relaxed">Procedimento planejado com anestesia moderna para total previsibilidade e conforto.</p>
-            </div>
-          </div>
-          <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="225">
-            <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-amber-200 shadow-[0_0_12px_#fbbf24] z-20 step-dot"></div>
-            <div>
-              <h3 class="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-2">Passo 03: Instalação dos Dentes Fixos</h3>
-              <p class="text-slate-600 text-base leading-relaxed">Prótese definitiva posicionada para devolver a mastigação e a liberdade de sorrir.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. AUTORIDADE -->
-  <section id="autoridade" class="relative bg-[#102A4C] py-16 sm:py-24 border-b border-[#22487A]/70 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="block lg:hidden text-center mb-8" data-reveal>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">Atendimento Pessoal do Início ao Fim</h2>
-        <p class="text-slate-200 text-base leading-relaxed px-4">Com mais de 20 anos de atuação clínica no Centro de Passos, o Dr. Luciano Alves Freire conduz pessoalmente cada etapa do seu tratamento, do diagnóstico inicial à reabilitação final.</p>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-        <div class="lg:col-span-5 flex justify-center" data-reveal data-reveal-delay="100">
-          <div class="relative w-full max-w-[270px] sm:max-w-xs lg:max-w-md">
-            <div class="relative rounded-2xl overflow-hidden bg-[#0F223D] border border-[#1E3E66] shadow-2xl card-tactile">
-              <Image src={drLucianoImg} alt="Dr. Luciano Alves Freire - Cirurgião-Dentista em Passos MG" class="w-full h-auto object-cover" widths={[360, 500]} sizes="(max-width: 768px) 270px, 450px" format="webp" loading="lazy" />
-              <div class="p-3.5 sm:p-4 bg-[#081220]/95 border-t border-[#1E3E66] text-center">
-                <p class="font-serif font-bold text-white text-base">Dr. Luciano Alves Freire</p>
-                <p class="text-xs text-gold-400 font-semibold">Cirurgião-Dentista • CRO-MG 25170</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="lg:col-span-7 flex flex-col justify-center" data-reveal data-reveal-delay="200">
-          <div class="hidden lg:block">
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Diagnóstico Preciso e Atendimento Conduzido Pessoalmente</h2>
-            <p class="text-slate-200 text-lg leading-relaxed mb-8 max-w-2xl">Com mais de 20 anos de atuação clínica no Centro de Passos, o Dr. Luciano Alves Freire conduz pessoalmente cada etapa do seu tratamento, do diagnóstico inicial à reabilitação final.</p>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-            <div class="p-4 rounded-xl bg-[#0F223D] border border-[#1E3E66] shadow-sm card-tactile">
-              <div class="text-gold-400 font-bold text-xl mb-1">20+ Anos</div>
-              <div class="text-xs font-bold text-white mb-0.5">Prática Clínica</div>
-              <p class="text-xs text-slate-300 leading-normal">Milhares de reabilitações em Passos/MG.</p>
-            </div>
-            <div class="p-4 rounded-xl bg-[#0F223D] border border-[#1E3E66] shadow-sm card-tactile">
-              <div class="text-gold-400 font-bold text-xl mb-1">100% Pessoal</div>
-              <div class="text-xs font-bold text-white mb-0.5">Cuidado Direto</div>
-              <p class="text-xs text-slate-300 leading-normal">Condução integral pelo Dr. Luciano.</p>
-            </div>
-            <div class="p-4 rounded-xl bg-[#0F223D] border border-[#1E3E66] shadow-sm card-tactile">
-              <div class="text-gold-400 font-bold text-xl mb-1">Passos - MG</div>
-              <div class="text-xs font-bold text-white mb-0.5">Consultório Próprio</div>
-              <p class="text-xs text-slate-300 leading-normal">Atendimento totalmente individualizado.</p>
-            </div>
-          </div>
-          <div class="text-center sm:text-left">
-            <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-tactile btn-shimmer w-full sm:w-auto inline-flex justify-center items-center gap-2.5 px-6 py-3.5 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold text-sm shadow-glow-whatsapp">
-              <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
-              <span>Conversar com o Dr. Luciano</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. AMBIENTES DO CONSULTÓRIO -->
-  <section id="ambientes" class="relative bg-[#102A4C] py-20 lg:py-28 border-b border-[#22487A]/70 text-white overflow-hidden">
-    <!-- Efeito luminoso de fundo -->
-    <div class="absolute top-0 right-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 left-10 w-80 h-80 bg-[#1D4375]/25 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16" data-reveal>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
-          Ambientes do Consultório
-        </h2>
-        <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-          Conheça nosso espaço no Centro de Passos/MG, planejado para garantir sua privacidade, acolhimento e máxima biossegurança em cada consulta.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        
-        <!-- Card 1: Sala de Atendimento Clínico (Principal - 7 Colunas) -->
-        <div class="lg:col-span-7 flex flex-col rounded-3xl overflow-hidden bg-[#15335B]/90 border border-[#22487A] shadow-2xl card-tactile group" data-reveal data-reveal-delay="100">
-          <div class="relative overflow-hidden h-[280px] sm:h-[360px] bg-slate-950">
-            <Image
-              src={consultorioHeroImg}
-              alt="Sala de Atendimento Clínico e Diagnóstico - Dr. Luciano Freire"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-              format="webp"
-              quality={88}
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#15335B] via-[#15335B]/20 to-transparent"></div>
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#102A4C]/90 backdrop-blur-md border border-[#22487A] text-xs font-semibold text-white shadow-md">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              Atendimento Individualizado
-            </div>
-          </div>
-          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="font-serif text-2xl font-bold text-white mb-2.5">
-                Sala Clínica & Diagnóstico
-              </h3>
-              <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-4">
-                Consultório amplo equipado com cadeira odontológica moderna, bancada de simulação diagnóstica e rigoroso protocolo de biossegurança. Aqui o Dr. Luciano atende você pessoalmente, ouvindo suas expectativas para planejar cada detalhe do tratamento.
+        <!-- CARDS DE BENEFÍCIOS -->
+        <div class="max-w-4xl mx-auto" data-reveal data-reveal-delay="200">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div class="p-6 rounded-2xl bg-white border-l-4 border-brand-blue border border-brand-pale shadow-sm">
+              <h3 class="text-lg font-bold text-brand-dark mb-2">Sorria com tranquilidade</h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                Cerâmicas odontológicas de alta pureza que conservam brilho, textura e tonalidade harmoniosa ao longo do tempo.
               </p>
             </div>
-            <div class="flex flex-wrap gap-2 pt-3 border-t border-[#22487A]/60 text-xs text-gold-300 font-medium">
-              <span>• Cadeira anatômica</span>
-              <span class="text-slate-400">•</span>
-              <span>• Planejamento digital e físico</span>
-              <span class="text-slate-400">•</span>
-              <span>• Privacidade absoluta</span>
+            <div class="p-6 rounded-2xl bg-white border-l-4 border-brand-blue border border-brand-pale shadow-sm">
+              <h3 class="text-lg font-bold text-brand-dark mb-2">Mastigue com segurança</h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                O pino de titânio biocompatível se integra à estrutura óssea, restaurando o suporte essencial para mastigar com confiança.
+              </p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white border-l-4 border-brand-blue border border-brand-pale shadow-sm">
+              <h3 class="text-lg font-bold text-brand-dark mb-2">Palato desimpedido</h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                Diferente de próteses móveis, a reabilitação fixa sobre implantes deixa o céu da boca livre para sentir o sabor e a temperatura dos alimentos.
+              </p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Coluna Direita: Recepção e Entrada (5 Colunas) -->
-        <div class="lg:col-span-5 flex flex-col gap-8">
-          
-          <!-- Card 2: Sala de Espera / Recepção -->
-          <div class="flex-1 flex flex-col sm:flex-row lg:flex-col rounded-3xl overflow-hidden bg-[#15335B]/90 border border-[#22487A] shadow-xl card-tactile group" data-reveal data-reveal-delay="200">
-            <div class="relative overflow-hidden h-[200px] sm:h-auto sm:w-1/2 lg:w-full lg:h-[200px] bg-slate-950 shrink-0">
-              <Image
-                src={consultorioEsperaImg}
-                alt="Sala de Espera Acolhedora - Dr. Luciano Freire"
-                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                format="webp"
-                quality={88}
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#15335B] via-transparent to-transparent"></div>
-              <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#102A4C]/90 backdrop-blur-md border border-[#22487A] text-[11px] font-semibold text-white shadow-md">
-                Conforto & Pontualidade
-              </div>
-            </div>
-            <div class="p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="font-serif text-xl font-bold text-white mb-2">
-                  Recepção Aconchegante
-                </h3>
-                <p class="text-slate-200 text-xs sm:text-sm leading-relaxed">
-                  Espaço calmo, climatizado e pontual, garantindo que você aguarde com tranquilidade e bem-estar antes do seu procedimento.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3: Entrada do Consultório - Sala 24 -->
-          <div class="flex-1 flex flex-col sm:flex-row lg:flex-col rounded-3xl overflow-hidden bg-[#15335B]/90 border border-[#22487A] shadow-xl card-tactile group" data-reveal data-reveal-delay="300">
-            <div class="relative overflow-hidden h-[200px] sm:h-auto sm:w-1/2 lg:w-full lg:h-[200px] bg-slate-950 shrink-0">
-              <Image
-                src={consultorioPlacaImg}
-                alt="Identificação Externa do Consultório - Sala 24"
-                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                format="webp"
-                quality={88}
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#15335B] via-transparent to-transparent"></div>
-              <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#102A4C]/90 backdrop-blur-md border border-[#22487A] text-[11px] font-semibold text-white shadow-md">
-                Centro de Passos
-              </div>
-            </div>
-            <div class="p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="font-serif text-xl font-bold text-white mb-2">
-                  Acesso Direto • Sala 24
-                </h3>
-                <p class="text-slate-200 text-xs sm:text-sm leading-relaxed">
-                  Localização estratégica com identificação clara e facilidade para estacionamento na Rua dos Brandões, 231.
-                </p>
-              </div>
-            </div>
-          </div>
-
+    <!-- 4. ETAPAS DO TRATAMENTO (CONFORMIDADE CFO: SEM PROMESSAS IRREAIS) -->
+    <section id="jornada" class="relative bg-white py-20 lg:py-28 border-b border-brand-pale text-slate-700">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14" data-reveal>
+          <h2 class="text-3xl sm:text-4xl lg:text-[34px] font-bold text-brand-dark tracking-tight mb-4">
+            Etapas do Tratamento: Planejamento Seguro e Foco no Conforto
+          </h2>
+          <p class="text-slate-600 text-lg leading-relaxed max-w-xl mx-auto">
+            Conheça as etapas organizadas para restabelecer seu sorriso com previsibilidade, precisão técnica e acompanhamento atencioso.
+          </p>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- MAPA E LOCALIZACAO -->
-  <section id="localizacao" class="relative bg-white py-16 sm:py-24 border-b border-slate-200 text-slate-600 overflow-hidden">
-    <div class="absolute inset-0 z-0 pointer-events-none">
-      <Image
-        src={clinicBgHeroImg}
-        alt="Consultório Odontológico de Alto Padrão"
-        class="w-full h-full object-cover object-center"
-        format="webp"
-        quality={50}
-        loading="lazy"
-      />
-      <div class="absolute inset-0 bg-white/95"></div>
-    </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12" data-reveal>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">Localização Privilegiada em Passos</h2>
-        <p class="text-slate-600 text-base leading-relaxed max-w-2xl mx-auto">Ambiente sofisticado e estrutura moderna para o seu conforto.</p>
-      </div>
-      <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800/50" data-reveal data-reveal-delay="100">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.9213813898124!2d-46.60945532578505!3d-20.720336680852787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b6c31bf0db6ab5%3A0xbccf14902cd560fa!2sR.%20dos%20Brand%C3%B5es%2C%20231%20-%20Centro%2C%20Passos%20-%20MG%2C%2037900-104!5e0!3m2!1spt-BR!2sbr!4v1711200000000!5m2!1spt-BR!2sbr" 
-          width="100%" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          title="Localização do Consultório Odontológico Dr. Luciano Freire no Google Maps"
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. FAQ -->
-  <section id="faq" class="relative bg-[#102A4C] py-20 lg:py-28 border-b border-[#22487A]/70 text-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14" data-reveal>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Dúvidas Frequentes Antes de Agendar</h2>
-      </div>
-      <div class="space-y-4">
-        <!-- FAQ 1 -->
-        <details class="group rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-sm overflow-hidden" data-reveal>
-          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-white select-none hover:bg-[#132A4B] transition-colors">
-            O procedimento de implante dentário dói?
-            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-[#081220] text-gold-400 group-open:bg-gold-500/20 group-open:text-gold-300 transition-colors">
-              <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 leading-relaxed border-t border-[#1E3E66] pt-4 bg-[#0A1626]">
-            <strong>Não.</strong> O procedimento utiliza técnicas modernas de cirurgia guiada e anestesia de precisão. A recuperação é serena, sendo o pós-operatório considerado por muitos pacientes mais simples e confortável do que a extração de um dente convencional.
-          </div>
-        </details>
         
-        <!-- FAQ 2 -->
-        <details class="group rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-sm overflow-hidden" data-reveal>
-          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-white select-none hover:bg-[#132A4B] transition-colors">
-            Quanto tempo demora o tratamento de implante?
-            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-[#081220] text-gold-400 group-open:bg-gold-500/20 group-open:text-gold-300 transition-colors">
-              <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 leading-relaxed border-t border-[#1E3E66] pt-4 bg-[#0A1626]">
-            O tempo varia. Pacientes elegíveis podem receber a <strong>carga imediata</strong> (dentes fixos em poucos dias). Em outros casos, aguarda-se a cicatrização óssea (3 a 6 meses). O prazo exato é definido após o diagnóstico radiográfico 3D inicial.
-          </div>
-        </details>
+        <div class="relative max-w-2xl mx-auto pb-8" id="jornada-timeline">
+          <!-- Static Base Line -->
+          <div class="absolute left-6 top-2 bottom-2 w-1 bg-brand-pale rounded-full"></div>
+          
+          <!-- Animated Progress Line -->
+          <div id="jornada-progress-line" class="absolute left-6 top-2 bottom-2 w-1 bg-brand-blue rounded-full shadow-[0_0_8px_rgba(66,107,178,0.4)] z-10"></div>
 
-        <!-- FAQ 3 -->
-        <details class="group rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-sm overflow-hidden" data-reveal>
-          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-white select-none hover:bg-[#132A4B] transition-colors">
-            Quem usa dentadura móvel pode colocar implante?
-            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-[#081220] text-gold-400 group-open:bg-gold-500/20 group-open:text-gold-300 transition-colors">
-              <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 leading-relaxed border-t border-[#1E3E66] pt-4 bg-[#0A1626]">
-            <strong>Sim!</strong> É totalmente viável substituir a dentadura por uma <strong>prótese protocolo fixa</strong> (dentes fixos apoiados sobre implantes). Isso devolve a total segurança para mastigar e sorrir, sem o risco de a prótese se deslocar ou machucar a gengiva.
+          <div class="space-y-16">
+            <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="75">
+              <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-brand-blue border-2 border-white shadow-md z-20 step-dot"></div>
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold text-brand-dark mb-2">Passo 01: Diagnóstico e Planejamento Individualizado</h3>
+                <p class="text-slate-600 text-base leading-relaxed">Avaliação detalhada da estrutura dental e integração com centros radiológicos para exames de imagem e tomografia computadorizada.</p>
+              </div>
+            </div>
+            <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="150">
+              <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-brand-blue border-2 border-white shadow-md z-20 step-dot"></div>
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold text-brand-dark mb-2">Passo 02: Procedimento Guiado com Máximo Cuidado</h3>
+                <p class="text-slate-600 text-base leading-relaxed">Intervenção cirúrgica planejada com precisão, utilizando anestesia moderna e protocolo cuidadoso para máxima tranquilidade do paciente.</p>
+              </div>
+            </div>
+            <div class="relative group pl-16 jornada-step" data-reveal data-reveal-delay="225">
+              <div class="absolute left-[19px] top-1.5 w-3.5 h-3.5 rounded-full bg-brand-blue border-2 border-white shadow-md z-20 step-dot"></div>
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold text-brand-dark mb-2">Passo 03: Reabilitação e Instalação Definitiva</h3>
+                <p class="text-slate-600 text-base leading-relaxed">Instalação e refinamento oclusal da prótese definitiva, devolvendo a plena estabilidade da mastigação e a harmonia estética.</p>
+              </div>
+            </div>
           </div>
-        </details>
-
-        <!-- FAQ 4 -->
-        <details class="group rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-sm overflow-hidden" data-reveal>
-          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-serif text-lg font-bold text-white select-none hover:bg-[#132A4B] transition-colors">
-            Como funciona a primeira avaliação em Passos - MG?
-            <span class="relative flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-[#081220] text-gold-400 group-open:bg-gold-500/20 group-open:text-gold-300 transition-colors">
-              <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 leading-relaxed border-t border-[#1E3E66] pt-4 bg-[#0A1626]">
-            Nossa avaliação, conduzida pessoalmente pelo Dr. Luciano Freire, foca no escaneamento e diagnóstico da saúde bucal. Com base na estrutura óssea do paciente, apresentamos um plano de tratamento previsível e exclusivo no centro de Passos.
-          </div>
-        </details>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- 5. AUTORIDADE & ATENDIMENTO PESSOAL -->
+    <section id="autoridade" class="relative bg-surface-subtle py-20 lg:py-28 border-b border-brand-pale text-brand-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+          
+          <div class="lg:col-span-5 flex justify-center" data-reveal data-reveal-delay="100">
+            <div class="relative w-full max-w-[280px] sm:max-w-xs lg:max-w-md">
+              <div class="relative rounded-2xl overflow-hidden bg-white border border-brand-pale shadow-card card-tactile">
+                <Image 
+                  src={drLucianoImg} 
+                  alt="Dr. Luciano Alves Freire, Cirurgião-Dentista formado com mais de 21 anos de prática clínica em Passos MG, CRO MG 25.170" 
+                  class="w-full h-auto object-cover" 
+                  widths={[360, 500]} 
+                  sizes="(max-width: 768px) 280px, 450px" 
+                  format="webp" 
+                  loading="lazy" 
+                />
+                <div class="p-4 bg-surface-soft border-t border-brand-pale text-center">
+                  <p class="font-bold text-brand-dark text-lg">Dr. Luciano Alves Freire</p>
+                  <p class="text-sm text-brand-blue font-bold">Cirurgião-Dentista • CRO MG 25.170</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 flex flex-col justify-center" data-reveal data-reveal-delay="200">
+            <div>
+              <h2 class="text-3xl sm:text-4xl lg:text-[34px] font-bold text-brand-dark tracking-tight mb-4">
+                Diagnóstico Preciso e Atendimento Conduzido Pessoalmente
+              </h2>
+              <p class="text-slate-700 text-lg leading-relaxed mb-8 max-w-2xl font-normal">
+                Com mais de 21 anos de prática clínica no Centro de Passos, o Dr. Luciano Alves Freire conduz pessoalmente cada etapa do seu atendimento — da avaliação inicial ao acompanhamento pós-procedimento.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+              <div class="p-5 rounded-2xl bg-white border border-brand-pale shadow-sm card-tactile">
+                <div class="text-brand-blue font-bold text-2xl mb-1">+21 Anos</div>
+                <div class="text-sm font-bold text-brand-dark mb-1">Prática Clínica</div>
+                <p class="text-sm text-slate-600 leading-relaxed">Atuação contínua e dedicada na cidade de Passos/MG.</p>
+              </div>
+              <div class="p-5 rounded-2xl bg-white border border-brand-pale shadow-sm card-tactile">
+                <div class="text-brand-blue font-bold text-2xl mb-1">100% Pessoal</div>
+                <div class="text-sm font-bold text-brand-dark mb-1">Cuidado Direto</div>
+                <p class="text-sm text-slate-600 leading-relaxed">Consultas e intervenções executadas exclusivamente pelo titular.</p>
+              </div>
+              <div class="p-5 rounded-2xl bg-white border border-brand-pale shadow-sm card-tactile">
+                <div class="text-brand-blue font-bold text-2xl mb-1">Passos - MG</div>
+                <div class="text-sm font-bold text-brand-dark mb-1">Consultório Próprio</div>
+                <p class="text-sm text-slate-600 leading-relaxed">Atendimento individualizado com agendamento prévio.</p>
+              </div>
+            </div>
+
+            <div class="text-center sm:text-left">
+              <a 
+                href={heroWhatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn-tactile inline-flex justify-center items-center gap-2.5 px-8 py-4 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold text-base min-h-[48px] shadow-glow-whatsapp w-full sm:w-auto"
+              >
+                <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                </svg>
+                <span>Falar Diretamente com o Dr. Luciano</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. AMBIENTES DO CONSULTÓRIO -->
+    <section id="ambientes" class="relative bg-white py-20 lg:py-28 border-b border-brand-pale text-brand-dark overflow-hidden">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-reveal>
+          <h2 class="text-3xl sm:text-4xl lg:text-[34px] font-bold text-brand-dark tracking-tight mb-4">
+            Estrutura e Ambientes do Consultório
+          </h2>
+          <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            Conheça nosso espaço no Centro de Passos/MG, preparado para proporcionar tranquilidade, pontualidade e rigorosos padrões de biossegurança.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          <!-- Card 1: Sala Clínica Principal -->
+          <div class="lg:col-span-7 flex flex-col rounded-3xl overflow-hidden bg-surface-subtle border border-brand-pale shadow-card card-tactile group" data-reveal data-reveal-delay="100">
+            <div class="relative overflow-hidden h-[280px] sm:h-[360px] bg-slate-100">
+              <Image
+                src={consultorioHeroImg}
+                alt="Sala de atendimento clínico odontológico equipada com cadeira anatômica do Dr. Luciano Freire"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                format="webp"
+                quality={88}
+                loading="lazy"
+                width={700}
+                height={360}
+              />
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-brand-pale text-xs font-bold text-brand-dark shadow-sm">
+                <span class="w-2.5 h-2.5 rounded-full bg-accent-green"></span>
+                Atendimento Individualizado
+              </div>
+            </div>
+            <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold text-brand-dark mb-2.5">
+                  Sala Clínica & Diagnóstico
+                </h3>
+                <p class="text-slate-600 text-base leading-relaxed mb-4">
+                  Consultório amplo equipado com cadeira anatômica moderna, bancada clínica e protocolos rigorosos de assepsia e biossegurança. Atendimento exclusivo conduzido pessoalmente pelo Dr. Luciano.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-3 pt-4 border-t border-brand-pale/70 text-sm text-brand-blue font-semibold">
+                <span>• Cadeira anatômica</span>
+                <span class="text-brand-pale">•</span>
+                <span>• Planejamento digital e físico</span>
+                <span class="text-brand-pale">•</span>
+                <span>• Privacidade absoluta</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Recepção e Entrada -->
+          <div class="lg:col-span-5 flex flex-col gap-8">
+            
+            <!-- Card 2: Sala de Espera -->
+            <div class="flex-1 flex flex-col sm:flex-row lg:flex-col rounded-3xl overflow-hidden bg-surface-subtle border border-brand-pale shadow-card card-tactile group" data-reveal data-reveal-delay="200">
+              <div class="relative overflow-hidden h-[200px] sm:h-auto sm:w-1/2 lg:w-full lg:h-[200px] bg-slate-100 shrink-0">
+                <Image
+                  src={consultorioEsperaImg}
+                  alt="Sala de espera climatizada e confortável do consultório odontológico Dr. Luciano Freire"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  format="webp"
+                  quality={88}
+                  loading="lazy"
+                  width={480}
+                  height={200}
+                />
+                <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-brand-pale text-xs font-bold text-brand-dark shadow-sm">
+                  Conforto & Pontualidade
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-brand-dark mb-2">
+                    Recepção Aconchegante
+                  </h3>
+                  <p class="text-slate-600 text-base leading-relaxed">
+                    Ambiente calmo e climatizado, assegurando uma recepção pontual e acolhedora antes da sua consulta.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Entrada do Consultório -->
+            <div class="flex-1 flex flex-col sm:flex-row lg:flex-col rounded-3xl overflow-hidden bg-surface-subtle border border-brand-pale shadow-card card-tactile group" data-reveal data-reveal-delay="300">
+              <div class="relative overflow-hidden h-[200px] sm:h-auto sm:w-1/2 lg:w-full lg:h-[200px] bg-slate-100 shrink-0">
+                <Image
+                  src={consultorioPlacaImg}
+                  alt="Placa de identificação externa da Sala 24 do consultório Dr. Luciano Alves Freire no Centro de Passos"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  format="webp"
+                  quality={88}
+                  loading="lazy"
+                  width={480}
+                  height={200}
+                />
+                <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-brand-pale text-xs font-bold text-brand-dark shadow-sm">
+                  Centro de Passos
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-brand-dark mb-2">
+                    Acesso Direto • Sala 24
+                  </h3>
+                  <p class="text-slate-600 text-base leading-relaxed">
+                    Localização central de fácil acesso na Rua dos Brandões, 231, com facilidade para estacionamento nas proximidades.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. LOCALIZAÇÃO E MAPA -->
+    <section id="localizacao" class="relative bg-surface-subtle py-16 sm:py-24 border-b border-brand-pale text-slate-700 overflow-hidden">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-reveal>
+          <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark tracking-tight mb-4">
+            Localização no Centro de Passos
+          </h2>
+          <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            Rua dos Brandões, 231, Sala 24, Centro, Passos/MG. Atendimento mediante agendamento prévio de segunda a sexta-feira, das 13h30 às 18h30.
+          </p>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-card border border-brand-pale" data-reveal data-reveal-delay="100">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.9213813898124!2d-46.60945532578505!3d-20.720336680852787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b6c31bf0db6ab5%3A0xbccf14902cd560fa!2sR.%20dos%20Brand%C3%B5es%2C%20231%20-%20Centro%2C%20Passos%20-%20MG%2C%2037900-104!5e0!3m2!1spt-BR!2sbr!4v1711200000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            title="Localização do Consultório Odontológico Dr. Luciano Freire no Google Maps"
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section id="faq" class="relative bg-white py-20 lg:py-28 border-b border-brand-pale text-brand-dark">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14" data-reveal>
+          <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark tracking-tight mb-4">
+            Perguntas Frequentes
+          </h2>
+          <p class="text-slate-600 text-lg leading-relaxed max-w-xl mx-auto">
+            Esclareça suas principais dúvidas sobre avaliações, técnicas cirúrgicas e prazos de tratamento.
+          </p>
+        </div>
+        
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <details class="group rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm overflow-hidden" data-reveal>
+            <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-lg font-bold text-brand-dark select-none hover:bg-surface-soft/60 transition-colors">
+              <span>O procedimento de implante dentário dói?</span>
+              <span class="relative flex shrink-0 items-center justify-center w-9 h-9 rounded-full bg-white border border-brand-pale text-brand-blue group-open:bg-brand-blue group-open:text-white transition-colors" aria-hidden="true">
+                <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-700 text-base leading-relaxed border-t border-brand-pale/50 pt-4 bg-white">
+              O procedimento é realizado sob anestesia local eficaz e com técnicas de cirurgia guiada minimamente invasivas, garantindo total conforto durante o ato cirúrgico. Para o pós-operatório, são prescritos medicamentos específicos que asseguram uma recuperação serena e previsível.
+            </div>
+          </details>
+          
+          <!-- FAQ 2 -->
+          <details class="group rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm overflow-hidden" data-reveal>
+            <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-lg font-bold text-brand-dark select-none hover:bg-surface-soft/60 transition-colors">
+              <span>Quanto tempo demora o tratamento com implante?</span>
+              <span class="relative flex shrink-0 items-center justify-center w-9 h-9 rounded-full bg-white border border-brand-pale text-brand-blue group-open:bg-brand-blue group-open:text-white transition-colors" aria-hidden="true">
+                <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-700 text-base leading-relaxed border-t border-brand-pale/50 pt-4 bg-white">
+              O prazo total depende das condições ósseas de cada paciente. Em casos selecionados, é viável a carga imediata com prótese provisória fixa. Em outras situações, aguarda-se o período biológico de osseointegração (3 a 6 meses). O cronograma definitivo é apresentado após os exames de imagem e a avaliação inicial.
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="group rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm overflow-hidden" data-reveal>
+            <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-lg font-bold text-brand-dark select-none hover:bg-surface-soft/60 transition-colors">
+              <span>Quem usa dentadura móvel pode colocar prótese fixa?</span>
+              <span class="relative flex shrink-0 items-center justify-center w-9 h-9 rounded-full bg-white border border-brand-pale text-brand-blue group-open:bg-brand-blue group-open:text-white transition-colors" aria-hidden="true">
+                <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-700 text-base leading-relaxed border-t border-brand-pale/50 pt-4 bg-white">
+              Sim. A prótese protocolo fixa substitui a dentadura tradicional apoiando-se sobre implantes de titânio. Essa técnica elimina a instabilidade da prótese móvel, liberta o céu da boca e devolve a firmeza mastigatória de forma definitiva.
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="group rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm overflow-hidden" data-reveal>
+            <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-lg font-bold text-brand-dark select-none hover:bg-surface-soft/60 transition-colors">
+              <span>Como funciona a consulta de avaliação no consultório em Passos?</span>
+              <span class="relative flex shrink-0 items-center justify-center w-9 h-9 rounded-full bg-white border border-brand-pale text-brand-blue group-open:bg-brand-blue group-open:text-white transition-colors" aria-hidden="true">
+                <svg class="w-4 h-4 transition-transform duration-300 group-open:-rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-700 text-base leading-relaxed border-t border-brand-pale/50 pt-4 bg-white">
+              A avaliação é conduzida pessoalmente pelo Dr. Luciano Freire. Realiza-se o exame clínico minucioso, alinhamento com exames complementares de imagem e a apresentação de um plano de tratamento individualizado e seguro no Centro de Passos.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
   <Footer />
 
-  <!-- =========================================================================
-       BOTÃO FLUTUANTE DISCRETO WHATSAPP COM BEACON PULSE (56x56px, Z-50)
-       - Beacon pulse sutil e luxuoso (Tailwind animate-beacon)
-       - Feedback tátil de escala Emil Kowalski no toque
-       - Margem segura com viewport-fit=cover para notch e gestures no mobile
-       ========================================================================= -->
+  <!-- BOTÃO FLUTUANTE WHATSAPP (56x56px, MÍNIMO 48px TOUCH TARGET) -->
   <aside class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3 [bottom:calc(1.25rem+env(safe-area-inset-bottom,0px))] [right:calc(1.25rem+env(safe-area-inset-right,0px))]">
-    <!-- Callout Sutil Desktop -->
+    <!-- Callout Desktop -->
     <a
       href={heroWhatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      class="btn-tactile hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 text-slate-900 border border-slate-200 text-xs font-semibold shadow-xl backdrop-blur-md hover:border-gold-300"
-      aria-label="Falar agora com o Dr. Luciano"
+      class="btn-tactile hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 text-brand-dark border border-brand-pale text-sm font-semibold shadow-card backdrop-blur-md hover:border-brand-blue transition-colors"
+      aria-label="Agende sua avaliação com o Dr. Luciano Freire"
     >
-      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-accent-green"></span>
       <span>Agende sua Avaliação</span>
     </a>
 
-    <!-- Botão Redondo Touch Friendly (48px no mobile para não tapar conteúdo, 56px no desktop) -->
+    <!-- Botão Redondo Touch Friendly -->
     <a
       href={heroWhatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      class="btn-tactile animate-beacon relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-whatsapp text-slate-950 shadow-glow-whatsapp hover:bg-whatsapp-hover"
-      aria-label="Conversar pelo WhatsApp com o Dr. Luciano Alves Freire"
+      class="btn-tactile animate-beacon relative flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-slate-950 shadow-glow-whatsapp hover:bg-whatsapp-hover"
+      aria-label="Conversar pelo WhatsApp com o Dr. Luciano Alves Freire no número (35) 98821-5162"
     >
       <span class="sr-only">Conversar pelo WhatsApp com o Dr. Luciano Alves Freire</span>
-      <svg class="w-6 h-6 sm:w-8 sm:h-8 fill-current" viewBox="0 0 24 24">
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
       </svg>
     </a>
-</aside>
+  </aside>
 
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
@@ -540,71 +611,55 @@ const currentYear = new Date().getFullYear();
       const litLogo = document.getElementById('splash-logo-lit');
       const headerLogoImg = document.getElementById('header-logo-img');
       
-      // Removed prefers-reduced-motion check since it caused animations to not run at all on many Windows PCs
       if (splashScreen && litLogo && headerLogoImg) {
-        // Calculate scrollbar width
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-        
-        // Prevent scrolling during splash and add padding to compensate for scrollbar loss
         document.body.style.overflow = 'hidden';
         document.body.style.paddingRight = `${scrollbarWidth}px`;
-        
-        // Make header logo invisible temporarily to avoid duplicate showing
         headerLogoImg.style.opacity = '0';
 
-        // 1. Light sweep animation (top to bottom)
         setTimeout(() => {
-          litLogo.style.transition = 'clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+          litLogo.style.transition = 'clip-path 1.1s cubic-bezier(0.16, 1, 0.3, 1)';
           litLogo.style.clipPath = 'inset(0 0 0 0)';
-        }, 150);
+        }, 120);
 
-        // 2. Move logo to header and fade out splash
         setTimeout(() => {
           const splashRect = splashLogoContainer.getBoundingClientRect();
           const headerRect = headerLogoImg.getBoundingClientRect();
           
-          // Safe scale calculation
           const targetWidth = headerRect.width || 150;
           const currentWidth = splashRect.width || 256;
           const scale = targetWidth / currentWidth;
           
-          // Center-to-center translation
           const translateX = (headerRect.left + targetWidth / 2) - (splashRect.left + currentWidth / 2);
           const translateY = (headerRect.top + (headerRect.height || 44) / 2) - (splashRect.top + (splashRect.height || 64) / 2);
           
-          // Ultra-fluid Apple-like spring/ease (100% reliable, hardware-accelerated)
           const animation = splashLogoContainer.animate([
             { transform: 'translate(0px, 0px) scale(1)' },
             { transform: `translate(${translateX}px, ${translateY}px) scale(${scale})` }
           ], {
-            duration: 1200,
+            duration: 1000,
             easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
             fill: 'forwards'
           });
           
-          // Smoothly fade out the splash background using Web Animations API
           splashScreen.style.pointerEvents = 'none';
           splashScreen.animate([
-            { backgroundColor: '#102A4C', opacity: 1 },
-            { backgroundColor: '#102A4C', opacity: 0 }
+            { backgroundColor: '#ffffff', opacity: 1 },
+            { backgroundColor: '#ffffff', opacity: 0 }
           ], {
-            duration: 1200,
+            duration: 1000,
             easing: 'ease-out',
             fill: 'forwards'
           });
           
-          // Final cleanup and swap to real header logo
           animation.onfinish = () => {
             headerLogoImg.style.opacity = '1';
             splashScreen.style.opacity = '0';
-            
-            // Restore scrollbar and layout
             document.body.style.overflow = '';
             document.body.style.paddingRight = '';
-            
             setTimeout(() => splashScreen.remove(), 100);
           };
-        }, 2100);
+        }, 1800);
       } else if (splashScreen) {
         splashScreen.remove();
       }

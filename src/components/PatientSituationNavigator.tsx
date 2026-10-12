@@ -17,16 +17,16 @@ interface Situation {
 }
 
 function renderSituationIcon(type: Situation["iconType"], isActive: boolean) {
-  const strokeClass = isActive ? "text-gold-300" : "text-slate-400 group-hover:text-slate-200";
+  const strokeClass = isActive ? "text-white" : "text-brand-blue group-hover:text-brand-deep";
   switch (type) {
     case "tooth":
       return (
         <svg
-          className={`w-4 h-4 shrink-0 transition-colors ${strokeClass}`}
+          className={`w-5 h-5 shrink-0 transition-colors ${strokeClass}`}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.75"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden="true"
@@ -37,11 +37,11 @@ function renderSituationIcon(type: Situation["iconType"], isActive: boolean) {
     case "lock":
       return (
         <svg
-          className={`w-4 h-4 shrink-0 transition-colors ${strokeClass}`}
+          className={`w-5 h-5 shrink-0 transition-colors ${strokeClass}`}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.75"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden="true"
@@ -54,11 +54,11 @@ function renderSituationIcon(type: Situation["iconType"], isActive: boolean) {
     case "shield":
       return (
         <svg
-          className={`w-4 h-4 shrink-0 transition-colors ${strokeClass}`}
+          className={`w-5 h-5 shrink-0 transition-colors ${strokeClass}`}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.75"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden="true"
@@ -70,11 +70,11 @@ function renderSituationIcon(type: Situation["iconType"], isActive: boolean) {
     case "sparkle":
       return (
         <svg
-          className={`w-4 h-4 shrink-0 transition-colors ${strokeClass}`}
+          className={`w-5 h-5 shrink-0 transition-colors ${strokeClass}`}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.75"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden="true"
@@ -103,7 +103,7 @@ const situations: Situation[] = [
       "Aspecto natural e idêntico ao dente biológico",
       "Preserva 100% os dentes saudáveis vizinhos",
       "Mastigação firme e segura para qualquer alimento",
-      "Procedimento planejado para o seu conforto",
+      "Procedimento planejado com foco no seu conforto",
     ],
     ctaLabel: "Avaliar Implante Unitário no WhatsApp",
     whatsappMessage:
@@ -135,17 +135,17 @@ const situations: Situation[] = [
     tabLabel: "Disseram que tenho pouco osso",
     mobileTabLabel: "Tenho pouco osso",
     iconType: "shield",
-    badge: "Diagnóstico 3D e Técnicas Avançadas",
-    title: "Mesmo com perda óssea, o implante é totalmente viável.",
+    badge: "Diagnóstico e Técnicas Modernas",
+    title: "Mesmo com perda óssea, a reabilitação pode ser viável.",
     painPoint:
       "A frustração de ter ouvido no passado que seu caso 'não tinha osso suficiente' para fazer implante.",
     solution:
-      "Com planejamento digital e técnicas modernas, avaliamos a melhor abordagem para o seu caso com total segurança.",
+      "Com planejamento detalhado e técnicas modernas, avaliamos a melhor abordagem para o seu caso com total segurança.",
     highlights: [
-      "Tomografia 3D detalhada no próprio consultório",
-      "Técnicas modernas que evitam enxertos complexos",
-      "Planejamento sob medida para perdas dentárias antigas",
-      "Recuperação tranquila com anestesia confortável",
+      "Exames de imagem detalhados e parceria radiológica",
+      "Técnicas modernas com máxima preservação óssea",
+      "Planejamento individualizado para perdas dentárias antigas",
+      "Atendimento seguro com anestesia local eficiente",
     ],
     ctaLabel: "Avaliar Possibilidade para Pouco Osso",
     whatsappMessage:
@@ -163,10 +163,10 @@ const situations: Situation[] = [
     solution:
       "Correções precisas de formato, cor e alinhamento para valorizar o desenho natural do seu rosto.",
     highlights: [
-      "Porcelana nobre pura que não mancha e não amarela",
-      "Design do sorriso planejado e aprovado com você",
-      "Correção rápida de cor, formato e alinhamento",
-      "Máxima preservação do dente natural",
+      "Porcelana pura de alta durabilidade e brilho natural",
+      "Design do sorriso planejado e alinhado com você",
+      "Correção de cor, formato e harmonia dental",
+      "Máxima preservação do esmalte biológico",
     ],
     ctaLabel: "Conversar sobre Estética Dental e Lentes",
     whatsappMessage:
@@ -186,16 +186,11 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
 
   return (
     <div className="w-full">
-      {/* =========================================================================
-          BOTÕES DAS SITUAÇÕES CLÍNICAS (RESPONSIVO)
-          No Mobile: Grade 2x2 compacta - todas as 4 situações visíveis a 1 toque!
-          No Desktop: Linha horizontal fluida e elegante.
-          ========================================================================= */}
-      {/* Versão Mobile (< md): Grid 2x2 onde todas as 4 dores ficam 100% visíveis sem rolagem oculta */}
+      {/* Versão Mobile (< md): Grid 2x2 */}
       <div
         role="tablist"
         aria-label="Selecione sua situação clínica"
-        className="grid grid-cols-2 gap-2 md:hidden mb-4"
+        className="grid grid-cols-2 gap-2.5 md:hidden mb-4"
       >
         {situations.map((item) => {
           const isActive = item.id === activeTab;
@@ -206,31 +201,28 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
               aria-selected={isActive}
               aria-controls={`panel-${item.id}`}
               onClick={() => setActiveTab(item.id)}
-              className={`btn-tactile group flex items-center gap-2 p-3 rounded-xl text-xs font-semibold transition-all duration-200 border cursor-pointer select-none text-left min-h-[56px] ${
+              className={`btn-tactile group flex items-center gap-2.5 p-3.5 rounded-xl text-sm font-semibold transition-all duration-200 border cursor-pointer select-none text-left min-h-[56px] ${
                 isActive
-                  ? "bg-slate-900 text-white border-gold-400 shadow-[0_0_16px_rgba(197,168,128,0.25)] ring-1 ring-gold-400/50"
-                  : "bg-slate-950/80 text-slate-400 border-slate-800/90 hover:text-slate-200 hover:border-slate-700"
+                  ? "bg-brand-blue text-white border-brand-blue shadow-md"
+                  : "bg-white text-brand-dark border-brand-pale hover:bg-surface-subtle hover:border-brand-light"
               }`}
             >
-              <div className="shrink-0 mt-0.5">
+              <div className="shrink-0">
                 {renderSituationIcon(item.iconType, isActive)}
               </div>
               <span className="leading-tight flex-1">
                 {item.mobileTabLabel}
               </span>
-              {isActive && (
-                <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
-              )}
             </button>
           );
         })}
       </div>
 
-      {/* Versão Desktop (>= md): Abas Horizontais com Scroll Suave */}
+      {/* Versão Desktop (>= md): Abas Horizontais */}
       <div
         role="tablist"
         aria-label="Selecione sua situação clínica"
-        className="hidden md:flex items-center gap-2.5 sm:gap-3 overflow-x-auto pb-4 pt-1 px-1 scrollbar-none snap-x"
+        className="hidden md:flex items-center gap-3 overflow-x-auto pb-4 pt-1 px-1 snap-x"
       >
         {situations.map((item) => {
           const isActive = item.id === activeTab;
@@ -241,17 +233,14 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
               aria-selected={isActive}
               aria-controls={`panel-${item.id}`}
               onClick={() => setActiveTab(item.id)}
-              className={`btn-tactile group shrink-0 snap-start flex items-center gap-2.5 px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 border cursor-pointer select-none ${
+              className={`btn-tactile group shrink-0 snap-start flex items-center gap-2.5 px-5 py-3.5 rounded-xl text-base font-semibold transition-all duration-200 border cursor-pointer select-none min-h-[48px] ${
                 isActive
-                  ? "bg-slate-900 text-white border-gold-400 shadow-[0_0_20px_rgba(197,168,128,0.18)] ring-1 ring-gold-400/50"
-                  : "bg-slate-950/70 text-slate-400 border-slate-800/90 hover:text-slate-200 hover:border-slate-700 hover:bg-slate-900/50"
+                  ? "bg-brand-blue text-white border-brand-blue shadow-md"
+                  : "bg-white text-brand-dark border-brand-pale hover:bg-surface-subtle hover:border-brand-light"
               }`}
             >
               {renderSituationIcon(item.iconType, isActive)}
               <span>{item.tabLabel}</span>
-              {isActive && (
-                <span className="w-1.5 h-1.5 rounded-full bg-gold-400 ml-1"></span>
-              )}
             </button>
           );
         })}
@@ -261,21 +250,19 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
       <div
         id={`panel-${current.id}`}
         role="tabpanel"
-        className="mt-6 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 p-6 sm:p-9 shadow-2xl relative overflow-hidden transition-all duration-300"
+        className="mt-6 rounded-2xl bg-white border border-brand-pale p-6 sm:p-9 shadow-card relative overflow-hidden transition-all duration-300"
       >
-        <div className="absolute top-0 right-0 w-80 h-80 bg-gold-400/[0.04] rounded-full blur-3xl pointer-events-none"></div>
-
         <div
           key={current.id}
           className="relative z-10 max-w-4xl mx-auto flex flex-col animate-[heroFadeUp_280ms_cubic-bezier(0.16,1,0.3,1)_both]"
         >
           {/* Título Principal */}
-          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-4">
+          <h3 className="text-2xl sm:text-3xl font-bold text-brand-dark tracking-tight leading-snug mb-4">
             {current.title}
           </h3>
 
           {/* Explicação Direta */}
-          <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-light mb-8">
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-8">
             {current.solution}
           </p>
 
@@ -284,14 +271,14 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
             {current.highlights.map((highlight, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-3 p-4 rounded-xl bg-slate-950/70 border border-slate-800/80"
+                className="flex items-center gap-3 p-4 rounded-xl bg-surface-subtle border border-brand-pale/70"
               >
-                <div className="w-6 h-6 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-6 h-6 rounded-full bg-brand-pale text-brand-blue flex items-center justify-center shrink-0">
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-sm sm:text-base text-slate-200 font-medium leading-snug">
+                <span className="text-base text-brand-dark font-medium leading-snug">
                   {highlight}
                 </span>
               </div>
@@ -299,20 +286,20 @@ export function PatientSituationNavigator({ whatsappBaseUrl }: Props) {
           </div>
 
           {/* Ação WhatsApp Direta */}
-          <div className="pt-6 border-t border-slate-800/90 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <div className="pt-6 border-t border-brand-pale flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-tactile inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-whatsapp text-slate-950 font-bold text-sm sm:text-base hover:bg-whatsapp-hover shadow-[0_4px_20px_rgba(37,211,102,0.22)]"
+              className="btn-tactile inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-whatsapp text-slate-950 font-bold text-base hover:bg-whatsapp-hover shadow-glow-whatsapp min-h-[48px]"
             >
-              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z" />
               </svg>
               <span>{current.ctaLabel}</span>
             </a>
-            <span className="text-xs text-slate-400 text-center sm:text-left">
-              Atendimento individual conduzido pessoalmente pelo Dr. Luciano
+            <span className="text-sm text-slate-500 text-center sm:text-left">
+              Atendimento individual conduzido pessoalmente pelo Dr. Luciano Freire (CRO MG 25.170)
             </span>
           </div>
         </div>

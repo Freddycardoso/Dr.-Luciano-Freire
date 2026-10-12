@@ -207,7 +207,7 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                 <div className="flex items-center gap-3 min-w-0">
                   {/* Orbe com o número da etapa */}
                   <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center font-serif text-base font-bold shrink-0 transition-all duration-300 ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center font-sans text-base font-bold shrink-0 transition-all duration-300 ${
                       isOpen
                         ? "bg-gradient-to-br from-gold-300 via-gold-400 to-gold-600 text-slate-950 shadow-[0_0_16px_rgba(212,175,55,0.7)]"
                         : "bg-slate-900 text-gold-300 border border-gold-400/30"
@@ -226,7 +226,7 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                       {step.phaseLabel}
                     </span>
                     <h4
-                      className={`font-serif text-sm font-bold tracking-tight leading-snug truncate ${
+                      className={`font-sans text-sm font-bold tracking-tight leading-snug truncate ${
                         isOpen ? "text-white" : "text-slate-200"
                       }`}
                     >
@@ -295,7 +295,7 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                             {renderStepIcon(point.icon)}
                           </div>
                           <div>
-                            <h5 className="font-serif text-xs sm:text-sm font-bold text-white mb-0.5">
+                            <h5 className="font-sans text-xs sm:text-sm font-bold text-white mb-0.5">
                               {point.title}
                             </h5>
                             <p className="text-slate-300 text-[11px] sm:text-xs leading-relaxed font-light">
@@ -357,7 +357,7 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                   {/* Orbe numerado iluminado */}
                   <div className="mb-3 relative z-20">
                     <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center font-serif text-lg font-bold transition-all duration-300 relative ${
+                      className={`w-12 h-12 rounded-full flex items-center justify-center font-sans text-lg font-bold transition-all duration-300 relative ${
                         isActive
                           ? "bg-gradient-to-br from-gold-300 via-gold-400 to-gold-600 text-slate-950 shadow-[0_0_24px_rgba(212,175,55,0.85)] scale-110 ring-4 ring-gold-400/30"
                           : isCompleted
@@ -390,7 +390,7 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                     </span>
 
                     <h4
-                      className={`font-serif text-sm sm:text-base font-bold tracking-tight leading-snug mb-1 transition-colors duration-150 ${
+                      className={`font-sans text-sm sm:text-base font-bold tracking-tight leading-snug mb-1 transition-colors duration-150 ${
                         isActive
                           ? "text-white"
                           : "text-slate-300 group-hover:text-white"
@@ -440,7 +440,7 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                   <span>{current.benefitBadge}</span>
                 </div>
 
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-tight mb-3">
+                <h3 className="font-sans text-xl sm:text-2xl font-bold text-white tracking-tight mb-3">
                   {current.title}
                 </h3>
 
@@ -481,7 +481,7 @@ export const SurgicalPathwayTimeline: React.FC<Props> = ({
                       {renderStepIcon(point.icon)}
                     </div>
                     <div>
-                      <h5 className="font-serif text-sm sm:text-base font-bold text-white mb-1">
+                      <h5 className="font-sans text-sm sm:text-base font-bold text-white mb-1">
                         {point.title}
                       </h5>
                       <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-light">

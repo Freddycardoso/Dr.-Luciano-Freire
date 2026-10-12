@@ -1,12 +1,18 @@
 # Site do Consultório Odontológico Dr. Luciano Freire
 
-Este é o site oficial do Consultório Odontológico do Dr. Luciano Alves Freire (CRO-MG 25170), localizado em Passos - MG. O Dr. Luciano é especialista em implantes dentários, reabilitação oral e odontologia estética.
+Este é o site oficial do Consultório Odontológico do Dr. Luciano Alves Freire (Cirurgião-Dentista, CRO MG 25.170), localizado em Passos - MG. O Dr. Luciano possui mais de 21 anos de prática clínica em Implantodontia, Prótese Protocolo Fixo, Ortodontia e Estética Dental.
 
-O site fornece informações sobre tratamentos, a anatomia de implantes, perguntas frequentes e a jornada do paciente para procedimentos odontológicos. 
+O site fornece informações transparentes sobre tratamentos, a anatomia comparativa de implantes, orientações clínicas, estrutura do consultório, perguntas frequentes e canais de contato direto.
 
-## Sobre o Site
-- **Tecnologias**: Astro, React, Tailwind CSS.
-- **Contato**: +55 (35) 98821-5162 (WhatsApp) / (35) 3521-5027 (Fixo)
-- **Localização**: Rua dos Brandões, 231, Sala 24 – Centro, Passos - MG, CEP 37900-104
+## Informações do Consultório
+- **Profissional Responsável**: Dr. Luciano Alves Freire (Cirurgião-Dentista, CRO MG 25.170).
+- **Especialidades / Áreas de Atuação**: Implantodontia, Prótese Protocolo Fixo, Ortodontia (Alinhadores Transparentes) e Estética Dental.
+- **Experiência Clínica**: Mais de 21 anos de atuação contínua em Passos/MG.
+- **Contato Oficial**: (35) 98821-5162 (WhatsApp e Telefone Oficial: https://wa.me/5535988215162).
+- **E-mail de Contato**: drlucianofreire@uol.com.br
+- **Horário de Atendimento**: Segunda a sexta-feira, das 13h30 às 18h30 (mediante agendamento prévio).
+- **Endereço**: Rua dos Brandões, 231, Sala 24 – Centro, Passos - MG, CEP 37.900-104.
+- **Tecnologias do Site**: Astro, React, Tailwind CSS, TypeScript.
 
-Este arquivo llms.txt foi adicionado para ajudar grandes modelos de linguagem (LLMs) a entenderem o contexto e conteúdo deste site durante o rastreamento.
+Este arquivo llms.txt foi adicionado para orientar modelos de linguagem (LLMs) com informações precisas, atualizadas e em conformidade com as diretrizes do Conselho Federal de Odontologia (CFO).
+

@@ -21,8 +21,8 @@ const schemaData = {
       "@id": "https://drlucianofreire.com.br/#clinic",
       "name": "Consultório Odontológico Dr. Luciano Alves Freire",
       "image": "https://drlucianofreire.com.br/images/dr-luciano-freire.png",
-      "url": "https://drlucianofreire.com.br",
-      "telephone": "+553535215027",
+      "telephone": "+5535988215162",
+      "email": "drlucianofreire@uol.com.br",
       "priceRange": "$$$",
       "address": {
         "@type": "PostalAddress",
@@ -106,8 +106,8 @@ const schemaData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#102A4C" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#426BB2" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo-simbolo.svg" />
     
     <!-- Primary SEO -->
     <title>{title}</title>
@@ -115,7 +115,7 @@ const schemaData = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="Dr. Luciano Alves Freire - CRO-MG 25170" />
+    <meta name="author" content="Dr. Luciano Alves Freire - CRO MG 25.170" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -124,7 +124,7 @@ const schemaData = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="Dr. Luciano Alves Freire | Odontologia Especializada" />
+    <meta property="og:site_name" content="Dr. Luciano Alves Freire | Consultório Odontológico" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -133,13 +133,13 @@ const schemaData = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
 
-    <!-- Google Fonts Optimization -->
+    <!-- Google Fonts Optimization: Source Sans 3 (Família Humanista Sem Serifa Oficial) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
     </noscript>
 
     <!-- Static Structured Data (Schema.org JSON-LD) -->
@@ -147,12 +147,45 @@ const schemaData = {
 
     <style is:global>
       :root {
-        --color-champagne: #C5A880;
-        --color-champagne-light: #E6D7BE;
-        --color-navy-dark: #090E17;
-        --color-navy-card: #0F172A;
+        --color-brand-blue: #426BB2;
+        --color-brand-deep: #3D6ABD;
+        --color-brand-light: #9DB8E0;
+        --color-brand-pale: #C3D8F0;
+        --color-brand-dark: #1E2A44;
+        --color-accent-green: #8BB027;
+        --color-accent-lime: #C6DB69;
+        --color-surface-subtle: #F4F8FD;
+        --color-surface-soft: #E6EFFA;
         --ease-emil: cubic-bezier(0.16, 1, 0.3, 1);
         --ease-apple: cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      /* Escala Tipográfica Fluida e Acessível */
+      .fluid-h1 {
+        font-size: clamp(2rem, 3.2vw + 1rem, 2.75rem);
+        line-height: 1.25;
+        font-weight: 700;
+        color: var(--color-brand-blue);
+        letter-spacing: -0.02em;
+      }
+      .fluid-h2 {
+        font-size: clamp(1.625rem, 2vw + 0.9rem, 2.125rem);
+        line-height: 1.3;
+        font-weight: 700;
+        color: var(--color-brand-dark);
+        letter-spacing: -0.015em;
+      }
+      .fluid-h3 {
+        font-size: clamp(1.25rem, 1.2vw + 0.85rem, 1.5rem);
+        line-height: 1.35;
+        font-weight: 700;
+        color: var(--color-brand-dark);
+      }
+      .fluid-body {
+        font-size: clamp(1.125rem, 0.5vw + 0.95rem, 1.25rem);
+        line-height: 1.65;
+        color: var(--color-brand-dark);
+        max-width: 65ch;
       }
 
       /* Mobile Native: Kill tap delay and highlight flash */
@@ -206,8 +239,8 @@ const schemaData = {
       @media (hover: hover) and (pointer: fine) {
         .card-tactile:hover {
           transform: translateY(-3px);
-          border-color: rgba(197, 168, 128, 0.35);
-          box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65), 0 0 20px -5px rgba(197, 168, 128, 0.12);
+          border-color: rgba(66, 107, 178, 0.35);
+          box-shadow: 0 16px 36px -10px rgba(66, 107, 178, 0.12), 0 4px 12px -2px rgba(30, 42, 68, 0.05);
         }
       }
       .card-tactile:active {
@@ -318,20 +351,20 @@ const schemaData = {
         width: 9px;
       }
       ::-webkit-scrollbar-track {
-        background: #F0F9FF;
+        background: #F4F8FD;
       }
       ::-webkit-scrollbar-thumb {
-        background: #CBD5E1;
+        background: #9DB8E0;
         border-radius: 5px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #94A3B8;
+        background: #426BB2;
       }
 
       /* Selection */
       ::selection {
-        background-color: #E6D7BE;
-        color: #0C4A6E;
+        background-color: #C3D8F0;
+        color: #1E2A44;
       }
 
       /* Performance: Section rendering containment for below-the-fold content */
@@ -362,7 +395,7 @@ const schemaData = {
 
       </style>
   </head>
-  <body class="bg-white text-slate-900 font-sans min-h-screen flex flex-col selection:bg-gold-200 selection:text-slate-900 overflow-x-hidden">
+  <body class="bg-white text-brand-dark font-sans min-h-screen flex flex-col selection:bg-brand-pale selection:text-brand-dark overflow-x-hidden text-[1.125rem] leading-[1.65]">
     <slot />
 
     <!-- Lightweight High-Performance Scroll Observer & Header Controller -->
@@ -394,17 +427,17 @@ const schemaData = {
           document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-revealed'));
         }
 
-        // 2. Header elevation enhancement on scroll (preserves navy blue background forever)
+        // 2. Header elevation enhancement on scroll (claro e sofisticado)
         const header = document.querySelector('header');
         if (header) {
           let ticking = false;
           window.addEventListener('scroll', function() {
             if (!ticking) {
               window.requestAnimationFrame(function() {
-                if (window.scrollY > 25) {
-                  header.classList.add('shadow-xl', 'shadow-black/40', 'border-[#22487A]');
+                if (window.scrollY > 20) {
+                  header.classList.add('shadow-md', 'shadow-brand-blue/10', 'border-brand-pale');
                 } else {
-                  header.classList.remove('shadow-xl', 'shadow-black/40', 'border-[#22487A]');
+                  header.classList.remove('shadow-md', 'shadow-brand-blue/10', 'border-brand-pale');
                 }
                 ticking = false;
               });

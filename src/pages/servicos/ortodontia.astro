@@ -5,187 +5,221 @@ import Footer from '../../components/Footer.astro';
 import { Image } from 'astro:assets';
 import heroImg from '../../assets/servico_ortodontia.jpg';
 
-const title = "Ortodontia Invisível em Passos | Dr. Luciano Freire";
-const description = "Alinhadores transparentes para corrigir seus dentes com conforto, máxima discrição e previsibilidade digital em Passos/MG.";
+const title = "Ortodontia e Alinhadores Transparentes em Passos | Dr. Luciano Freire";
+const description = "Alinhadores transparentes e ortodontia moderna para alinhar seus dentes com conforto, discrição e planejamento digital em Passos/MG.";
 const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20saber%20mais%20sobre%20Alinhadores%20Transparentes";
 ---
 
 <Layout title={title} description={description}>
   <Header />
   
-  <!-- HERO DO SERVIÇO -->
-  <section class="relative bg-[#102A4C] overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-[#1A3358]/80 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-        <div class="max-w-2xl">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight mb-6">
-            Alinhadores Transparentes
-          </h1>
-          <p class="text-lg text-slate-200 mb-8 leading-relaxed font-normal">
-            Corrija o alinhamento dos seus dentes sem o incômodo dos aparelhos metálicos tradicionais. Mais conforto, higiene simplificada e máxima discrição para o seu dia a dia.
-          </p>
-          <div class="flex flex-wrap items-center gap-4">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-tactile inline-flex items-center gap-2.5 bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold px-7 py-4 rounded-xl shadow-glow-whatsapp transition-colors">
-              <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
-              <span>Agendar Avaliação Ortodôntica</span>
-            </a>
-          </div>
-        </div>
-        <div class="relative lg:ml-auto w-full max-w-lg">
-          <div class="absolute inset-0 bg-gold-400/20 rounded-[2.5rem] transform rotate-3 scale-105 origin-bottom-right blur-sm"></div>
-          <Image src={heroImg} alt="Ortodontia Invisível - Dr. Luciano Freire" class="relative rounded-[2rem] shadow-2xl object-cover w-full h-[400px] lg:h-[500px] border border-[#1E3E66]" format="webp" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENTO GRID -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl font-serif font-bold text-slate-900 mb-4">A tecnologia ao favor do seu sorriso</h2>
-        <p class="text-slate-600">Tratamento ortodôntico moderno com etapas previsíveis e livres de incômodos.</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
-        <div class="md:col-span-2 bg-slate-50 rounded-3xl p-8 border border-slate-200 flex flex-col justify-end card-tactile relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-64 h-64 bg-gold-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/3"></div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2 relative z-10">Discrição Total</h3>
-          <p class="text-slate-600 relative z-10">O aparelho é produzido em material transparente de alta tecnologia, tornando-se praticamente imperceptível durante o uso social e profissional.</p>
-        </div>
-        <div class="bg-[#102A4C] text-white rounded-3xl p-8 border border-[#1A3358] flex flex-col justify-end card-tactile">
-          <h3 class="text-xl font-bold text-white mb-2">Higiene Fácil</h3>
-          <p class="text-slate-300">Remova os alinhadores para escovar os dentes e usar fio dental normalmente, sem acúmulo de placa ou restos alimentares.</p>
-        </div>
-        <div class="bg-gold-50 rounded-3xl p-8 border border-gold-200 flex flex-col justify-end card-tactile">
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Conforto Biológico</h3>
-          <p class="text-slate-600">Sem fios de aço pontiagudos ou bráquetes que machucam a bochecha e provocam aftas.</p>
-        </div>
-        <div class="md:col-span-2 bg-slate-50 rounded-3xl p-8 border border-slate-200 flex flex-col justify-end card-tactile">
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Previsibilidade Digital</h3>
-          <p class="text-slate-600">Simulação completa do início ao fim em software 3D. Você visualiza a evolução planejada de cada dente antes mesmo de confeccionar as placas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASOS CLÍNICOS & IMAGENS -->
-  <section class="py-20 bg-slate-50 border-y border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl font-serif font-bold text-slate-900 mb-4">Casos Clínicos & Imagens do Tratamento</h2>
-        <p class="text-slate-600">Alinhamento preciso com conforto absoluto em cada fase.</p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
-        <div class="lg:col-span-6">
-          <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white p-3">
-            <Image 
-              src={heroImg} 
-              alt="Ortodontia Invisível - Caso clínico Dr. Luciano Freire" 
-              class="w-full h-auto object-cover rounded-2xl max-h-[380px]"
-              format="webp"
-            />
-          </div>
-        </div>
-        <div class="lg:col-span-6 space-y-6">
-          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-            <h3 class="font-serif text-lg font-bold text-slate-900 mb-2">Alinhadores Transparentes & Conforto</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-              Placas sob medida confeccionadas com polímero biocompatível premium. Encaixe anatômico perfeito que não interfere na sua fala nem na rotina do dia a dia.
-            </p>
-          </div>
-          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-            <h3 class="font-serif text-lg font-bold text-slate-900 mb-2">Escaneamento Digital 3D</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-              Diga adeus às antigas massas de moldagem que causam náusea. A captura da sua arcada é 100% digital, rápida e com fidelidade milimétrica.
-            </p>
-          </div>
-          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-            <h3 class="font-serif text-lg font-bold text-slate-900 mb-2">Liberdade na Alimentação</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-              Você retira os alinhadores para comer qualquer alimento que desejar, sem medo de quebrar peças ou soltar bráquetes durante as refeições.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEPOIMENTOS DE PACIENTES -->
-  <section class="py-20 bg-[#102A4C] text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl font-serif font-bold text-white mb-4">O que dizem nossos pacientes</h2>
-        <p class="text-slate-300">Depoimentos reais de quem transformou o sorriso com o Dr. Luciano Freire.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <div class="p-6 rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-gold-400 mb-3">
-              {[...Array(5)].map(() => (
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              ))}
+  <main id="main-content">
+    <!-- HERO DO SERVIÇO -->
+    <section class="relative bg-gradient-to-b from-white via-surface-subtle to-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-brand-pale text-brand-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-surface-soft border border-brand-pale text-brand-dark text-xs sm:text-sm font-semibold shadow-sm mb-5">
+              <span class="w-2.5 h-2.5 rounded-full bg-accent-green"></span>
+              <span>Ortodontia & Alinhadores Invisíveis</span>
             </div>
-            <p class="text-slate-200 text-sm leading-relaxed mb-4">
-              "Pontualidade, higiene, profissionalismo e excelente atendimento. Recomendo muito o Dr. Luciano Freire!"
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-blue tracking-tight leading-[1.18] mb-6">
+              Alinhamento Dental com Discrição, Conforto e Tecnologia
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-700 mb-8 leading-relaxed font-normal">
+              Corrija o posicionamento dos seus dentes sem o desconforto dos bráquetes metálicos tradicionais. Alinhadores transparentes sob medida que garantem higiene descomplicada, conforto biológico e discrição total para sua rotina.
             </p>
-          </div>
-          <div class="border-t border-[#1E3E66] pt-3">
-            <p class="font-bold text-white text-sm">Marco Arantes</p>
-            <p class="text-xs text-gold-400">Paciente Verificado • Google</p>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-gold-400 mb-3">
-              {[...Array(5)].map(() => (
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              ))}
+            <div class="flex flex-wrap items-center gap-4">
+              <a 
+                href={whatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn-tactile inline-flex items-center gap-2.5 bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold px-8 py-4 rounded-xl shadow-glow-whatsapp transition-colors text-base sm:text-lg min-h-[48px]"
+              >
+                <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                <span>Agendar Avaliação Ortodôntica</span>
+              </a>
             </div>
-            <p class="text-slate-200 text-sm leading-relaxed mb-4">
-              "Atendimento diferenciado, ambiente super agradável e uma equipe extremamente competente. Nota 10!"
-            </p>
           </div>
-          <div class="border-t border-[#1E3E66] pt-3">
-            <p class="font-bold text-white text-sm">Roberto Junqueira</p>
-            <p class="text-xs text-gold-400">Paciente Verificado • Google</p>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-[#0F223D] border border-[#1E3E66] shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-gold-400 mb-3">
-              {[...Array(5)].map(() => (
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              ))}
+          <div class="relative lg:ml-auto w-full max-w-lg">
+            <div class="relative rounded-2xl overflow-hidden shadow-card border border-brand-pale bg-white p-2">
+              <Image 
+                src={heroImg} 
+                alt="Planejamento ortodôntico digital com alinhadores transparentes pelo Dr. Luciano Freire em Passos MG" 
+                class="rounded-xl object-cover w-full h-[380px] lg:h-[460px]" 
+                format="webp" 
+                loading="eager"
+                width={500}
+                height={460}
+              />
             </div>
-            <p class="text-slate-200 text-sm leading-relaxed mb-4">
-              "Excelente profissional! Muito atencioso, explicou cada etapa do tratamento com clareza e dedicação."
-            </p>
-          </div>
-          <div class="border-t border-[#1E3E66] pt-3">
-            <p class="font-bold text-white text-sm">Fabiane Oliveira</p>
-            <p class="text-xs text-gold-400">Paciente Verificada • Google</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA FINAL -->
-  <section class="py-24 bg-[#102A4C] text-center relative overflow-hidden border-t border-[#1A3358]/80 text-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-6">Alinhe seu sorriso com total discrição e conforto</h2>
-      <p class="text-slate-300 mb-10 text-lg">Agende uma consulta de avaliação ortodôntica e visualize o planejamento digital do seu novo sorriso.</p>
-      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-tactile inline-flex items-center gap-2 bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold px-8 py-4 rounded-xl shadow-glow-whatsapp transition-colors">
-        Falar com o Dr. Luciano
-      </a>
-    </div>
-  </section>
+    <!-- BENTO GRID -->
+    <section class="py-20 bg-white border-b border-brand-pale">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold text-brand-dark mb-4">Vantagens dos Alinhadores Transparentes</h2>
+          <p class="text-slate-600 text-lg leading-relaxed">Tratamento ortodôntico contemporâneo com etapas previsíveis e livres de incômodos.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-surface-subtle rounded-2xl p-8 border border-brand-pale flex flex-col justify-between card-tactile">
+            <div>
+              <h3 class="text-xl font-bold text-brand-dark mb-3">Discrição e Estética Social</h3>
+              <p class="text-slate-600 text-base leading-relaxed">Confeccionados em polímero transparente de alta fidelidade visual, tornando os alinhadores quase imperceptíveis em conversas presenciais e reuniões.</p>
+            </div>
+          </div>
+          <div class="bg-surface-subtle rounded-2xl p-8 border border-brand-pale flex flex-col justify-between card-tactile">
+            <div>
+              <h3 class="text-xl font-bold text-brand-dark mb-3">Higiene Bucal Simplificada</h3>
+              <p class="text-slate-600 text-base leading-relaxed">Removíveis para alimentação e escovação rotineira, garantindo o uso correto do fio dental sem retenção de placa bacteriana característica dos bráquetes.</p>
+            </div>
+          </div>
+          <div class="bg-surface-subtle rounded-2xl p-8 border border-brand-pale flex flex-col justify-between card-tactile">
+            <div>
+              <h3 class="text-xl font-bold text-brand-dark mb-3">Conforto para Bochechas e Lábios</h3>
+              <p class="text-slate-600 text-base leading-relaxed">Superfície lisa com bordas polidas que não arranham os tecidos moles nem causam as lesões e aftas frequentes dos fios metálicos.</p>
+            </div>
+          </div>
+          <div class="bg-surface-subtle rounded-2xl p-8 border border-brand-pale flex flex-col justify-between card-tactile">
+            <div>
+              <h3 class="text-xl font-bold text-brand-dark mb-3">Previsibilidade no Planejamento</h3>
+              <p class="text-slate-600 text-base leading-relaxed">Cada movimento dental é sequenciado digitalmente, permitindo visualizar a evolução estimada do alinhamento antes do início do ciclo de placas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASOS CLÍNICOS & DETALHES -->
+    <section class="py-20 bg-surface-subtle border-b border-brand-pale">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold text-brand-dark mb-4">Como Funciona o Fluxo Ortodôntico</h2>
+          <p class="text-slate-600 text-lg leading-relaxed">Etapas coordenadas para um alinhamento harmonioso e confortável.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+          <div class="lg:col-span-6">
+            <div class="rounded-2xl overflow-hidden border border-brand-pale shadow-card bg-white p-3">
+              <Image 
+                src={heroImg} 
+                alt="Caso de alinhamento ortodôntico com placas transparentes planejado pelo Dr. Luciano Freire" 
+                class="w-full h-auto object-cover rounded-xl max-h-[380px]"
+                format="webp"
+                loading="lazy"
+                width={500}
+                height={380}
+              />
+            </div>
+          </div>
+          <div class="lg:col-span-6 space-y-5">
+            <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm">
+              <h3 class="text-lg font-bold text-brand-dark mb-2">Alinhadores Anatômicos Sob Medida</h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                Placas confortáveis produzidas a partir do escaneamento da sua arcada, assegurando encaixe preciso que não prejudica a dicção nem a rotina diária.
+              </p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm">
+              <h3 class="text-lg font-bold text-brand-dark mb-2">Diagnóstico e Escaneamento</h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                Captura detalhada da oclusão através de parcerias com centros radiológicos modernos em Passos/MG, dispensando desconfortos desnecessários.
+              </p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm">
+              <h3 class="text-lg font-bold text-brand-dark mb-2">Liberdade em Todas as Refeições</h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                Você remove os alinhadores para se alimentar com total liberdade, sem restrições a alimentos crocantes ou receio de quebrar peças.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS DE PACIENTES -->
+    <section class="py-20 bg-white border-b border-brand-pale text-brand-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold text-brand-dark mb-4">Avaliações de Pacientes</h2>
+          <p class="text-slate-600 text-lg leading-relaxed">Depoimentos reais de quem corrigiu o sorriso no consultório em Passos/MG.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div class="p-6 rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-brand-blue mb-3">
+                {[...Array(5)].map(() => (
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                ))}
+              </div>
+              <p class="text-slate-700 text-base leading-relaxed mb-4">
+                "Pontualidade, higiene, profissionalismo e excelente atendimento. Recomendo muito o Dr. Luciano Freire pelo cuidado em cada detalhe!"
+              </p>
+            </div>
+            <div class="border-t border-brand-pale/70 pt-3">
+              <p class="font-bold text-brand-dark text-base">Marco Arantes</p>
+              <p class="text-xs text-brand-blue font-semibold">Paciente Verificado • Google</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-brand-blue mb-3">
+                {[...Array(5)].map(() => (
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                ))}
+              </div>
+              <p class="text-slate-700 text-base leading-relaxed mb-4">
+                "Atendimento diferenciado, ambiente super agradável e uma condução extremamente competente. O tratamento com alinhador superou minhas expectativas."
+              </p>
+            </div>
+            <div class="border-t border-brand-pale/70 pt-3">
+              <p class="font-bold text-brand-dark text-base">Roberto Junqueira</p>
+              <p class="text-xs text-brand-blue font-semibold">Paciente Verificado • Google</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-brand-blue mb-3">
+                {[...Array(5)].map(() => (
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                ))}
+              </div>
+              <p class="text-slate-700 text-base leading-relaxed mb-4">
+                "Excelente profissional! Muito atencioso, explicou cada etapa do alinhamento com clareza e dedicação em todas as consultas."
+              </p>
+            </div>
+            <div class="border-t border-brand-pale/70 pt-3">
+              <p class="font-bold text-brand-dark text-base">Fabiane Oliveira</p>
+              <p class="text-xs text-brand-blue font-semibold">Paciente Verificada • Google</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-24 bg-surface-subtle text-center relative overflow-hidden border-t border-brand-pale text-brand-dark">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark mb-4">Alinhe seu Sorriso com Discrição e Conforto</h2>
+        <p class="text-slate-600 mb-8 text-lg max-w-xl mx-auto">Agende uma consulta de avaliação ortodôntica com o Dr. Luciano Freire e conheça as possibilidades para o seu sorriso.</p>
+        <a 
+          href={whatsappUrl} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-tactile inline-flex items-center gap-2.5 bg-whatsapp hover:bg-whatsapp-hover text-slate-950 font-bold px-8 py-4 rounded-xl shadow-glow-whatsapp transition-colors text-lg min-h-[48px]"
+        >
+          <span>Agendar Avaliação Ortodôntica no WhatsApp</span>
+        </a>
+      </div>
+    </section>
+  </main>
 
   <Footer />
 </Layout>
-

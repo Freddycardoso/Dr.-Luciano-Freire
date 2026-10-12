@@ -7,37 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        gold: {
-          50: '#FAF6EE',
-          100: '#F4ECE0',
-          200: '#E6D7BE',
-          300: '#D4AF37',
-          400: '#C5A880',
-          500: '#B89762',
-          600: '#997843',
-          700: '#7A5C2B',
+        brand: {
+          blue: '#426BB2',
+          deep: '#3D6ABD',
+          light: '#9DB8E0',
+          pale: '#C3D8F0',
+          dark: '#1E2A44',
         },
-        navy: {
-          700: '#22487A',
-          800: '#15335B',
-          850: '#122B4D',
-          900: '#102A4C',
-          950: '#0A1C33',
+        accent: {
+          green: '#8BB027',
+          lime: '#C6DB69',
         },
-        brandblue: {
-          50: '#F0F5FA',
-          100: '#E1EBF5',
-          200: '#C3D7EB',
-          700: '#22487A',
-          800: '#15335B',
-          900: '#102A4C',
-          950: '#0A1C33',
-        },
-        babyblue: {
-          50: '#102A4C',
-          100: '#15335B',
-          200: '#22487A',
-          900: '#0A1C33',
+        surface: {
+          DEFAULT: '#FFFFFF',
+          subtle: '#F4F8FD',
+          soft: '#E6EFFA',
         },
         whatsapp: {
           DEFAULT: '#25D366',
@@ -46,13 +30,13 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Manrope"', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['"Source Sans 3"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
       },
       boxShadow: {
-        'glow-gold': '0 0 30px -5px rgba(197, 168, 128, 0.35)',
+        'glow-brand': '0 0 30px -5px rgba(66, 107, 178, 0.35)',
         'glow-whatsapp': '0 0 35px -5px rgba(37, 211, 102, 0.45)',
-        'card-soft': '0 20px 40px -15px rgba(0, 0, 0, 0.07)',
+        'card-soft': '0 12px 32px -8px rgba(66, 107, 178, 0.08), 0 4px 12px -2px rgba(30, 42, 68, 0.04)',
+        'card-hover': '0 20px 40px -12px rgba(66, 107, 178, 0.14), 0 6px 16px -4px rgba(30, 42, 68, 0.06)',
       },
       animation: {
         'pulse-subtle': 'pulseSubtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

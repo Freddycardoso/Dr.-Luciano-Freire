@@ -1,61 +1,48 @@
 ---
-import { Image } from 'astro:assets';
-import logoClinica from '../assets/logo-dr-luciano.png';
-
 const whatsappBaseUrl = "https://wa.me/5535988215162";
 const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o`;
-const phoneFixed = "(35) 3521-5027";
-const phoneFixedClean = "553535215027";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer id="contato" class="bg-[#060E18] border-t border-[#1A3358]/80 text-slate-300 text-xs pt-14 pb-28 sm:pb-14">
+<footer id="contato" class="bg-brand-blue text-white text-[1.0625rem] pt-16 pb-28 sm:pb-16 border-t border-brand-deep">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 mb-14">
       
-      <!-- Coluna Identificação Profissional -->
-      <div class="md:col-span-5">
-        <div class="flex items-center gap-3.5 mb-4">
-          <Image
-            src={logoClinica}
-            alt="Logo Dr. Luciano Alves Freire - Consultório Odontológico"
-            class="h-10 sm:h-12 w-auto object-contain brightness-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] shrink-0"
-            format="webp"
+      <!-- Coluna 1: Identificação Institucional e Logo Completa -->
+      <div class="md:col-span-5 flex flex-col items-start">
+        <a href="/" class="inline-flex bg-white rounded-2xl p-3 shadow-md border border-white/20 mb-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="Luciano Alves Freire, Consultório Odontológico, Implantodontia e Ortodontia">
+          <img
+            src="/images/logo-completa.svg"
+            alt="Luciano Alves Freire, Consultório Odontológico, Implantodontia e Ortodontia"
+            class="h-14 sm:h-16 w-auto object-contain shrink-0"
+            width="164"
+            height="64"
             loading="lazy"
           />
-          <div class="flex flex-col text-left">
-            <span class="font-serif font-bold text-white text-base sm:text-lg tracking-tight leading-tight">
-              Dr. Luciano A. Freire
-            </span>
-            <span class="text-xs font-semibold tracking-wider text-gold-300 uppercase leading-tight">
-              Odontologia • Sala 24
-            </span>
-          </div>
-        </div>
-        <p class="text-slate-300 leading-relaxed max-w-sm mb-4">
-          Especialista em implantes dentários, reabilitação oral e odontologia estética. Cuidado técnico, precisão científica e atendimento humanizado em Passos/MG.
+        </a>
+        <p class="text-white/95 leading-relaxed max-w-sm mb-4 text-[1.0625rem]">
+          Mais de 21 anos de dedicação clínica em Implantodontia e Ortodontia no Centro de Passos/MG. Atendimento individualizado, rigor técnico e foco no conforto do paciente.
         </p>
-        <p class="text-[11px] text-slate-400 pr-16 sm:pr-0">
-          Responsável Técnico: Dr. Luciano Alves Freire • Cirurgião-Dentista • CRO-MG 25170
+        <p class="text-white/80 font-medium text-[1rem]">
+          Responsável Técnico: Dr. Luciano Alves Freire • Cirurgião-Dentista • CRO MG 25.170
         </p>
       </div>
 
-      <!-- Links Rápidos -->
+      <!-- Coluna 2: Navegação Rápida (Fontes >= 16px) -->
       <div class="md:col-span-3">
-        <h2 class="font-bold text-white text-sm mb-3">Navegação Rápida</h2>
-        <ul class="space-y-2">
-          <li><a href="/#triagem" class="hover:text-gold-300 transition-colors duration-150">Tratamentos Especializados</a></li>
-          <li><a href="/#comparador" class="hover:text-gold-300 transition-colors duration-150">Anatomia do Implante 3D</a></li>
-          <li><a href="/#autoridade" class="hover:text-gold-300 transition-colors duration-150">Dr. Luciano Freire</a></li>
-          <li><a href="/#ambientes" class="hover:text-gold-300 transition-colors duration-150">Ambientes do Consultório</a></li>
-          <li><a href="/#faq" class="hover:text-gold-300 transition-colors duration-150">Dúvidas Frequentes</a></li>
-          <li><a href="/#jornada" class="hover:text-gold-300 transition-colors duration-150">Jornada Sem Dor</a></li>
-          <li><a href="/#contato" class="hover:text-gold-300 transition-colors duration-150">Localização no Centro</a></li>
+        <h2 class="font-bold text-white text-xl mb-4 tracking-tight">Navegação</h2>
+        <ul class="space-y-3">
+          <li><a href="/#triagem" class="text-white/90 hover:text-white underline-offset-4 hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Tratamentos</a></li>
+          <li><a href="/#comparador" class="text-white/90 hover:text-white underline-offset-4 hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Comparador Anatômico</a></li>
+          <li><a href="/#autoridade" class="text-white/90 hover:text-white underline-offset-4 hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Dr. Luciano Freire</a></li>
+          <li><a href="/#ambientes" class="text-white/90 hover:text-white underline-offset-4 hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Ambientes do Consultório</a></li>
+          <li><a href="/#faq" class="text-white/90 hover:text-white underline-offset-4 hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Dúvidas Frequentes</a></li>
+          <li><a href="/#contato" class="text-white/90 hover:text-white underline-offset-4 hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Localização e Contato</a></li>
           <li class="pt-2">
-            <a href="#" class="btn-tactile inline-flex items-center gap-1.5 text-gold-400 hover:text-gold-300 font-semibold text-[11px]">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+            <a href="#" class="btn-tactile inline-flex items-center gap-2 text-white font-semibold hover:text-white/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
               </svg>
               <span>Voltar ao topo</span>
             </a>
@@ -63,28 +50,41 @@ const currentYear = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Dados de Contato e NAP -->
+      <!-- Coluna 3: Dados de Contato e Localização Oficiais -->
       <div class="md:col-span-4">
-        <h2 class="font-bold text-white text-sm mb-3">Consultório Odontológico</h2>
-        <address class="not-italic space-y-1.5 leading-relaxed text-slate-300">
-          <p>Rua dos Brandões, 231, Sala 24 – Centro</p>
-          <p>Passos - MG, CEP 37900-104</p>
-          <p class="pt-2">Telefone Fixo: <a href={`tel:${phoneFixedClean}`} class="hover:text-gold-300 transition-colors">{phoneFixed}</a></p>
-          <p>WhatsApp: <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">+55 (35) 98821-5162</a></p>
+        <h2 class="font-bold text-white text-xl mb-4 tracking-tight">Consultório</h2>
+        <address class="not-italic space-y-2.5 leading-relaxed text-white/95">
+          <p class="font-semibold text-white">Rua dos Brandões, 231, Sala 24 – Centro</p>
+          <p>Passos - MG, CEP 37.900-104</p>
+          <p class="pt-1">
+            <strong>Horário:</strong> Segunda a sexta, das 13h30 às 18h30 <span class="block text-white/80 text-[0.95rem]">(com agendamento prévio)</span>
+          </p>
+          <p class="pt-2">
+            <strong>WhatsApp Oficial:</strong>
+            <a href={heroWhatsappUrl} target="_blank" rel="noopener noreferrer" class="block font-bold text-white underline hover:text-white/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">
+              (35) 98821-5162
+            </a>
+          </p>
+          <p>
+            <strong>E-mail:</strong>
+            <a href="mailto:drlucianofreire@uol.com.br" class="block underline hover:text-white/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">
+              drlucianofreire@uol.com.br
+            </a>
+          </p>
         </address>
       </div>
 
     </div>
 
-    <!-- Linha Divisória e Nota Ética CFO/CRO -->
-    <div class="pt-8 border-t border-[#1A3358]/80 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-[11px] text-slate-400">
+    <!-- Linha Divisória e Nota Ética CFO/CRO (Fontes >= 16px) -->
+    <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-white/85 text-[1rem]">
       <div>
         <p>© {currentYear} Dr. Luciano Alves Freire. Todos os direitos reservados.</p>
-        <p class="mt-1 text-[10px] text-slate-400">
-          Atenção: As informações contidas neste site possuem caráter estritamente educativo e informativo. De acordo com as resoluções do Conselho Federal de Odontologia (CFO), nenhum conteúdo substitui a avaliação clínica presencial.
+        <p class="mt-2 text-white/75 text-[0.95rem] max-w-3xl leading-relaxed">
+          Informações de caráter educativo e informativo. Conforme resoluções do Conselho Federal de Odontologia (CFO), o conteúdo não substitui a consulta odontológica presencial.
         </p>
       </div>
-      <div class="shrink-0 text-slate-400 text-[10px]">
+      <div class="shrink-0 text-white/90 font-semibold text-[1rem]">
         Passos • Minas Gerais
       </div>
     </div>
