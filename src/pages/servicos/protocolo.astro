@@ -3,7 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { Image } from 'astro:assets';
-import heroImg from '../../assets/servico_protocolo.jpg';
+import heroImg from '../../assets/protocolo-angulo-hero.jpg';
+import detalheImg from '../../assets/protocolo-detalhe-lab.jpg';
 
 const title = "Prótese Protocolo Fixo em Passos | Dr. Luciano Freire";
 const description = "Dentes fixos e segurança ao sorrir. Substitua a dentadura móvel pela prótese protocolo sobre implantes com o Dr. Luciano Freire em Passos/MG.";
@@ -45,7 +46,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
             <div class="relative rounded-2xl overflow-hidden shadow-card border border-brand-pale bg-white p-2">
               <Image 
                 src={heroImg} 
-                alt="Planejamento de reabilitação com prótese protocolo fixa conduzido pelo Dr. Luciano Freire em Passos MG" 
+                alt="Prótese protocolo fixa sobre implantes com dentes em porcelana e conexões de titânio em ângulo 3/4" 
                 class="rounded-xl object-cover w-full h-[380px] lg:h-[460px]" 
                 format="webp" 
                 loading="eager"
@@ -107,10 +108,10 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
           <div class="lg:col-span-6">
             <div class="rounded-2xl overflow-hidden border border-brand-pale shadow-card bg-white p-3">
               <Image 
-                src={heroImg} 
-                alt="Resultado e confecção de prótese protocolo fixa realizada pelo Dr. Luciano Freire" 
-                class="w-full h-auto object-cover rounded-xl max-h-[380px]"
-                format="webp"
+                src={detalheImg} 
+                alt="Detalhe de prótese protocolo fixa mostrando cilindros protéticos e barra de retenção em titânio" 
+                class="w-full h-auto object-cover rounded-xl max-h-[380px]" 
+                format="webp" 
                 loading="lazy"
                 width={500}
                 height={380}

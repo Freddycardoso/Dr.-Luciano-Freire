@@ -3,7 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { Image } from 'astro:assets';
-import heroImg from '../../assets/servico_ortodontia.jpg';
+import heroImg from '../../assets/ortodontia-alinhador-hero.jpg';
+import detalheImg from '../../assets/ortodontia-modelo-detalhe.jpg';
 
 const title = "Ortodontia e Alinhadores Transparentes em Passos | Dr. Luciano Freire";
 const description = "Alinhadores transparentes e ortodontia moderna para alinhar seus dentes com conforto, discrição e planejamento digital em Passos/MG.";
@@ -45,7 +46,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
             <div class="relative rounded-2xl overflow-hidden shadow-card border border-brand-pale bg-white p-2">
               <Image 
                 src={heroImg} 
-                alt="Planejamento ortodôntico digital com alinhadores transparentes pelo Dr. Luciano Freire em Passos MG" 
+                alt="Par de alinhadores ortodônticos transparentes repousando em estojo moderno sobre mesa clínica" 
                 class="rounded-xl object-cover w-full h-[380px] lg:h-[460px]" 
                 format="webp" 
                 loading="eager"
@@ -107,10 +108,10 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
           <div class="lg:col-span-6">
             <div class="rounded-2xl overflow-hidden border border-brand-pale shadow-card bg-white p-3">
               <Image 
-                src={heroImg} 
-                alt="Caso de alinhamento ortodôntico com placas transparentes planejado pelo Dr. Luciano Freire" 
-                class="w-full h-auto object-cover rounded-xl max-h-[380px]"
-                format="webp"
+                src={detalheImg} 
+                alt="Alinhador ortodôntico transparente adaptado com precisão sobre modelo de arcada dental de estudo" 
+                class="w-full h-auto object-cover rounded-xl max-h-[380px]" 
+                format="webp" 
                 loading="lazy"
                 width={500}
                 height={380}

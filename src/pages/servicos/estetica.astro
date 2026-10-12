@@ -3,7 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { Image } from 'astro:assets';
-import heroImg from '../../assets/servico_estetica.jpg';
+import heroImg from '../../assets/estetica-lentes-hero.jpg';
+import detalheImg from '../../assets/estetica-faceta-detalhe.jpg';
 
 const title = "Estética Dental em Passos | Dr. Luciano Freire";
 const description = "Facetas em porcelana, lentes de contato dental e clareamento para um sorriso harmonioso. Desenho digital com naturalidade em Passos/MG.";
@@ -45,7 +46,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
             <div class="relative rounded-2xl overflow-hidden shadow-card border border-brand-pale bg-white p-2">
               <Image 
                 src={heroImg} 
-                alt="Procedimento de estética dental e planejamento do sorriso conduzido pelo Dr. Luciano Freire em Passos MG" 
+                alt="Modelo de estudo odontológico com facetas e lentes de contato em cerâmica de alta translucidez" 
                 class="rounded-xl object-cover w-full h-[380px] lg:h-[460px]" 
                 format="webp" 
                 loading="eager"
@@ -107,10 +108,10 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
           <div class="lg:col-span-6">
             <div class="rounded-2xl overflow-hidden border border-brand-pale shadow-card bg-white p-3">
               <Image 
-                src={heroImg} 
-                alt="Detalhe de caso de reabilitação estética dental realizado pelo Dr. Luciano Freire" 
-                class="w-full h-auto object-cover rounded-xl max-h-[380px]"
-                format="webp"
+                src={detalheImg} 
+                alt="Macro de lente de contato dental em porcelana pura ultrafina sobre placa de vidro junto à escala de cor VITA" 
+                class="w-full h-auto object-cover rounded-xl max-h-[380px]" 
+                format="webp" 
                 loading="lazy"
                 width={500}
                 height={380}
