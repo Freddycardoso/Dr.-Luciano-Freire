@@ -142,68 +142,187 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
       </div>
     </section>
 
-    <!-- DEPOIMENTOS DE PACIENTES -->
-    <section class="py-20 bg-white border-b border-brand-pale text-brand-dark">
+    <!-- DEPOIMENTO REAL EM VÍDEO -->
+    <section class="py-20 lg:py-24 bg-gradient-to-b from-white via-surface-subtle/40 to-white border-b border-brand-pale text-brand-dark overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl font-bold text-brand-dark mb-4">Avaliações de Pacientes</h2>
-          <p class="text-slate-600 text-lg leading-relaxed">Depoimentos reais de quem restabeleceu a mastigação e o sorriso no consultório.</p>
-        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          <!-- COLUNA ESQUERDA: VÍDEO DO PACIENTE -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-[340px] sm:max-w-[360px]">
+              <!-- Brilho de fundo sutil com a paleta do consultório -->
+              <div class="absolute -inset-2 bg-gradient-to-tr from-brand-blue/15 via-brand-pale/40 to-brand-blue/10 rounded-[2.5rem] blur-xl -z-10 transform -rotate-1"></div>
+              
+              <!-- Moldura Smartphone Premium -->
+              <div class="relative rounded-[2.2rem] p-2.5 sm:p-3 bg-slate-900 border border-slate-700/60 shadow-2xl">
+                <!-- Top Notch Speaker Bar -->
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-slate-700/80 rounded-full z-20"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div class="p-6 rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-1 text-brand-blue mb-3">
-                {[...Array(5)].map(() => (
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                ))}
+                <div class="relative rounded-[1.7rem] overflow-hidden bg-black aspect-[9/16] shadow-inner group">
+                  <video 
+                    id="testimonial-video" 
+                    class="w-full h-full object-cover rounded-[1.7rem]" 
+                    playsinline 
+                    preload="metadata"
+                    controls
+                    poster="/videos/depoimento-implante-poster.jpg"
+                  >
+                    <source src="/videos/depoimento-implante-dr-luciano.mp4" type="video/mp4" />
+                    Seu navegador não suporta a reprodução de vídeo.
+                  </video>
+
+                  <!-- Overlay Interativo Inicial (Cobre o vídeo até o primeiro clique) -->
+                  <div 
+                    id="video-play-overlay" 
+                    class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex flex-col justify-between p-5 cursor-pointer transition-opacity duration-300 z-10"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Assistir depoimento do paciente Anderson"
+                  >
+                    <!-- Badge Superior -->
+                    <div class="self-start pt-3">
+                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/15 text-white text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
+                        História Real em Vídeo
+                      </span>
+                    </div>
+
+                    <!-- Botão Central de Play -->
+                    <div class="self-center flex flex-col items-center gap-3">
+                      <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 text-brand-dark flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 ring-4 ring-white/30">
+                        <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-brand-blue translate-x-0.5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                      <span class="text-white text-xs font-medium tracking-wide bg-slate-950/60 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+                        Clique para dar play no vídeo
+                      </span>
+                    </div>
+
+                    <!-- Info do Paciente no Rodapé do Vídeo -->
+                    <div class="p-3.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/15 text-white">
+                      <p class="font-bold text-sm text-white flex items-center justify-between">
+                        <span>Anderson • Paciente</span>
+                        <span class="text-amber-400 text-xs flex items-center gap-0.5">★★★★★</span>
+                      </p>
+                      <p class="text-xs text-slate-300 mt-0.5 leading-snug">
+                        Superou o trauma de dentista e recuperou os dentes com implante no consultório.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p class="text-slate-700 text-base leading-relaxed mb-4">
-                "Doutor Luciano me devolveu a segurança de sorrir e mastigar. Procedimento de implante muito tranquilo, com extremo cuidado e acompanhamento atencioso."
-              </p>
-            </div>
-            <div class="border-t border-brand-pale/70 pt-3">
-              <p class="font-bold text-brand-dark text-base">Maria Helena Silveira</p>
-              <p class="text-base text-brand-blue font-semibold">Paciente Verificada • Google</p>
             </div>
           </div>
 
-          <div class="p-6 rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-1 text-brand-blue mb-3">
-                {[...Array(5)].map(() => (
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                ))}
-              </div>
-              <p class="text-slate-700 text-base leading-relaxed mb-4">
-                "Pontualidade, higiene, profissionalismo e excelente atendimento destacam o Dr. Luciano Alves Freire como um dos cirurgiões-dentistas mais preparados que conheci."
+          <!-- COLUNA DIREITA: TEXTO PERSUASIVO -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Tag de Credibilidade -->
+            <div class="inline-flex items-center gap-2 py-1 px-3.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-bold tracking-wide uppercase">
+              <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+              <span>Superação, Conforto & Confiança</span>
+            </div>
+
+            <!-- Título Persuasivo Forte -->
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark tracking-tight leading-[1.2]">
+              O receio de sentir dor não precisa afastar você da liberdade de sorrir e mastigar.
+            </h2>
+
+            <!-- Texto de Conexão Emocional -->
+            <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+              Muitos pacientes chegam ao consultório carregando lembranças difíceis de tratamentos odontológicos passados ou a angústia de perder dentes. O relato real do <strong class="text-brand-dark">Anderson</strong> mostra o que acontece quando o procedimento é conduzido com calma, anestesia de precisão e respeito absoluto ao tempo de cada pessoa.
+            </p>
+
+            <!-- Citação em Destaque do Vídeo -->
+            <div class="p-5 rounded-2xl bg-surface-subtle border-l-4 border-brand-blue border-brand-pale shadow-sm">
+              <p class="italic text-slate-800 text-base sm:text-lg font-medium leading-relaxed">
+                “Eu tinha muito receio em fazer... e aqui eu tirei todo aquele trauma que eu tinha. Foi extremamente tranquilo do início ao fim.”
               </p>
+              <div class="mt-2.5 flex items-center justify-between">
+                <span class="text-sm font-bold text-brand-dark">Anderson</span>
+                <span class="text-xs font-semibold text-brand-blue uppercase tracking-wider">Depoimento verificado</span>
+              </div>
             </div>
-            <div class="border-t border-brand-pale/70 pt-3">
-              <p class="font-bold text-brand-dark text-base">Marco Arantes</p>
-              <p class="text-base text-brand-blue font-semibold">Paciente Verificado • Google</p>
+
+            <!-- Pilares de Tranquilidade e Segurança -->
+            <div class="space-y-4 pt-1">
+              <div class="flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-bold text-brand-dark">Protocolo Anestésico Confortável</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mt-0.5">Você não sente dor durante a instalação do implante. O procedimento é minimamente invasivo e com pós-operatório altamente previsível.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-bold text-brand-dark">Atendimento Conduzido Pessoalmente pelo Dr. Luciano</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mt-0.5">Desde a análise tomográfica inicial até o acabamento da coroa, você tem o acompanhamento dedicado e humano de um cirurgião com mais de 25 anos de prática clínica.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-bold text-brand-dark">Estabilidade Definitiva</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mt-0.5">Chega de sofrer com próteses móveis que machucam ou se deslocam. O implante de titânio integra-se ao osso, permitindo que você mastigue qualquer alimento com firmeza.</p>
+                </div>
+              </div>
             </div>
+
+            <!-- Transição Persuasiva Direcionando para a Seção de Agendamento Abaixo (Sem botão duplicado) -->
+            <div class="pt-3 border-t border-brand-pale">
+              <div class="p-4 rounded-xl bg-surface-soft border border-brand-pale/80 flex items-center gap-3 text-slate-700">
+                <svg class="w-5 h-5 text-brand-blue shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <p class="text-sm sm:text-base font-medium leading-snug">
+                  Dê o primeiro passo para recuperar sua autoconfiança. Veja na seção logo abaixo como agendar sua avaliação detalhada e tirar todas as suas dúvidas diretamente com nossa equipe.
+                </p>
+              </div>
+            </div>
+
           </div>
 
-          <div class="p-6 rounded-2xl bg-surface-subtle border border-brand-pale shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-1 text-brand-blue mb-3">
-                {[...Array(5)].map(() => (
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                ))}
-              </div>
-              <p class="text-slate-700 text-base leading-relaxed mb-4">
-                "Excelente profissional, muito humano, pontual e atencioso. O consultório é impecável e o tratamento foi seguro do começo ao fim."
-              </p>
-            </div>
-            <div class="border-t border-brand-pale/70 pt-3">
-              <p class="font-bold text-brand-dark text-base">Fabiane Oliveira</p>
-              <p class="text-base text-brand-blue font-semibold">Paciente Verificada • Google</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
+
+    <script>
+      const video = document.getElementById('testimonial-video') as HTMLVideoElement | null;
+      const overlay = document.getElementById('video-play-overlay');
+
+      if (video && overlay) {
+        const handleStartPlay = () => {
+          overlay.classList.add('opacity-0', 'pointer-events-none');
+          video.play().catch(() => {});
+        };
+
+        overlay.addEventListener('click', handleStartPlay);
+        overlay.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleStartPlay();
+          }
+        });
+
+        video.addEventListener('play', () => {
+          overlay.classList.add('opacity-0', 'pointer-events-none');
+        });
+
+        video.addEventListener('ended', () => {
+          overlay.classList.remove('opacity-0', 'pointer-events-none');
+        });
+      }
+    </script>
 
     <!-- CTA FINAL -->
     <section class="py-24 bg-surface-subtle text-center relative overflow-hidden border-t border-brand-pale text-brand-dark">

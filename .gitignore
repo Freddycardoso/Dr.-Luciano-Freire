@@ -25,3 +25,7 @@ Thumbs.db
 
 # internal cache
 .impeccable/
+
+# raw video sources
+*.mov
+*.MOV
