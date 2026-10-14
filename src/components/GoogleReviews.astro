@@ -1,274 +1,484 @@
 ---
 // src/components/GoogleReviews.astro
-// Componente Oficial de Avaliações do Google - 100% Nativo, Dark Luxury & Zero Scripts Externos
+// Seção Oficial de Avaliações do Google - Alta Estética Odontológica, 100% WCAG 2.1 AA e Filosofia Emil Kowalski
 
 interface Review {
   id: string;
   author: string;
-  initial: string;
-  avatarBg: string;
+  avatarSrc?: string;
+  initial?: string;
+  avatarBg?: string;
+  stats: string;
+  isLocalGuide?: boolean;
+  localGuideLevel?: string;
   rating: number;
   time: string;
+  tag: string;
+  category: 'all' | 'pontualidade' | 'humano' | 'competencia';
   text: string;
-  verified: boolean;
   highlight?: boolean;
+  ownerReply?: {
+    author: string;
+    text: string;
+    time: string;
+  };
 }
 
 const reviews: Review[] = [
   {
-    id: "rev-1",
-    author: "Fabiane Oliveira",
-    initial: "F",
-    avatarBg: "from-amber-600 to-amber-700",
+    id: "rev-marco-arantes",
+    author: "Marco Arantes",
+    avatarSrc: "/images/avaliacoes/marco-arantes.png",
+    stats: "Local Guide • 38 avaliações",
+    isLocalGuide: true,
+    localGuideLevel: "Google Local Guide",
     rating: 5,
     time: "4 anos atrás",
-    text: "Se tivessem mais estrelas daria, excelente profissional, pontual, mto humano, trabalha mto bem, super recomendo.",
-    verified: true,
+    tag: "Pontualidade & Higiene",
+    category: "pontualidade",
+    text: "Pontualidade, higiene, profissionalismo e excelente atendimento destacam o Dr. Luciano Alves Freire como um dos dentistas mais preparados que conheci.",
     highlight: true,
   },
   {
-    id: "rev-2",
-    author: "Gerson Eduardo Rosa",
-    initial: "G",
-    avatarBg: "from-emerald-600 to-teal-700",
+    id: "rev-maria-aparecida",
+    author: "Maria Aparecida Damasceno Silva",
+    avatarSrc: "/images/avaliacoes/maria-aparecida.png",
+    stats: "3 avaliações no Google",
     rating: 5,
     time: "4 anos atrás",
-    text: "Excelente atendimento. Pontualidade e cordialidade com os clientes.",
-    verified: true,
+    tag: "Atenção Total & Carinho",
+    category: "humano",
+    text: "É um ótimo profissional, atencioso e dedicação total em seus atendimentos. Parabéns Dr. Luciano, fica aqui o meu carinho e meu agradecimento.",
+    highlight: true,
+    ownerReply: {
+      author: "Dr. Luciano Alves Freire (Proprietário)",
+      text: "Obrigado pelo carinho e pela confiança 🙏",
+      time: "4 anos atrás"
+    }
   },
   {
-    id: "rev-3",
-    author: "Inovatório Marketing e Design",
-    initial: "I",
-    avatarBg: "from-red-500 to-rose-600",
+    id: "rev-fabiane-oliveira",
+    author: "Fabiane Oliveira",
+    avatarSrc: "/images/avaliacoes/fabiane-oliveira.png",
+    initial: "F",
+    avatarBg: "bg-[#795548]",
+    stats: "2 avaliações no Google",
     rating: 5,
-    time: "14 dias atrás",
-    text: "Excelente Atendimento e Cuidado!",
-    verified: true,
+    time: "4 anos atrás",
+    tag: "Atendimento Humano",
+    category: "humano",
+    text: "Se tivessem mais estrelas daria, excelente profissional, pontual, muito humano, trabalha muito bem, super recomendo.",
+    highlight: true,
   },
   {
-    id: "rev-4",
+    id: "rev-gerson-rosa",
+    author: "Gerson Eduardo Rosa",
+    avatarSrc: "/images/avaliacoes/gerson-rosa.png",
+    initial: "G",
+    avatarBg: "bg-[#2E7D32]",
+    stats: "3 avaliações no Google",
+    rating: 5,
+    time: "4 anos atrás",
+    tag: "Pontualidade & Cordialidade",
+    category: "pontualidade",
+    text: "Excelente atendimento. Pontualidade e cordialidade com os clientes.",
+  },
+  {
+    id: "rev-marcobrandao-queiros",
+    author: "Marco Brandão Queirós",
+    avatarSrc: "/images/avaliacoes/marcobrandao-queiros.png",
+    stats: "5 avaliações no Google",
+    rating: 5,
+    time: "4 anos atrás",
+    tag: "Competência Profissional",
+    category: "competencia",
+    text: "Excelente atendimento, profissional competente.",
+  },
+  {
+    id: "rev-ana-teresa",
     author: "Ana Teresa Roberto Braz Rosa",
     initial: "A",
-    avatarBg: "from-purple-600 to-indigo-700",
+    avatarBg: "bg-gradient-to-br from-brand-blue to-brand-deep",
+    stats: "Paciente Verificada",
     rating: 5,
     time: "4 anos atrás",
+    tag: "Profissionalismo Impecável",
+    category: "competencia",
     text: "Espetacular! Profissionalismo impecável e atenção dedicada em cada etapa do atendimento odontológico.",
-    verified: true,
-  },
-  {
-    id: "rev-5",
-    author: "Marco Arantes",
-    initial: "M",
-    avatarBg: "from-blue-600 to-cyan-700",
-    rating: 5,
-    time: "4 anos atrás",
-    text: "Pontualidade, higiene, profissionalismo e excelente atendimento destacam o Dr. Luciano Alves Freire como um dos dentistas mais preparados que conheci.",
-    verified: true,
-    highlight: true,
-  },
-  {
-    id: "rev-6",
-    author: "Maria Helena Silveira",
-    initial: "M",
-    avatarBg: "from-amber-700 to-yellow-800",
-    rating: 5,
-    time: "Paciente Verificada",
-    text: "Doutor Luciano me devolveu a segurança de sorrir e mastigar. Procedimento de implante muito tranquilo, sem dor e com acompanhamento impecável.",
-    verified: true,
   },
 ];
 
 const googleMapsUrl = "https://maps.google.com/?cid=7746098254252380456";
 ---
 
-<div class="w-full relative" id="google-reviews-native">
-  <!-- Cartão Superior Oficial do Google (Summary Card) -->
-  <div class="mb-8 p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-slate-900/90 via-slate-900/95 to-slate-900/90 border border-slate-800 shadow-2xl backdrop-blur-sm flex flex-col md:flex-row items-center justify-between gap-6">
-    <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-      <!-- Ícone Oficial Google -->
-      <div class="w-14 h-14 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center shadow-inner shrink-0">
-        <svg class="w-8 h-8" viewBox="0 0 24 24">
+<section
+  id="avaliacoes"
+  class="relative bg-surface-subtle py-20 lg:py-28 border-b border-brand-pale overflow-hidden text-brand-dark"
+  aria-labelledby="reviews-heading"
+>
+  <!-- Ambient background lighting com as cores da clínica -->
+  <div class="absolute top-1/4 -right-40 w-96 h-96 rounded-full bg-brand-light/20 blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute bottom-10 -left-40 w-96 h-96 rounded-full bg-brand-pale/30 blur-3xl pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Cabeçalho da Seção -->
+    <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-16" data-reveal>
+      
+      <!-- Badge de Credibilidade Oficial Google -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-pale shadow-sm mb-4">
+        <!-- Ícone Oficial Google -->
+        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
           <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.28 21.44 7.33 24 12 24z"/>
           <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
           <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.28 2.56 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
         </svg>
+        <span class="text-base font-bold text-brand-dark">Avaliações Verificadas no Google Maps</span>
       </div>
 
-      <div>
-        <div class="flex items-center justify-center sm:justify-start gap-2">
-          <span class="text-xl sm:text-2xl font-bold text-white tracking-tight">Google</span>
-          <span class="text-xl sm:text-2xl font-light text-slate-300">Avaliações</span>
-          <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-            Verificado
-          </span>
-        </div>
-        <div class="flex items-center justify-center sm:justify-start gap-2.5 mt-1.5">
-          <span class="text-2xl font-extrabold text-white">5.0</span>
-          <div class="flex items-center text-amber-400 gap-0.5">
-            {Array.from({ length: 5 }).map(() => (
-              <svg class="w-4 h-4 fill-current drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+      <h2 id="reviews-heading" class="text-3xl sm:text-4xl lg:text-[34px] font-bold text-brand-dark tracking-tight mb-4">
+        A Confiança de Quem Voltou a Sorrir em Passos
+      </h2>
+      <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto font-normal">
+        A opinião espontânea de pacientes reais atendidos pessoalmente pelo Dr. Luciano Alves Freire, destacando pontualidade, higiene rigorosa e humanização.
+      </p>
+    </div>
+
+    <!-- CARD MASTER: NOTA 5.0 DO GOOGLE EM EVIDÊNCIA MÁXIMA -->
+    <div class="mb-12 max-w-4xl mx-auto" data-reveal data-reveal-delay="75">
+      <div class="relative overflow-hidden rounded-3xl bg-white border border-brand-pale shadow-[0_16px_40px_-12px_rgba(66,107,178,0.12)] p-6 sm:p-8 lg:p-10 transition-all duration-300">
+        <!-- Barra de realce superior com o degradê azul da clínica -->
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-deep to-accent-green"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          
+          <!-- Lado Esquerdo: O Grande Número 5.0 e Estrelas Douradas -->
+          <div class="md:col-span-5 flex flex-col sm:flex-row md:flex-col lg:flex-row items-center gap-5 sm:gap-6 text-center sm:text-left md:text-center lg:text-left border-b md:border-b-0 md:border-r border-brand-pale/70 pb-6 md:pb-0 md:pr-6">
+            <!-- Box do Logo Google -->
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-surface-subtle border border-brand-pale flex items-center justify-center shadow-inner shrink-0 p-3">
+              <svg class="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.28 21.44 7.33 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.28 2.56 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
               </svg>
-            ))}
-          </div>
-          <span class="text-xs text-slate-400">13+ avaliações reais</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Botões de Ação do Header -->
-    <div class="flex items-center gap-3 w-full sm:w-auto justify-center">
-      <a
-        href={googleMapsUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-slate-950 font-bold text-xs shadow-lg shadow-gold-500/10 hover:shadow-gold-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-      >
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-        </svg>
-        <span>Avaliar no Google</span>
-      </a>
-
-      <!-- Controles do Carrossel (Setas) -->
-      <div class="flex items-center gap-2">
-        <button
-          type="button"
-          id="reviews-prev-btn"
-          aria-label="Avaliação anterior"
-          class="w-10 h-10 rounded-xl bg-slate-950/80 hover:bg-slate-800 text-slate-300 hover:text-gold-300 border border-slate-800 hover:border-gold-400/40 flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-          </svg>
-        </button>
-        <button
-          type="button"
-          id="reviews-next-btn"
-          aria-label="Próxima avaliação"
-          class="w-10 h-10 rounded-xl bg-slate-950/80 hover:bg-slate-800 text-slate-300 hover:text-gold-300 border border-slate-800 hover:border-gold-400/40 flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Carrossel de Cards -->
-  <div
-    id="reviews-track"
-    class="flex gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2 scroll-smooth -mx-4 px-4 sm:mx-0 sm:px-0"
-    style="scrollbar-width: none; -ms-overflow-style: none;"
-  >
-    {reviews.map((rev) => (
-      <div
-        class="w-[85vw] sm:w-[360px] md:w-[380px] shrink-0 snap-start flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800/80 hover:border-gold-400/40 transition-all duration-300 shadow-xl hover:shadow-gold-500/5 group relative"
-      >
-        <!-- Aspas decorativas sutis de fundo -->
-        <div class="absolute top-5 right-6 text-slate-800/40 group-hover:text-gold-400/10 transition-colors pointer-events-none">
-          <svg class="w-12 h-12 fill-current" viewBox="0 0 24 24">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-          </svg>
-        </div>
-
-        <div>
-          <!-- Perfil do Autor -->
-          <div class="flex items-center gap-3.5 mb-4">
-            <div class="relative">
-              <div class={`w-11 h-11 rounded-full bg-gradient-to-br ${rev.avatarBg} text-white font-bold flex items-center justify-center text-sm shadow-md`}>
-                {rev.initial}
-              </div>
-              <!-- Badge Google no avatar -->
-              <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center shadow">
-                <svg class="w-3 h-3" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
-                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.28 21.44 7.33 24 12 24z"/>
-                  <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
-                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.28 2.56 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
-                </svg>
-              </div>
             </div>
 
-            <div class="min-w-0 flex-1">
-              <div class="flex items-center gap-1.5">
-                <h4 class="text-sm font-semibold text-white truncate group-hover:text-gold-200 transition-colors">
-                  {rev.author}
-                </h4>
-                {rev.verified && (
-                  <svg class="w-3.5 h-3.5 text-blue-400 shrink-0" viewBox="0 0 20 20" fill="currentColor" title="Perfil verificado">
-                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            <div>
+              <div class="flex items-baseline justify-center sm:justify-start md:justify-center lg:justify-start gap-2">
+                <span class="text-4xl sm:text-5xl font-extrabold text-brand-dark tracking-tight leading-none">5.0</span>
+                <span class="text-lg font-bold text-slate-500">/ 5.0</span>
+              </div>
+              
+              <!-- 5 Estrelas Douradas Grandes -->
+              <div class="flex items-center justify-center sm:justify-start md:justify-center lg:justify-start gap-1 my-1.5 text-amber-500" aria-label="Avaliação 5 de 5 estrelas">
+                {Array.from({ length: 5 }).map(() => (
+                  <svg class="w-6 h-6 fill-current filter drop-shadow-[0_2px_4px_rgba(245,158,11,0.25)]" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                   </svg>
-                )}
+                ))}
               </div>
-              <span class="text-xs text-slate-400 block mt-0.5">{rev.time}</span>
+
+              <p class="text-base font-semibold text-brand-blue">
+                Classificação Máxima de Satisfação
+              </p>
             </div>
           </div>
 
-          <!-- Estrelas Douradas -->
-          <div class="flex items-center text-amber-400 gap-0.5 mb-3.5">
-            {Array.from({ length: rev.rating }).map(() => (
-              <svg class="w-4 h-4 fill-current drop-shadow-[0_0_6px_rgba(212,175,55,0.3)]" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          <!-- Lado Direito: Tríade de Métricas de Confiança & Botão Oficial -->
+          <div class="md:col-span-7 flex flex-col justify-between h-full gap-5">
+            <div class="grid grid-cols-3 gap-2.5 text-left">
+              <div class="p-3 rounded-2xl bg-surface-subtle border border-brand-pale">
+                <span class="block text-xl font-bold text-brand-dark">100%</span>
+                <span class="text-sm text-slate-600 font-medium leading-snug">Nota Máxima</span>
+              </div>
+              <div class="p-3 rounded-2xl bg-surface-subtle border border-brand-pale">
+                <span class="block text-xl font-bold text-brand-dark">13+</span>
+                <span class="text-sm text-slate-600 font-medium leading-snug">Avaliações Reais</span>
+              </div>
+              <div class="p-3 rounded-2xl bg-surface-subtle border border-brand-pale">
+                <span class="block text-xl font-bold text-brand-dark">Passos</span>
+                <span class="text-sm text-slate-600 font-medium leading-snug">Centro / MG</span>
+              </div>
+            </div>
+
+            <!-- Botão de Ação Direta no Perfil Oficial Google -->
+            <a
+              href={googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-tactile inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-brand-blue hover:bg-brand-deep text-white font-bold text-base min-h-[48px] shadow-sm shadow-brand-blue/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+              aria-label="Abrir perfil oficial do consultório no Google Maps e conferir avaliações"
+            >
+              <svg class="w-5 h-5 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
-            ))}
+              <span>Conferir Perfil no Google Maps</span>
+              <svg class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
           </div>
 
-          <!-- Texto do Depoimento -->
-          <p class="text-slate-300 text-[13px] sm:text-sm leading-relaxed line-clamp-4 group-hover:text-slate-200 transition-colors">
-            "{rev.text}"
-          </p>
-        </div>
-
-        <!-- Rodapé do Card com link direto -->
-        <div class="mt-5 pt-3.5 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-400">
-          <span class="inline-flex items-center gap-1.5 text-gold-400/90 font-medium">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-            </svg>
-            Avaliação autêntica
-          </span>
-          <a
-            href={googleMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
-          >
-            Google Maps
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-            </svg>
-          </a>
         </div>
       </div>
-    ))}
-  </div>
+    </div>
 
-  <!-- Indicador de arraste no mobile -->
-  <div class="mt-4 flex sm:hidden items-center justify-center gap-1 text-[11px] text-slate-400">
-    <svg class="w-4 h-4 animate-pulse text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-    </svg>
-    <span>Deslize para ver mais avaliações</span>
+    <!-- CONTROLES DO CARROSSEL & FILTROS POR PILARES ODONTOLÓGICOS -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8" data-reveal data-reveal-delay="100">
+      
+      <!-- Filtros Rápidos (Pilares Clínicos) -->
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 w-full sm:w-auto" role="tablist" aria-label="Filtrar depoimentos">
+        <button
+          type="button"
+          class="review-filter-btn px-4 py-2 rounded-full text-base font-semibold border transition-all btn-tactile bg-brand-blue text-white border-brand-blue shadow-sm"
+          data-category="all"
+          role="tab"
+          aria-selected="true"
+        >
+          Todos os Relatos
+        </button>
+        <button
+          type="button"
+          class="review-filter-btn px-4 py-2 rounded-full text-base font-semibold border transition-all btn-tactile bg-white text-brand-dark border-brand-pale hover:border-brand-blue/40"
+          data-category="pontualidade"
+          role="tab"
+          aria-selected="false"
+        >
+          Pontualidade & Higiene
+        </button>
+        <button
+          type="button"
+          class="review-filter-btn px-4 py-2 rounded-full text-base font-semibold border transition-all btn-tactile bg-white text-brand-dark border-brand-pale hover:border-brand-blue/40"
+          data-category="humano"
+          role="tab"
+          aria-selected="false"
+        >
+          Cuidado Humano
+        </button>
+        <button
+          type="button"
+          class="review-filter-btn px-4 py-2 rounded-full text-base font-semibold border transition-all btn-tactile bg-white text-brand-dark border-brand-pale hover:border-brand-blue/40"
+          data-category="competencia"
+          role="tab"
+          aria-selected="false"
+        >
+          Competência Técnica
+        </button>
+      </div>
+
+      <!-- Setas de Navegação do Carrossel (Touch Target >= 48px, Emil Kowalski) -->
+      <div class="flex items-center gap-2 shrink-0">
+        <button
+          type="button"
+          id="reviews-prev"
+          class="btn-tactile w-12 h-12 rounded-full bg-white border border-brand-pale shadow-sm text-brand-dark hover:border-brand-blue hover:text-brand-blue flex items-center justify-center transition-colors disabled:opacity-30 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+          aria-label="Ver avaliação anterior"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button
+          type="button"
+          id="reviews-next"
+          class="btn-tactile w-12 h-12 rounded-full bg-white border border-brand-pale shadow-sm text-brand-dark hover:border-brand-blue hover:text-brand-blue flex items-center justify-center transition-colors disabled:opacity-30 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+          aria-label="Ver próxima avaliação"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- CARROSSEL DE CARDS ODONTOLÓGICOS PREMIUM -->
+    <div
+      id="reviews-track"
+      class="flex items-stretch gap-6 overflow-x-auto snap-x snap-mandatory py-4 scroll-smooth -mx-4 px-4 sm:mx-0 sm:px-0"
+      style="scrollbar-width: none; -ms-overflow-style: none;"
+      role="region"
+      aria-label="Carrossel de avaliações de pacientes"
+    >
+      {reviews.map((rev, index) => (
+        <article
+          class="review-card w-[88vw] sm:w-[380px] lg:w-[400px] shrink-0 snap-start flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-white border border-brand-pale shadow-[0_10px_30px_-10px_rgba(66,107,178,0.08)] card-tactile relative overflow-hidden group min-h-[420px]"
+          data-category={rev.category}
+          data-index={index}
+        >
+          <!-- Aspas elegantes e discretas no topo direito -->
+          <div class="absolute top-5 right-6 text-brand-pale/25 group-hover:text-brand-light/35 transition-colors pointer-events-none" aria-hidden="true">
+            <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+          </div>
+
+          <!-- Corpo Principal do Card -->
+          <div class="flex-1 flex flex-col">
+            
+            <!-- Cabeçalho do Card: Avatar, Identificação e Badge Google -->
+            <div class="flex items-start gap-3.5 mb-4">
+              
+              <!-- Avatar com Selo Oficial Google -->
+              <div class="relative shrink-0">
+                {rev.avatarSrc ? (
+                  <img
+                    src={rev.avatarSrc}
+                    alt={`Foto de perfil no Google de ${rev.author}`}
+                    class="w-12 h-12 rounded-full object-cover border-2 border-brand-pale shadow-sm"
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class={`w-12 h-12 rounded-full ${rev.avatarBg || 'bg-brand-blue'} text-white font-bold flex items-center justify-center text-lg shadow-sm border-2 border-brand-pale`}>
+                    {rev.initial || rev.author.charAt(0)}
+                  </div>
+                )}
+                
+                <!-- Selo Google Verificado -->
+                <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white border border-brand-pale flex items-center justify-center shadow" title="Avaliação Autêntica no Google">
+                  <svg class="w-3 h-3" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.28 21.44 7.33 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.28 2.56 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Informações do Autor -->
+              <div class="min-w-0 flex-1 pr-6">
+                <h3 class="text-lg font-bold text-brand-dark leading-tight line-clamp-2">
+                  {rev.author}
+                </h3>
+                
+                <!-- Badge de Local Guide quando presente -->
+                {rev.isLocalGuide && (
+                  <span class="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200">
+                    <svg class="w-3 h-3 text-amber-500 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    Google Local Guide
+                  </span>
+                )}
+                
+                <p class="text-sm text-slate-500 mt-0.5">
+                  {rev.stats}
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Estrelas de Avaliação + Pilar Odontológico -->
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3.5 pt-1">
+              <div class="flex items-center text-amber-500 gap-1" aria-label="5 estrelas">
+                {Array.from({ length: rev.rating }).map(() => (
+                  <svg class="w-4 h-4 fill-current drop-shadow-[0_1px_2px_rgba(245,158,11,0.25)]" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+
+              <!-- Pílula do Pilar Clínico -->
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-semibold bg-surface-soft text-brand-blue border border-brand-pale">
+                {rev.tag}
+              </span>
+            </div>
+
+            <!-- Texto do Depoimento Real do Paciente -->
+            <blockquote class="text-slate-700 text-base leading-relaxed font-normal flex-1">
+              "{rev.text}"
+            </blockquote>
+
+            <!-- Resposta Oficial do Dr. Luciano Freire (Comunicação Humanizada) -->
+            {rev.ownerReply && (
+              <div class="mt-4 p-3.5 rounded-2xl bg-surface-subtle border-l-4 border-brand-blue border border-brand-pale/70 text-left">
+                <div class="flex items-center gap-2 mb-1">
+                  <div class="w-6 h-6 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-bold shrink-0">
+                    Dr
+                  </div>
+                  <span class="text-sm font-bold text-brand-dark">
+                    {rev.ownerReply.author}
+                  </span>
+                </div>
+                <p class="text-sm text-slate-600 pl-8 leading-relaxed italic">
+                  "{rev.ownerReply.text}"
+                </p>
+              </div>
+            )}
+          </div>
+
+          <!-- Rodapé do Card: Autenticação e Link Oficial Google Maps -->
+          <div class="mt-6 pt-4 border-t border-brand-pale/60 flex items-center justify-between text-sm">
+            <span class="inline-flex items-center gap-1.5 text-accent-green font-bold">
+              <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Avaliação Verificada</span>
+            </span>
+
+            <a
+              href={googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-brand-blue hover:text-brand-deep font-semibold flex items-center gap-1 transition-colors group/link focus-visible:outline-none focus-visible:underline"
+              aria-label={`Ver avaliação de ${rev.author} no Google Maps`}
+            >
+              <span>Google Maps</span>
+              <svg class="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+
+        </article>
+      ))}
+    </div>
+
+    <!-- Indicador de Deslize no Mobile (Touch & Accessibility) -->
+    <div class="mt-6 flex sm:hidden items-center justify-center gap-2 text-base text-slate-500 font-medium">
+      <svg class="w-5 h-5 text-brand-blue animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+      <span>Deslize lateralmente para ver mais relatos</span>
+    </div>
+
+    <!-- Barra de Confiabilidade Inferior: Compromisso Ético e Atendimento -->
+    <div class="mt-12 pt-8 border-t border-brand-pale text-center" data-reveal>
+      <div class="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-base text-slate-600">
+        <span class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-accent-green"></span>
+          <strong>Dr. Luciano Alves Freire</strong> • Cirurgião-Dentista • CRO MG 25.170
+        </span>
+        <span class="hidden sm:inline text-brand-pale">•</span>
+        <span>Atendimento exclusivo e individualizado no Centro de Passos/MG</span>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
 <script is:inline>
-  (function initReviewsCarousel() {
+  (function initGoogleReviews() {
     const track = document.getElementById('reviews-track');
-    const prevBtn = document.getElementById('reviews-prev-btn');
-    const nextBtn = document.getElementById('reviews-next-btn');
+    const prevBtn = document.getElementById('reviews-prev');
+    const nextBtn = document.getElementById('reviews-next');
+    const filterBtns = document.querySelectorAll('.review-filter-btn');
+    const cards = document.querySelectorAll('.review-card');
 
     if (!track || !prevBtn || !nextBtn) return;
 
+    // Cálculo fluido de passo de rolagem
     function getScrollStep() {
-      const card = track.querySelector('div');
-      return card ? card.offsetWidth + 20 : 380;
+      const firstCard = track.querySelector('.review-card:not(.hidden)');
+      if (!firstCard) return 380;
+      return firstCard.offsetWidth + 24; // largura + gap
     }
 
+    // Navegação anterior / próxima
     prevBtn.addEventListener('click', () => {
       track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
     });
@@ -277,21 +487,61 @@ const googleMapsUrl = "https://maps.google.com/?cid=7746098254252380456";
       track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
     });
 
+    // Atualização de estado ativo das setas
     function updateArrows() {
-      const atStart = track.scrollLeft <= 5;
-      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 5;
+      const atStart = track.scrollLeft <= 10;
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 10;
       prevBtn.disabled = atStart;
       nextBtn.disabled = atEnd;
     }
 
     track.addEventListener('scroll', updateArrows, { passive: true });
     window.addEventListener('resize', updateArrows, { passive: true });
-    updateArrows();
+    setTimeout(updateArrows, 100);
+
+    // Sistema de Filtros por Pilares Clínicos (Emil Kowalski micro-motion)
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+
+        // Atualizar estado visual dos botões de filtro
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-brand-blue', 'text-white', 'border-brand-blue', 'shadow-sm');
+          b.classList.add('bg-white', 'text-brand-dark', 'border-brand-pale');
+          b.setAttribute('aria-selected', 'false');
+        });
+
+        btn.classList.add('bg-brand-blue', 'text-white', 'border-brand-blue', 'shadow-sm');
+        btn.classList.remove('bg-white', 'text-brand-dark', 'border-brand-pale');
+        btn.setAttribute('aria-selected', 'true');
+
+        // Filtrar cards com transição suave
+        cards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (category === 'all' || cardCat === category) {
+            card.classList.remove('hidden');
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.97)';
+            setTimeout(() => {
+              card.style.transition = 'opacity 220ms cubic-bezier(0.16, 1, 0.3, 1), transform 220ms cubic-bezier(0.16, 1, 0.3, 1)';
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            }, 30);
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        // Reset scroll position suave
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+        setTimeout(updateArrows, 150);
+      });
+    });
   })();
 </script>
 
 <style>
-  /* Esconder barra de rolagem em todos os navegadores */
+  /* Esconder barra de rolagem em todos os navegadores para aspecto refinado */
   #reviews-track {
     -ms-overflow-style: none;
     scrollbar-width: none;
