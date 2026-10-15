@@ -99,7 +99,7 @@ const schemaData = {
 ---
 
 <!doctype html>
-<html lang="pt-BR" class="scroll-smooth antialiased">
+<html lang="pt-BR" class="scroll-smooth antialiased overflow-x-hidden max-w-full w-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -190,6 +190,20 @@ const schemaData = {
         -webkit-tap-highlight-color: transparent;
         text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
+      }
+
+      html, body {
+        overflow-x: hidden !important;
+        overflow-x: clip !important;
+        max-width: 100vw;
+        width: 100%;
+        position: relative;
+      }
+
+      main {
+        overflow-x: clip;
+        width: 100%;
+        max-width: 100%;
       }
 
       button, a, input, select, textarea, [role="button"], [role="tab"] {
@@ -392,7 +406,7 @@ const schemaData = {
 
       </style>
   </head>
-  <body class="bg-white text-brand-dark font-sans min-h-screen flex flex-col selection:bg-brand-pale selection:text-brand-dark overflow-x-hidden text-[1.125rem] leading-[1.65]">
+  <body class="bg-white text-brand-dark font-sans min-h-screen flex flex-col selection:bg-brand-pale selection:text-brand-dark overflow-x-hidden max-w-full w-full text-[1.125rem] leading-[1.65]">
     <slot />
 
     <!-- Lightweight High-Performance Scroll Observer & Header Controller -->

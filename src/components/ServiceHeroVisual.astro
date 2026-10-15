@@ -1,15 +1,15 @@
 ---
 // Composição "Autoridade + Ambiente" para o Hero das páginas de serviço.
-// Foto oficial do Dr. Luciano em ambiente clínico, fundo escuro/elegante e badges da especialidade.
+// Foto oficial do Dr. Luciano em ambiente clínico, fundo escuro/elegante.
 import { Image } from 'astro:assets';
 import drLucianoImg from '../assets/dr-luciano-consultorio-hero.png';
 
 interface Props {
-  badges: string[];
+  badges?: string[];
   specialty: string;
 }
 
-const { badges, specialty } = Astro.props;
+const { specialty } = Astro.props;
 ---
 
 <div class="relative lg:ml-auto w-full max-w-lg">
@@ -29,14 +29,7 @@ const { badges, specialty } = Astro.props;
 
       <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
         <p class="text-white font-bold text-lg leading-tight">Dr. Luciano Alves Freire</p>
-        <p class="text-white/90 text-sm mb-3">Cirurgião-Dentista • CRO MG 25.170</p>
-        <ul class="flex flex-wrap gap-2" aria-label="Especialidades desta página">
-          {badges.map((b) => (
-            <li class="text-xs font-bold uppercase tracking-wider text-white bg-white/15 backdrop-blur-sm border border-white/30 px-3 py-1.5 rounded-full">
-              {b}
-            </li>
-          ))}
-        </ul>
+        <p class="text-white/90 text-sm">Cirurgião-Dentista • CRO MG 25.170</p>
       </div>
     </div>
   </div>

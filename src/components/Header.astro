@@ -73,7 +73,7 @@ const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20
   <!-- DRAWER DE NAVEGAÇÃO MOBILE -->
   <div
     id="mobile-menu-drawer"
-    class="fixed inset-0 z-50 lg:hidden pointer-events-none opacity-0 transition-opacity duration-300"
+    class="fixed inset-0 z-50 lg:hidden pointer-events-none opacity-0 invisible overflow-hidden transition-all duration-300"
     aria-hidden="true"
   >
     <!-- Backdrop com desfoque -->
@@ -166,8 +166,8 @@ const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20
       const links = drawer.querySelectorAll('a');
 
       function openMenu() {
-        drawer.classList.remove('pointer-events-none', 'opacity-0');
-        drawer.classList.add('pointer-events-auto', 'opacity-100');
+        drawer.classList.remove('pointer-events-none', 'opacity-0', 'invisible');
+        drawer.classList.add('pointer-events-auto', 'opacity-100', 'visible');
         panel.classList.remove('translate-x-full');
         btn.setAttribute('aria-expanded', 'true');
         drawer.setAttribute('aria-hidden', 'false');
@@ -176,11 +176,16 @@ const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20
 
       function closeMenu() {
         drawer.classList.add('pointer-events-none', 'opacity-0');
-        drawer.classList.remove('pointer-events-auto', 'opacity-100');
         panel.classList.add('translate-x-full');
         btn.setAttribute('aria-expanded', 'false');
         drawer.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        setTimeout(() => {
+          if (drawer.getAttribute('aria-hidden') === 'true') {
+            drawer.classList.add('invisible');
+            drawer.classList.remove('visible');
+          }
+        }, 300);
       }
 
       // Evita listeners duplicados limpando se já existirem
