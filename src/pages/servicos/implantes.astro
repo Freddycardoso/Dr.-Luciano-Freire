@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { Image } from 'astro:assets';
 import heroImg from '../../assets/implante-macro-hero.jpg';
-import implanteTitanioImg from '../../assets/implante-titanio-comparativo.png';
+import implanteAnatomiaImg from '../../assets/implante-fundamentos-anatomia.jpg';
 
 const title = "Implantes Dentários em Passos | Dr. Luciano Freire";
 const description = "Recupere seu sorriso com implantes dentários. Procedimento seguro, alta precisão e materiais biocompatíveis em Passos/MG.";
@@ -20,10 +20,6 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div class="max-w-2xl">
-            <div class="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-surface-soft border border-brand-pale text-brand-dark text-base font-semibold shadow-sm mb-5">
-              <span class="w-2.5 h-2.5 rounded-full bg-accent-green"></span>
-              <span>Reabilitação Oral & Implantodontia</span>
-            </div>
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-blue tracking-tight leading-[1.18] mb-6">
               Implantes Dentários com Precisão e Planejamento Individualizado
             </h1>
@@ -49,7 +45,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
                 alt="Implante dentário de titânio de precisão com coroa cerâmica sobre bandeja cirúrgica em aço inox com espelho clínico" 
                 class="rounded-xl object-cover w-full h-[380px] lg:h-[460px]" 
                 format="webp" 
-                loading="eager"
+                loading="eager" 
                 width={500}
                 height={460}
               />
@@ -108,13 +104,13 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
           <div class="lg:col-span-6">
             <div class="rounded-2xl overflow-hidden border border-brand-pale shadow-card bg-white p-3 flex items-center justify-center">
               <Image 
-                src={implanteTitanioImg} 
-                alt="Diagrama de implante dentário de titânio demonstrando pino osseointegrado e coroa cerâmica sobreposta" 
-                class="w-full h-auto object-contain rounded-xl max-h-[380px] bg-surface-subtle"
+                src={implanteAnatomiaImg} 
+                alt="Diagrama anatômico realista de implante dentário de titânio osseointegrado ao osso alveolar com coroa cerâmica translúcida" 
+                class="w-full h-auto object-contain rounded-xl max-h-[380px] bg-white"
                 format="webp"
                 loading="lazy"
                 width={500}
-                height={380}
+                height={375}
               />
             </div>
           </div>
@@ -171,43 +167,23 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
                     Seu navegador não suporta a reprodução de vídeo.
                   </video>
 
-                  <!-- Overlay Interativo Inicial (Cobre o vídeo até o primeiro clique) -->
+                  <!-- Overlay Interativo Inicial Limpo (Apenas botão play central com efeito de toque) -->
                   <div 
                     id="video-play-overlay" 
-                    class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex flex-col justify-between p-5 cursor-pointer transition-opacity duration-300 z-10"
+                    class="absolute inset-0 bg-slate-950/25 hover:bg-slate-950/15 flex flex-col items-center justify-center p-5 cursor-pointer transition-all duration-300 z-10"
                     role="button"
                     tabindex="0"
-                    aria-label="Assistir depoimento do paciente Anderson"
+                    aria-label="Assistir relato do paciente Anderson"
                   >
-                    <!-- Badge Superior -->
-                    <div class="self-start pt-3">
-                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/15 text-white text-xs font-semibold tracking-wide">
-                        <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
-                        História Real em Vídeo
-                      </span>
-                    </div>
-
-                    <!-- Botão Central de Play -->
-                    <div class="self-center flex flex-col items-center gap-3">
+                    <div class="flex flex-col items-center gap-3">
                       <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 text-brand-dark flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 ring-4 ring-white/30">
                         <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-brand-blue translate-x-0.5" viewBox="0 0 24 24" aria-hidden="true">
                           <path d="M8 5v14l11-7z"/>
                         </svg>
                       </div>
-                      <span class="text-white text-xs font-medium tracking-wide bg-slate-950/60 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
-                        Clique para dar play no vídeo
+                      <span class="text-white text-xs font-semibold tracking-wide bg-slate-950/70 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white/15 shadow-sm">
+                        Assistir relato em vídeo (1 min)
                       </span>
-                    </div>
-
-                    <!-- Info do Paciente no Rodapé do Vídeo -->
-                    <div class="p-3.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/15 text-white">
-                      <p class="font-bold text-sm text-white flex items-center justify-between">
-                        <span>Anderson • Paciente</span>
-                        <span class="text-amber-400 text-xs flex items-center gap-0.5">★★★★★</span>
-                      </p>
-                      <p class="text-xs text-slate-300 mt-0.5 leading-snug">
-                        Superou o trauma de dentista e recuperou os dentes com implante no consultório.
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -215,77 +191,65 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
             </div>
           </div>
 
-          <!-- COLUNA DIREITA: TEXTO PERSUASIVO -->
+          <!-- COLUNA DIREITA: TEXTO PERSUASIVO QUE ATICE A CURIOSIDADE -->
           <div class="lg:col-span-7 space-y-6">
             
-            <!-- Tag de Credibilidade -->
-            <div class="inline-flex items-center gap-2 py-1 px-3.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-bold tracking-wide uppercase">
-              <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
-              <span>Superação, Conforto & Confiança</span>
-            </div>
-
-            <!-- Título Persuasivo Forte -->
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark tracking-tight leading-[1.2]">
-              O receio de sentir dor não precisa afastar você da liberdade de sorrir e mastigar.
+              O que fez o Anderson vencer o medo e finalmente realizar o sonho do implante?
             </h2>
 
-            <!-- Texto de Conexão Emocional -->
-            <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
-              Muitos pacientes chegam ao consultório carregando lembranças difíceis de tratamentos odontológicos passados ou a angústia de perder dentes. O relato real do <strong class="text-brand-dark">Anderson</strong> mostra o que acontece quando o procedimento é conduzido com calma, anestesia de precisão e respeito absoluto ao tempo de cada pessoa.
+            <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
+              Por muito tempo, lembranças de tratamentos desconfortáveis e o receio de sentir dor fizeram o Anderson adiar o momento de cuidar do seu sorriso. Ele acreditava que colocar um implante seria uma experiência dolorosa e difícil de encarar.
             </p>
 
-            <!-- Citação em Destaque do Vídeo -->
-            <div class="p-5 rounded-2xl bg-surface-subtle border-l-4 border-brand-blue border-brand-pale shadow-sm">
-              <p class="italic text-slate-800 text-base sm:text-lg font-medium leading-relaxed">
-                “Eu tinha muito receio em fazer... e aqui eu tirei todo aquele trauma que eu tinha. Foi extremamente tranquilo do início ao fim.”
-              </p>
-              <div class="mt-2.5 flex items-center justify-between">
-                <span class="text-sm font-bold text-brand-dark">Anderson</span>
-                <span class="text-xs font-semibold text-brand-blue uppercase tracking-wider">Depoimento verificado</span>
-              </div>
-            </div>
+            <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
+              No vídeo ao lado de apenas 1 minuto, ele sentou ao lado do Dr. Luciano Freire e revelou com sinceridade o que sentiu na pele durante o procedimento — e como tudo aconteceu de forma completamente oposta ao que imaginava.
+            </p>
 
-            <!-- Pilares de Tranquilidade e Segurança -->
-            <div class="space-y-4 pt-1">
-              <div class="flex items-start gap-3.5">
-                <div class="w-8 h-8 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <!-- Gatilhos de Curiosidade / Pontos de Valor -->
+            <div class="space-y-3.5 pt-1">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                  ✓
                 </div>
-                <div>
-                  <h3 class="text-base font-bold text-brand-dark">Protocolo Anestésico Confortável</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mt-0.5">Você não sente dor durante a instalação do implante. O procedimento é minimamente invasivo e com pós-operatório altamente previsível.</p>
-                </div>
+                <p class="text-slate-700 text-base leading-snug">
+                  <strong class="text-brand-dark font-bold">Por que não houve dor:</strong> Como a técnica anestésica e o planejamento milimétrico garantem uma cirurgia serena.
+                </p>
               </div>
 
-              <div class="flex items-start gap-3.5">
-                <div class="w-8 h-8 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                  ✓
                 </div>
-                <div>
-                  <h3 class="text-base font-bold text-brand-dark">Atendimento Conduzido Pessoalmente pelo Dr. Luciano</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mt-0.5">Desde a análise tomográfica inicial até o acabamento da coroa, você tem o acompanhamento dedicado e humano de um cirurgião com mais de 25 anos de prática clínica.</p>
-                </div>
+                <p class="text-slate-700 text-base leading-snug">
+                  <strong class="text-brand-dark font-bold">O impacto no dia a dia:</strong> A sensação libertadora de voltar a mastigar com estabilidade sem receio do dente soltar.
+                </p>
               </div>
 
-              <div class="flex items-start gap-3.5">
-                <div class="w-8 h-8 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                  ✓
                 </div>
-                <div>
-                  <h3 class="text-base font-bold text-brand-dark">Estabilidade Definitiva</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mt-0.5">Chega de sofrer com próteses móveis que machucam ou se deslocam. O implante de titânio integra-se ao osso, permitindo que você mastigue qualquer alimento com firmeza.</p>
-                </div>
+                <p class="text-slate-700 text-base leading-snug">
+                  <strong class="text-brand-dark font-bold">Cuidado no seu ritmo:</strong> A diferença de ser atendido por um profissional que escuta você antes de qualquer intervenção.
+                </p>
               </div>
             </div>
 
             <!-- Transição Persuasiva Direcionando para a Seção de Agendamento Abaixo (Sem botão duplicado) -->
-            <div class="pt-3 border-t border-brand-pale">
+            <div class="pt-4 border-t border-brand-pale">
               <div class="p-4 rounded-xl bg-surface-soft border border-brand-pale/80 flex items-center gap-3 text-slate-700">
                 <svg class="w-5 h-5 text-brand-blue shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 <p class="text-sm sm:text-base font-medium leading-snug">
-                  Dê o primeiro passo para recuperar sua autoconfiança. Veja na seção logo abaixo como agendar sua avaliação detalhada e tirar todas as suas dúvidas diretamente com nossa equipe.
+                  Dê o play no vídeo ao lado para ver a experiência completa. Logo abaixo, veja como agendar a sua avaliação individual com o Dr. Luciano.
+                </p>
+              </div>
+            </div>
+
+          </div>gendar sua avaliação detalhada e tirar todas as suas dúvidas diretamente com nossa equipe.
                 </p>
               </div>
             </div>
