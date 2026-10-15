@@ -84,6 +84,8 @@ export function AnatomyComparisonSlider({
             src={implantSrc}
             alt="Ilustração anatômica de implante dentário de titânio osseointegrado na mandíbula com coroa cerâmica sobreposta"
             className="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(66,107,178,0.15)]"
+            width={400}
+            height={300}
             draggable={false}
           />
         </div>
@@ -101,6 +103,8 @@ export function AnatomyComparisonSlider({
             src={naturalSrc}
             alt="Ilustração anatômica de dente natural saudável exibindo esmalte, dentina e raiz biológica ancorada no osso"
             className="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(66,107,178,0.15)]"
+            width={400}
+            height={300}
             draggable={false}
           />
         </div>

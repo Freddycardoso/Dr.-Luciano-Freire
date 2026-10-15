@@ -65,9 +65,8 @@ export default {
           '50%': { transform: 'translateY(-6px)' },
         },
         beaconPulse: {
-          '0%': { boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.55), 0 0 35px -5px rgba(37, 211, 102, 0.45)' },
-          '70%': { boxShadow: '0 0 0 14px rgba(37, 211, 102, 0), 0 0 35px -5px rgba(37, 211, 102, 0.45)' },
-          '100%': { boxShadow: '0 0 0 0 rgba(37, 211, 102, 0), 0 0 35px -5px rgba(37, 211, 102, 0.45)' },
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.05)' },
         },
         shimmer: {
           '0%': { transform: 'translateX(-100%)' },
