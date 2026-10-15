@@ -1,6 +1,7 @@
 ---
 const whatsappBaseUrl = "https://wa.me/5535988215162";
 const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o`;
+const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Rua+dos+Brand%C3%B5es%2C+231+-+Sala+24+-+Centro%2C+Passos+-+MG%2C+37900-104";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -54,7 +55,28 @@ const currentYear = new Date().getFullYear();
       <div class="md:col-span-4">
         <h2 class="font-bold text-white text-xl mb-4 tracking-tight">Consultório</h2>
         <address class="not-italic space-y-2.5 leading-relaxed text-white">
-          <p class="font-semibold text-white">Rua dos Brandões, 231, Sala 24 – Centro</p>
+          <a
+            href={googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-start gap-2.5 text-white hover:text-brand-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded py-1"
+            title="Abrir no Google Maps"
+          >
+            <svg class="w-5 h-5 text-brand-gold shrink-0 mt-0.5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <div>
+              <p class="font-semibold text-white underline underline-offset-2">Rua dos Brandões, 231, Sala 24 – Centro</p>
+              <p class="text-white/90">Passos - MG, CEP 37900-104</p>
+              <span class="inline-flex items-center gap-1 text-xs text-brand-gold font-medium mt-0.5">
+                Ver rota no Google Maps
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </span>
+            </div>
+          </a>
           <p>Passos - MG, CEP 37900-104</p>
           <p class="pt-1">
             <strong>Horário:</strong> Segunda a sexta, das 13h30 às 18h30 <span class="block text-white font-medium text-base">(com agendamento prévio)</span>

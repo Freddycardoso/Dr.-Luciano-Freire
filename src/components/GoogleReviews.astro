@@ -105,7 +105,11 @@ const reviews: Review[] = [
   },
 ];
 
-const googleMapsUrl = "https://maps.google.com/?cid=7746098254252380456";
+// Endereço exato do Consultório no Google Maps (Rua dos Brandões, 231, Sala 24 – Centro, Passos - MG)
+const googleMapsAddressUrl = "https://www.google.com/maps/search/?api=1&query=Rua+dos+Brand%C3%B5es%2C+231+-+Sala+24+-+Centro%2C+Passos+-+MG%2C+37900-104";
+
+// Perfil Oficial Google Meu Negócio / Avaliações do Dr. Luciano Alves Freire
+const googleReviewsUrl = "https://www.google.com/maps/search/?api=1&query=Consult%C3%B3rio+Odontol%C3%B3gico+Dr.+Luciano+Alves+Freire+Rua+dos+Brand%C3%B5es+231+Passos+MG";
 ---
 
 <section
@@ -174,24 +178,33 @@ const googleMapsUrl = "https://maps.google.com/?cid=7746098254252380456";
               <div class="sm:col-span-2 p-3 rounded-2xl bg-surface-subtle border border-brand-pale">
                 <span class="block text-lg sm:text-xl font-bold text-brand-dark">5.0 no Google • 13 avaliações</span>
               </div>
-              <div class="p-3 rounded-2xl bg-surface-subtle border border-brand-pale">
-                <span class="block text-lg sm:text-xl font-bold text-brand-dark">Passos</span>
-                <span class="text-sm text-slate-600 font-medium leading-snug">Centro / MG</span>
-              </div>
+              <a
+                href={googleMapsAddressUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-3 rounded-2xl bg-surface-subtle border border-brand-pale hover:border-brand-blue/50 transition-colors block group/loc"
+                title="Abrir localização na Rua dos Brandões no Google Maps"
+              >
+                <span class="block text-lg sm:text-xl font-bold text-brand-dark group-hover/loc:text-brand-blue">Passos</span>
+                <span class="text-sm text-slate-600 font-medium leading-snug flex items-center justify-between">
+                  <span>Centro / MG</span>
+                  <svg class="w-3.5 h-3.5 text-brand-blue shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </span>
+              </a>
             </div>
 
             <!-- Botão de Ação Direta no Perfil Oficial Google -->
             <a
-              href={googleMapsUrl}
+              href={googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
               class="btn-tactile inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-brand-blue hover:bg-brand-deep text-white font-bold text-base min-h-[48px] shadow-sm shadow-brand-blue/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
-              aria-label="Abrir perfil oficial do consultório no Google Maps e conferir avaliações"
+              aria-label="Abrir perfil oficial do consultório no Google Meu Negócio e conferir avaliações"
             >
               <svg class="w-5 h-5 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
-              <span>Conferir Perfil no Google Maps</span>
+              <span>Conferir Avaliações no Google Meu Negócio</span>
               <svg class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
               </svg>
@@ -357,11 +370,11 @@ const googleMapsUrl = "https://maps.google.com/?cid=7746098254252380456";
           <!-- Rodapé do Card: Autenticação e Link Oficial Google Maps -->
           <div class="mt-6 pt-4 border-t border-brand-pale/60 flex items-center justify-between text-sm">
             <a
-              href={googleMapsUrl}
+              href={googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
               class="text-brand-blue hover:text-brand-deep font-semibold inline-flex items-center gap-1 min-h-[44px] transition-colors group/link focus-visible:outline-none focus-visible:underline"
-              aria-label={`Ver avaliação de ${rev.author} no Google Maps`}
+              aria-label={`Ver avaliação de ${rev.author} no Google`}
             >
               <span>Avaliação no Google</span>
               <svg class="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
