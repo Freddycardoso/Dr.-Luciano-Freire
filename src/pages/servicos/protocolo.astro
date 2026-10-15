@@ -20,6 +20,18 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div class="max-w-2xl">
+            <!-- Breadcrumbs e Identificação do Tratamento -->
+            <nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 mb-6" aria-label="Trilha de navegação">
+              <a href="/" class="hover:text-brand-blue transition-colors flex items-center gap-1 font-medium">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                <span>Início</span>
+              </a>
+              <span class="text-slate-300">/</span>
+              <a href="/#triagem" class="hover:text-brand-blue transition-colors font-medium">Tratamentos</a>
+              <span class="text-slate-300">/</span>
+              <span class="text-brand-blue font-bold" aria-current="page">Prótese Protocolo</span>
+            </nav>
+
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-blue tracking-tight leading-[1.18] mb-6">
               Liberdade e Firmeza com a Prótese Protocolo Fixa
             </h1>
@@ -55,6 +67,29 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
       </div>
     </section>
 
+    <!-- BARRA DE SERVIÇOS RÁPIDOS (MOBILE-FRIENDLY CHIPS) -->
+    <nav class="bg-surface-soft border-b border-brand-pale py-3 px-4 sm:px-6 lg:px-8" aria-label="Navegação entre tratamentos">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 shrink-0">
+          Explorar tratamentos:
+        </span>
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+          <a href="/servicos/implantes" class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white border border-brand-pale text-slate-700 hover:text-brand-blue hover:border-brand-blue transition-colors">
+            Implantes Dentários
+          </a>
+          <span class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-blue text-white shadow-xs">
+            Prótese Protocolo
+          </span>
+          <a href="/servicos/ortodontia" class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white border border-brand-pale text-slate-700 hover:text-brand-blue hover:border-brand-blue transition-colors">
+            Ortodontia
+          </a>
+          <a href="/servicos/estetica" class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white border border-brand-pale text-slate-700 hover:text-brand-blue hover:border-brand-blue transition-colors">
+            Estética Dental
+          </a>
+        </div>
+      </div>
+    </nav>
+
     <!-- BENTO GRID -->
     <section class="py-20 bg-white border-b border-brand-pale">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,33 +99,97 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-surface-subtle rounded-2xl p-8 border border-brand-pale flex flex-col justify-between card-tactile">
+          <!-- Card 1 -->
+          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group">
             <div>
-              <h3 class="text-xl font-bold text-brand-dark mb-3">Firmeza e Estabilidade Mastigatória</h3>
-              <p class="text-slate-600 text-base leading-relaxed">Ancorada com precisão sobre implantes de titânio, a prótese não se move, não necessita de fixadores químicos e não machuca a mucosa gengival.</p>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
+                  <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-blue bg-white border border-brand-pale/80 px-3 py-1 rounded-full shadow-2xs">
+                  100% Fixa
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2.5 group-hover:text-brand-blue transition-colors">
+                Firmeza e Estabilidade Mastigatória
+              </h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                Ancorada com precisão sobre implantes de titânio, a prótese não se move, não necessita de fixadores químicos e não machuca a mucosa gengival.
+              </p>
             </div>
           </div>
-          <div class="bg-surface-subtle rounded-2xl p-8 border border-brand-pale flex flex-col justify-between card-tactile">
+
+          <!-- Card 2 -->
+          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group">
             <div>
-              <h3 class="text-xl font-bold text-brand-dark mb-3">Paladar e Temperatura Livres</h3>
-              <p class="text-slate-600 text-base leading-relaxed">Sem placas de acrílico cobrindo o palato, permitindo saborear plenamente os alimentos e sentir suas temperaturas com naturalidade.</p>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
+                  <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-blue bg-white border border-brand-pale/80 px-3 py-1 rounded-full shadow-2xs">
+                  Céu da Boca Livre
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2.5 group-hover:text-brand-blue transition-colors">
+                Paladar e Temperatura Livres
+              </h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                Sem placas de acrílico cobrindo o palato, permitindo saborear plenamente os alimentos e sentir suas temperaturas com total naturalidade.
+              </p>
             </div>
           </div>
-          <div class="bg-surface-subtle rounded-2xl p-8 border border-brand-pale flex flex-col justify-between card-tactile">
+
+          <!-- Card 3 -->
+          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group">
             <div>
-              <h3 class="text-xl font-bold text-brand-dark mb-3">Carga Imediata quando Indicada</h3>
-              <p class="text-slate-600 text-base leading-relaxed">Em casos com densidade óssea favorável, é possível instalar a prótese provisória fixa em poucos dias após o ato cirúrgico.</p>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
+                  <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-blue bg-white border border-brand-pale/80 px-3 py-1 rounded-full shadow-2xs">
+                  Previsibilidade
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2.5 group-hover:text-brand-blue transition-colors">
+                Carga Imediata quando Indicada
+              </h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                Em casos com densidade óssea favorável, é possível instalar a prótese provisória fixa em poucos dias após o ato cirúrgico com acompanhamento estrito.
+              </p>
             </div>
           </div>
-          <div class="bg-surface-subtle rounded-2xl p-8 border border-brand-pale flex flex-col justify-between card-tactile">
+
+          <!-- Card 4 -->
+          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group">
             <div>
-              <h3 class="text-xl font-bold text-brand-dark mb-3">Sustentação dos Tecidos Faciais</h3>
-              <p class="text-slate-600 text-base leading-relaxed">Restaura a dimensão vertical e o suporte dos lábios e bochechas, atenuando sulcos peri-orais e valorizando o contorno facial.</p>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
+                  <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                  </svg>
+                </div>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-blue bg-white border border-brand-pale/80 px-3 py-1 rounded-full shadow-2xs">
+                  Rejuvenescimento
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2.5 group-hover:text-brand-blue transition-colors">
+                Sustentação dos Tecidos Faciais
+              </h3>
+              <p class="text-slate-600 text-base leading-relaxed">
+                Restaura a dimensão vertical e o suporte labial e das bochechas, atenuando marcas de expressão periorais e valorizando o contorno facial.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
 
     <!-- CASOS CLÍNICOS & DETALHES -->
     <section class="py-20 bg-surface-subtle border-b border-brand-pale">
@@ -220,4 +319,33 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
   </main>
 
   <Footer />
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP (56x56px, MÍNIMO 48px TOUCH TARGET) -->
+  <aside class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3 [bottom:calc(1.25rem+env(safe-area-inset-bottom,0px))] [right:calc(1.25rem+env(safe-area-inset-right,0px))]">
+    <!-- Callout Desktop -->
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-tactile hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/95 text-brand-dark border border-brand-pale text-base font-semibold shadow-card backdrop-blur-md hover:border-brand-blue transition-colors"
+      aria-label="Agende sua avaliação de prótese protocolo com o Dr. Luciano Freire"
+    >
+      <span class="w-2.5 h-2.5 rounded-full bg-accent-green"></span>
+      <span>Avaliação sobre Protocolo</span>
+    </a>
+
+    <!-- Botão Redondo Touch Friendly -->
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-tactile animate-beacon relative flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-slate-950 shadow-glow-whatsapp hover:bg-whatsapp-hover"
+      aria-label="Conversar pelo WhatsApp com o Dr. Luciano Alves Freire sobre Prótese Protocolo no número (35) 98821-5162"
+    >
+      <span class="sr-only">Conversar pelo WhatsApp com o Dr. Luciano Alves Freire sobre Prótese Protocolo</span>
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.297.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+      </svg>
+    </a>
+  </aside>
 </Layout>
