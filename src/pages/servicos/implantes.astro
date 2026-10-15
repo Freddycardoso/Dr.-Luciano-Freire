@@ -19,7 +19,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
     <section class="relative bg-gradient-to-b from-white via-surface-subtle to-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-brand-pale text-brand-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <div class="max-w-2xl">
+          <div class="max-w-2xl" data-reveal>
             <!-- Breadcrumbs e Identificação do Tratamento -->
             <nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 mb-6" aria-label="Trilha de navegação">
               <a href="/" class="hover:text-brand-blue transition-colors flex items-center gap-1 font-medium">
@@ -50,7 +50,9 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
               </a>
             </div>
           </div>
-          <ServiceHeroVisual specialty="Implantes Dentários" badges={['Implantodontia', 'Cirurgia Guiada', 'Planejamento 3D']} />
+          <div data-reveal data-reveal-delay="150">
+            <ServiceHeroVisual specialty="Implantes Dentários" badges={['Implantodontia', 'Cirurgia Guiada', 'Planejamento 3D']} />
+          </div>
         </div>
       </div>
     </section>
@@ -81,7 +83,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
     <!-- BENTO GRID -->
     <section class="py-20 bg-white border-b border-brand-pale">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-reveal>
           <h2 class="text-3xl font-bold text-brand-dark mb-4">Por que optar pela reabilitação com implantes?</h2>
           <p class="text-slate-600 text-lg leading-relaxed">Tratamento planejado com base em exames detalhados para máxima estabilidade e previsibilidade.</p>
         </div>
@@ -89,7 +91,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           <!-- Card 1: Planejamento e Cirurgia Guiada -->
-          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group">
+          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group" data-reveal data-reveal-delay="75">
             <div>
               <div class="mb-5">
                 <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
@@ -108,7 +110,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
           </div>
 
           <!-- Card 2: Titânio Biocompatível Puro -->
-          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group">
+          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group" data-reveal data-reveal-delay="150">
             <div>
               <div class="mb-5">
                 <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
@@ -127,7 +129,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
           </div>
 
           <!-- Card 3: Recuperação da Eficiência Mastigatória -->
-          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group">
+          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group" data-reveal data-reveal-delay="225">
             <div>
               <div class="mb-5">
                 <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
@@ -146,7 +148,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
           </div>
 
           <!-- Card 4: Estética Semelhante ao Dente Natural -->
-          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group">
+          <div class="bg-surface-subtle rounded-2xl p-7 sm:p-8 border border-brand-pale flex flex-col justify-between card-tactile hover:border-brand-blue/40 transition-all duration-300 group" data-reveal data-reveal-delay="300">
             <div>
               <div class="mb-5">
                 <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
@@ -171,13 +173,13 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
     <!-- CASOS CLÍNICOS & DETALHE TÉCNICO -->
     <section class="py-20 bg-surface-subtle border-b border-brand-pale">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-reveal>
           <h2 class="text-3xl font-bold text-brand-dark mb-4">Fundamentos da Reabilitação com Implante</h2>
           <p class="text-slate-600 text-lg leading-relaxed">Entenda a estrutura de sustentação e como ela devolve a harmonia biológica.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
-          <div class="lg:col-span-6">
+          <div class="lg:col-span-6" data-reveal data-reveal-delay="100">
             <div class="rounded-2xl overflow-hidden border border-brand-pale shadow-card bg-white p-3 flex items-center justify-center">
               <Image 
                 src={implanteAnatomiaImg} 
@@ -191,19 +193,19 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
             </div>
           </div>
           <div class="lg:col-span-6 space-y-5">
-            <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm">
+            <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm" data-reveal data-reveal-delay="150">
               <h3 class="text-lg font-bold text-brand-dark mb-2">Fixação Definitiva na Estrutura Óssea</h3>
               <p class="text-slate-600 text-base leading-relaxed">
                 O pino de titânio substitui a raiz ausente com estabilidade planejada caso a caso, auxiliando na preservação da estrutura óssea após a perda do dente.
               </p>
             </div>
-            <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm">
+            <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm" data-reveal data-reveal-delay="200">
               <h3 class="text-lg font-bold text-brand-dark mb-2">Preservação dos Dentes Naturais Vizinhos</h3>
               <p class="text-slate-600 text-base leading-relaxed">
                 Diferente das pontes fixas convencionais, o implante é autônomo e os dentes vizinhos saudáveis não precisam ser desgastados para apoiar a prótese.
               </p>
             </div>
-            <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm">
+            <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm" data-reveal data-reveal-delay="250">
               <h3 class="text-lg font-bold text-brand-dark mb-2">Acompanhamento Conduzido pelo Dr. Luciano</h3>
               <p class="text-slate-600 text-base leading-relaxed">
                 Todas as consultas, medições e procedimentos são realizados pessoalmente pelo Dr. Luciano Alves Freire no Centro de Passos/MG, assegurando consistência clínica.
@@ -220,7 +222,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           <!-- COLUNA ESQUERDA: VÍDEO DO PACIENTE -->
-          <div class="lg:col-span-5 flex justify-center">
+          <div class="lg:col-span-5 flex justify-center" data-reveal data-reveal-delay="100">
             <div class="relative w-full max-w-[340px] sm:max-w-[360px]">
               <!-- Brilho de fundo sutil com a paleta do consultório -->
               <div class="absolute -inset-2 bg-gradient-to-tr from-brand-blue/15 via-brand-pale/40 to-brand-blue/10 rounded-[2.5rem] blur-xl -z-10 transform -rotate-1"></div>
@@ -268,7 +270,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
           </div>
 
           <!-- COLUNA DIREITA: TEXTO PERSUASIVO QUE ATICE A CURIOSIDADE -->
-          <div class="lg:col-span-7 space-y-6">
+          <div class="lg:col-span-7 space-y-6" data-reveal data-reveal-delay="200">
             
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark tracking-tight leading-[1.2]">
               O que fez o Anderson vencer o medo e finalmente realizar o sonho do implante?
@@ -279,7 +281,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
             </p>
 
             <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
-              No vídeo acima, de apenas 1 minuto, ele sentou ao lado do Dr. Luciano Freire e revelou com sinceridade o que sentiu durante o procedimento — e como tudo aconteceu de forma bem diferente do que imaginava.
+              No vídeo <span class="lg:hidden font-semibold">acima</span><span class="hidden lg:inline font-semibold">ao lado</span>, de apenas 1 minuto, ele sentou ao lado do Dr. Luciano Freire e revelou com sinceridade o que sentiu durante o procedimento — e como tudo aconteceu de forma bem diferente do que imaginava.
             </p>
 
             <!-- Gatilhos de Curiosidade / Pontos de Valor -->
@@ -320,7 +322,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 <p class="text-sm sm:text-base font-medium leading-snug">
-                  Dê o play no vídeo acima para ver a experiência completa. Agende sua avaliação detalhada e tire todas as suas dúvidas diretamente com a nossa equipe.
+                  Dê o play no vídeo <span class="lg:hidden font-semibold">acima</span><span class="hidden lg:inline font-semibold">ao lado</span> para ver a experiência completa. Agende sua avaliação detalhada e tire todas as suas dúvidas diretamente com a nossa equipe.
                 </p>
               </div>
             </div>
@@ -360,7 +362,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
 
     <!-- CTA FINAL -->
     <section class="py-24 bg-surface-subtle text-center relative overflow-hidden border-t border-brand-pale text-brand-dark">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-reveal>
         <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark mb-4">Pronto para Recuperar a Firmeza do seu Sorriso?</h2>
         <p class="text-slate-600 mb-8 text-lg max-w-xl mx-auto">Dê o primeiro passo para restaurar a eficiência mastigatória e o bem-estar com um plano de implante seguro.</p>
         <a 

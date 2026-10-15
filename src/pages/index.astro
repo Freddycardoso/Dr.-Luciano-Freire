@@ -359,17 +359,17 @@ const faqItems = [
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              <div class="p-5 rounded-2xl bg-white border border-brand-pale shadow-sm card-tactile">
+              <div class="p-5 rounded-2xl bg-white border border-brand-pale shadow-sm card-tactile" data-reveal data-reveal-delay="100">
                 <div class="text-brand-blue font-bold text-2xl mb-1">+21 Anos</div>
                 <div class="text-base font-bold text-brand-dark mb-1">Prática Clínica</div>
                 <p class="text-base text-slate-600 leading-relaxed">Atuação contínua e dedicada na cidade de Passos/MG.</p>
               </div>
-              <div class="p-5 rounded-2xl bg-white border border-brand-pale shadow-sm card-tactile">
+              <div class="p-5 rounded-2xl bg-white border border-brand-pale shadow-sm card-tactile" data-reveal data-reveal-delay="175">
                 <div class="text-brand-blue font-bold text-2xl mb-1">100% Pessoal</div>
                 <div class="text-base font-bold text-brand-dark mb-1">Cuidado Direto</div>
                 <p class="text-base text-slate-600 leading-relaxed">Consultas e intervenções executadas exclusivamente pelo titular.</p>
               </div>
-              <div class="p-5 rounded-2xl bg-white border border-brand-pale shadow-sm card-tactile">
+              <div class="p-5 rounded-2xl bg-white border border-brand-pale shadow-sm card-tactile" data-reveal data-reveal-delay="250">
                 <div class="text-brand-blue font-bold text-2xl mb-1">Passos - MG</div>
                 <div class="text-base font-bold text-brand-dark mb-1">Consultório Próprio</div>
                 <p class="text-base text-slate-600 leading-relaxed">Atendimento individualizado com agendamento prévio.</p>
@@ -694,11 +694,19 @@ const faqItems = [
             splashScreen.style.opacity = '0';
             document.body.style.overflow = '';
             document.body.style.paddingRight = '';
-            setTimeout(() => splashScreen.remove(), 100);
+            setTimeout(() => {
+              splashScreen.remove();
+              if (typeof window.initScrollReveal === 'function') {
+                window.initScrollReveal();
+              }
+            }, 100);
           };
         }, 1800);
       } else if (splashScreen) {
         splashScreen.remove();
+        if (typeof window.initScrollReveal === 'function') {
+          window.initScrollReveal();
+        }
       }
     });
   </script>
