@@ -61,9 +61,31 @@ const carouselServices = [
 
 const whatsappBaseUrl = "https://wa.me/5535988215162";
 const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20no%20consult%C3%B3rio.`;
+
+const pageTitle = "Dentista em Passos - MG | Dr. Luciano Alves Freire";
+
+// FAQ visível na Home (fonte única: HTML + JSON-LD FAQPage)
+const faqItems = [
+  {
+    question: "O procedimento de implante dentário dói?",
+    answer: "O procedimento é realizado sob anestesia local eficaz e com técnicas de cirurgia guiada minimamente invasivas, garantindo total conforto durante o ato cirúrgico. Para o pós-operatório, são prescritos medicamentos específicos que asseguram uma recuperação serena e previsível."
+  },
+  {
+    question: "Quanto tempo demora o tratamento com implante?",
+    answer: "O prazo total depende das condições ósseas de cada paciente. Em casos selecionados, é viável a carga imediata com prótese provisória fixa. Em outras situações, aguarda-se o período biológico de osseointegração (3 a 6 meses). O cronograma definitivo é apresentado após os exames de imagem e a avaliação inicial."
+  },
+  {
+    question: "Quem usa dentadura móvel pode colocar prótese fixa?",
+    answer: "Sim. A prótese protocolo fixa substitui a dentadura tradicional apoiando-se sobre implantes de titânio. Essa técnica elimina a instabilidade da prótese móvel, liberta o céu da boca e devolve a firmeza mastigatória de forma definitiva."
+  },
+  {
+    question: "Como funciona a consulta de avaliação no consultório em Passos?",
+    answer: "A avaliação é conduzida pessoalmente pelo Dr. Luciano Freire. Realiza-se o exame clínico minucioso, alinhamento com exames complementares de imagem e a apresentação de um plano de tratamento individualizado e seguro no Centro de Passos."
+  }
+];
 ---
 
-<Layout>
+<Layout title={pageTitle} faqSchema={faqItems} includeReviews={true}>
   <!-- SPLASH SCREEN CLARO E SUAVE -->
   <div id="splash-screen" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center transition-colors duration-700">
     <div id="splash-logo-container" class="relative w-48 sm:w-64 transition-transform duration-[1000ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-center">
@@ -104,6 +126,11 @@ const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left items-center lg:items-start pt-6 sm:pt-8">
             
+            <!-- Eyebrow de contexto local -->
+            <p class="hero-entrance-1 inline-flex items-center gap-2 text-sm sm:text-base font-bold uppercase tracking-wider text-brand-deep bg-white/80 border border-brand-pale rounded-full px-4 py-1.5 mb-4">
+              Consultório Odontológico e Reabilitação Oral em Passos/MG
+            </p>
+
             <!-- Título Principal Fluido (Source Sans 3, Sem Serifa) -->
             <h1 class="hero-entrance-2 text-3xl sm:text-4xl lg:text-[44px] font-bold text-brand-blue tracking-tight leading-[1.18] mb-4 max-w-2xl">
               Volte a sorrir com segurança, firmeza e bem-estar.
@@ -460,7 +487,7 @@ const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20
                     Acesso Direto • Sala 24
                   </h3>
                   <p class="text-slate-600 text-base leading-relaxed">
-                    Localização central de fácil acesso na Rua dos Brandões, 231, com facilidade para estacionamento nas proximidades.
+                    Localização central de fácil acesso na Rua dos Brandões, 231, Sala 24 – Centro, com facilidade para estacionamento nas proximidades.
                   </p>
                 </div>
               </div>
@@ -480,7 +507,7 @@ const heroWhatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20
             Localização no Centro de Passos
           </h2>
           <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
-            Rua dos Brandões, 231, Sala 24, Centro, Passos/MG. Atendimento mediante agendamento prévio de segunda a sexta-feira, das 13h30 às 18h30.
+            Rua dos Brandões, 231, Sala 24 – Centro, Passos - MG, CEP 37900-104. Atendimento mediante agendamento prévio de segunda a sexta-feira, das 13h30 às 18h30.
           </p>
         </div>
         <div class="rounded-2xl overflow-hidden shadow-card border border-brand-pale" data-reveal data-reveal-delay="100">

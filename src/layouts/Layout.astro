@@ -1,17 +1,50 @@
 ---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 interface Props {
   title?: string;
   description?: string;
   image?: string;
-  canonicalURL?: string;
+  /** FAQs visíveis na página; gera o JSON-LD FAQPage correspondente. */
+  faqSchema?: FaqItem[];
+  /** Inclui reviews no JSON-LD (somente quando visíveis no HTML, ex.: Home). */
+  includeReviews?: boolean;
 }
 
 const {
-  title = "Implantes Dentários em Passos - MG | Dr. Luciano Freire",
+  title = "Dentista em Passos - MG | Dr. Luciano Alves Freire",
   description = "Volte a sorrir e a mastigar com segurança. Implantes dentários e dentes fixos em Passos-MG. Atendimento exclusivo com o Dr. Luciano Freire. Agende já!",
   image = "https://drlucianofreire.com.br/images/dr-luciano-freire.png",
-  canonicalURL = "https://drlucianofreire.com.br",
+  faqSchema,
+  includeReviews = false,
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://drlucianofreire.com.br').href;
+
+// Reviews do Google exibidos na Home (paridade com o HTML visível)
+const homeReviews = [
+  {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Marco Arantes" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+    "reviewBody": "Pontualidade, higiene, profissionalismo e excelente atendimento destacam o Dr. Luciano Alves Freire como um dos dentistas mais preparados que conheci."
+  },
+  {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Maria Aparecida Damasceno Silva" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+    "reviewBody": "É um ótimo profissional, atencioso e dedicação total em seus atendimentos. Parabéns Dr. Luciano, fica aqui o meu carinho e meu agradecimento."
+  },
+  {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Fabiane Oliveira" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+    "reviewBody": "Se tivessem mais estrelas daria, excelente profissional, pontual, muito humano, trabalha muito bem, super recomendo."
+  }
+];
 
 const schemaData = {
   "@context": "https://schema.org",
@@ -26,7 +59,7 @@ const schemaData = {
       "priceRange": "$$$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Rua dos Brandões, 231 - Sala 24, Centro",
+        "streetAddress": "Rua dos Brandões, 231, Sala 24 – Centro",
         "addressLocality": "Passos",
         "addressRegion": "MG",
         "postalCode": "37900-104",
@@ -42,99 +75,25 @@ const schemaData = {
         "ratingValue": "5.0",
         "reviewCount": "13"
       },
-      "review": [
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Marco Arantes"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5"
-          },
-          "reviewBody": "Pontualidade, higiene, profissionalismo e excelente atendimento destacam o Dr. Luciano Alves Freire como um dos dentistas mais preparados que conheci."
-        },
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Maria Aparecida Damasceno Silva"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5"
-          },
-          "reviewBody": "É um ótimo profissional, atencioso e dedicação total em seus atendimentos. Parabéns Dr Luciano fica aqui o meu carinho e meu agradecimento."
-        },
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Fabiane Oliveira"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5"
-          },
-          "reviewBody": "Se tivessem mais estrelas daria, excelente profissional, pontual, muito humano, trabalha muito bem, super recomendo."
-        }
-      ],
+      ...(includeReviews ? { "review": homeReviews } : {}),
       "medicalSpecialty": [
         "https://schema.org/Dentistry",
         "https://schema.org/Surgical"
       ]
     },
-    {
-      "@type": "Service",
-      "serviceType": "Implantes Dentários",
-      "provider": {
-        "@id": "https://drlucianofreire.com.br/#clinic"
-      },
-      "areaServed": {
-        "@type": "City",
-        "name": "Passos"
-      },
-      "description": "Procedimento avançado de implantes dentários e reabilitação com prótese fixa (protocolo) na cidade de Passos, MG."
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://drlucianofreire.com.br/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "O procedimento de implante dentário dói?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Não. O procedimento utiliza técnicas modernas de cirurgia guiada e anestesia de precisão. A recuperação é serena, sendo o pós-operatório considerado por muitos pacientes mais simples e confortável do que a extração de um dente convencional."
+    ...(faqSchema && faqSchema.length > 0
+      ? [
+          {
+            "@type": "FAQPage",
+            "@id": `${canonicalURL}#faq`,
+            "mainEntity": faqSchema.map((f) => ({
+              "@type": "Question",
+              "name": f.question,
+              "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+            }))
           }
-        },
-        {
-          "@type": "Question",
-          "name": "Quanto tempo demora o tratamento de implante?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "O tempo varia. Pacientes elegíveis podem receber a carga imediata (dentes fixos em poucos dias). Em outros casos, aguarda-se a cicatrização óssea (3 a 6 meses). O prazo exato é definido após o diagnóstico radiográfico 3D inicial."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Quem usa dentadura móvel pode colocar implante?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim! É perfeitamente possível substituir a dentadura por uma prótese protocolo fixa (dentes fixos apoiados sobre implantes). Isso devolve a total segurança para mastigar e sorrir, sem o risco de a prótese se deslocar ou machucar a gengiva."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Como funciona a primeira avaliação em Passos - MG?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Nossa avaliação, conduzida pessoalmente pelo Dr. Luciano Freire, foca no escaneamento e diagnóstico da saúde bucal. Com base na estrutura óssea do paciente, apresentamos um plano de tratamento previsível e exclusivo no centro de Passos."
-          }
-        }
-      ]
-    }
+        ]
+      : [])
   ]
 };
 ---

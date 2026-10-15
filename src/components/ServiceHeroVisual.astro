@@ -1,0 +1,43 @@
+---
+// Composição "Autoridade + Ambiente" para o Hero das páginas de serviço.
+// Foto oficial do Dr. Luciano em ambiente clínico, fundo escuro/elegante e badges da especialidade.
+import { Image } from 'astro:assets';
+import drLucianoImg from '../assets/dr-luciano-consultorio-hero.png';
+
+interface Props {
+  badges: string[];
+  specialty: string;
+}
+
+const { badges, specialty } = Astro.props;
+---
+
+<div class="relative lg:ml-auto w-full max-w-lg">
+  <div class="relative rounded-3xl overflow-hidden shadow-card border border-brand-dark/20 bg-gradient-to-br from-brand-dark via-[#16203a] to-brand-deep p-2">
+    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-dark">
+      <Image
+        src={drLucianoImg}
+        alt={`Dr. Luciano Alves Freire no consultório odontológico em Passos/MG — ${specialty}`}
+        class="w-full h-full object-cover object-top select-none"
+        format="webp"
+        widths={[400, 600, 800]}
+        sizes="(min-width: 1024px) 512px, 100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/10 to-transparent pointer-events-none"></div>
+
+      <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+        <p class="text-white font-bold text-lg leading-tight">Dr. Luciano Alves Freire</p>
+        <p class="text-white/90 text-sm mb-3">Cirurgião-Dentista • CRO MG 25.170</p>
+        <ul class="flex flex-wrap gap-2" aria-label="Especialidades desta página">
+          {badges.map((b) => (
+            <li class="text-xs font-bold uppercase tracking-wider text-white bg-white/15 backdrop-blur-sm border border-white/30 px-3 py-1.5 rounded-full">
+              {b}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

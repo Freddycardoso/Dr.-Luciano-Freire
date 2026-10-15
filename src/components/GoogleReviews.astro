@@ -9,8 +9,6 @@ interface Review {
   initial?: string;
   avatarBg?: string;
   stats: string;
-  isLocalGuide?: boolean;
-  localGuideLevel?: string;
   rating: number;
   time: string;
   tag: string;
@@ -28,10 +26,9 @@ const reviews: Review[] = [
   {
     id: "rev-marco-arantes",
     author: "Marco Arantes",
-    avatarSrc: "/images/avaliacoes/marco-arantes.png",
-    stats: "Local Guide • 38 avaliações",
-    isLocalGuide: true,
-    localGuideLevel: "Google Local Guide",
+    initial: "MA",
+    avatarBg: "bg-slate-500",
+    stats: "Avaliação no Google",
     rating: 5,
     time: "4 anos atrás",
     tag: "Pontualidade & Higiene",
@@ -99,7 +96,7 @@ const reviews: Review[] = [
     author: "Ana Teresa Roberto Braz Rosa",
     initial: "A",
     avatarBg: "bg-gradient-to-br from-brand-blue to-brand-deep",
-    stats: "Paciente Verificada",
+    stats: "Avaliação no Google",
     rating: 5,
     time: "4 anos atrás",
     tag: "Profissionalismo Impecável",
@@ -168,22 +165,14 @@ const googleMapsUrl = "https://maps.google.com/?cid=7746098254252380456";
                 ))}
               </div>
 
-              <p class="text-base font-semibold text-brand-blue">
-                Classificação Máxima de Satisfação
-              </p>
             </div>
           </div>
 
           <!-- Lado Direito: Tríade de Métricas de Confiança & Botão Oficial -->
           <div class="md:col-span-7 flex flex-col justify-between h-full gap-5">
             <div class="grid grid-cols-3 gap-2.5 text-left">
-              <div class="p-3 rounded-2xl bg-surface-subtle border border-brand-pale">
-                <span class="block text-xl font-bold text-brand-dark">100%</span>
-                <span class="text-sm text-slate-600 font-medium leading-snug">Nota Máxima</span>
-              </div>
-              <div class="p-3 rounded-2xl bg-surface-subtle border border-brand-pale">
-                <span class="block text-xl font-bold text-brand-dark">13+</span>
-                <span class="text-sm text-slate-600 font-medium leading-snug">Avaliações Reais</span>
+              <div class="col-span-2 p-3 rounded-2xl bg-surface-subtle border border-brand-pale">
+                <span class="block text-xl font-bold text-brand-dark">5.0 no Google • 13 avaliações</span>
               </div>
               <div class="p-3 rounded-2xl bg-surface-subtle border border-brand-pale">
                 <span class="block text-xl font-bold text-brand-dark">Passos</span>
@@ -321,12 +310,12 @@ const googleMapsUrl = "https://maps.google.com/?cid=7746098254252380456";
                     loading="lazy"
                   />
                 ) : (
-                  <div class={`w-12 h-12 rounded-full ${rev.avatarBg || 'bg-brand-blue'} text-white font-bold flex items-center justify-center text-lg shadow-sm border-2 border-brand-pale`}>
+                  <div class={`w-12 h-12 rounded-full ${rev.avatarBg || 'bg-brand-blue'} text-white font-bold flex items-center justify-center text-base shadow-sm border-2 border-brand-pale`}>
                     {rev.initial || rev.author.charAt(0)}
                   </div>
                 )}
                 
-                <!-- Selo Google Verificado -->
+                <!-- Selo Google -->
                 <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white border border-brand-pale flex items-center justify-center shadow" title="Avaliação Autêntica no Google">
                   <svg class="w-3 h-3" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
@@ -342,16 +331,6 @@ const googleMapsUrl = "https://maps.google.com/?cid=7746098254252380456";
                 <h3 class="text-lg font-bold text-brand-dark leading-tight line-clamp-2">
                   {rev.author}
                 </h3>
-                
-                <!-- Badge de Local Guide quando presente -->
-                {rev.isLocalGuide && (
-                  <span class="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200">
-                    <svg class="w-3 h-3 text-amber-500 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    Google Local Guide
-                  </span>
-                )}
                 
                 <p class="text-sm text-slate-500 mt-0.5">
                   {rev.stats}
@@ -377,21 +356,14 @@ const googleMapsUrl = "https://maps.google.com/?cid=7746098254252380456";
 
           <!-- Rodapé do Card: Autenticação e Link Oficial Google Maps -->
           <div class="mt-6 pt-4 border-t border-brand-pale/60 flex items-center justify-between text-sm">
-            <span class="inline-flex items-center gap-1.5 text-accent-green font-bold">
-              <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 20 20" aria-hidden="true">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <span>Avaliação Verificada</span>
-            </span>
-
             <a
               href={googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-brand-blue hover:text-brand-deep font-semibold flex items-center gap-1 transition-colors group/link focus-visible:outline-none focus-visible:underline"
+              class="text-brand-blue hover:text-brand-deep font-semibold inline-flex items-center gap-1 min-h-[44px] transition-colors group/link focus-visible:outline-none focus-visible:underline"
               aria-label={`Ver avaliação de ${rev.author} no Google Maps`}
             >
-              <span>Google Maps</span>
+              <span>Avaliação no Google</span>
               <svg class="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
               </svg>

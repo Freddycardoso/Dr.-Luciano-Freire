@@ -2,11 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import ServiceHeroVisual from '../../components/ServiceHeroVisual.astro';
 import { Image } from 'astro:assets';
-import heroImg from '../../assets/implante-macro-hero.jpg';
 import implanteAnatomiaImg from '../../assets/implante-fundamentos-anatomia.jpg';
 
-const title = "Implantes Dentários em Passos | Dr. Luciano Freire";
+const title = "Implantes Dentários em Passos - MG | Dr. Luciano Freire";
 const description = "Recupere seu sorriso com implantes dentários. Procedimento seguro, alta precisão e materiais biocompatíveis em Passos/MG.";
 const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Luciano.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20sobre%20Implantes";
 ---
@@ -50,20 +50,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
               </a>
             </div>
           </div>
-          <div class="relative lg:ml-auto w-full max-w-lg">
-            <div class="relative rounded-2xl overflow-hidden shadow-card border border-brand-pale bg-white p-2">
-              <Image 
-                src={heroImg} 
-                alt="Implante dentário de titânio de precisão com coroa cerâmica sobre bandeja cirúrgica em aço inox com espelho clínico" 
-                class="rounded-xl object-cover w-full h-[380px] lg:h-[460px]" 
-                format="webp" 
-                quality={95}
-                loading="eager" 
-                width={800}
-                height={736}
-              />
-            </div>
-          </div>
+          <ServiceHeroVisual specialty="Implantes Dentários" badges={['Implantodontia', 'Cirurgia Guiada', 'Planejamento 3D']} />
         </div>
       </div>
     </section>
@@ -118,7 +105,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
                 Planejamento e Cirurgia Guiada
               </h3>
               <p class="text-slate-600 text-base leading-relaxed">
-                Planejamento prévio minucioso com exames tomográficos para posicionamento milimétrico do implante na densidade óssea ideal, favorecendo uma recuperação serena.
+                Planejamento prévio minucioso com exames tomográficos para posicionamento preciso do implante na densidade óssea ideal, favorecendo uma recuperação tranquila.
               </p>
             </div>
           </div>
@@ -155,7 +142,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
                   </svg>
                 </div>
                 <span class="text-xs font-bold uppercase tracking-wider text-brand-blue bg-white border border-brand-pale/80 px-3 py-1 rounded-full shadow-2xs">
-                  Firmeza 100% Estável
+                  Estabilidade Planejada
                 </span>
               </div>
               <h3 class="text-xl font-bold text-brand-dark mb-2.5 group-hover:text-brand-blue transition-colors">
@@ -219,13 +206,13 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
             <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm">
               <h3 class="text-lg font-bold text-brand-dark mb-2">Fixação Definitiva na Estrutura Óssea</h3>
               <p class="text-slate-600 text-base leading-relaxed">
-                O pino de titânio substitui a raiz biológica ausente com estabilidade comprovada, prevenindo a reabsorção óssea progressiva que ocorre após a perda do dente.
+                O pino de titânio substitui a raiz ausente com estabilidade planejada caso a caso, auxiliando na preservação da estrutura óssea após a perda do dente.
               </p>
             </div>
             <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm">
               <h3 class="text-lg font-bold text-brand-dark mb-2">Preservação dos Dentes Naturais Vizinhos</h3>
               <p class="text-slate-600 text-base leading-relaxed">
-                Diferente das próteses fixas convencionais que exigiam o desgaste de dentes adjacentes saudáveis, o implante é autônomo e protege 100% dos dentes vizinhos.
+                Diferente das pontes fixas convencionais, o implante é autônomo e os dentes vizinhos saudáveis não precisam ser desgastados para apoiar a prótese.
               </p>
             </div>
             <div class="p-6 rounded-2xl bg-white border border-brand-pale shadow-sm">
@@ -304,7 +291,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
             </p>
 
             <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
-              No vídeo ao lado de apenas 1 minuto, ele sentou ao lado do Dr. Luciano Freire e revelou com sinceridade o que sentiu na pele durante o procedimento — e como tudo aconteceu de forma completamente oposta ao que imaginava.
+              No vídeo acima, de apenas 1 minuto, ele sentou ao lado do Dr. Luciano Freire e revelou com sinceridade o que sentiu durante o procedimento — e como tudo aconteceu de forma bem diferente do que imaginava.
             </p>
 
             <!-- Gatilhos de Curiosidade / Pontos de Valor -->
@@ -314,7 +301,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
                   ✓
                 </div>
                 <p class="text-slate-700 text-base leading-snug">
-                  <strong class="text-brand-dark font-bold">Por que não houve dor:</strong> Como a técnica anestésica e o planejamento milimétrico garantem uma cirurgia serena.
+                  <strong class="text-brand-dark font-bold">Por que não houve dor:</strong> Como a técnica anestésica e o planejamento preciso proporcionam um procedimento tranquilo e controlado.
                 </p>
               </div>
 
@@ -345,7 +332,7 @@ const whatsappUrl = "https://wa.me/5535988215162?text=Ol%C3%A1%2C%20Dr.%20Lucian
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 <p class="text-sm sm:text-base font-medium leading-snug">
-                  Dê o play no vídeo ao lado para ver a experiência completa. Logo abaixo, veja como agendar a sua avaliação individual com o Dr. Luciano.
+                  Dê o play no vídeo acima para ver a experiência completa. Agende sua avaliação detalhada e tire todas as suas dúvidas diretamente com a nossa equipe.
                 </p>
               </div>
             </div>
